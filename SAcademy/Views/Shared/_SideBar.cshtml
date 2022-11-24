@@ -1,9 +1,29 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+
+@{
+    byte[]? logo = null;
+    if (SignInManager.IsSignedIn(User))
+    {
+        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            logo = user.Logo;
+        }
+
+
+    }
+}
 
 
 <div class="nav-side-menu">
     <div class="brand">
-        <img src="~/img/logo.png" />
+        @if (logo != null)
+        {
+            <img class="img-responsive img-rounded w-25" src="data:image/*;base64,@Convert.ToBase64String(logo)">
+        }
     </div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
