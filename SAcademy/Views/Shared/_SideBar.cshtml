@@ -1,0 +1,36 @@
+﻿
+
+
+<div class="nav-side-menu">
+    <div class="brand">
+        <img src="~/img/logo.png" />
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+
+        <ul id="menu-content" class="menu-content collapse out">
+            <li>
+                <a asp-controller="Dashboard" asp-action="Index" style="font-size:1.2em; font-weight:bold;">
+                    <img src="~/img/dashboard.png" style="width:1.5em;"/>
+                    Dashboard
+                </a>
+            </li>
+
+            <li data-toggle="collapse" data-target="#products" class="collapsed active" style="font-size:1.2em; font-weight:bold;">
+                <img src="~/img/doc.png" style="width:1em;" />
+                Formation
+            </li>
+            <ul class="sub-menu collapse" id="products">
+                <li><a href="#" style="font-size:1.2em; font-weight:300;">
+                    <img src="~/img/doc.png" style="width:1em;" />
+                    Nos Formation
+                </a></li>
+                <li><a href="#" style="font-size:1.2em; font-weight:300;">
+                    <img src="~/img/doc.png" style="width:1em;" />
+                    Inscription
+                </a></li>
+            </ul>
+        </ul>
+    </div>
+</div>

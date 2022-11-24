@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SAcademy.Models.Menu>
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+
+<h1>Menu</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleMenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a> |*@
+                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditMenu-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+                    <img src="~/img/edit.png" >
+                </button>
+                @await Html.PartialAsync("_EditMenuPartialView",item)
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                @*<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Suprimer</a>*@
+                <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteMenu-"+item.Id)" data-url="@Url.Action($"Delete/{item.Id}")">
+                    <img src="~/img/delete.png">
+                </button>
+                @await Html.PartialAsync("_DeleteMenuPartialView",item)
+                <button type="button" class="border-0 bg-transparent" title="Hide Element">
+                    <img src="~/img/hide.png">
+                </button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
