@@ -13,5 +13,6 @@ namespace SAcademy.Data
         }
 
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<Header> Headers { get; set; }
     }
 }

@@ -1,0 +1,98 @@
+﻿@model Header
+
+
+<div class="modal fade" id="EditHeader-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Header</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        @if (Model.Background != null)
+                        {
+
+                            <img id="background" style="width:100px;height:100px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Background))">
+                        }
+                        else
+                        {
+                            <img id="background" style="width:150px;height:150px; object-fit:cover" src="~/img/doc.png">
+                        }
+                        <input type="file"
+                               accept=".png,.jpg,.jpeg,.gif,.tif"
+                               asp-for="Background"
+                               class="w-100"
+                               style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                               onchange="document.getElementById('background').src = window.URL.createObjectURL(this.files[0])" />
+                        <span asp-validation-for="Background" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Content" class="control-label"></label>
+                        <input asp-for="Content" class="form-control" />
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Button" class="control-label"></label>
+                        <input asp-for="Button" class="form-control" />
+                        <span asp-validation-for="Button" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Video" class="control-label"></label>
+                        <input asp-for="Video" class="form-control" />
+                        <span asp-validation-for="Video" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TopSize" class="control-label"></label>
+                        <input asp-for="TopSize" class="form-control" />
+                        <span asp-validation-for="TopSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LeftSize" class="control-label"></label>
+                        <input asp-for="LeftSize" class="form-control" />
+                        <span asp-validation-for="LeftSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Hide Element" style="border-radius:25px; background:black;">
+                            <img src="~/img/save.png" style="width:1.3em;">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    $("#Content").summernote({
+        placeholder: "Content ",
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ],
+    });
+</script>

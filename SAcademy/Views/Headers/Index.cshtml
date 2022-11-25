@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SAcademy.Models.Header>
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Background)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Button)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Video)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TopSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeftSize)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="data:image/*;base64,@Convert.ToBase64String(item.Background)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Button)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Video)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TopSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeftSize)
+            </td>
+            <td>
+                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditHeader-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+                    <img src="~/img/edit.png" >
+                </button>
+                @await Html.PartialAsync("_EditHeaderPartialView",item)
+
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

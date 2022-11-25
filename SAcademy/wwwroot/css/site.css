@@ -347,8 +347,16 @@ body {
                 width: 40px;
                 text-align: center;
             }
+    }
+    /*///////////////////END SideBar*/
+}
 
-
-
-
-        /*///////////////////END SideBar*/
+.ok{
+    margin:auto;
+    padding:2em;
+    background:no-repeat;
+    background-size:cover;
+    height:100%;
+    width:50%;
+    color:white;
+}
