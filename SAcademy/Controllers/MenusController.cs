@@ -52,7 +52,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TitleMenu,Link")] Menu menu)
+        public async Task<IActionResult> Create([Bind("Id,TitleMenu,Link,Color,Size")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace SAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,TitleMenu,Link")] Menu menu)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,TitleMenu,Link,Color,Size")] Menu menu)
         {
             if (id != menu.Id)
             {

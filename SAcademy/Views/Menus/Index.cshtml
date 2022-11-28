@@ -18,14 +18,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.Link)
             </th>
-            <th></th>
+            <th>Action</th>
+            <th>Color</th>
+            <th>Size</th>
         </tr>
     </thead>
     <tbody>
+        
 @foreach (var item in Model) {
-        <tr>
+            var size = string.Concat(item.Size, "px");
+            <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TitleMenu)
+                <p style="color:@item.Color; font-size:@size;">@item.TitleMenu</p>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Link)
@@ -45,6 +49,12 @@
                 <button type="button" class="border-0 bg-transparent" title="Hide Element">
                     <img src="~/img/hide.png">
                 </button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
             </td>
         </tr>
 }

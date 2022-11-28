@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221128093647_heightHeaderint")]
+    partial class heightHeaderint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,18 +167,6 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("BVColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("BVLeftSize")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BVSize")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BVTopSize")
-                        .HasColumnType("int");
-
                     b.Property<byte[]>("Background")
                         .HasColumnType("varbinary(max)");
 
@@ -184,9 +174,16 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("HeightSection")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LeftSize")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TopSize")
                         .HasColumnType("int");
 
                     b.Property<string>("Video")
@@ -203,14 +200,8 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Size")
-                        .HasColumnType("int");
 
                     b.Property<string>("TitleMenu")
                         .HasColumnType("nvarchar(max)");

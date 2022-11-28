@@ -24,6 +24,16 @@
                         <input asp-for="Link" class="form-control" />
                         <span asp-validation-for="Link" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="Color" class="control-label"></label>
+                        <input type="color" asp-for="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Size" class="control-label"></label>
+                        <input type="number" asp-for="Size" class="form-control" />
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
                     <button type="submit" class="float-right text-white pr-2 pl-2" title="Hide Element" style="border-radius:25px; background:black;">
                         <img src="~/img/save.png" style="width:1.3em;">
                         Save

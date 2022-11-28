@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -25,36 +26,34 @@ namespace SAcademy.Controllers
               return View(await _context.Headers.ToListAsync());
         }
 
-        // GET: Headers/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Headers == null)
-            {
-                return NotFound();
-            }
+        
+        //public async Task<IActionResult> Details(string id)
+        //{
+        //    if (id == null || _context.Headers == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var header = await _context.Headers
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (header == null)
-            {
-                return NotFound();
-            }
+        //    var header = await _context.Headers
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (header == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(header);
-        }
+        //    return View(header);
+        //}
 
-        // GET: Headers/Create
+        
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Headers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Background,Content,Button,Video,TopSize,LeftSize")] Header header)
+        public async Task<IActionResult> Create([Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize")] Header header)
         {
             if (ModelState.IsValid)
             {
@@ -65,8 +64,11 @@ namespace SAcademy.Controllers
                         Content = header.Content,
                         Button = header.Button,
                         Video = header.Video,
-                        TopSize = header.TopSize,
-                        LeftSize = header.LeftSize,
+                        HeightSection = header.HeightSection,
+                        BVTopSize = header.BVTopSize,
+                        BVLeftSize = header.BVLeftSize,
+                        BVColor= header.BVColor,
+                        BVSize= header.BVSize,
                     };
 
                     if (Request.Form.Files.Count > 0)
@@ -91,7 +93,7 @@ namespace SAcademy.Controllers
             return View(header);
         }
 
-        // GET: Headers/Edit/5
+        
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Headers == null)
@@ -107,12 +109,10 @@ namespace SAcademy.Controllers
             return PartialView("_EditHeaderPartialView",header);
         }
 
-        // POST: Headers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Background,Content,Button,Video,TopSize,LeftSize")] Header header)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize")] Header header)
         {
             if (id != header.Id)
             {
@@ -123,7 +123,18 @@ namespace SAcademy.Controllers
             {
                 try
                 {
+                    if (Request.Form.Files.Count > 0)
+                    {
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(dataStream);
+                            header.Background = dataStream.ToArray();
+                            //_context.Update(header);
+                        }
+                    }
                     _context.Update(header);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -142,7 +153,7 @@ namespace SAcademy.Controllers
             return View(header);
         }
 
-        // GET: Headers/Delete/5
+        
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Headers == null)
@@ -160,7 +171,7 @@ namespace SAcademy.Controllers
             return View(header);
         }
 
-        // POST: Headers/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

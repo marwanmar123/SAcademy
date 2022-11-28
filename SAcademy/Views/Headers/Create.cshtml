@@ -9,8 +9,8 @@
 
 <h4>Header</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="">
+    <div class="w-75 m-auto">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -34,14 +34,29 @@
                 <span asp-validation-for="Video" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TopSize" class="control-label"></label>
-                <input asp-for="TopSize" class="form-control" />
-                <span asp-validation-for="TopSize" class="text-danger"></span>
+                <label asp-for="HeightSection" class="control-label"></label>
+                <input type="number" asp-for="HeightSection" class="form-control" />
+                <span asp-validation-for="HeightSection" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LeftSize" class="control-label"></label>
-                <input asp-for="LeftSize" class="form-control" />
-                <span asp-validation-for="LeftSize" class="text-danger"></span>
+                <label asp-for="BVTopSize" class="control-label"></label>
+                <input type="number" asp-for="BVTopSize" class="form-control" />
+                <span asp-validation-for="BVTopSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVLeftSize" class="control-label"></label>
+                <input type="number" asp-for="BVLeftSize" class="form-control" />
+                <span asp-validation-for="BVLeftSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVColor" class="control-label"></label>
+                <input type="color" asp-for="BVColor" class="form-control" />
+                <span asp-validation-for="BVColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVSize" class="control-label"></label>
+                <input type="number" asp-for="BVSize" class="form-control" />
+                <span asp-validation-for="BVSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

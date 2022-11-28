@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221128135901_BVS")]
+    partial class BVS
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -165,13 +167,7 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("BVColor")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("BVLeftSize")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("BVSize")
                         .HasColumnType("int");
 
                     b.Property<int?>("BVTopSize")
@@ -203,14 +199,8 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Size")
-                        .HasColumnType("int");
 
                     b.Property<string>("TitleMenu")
                         .HasColumnType("nvarchar(max)");

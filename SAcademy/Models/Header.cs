@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SAcademy.Models
 {
@@ -10,7 +11,10 @@ namespace SAcademy.Models
         public string? Content { get; set; }
         public string? Button { get; set; }
         public string? Video { get; set; }
-        public int? TopSize { get; set; }
-        public int? LeftSize { get; set; }
+        public int? HeightSection { get; set; }
+        public int? BVTopSize { get; set; }
+        public int? BVLeftSize { get; set; }
+        public string? BVColor { get; set; }
+        public int? BVSize { get; set; }
     }
 }

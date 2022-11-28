@@ -20,16 +20,6 @@
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TopSize" class="control-label"></label>
-                <input type="number" asp-for="TopSize" id="Content" class="form-control" />
-                <span asp-validation-for="TopSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LeftSize" class="control-label"></label>
-                <input type="number" asp-for="LeftSize" id="Content" class="form-control" />
-                <span asp-validation-for="LeftSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Button" class="control-label"></label>
                 <input asp-for="Button" class="form-control" required />
                 <span asp-validation-for="Button" class="text-danger"></span>
@@ -50,7 +40,7 @@
     <div class="ok" style="background-image:url(data:image/*;base64,@Convert.ToBase64String(Model.Background));">
         <div>
             <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                <div style="top:@Model.TopSize+em; left:@Model.LeftSize+em;">@Html.Raw(@Model.Content)</div>
+                <div>@Html.Raw(@Model.Content)</div>
                 <div class="d-flex justify-content-center justify-content-lg-start">
                     <a asp-controller="Formations" asp-action="Index" class="btn-get-started scrollto">@Model.Button</a>
                     <a href="@Model.Video" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>

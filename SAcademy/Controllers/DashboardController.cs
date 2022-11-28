@@ -46,8 +46,6 @@ namespace SAcademy.Controllers
                         Content = header.Content,
                         Button = header.Button,
                         Video = header.Video,
-                        TopSize = header.TopSize,
-                        LeftSize = header.LeftSize,
                     };
 
                     if (Request.Form.Files.Count > 0)
@@ -94,7 +92,7 @@ namespace SAcademy.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditHeader(string id, [Bind("Id,Background,Content,Button,Video,TopSize,LeftSize")] Header header)
+        public async Task<IActionResult> EditHeader(string id, [Bind("Id,Background,Content,Button,Video,HeightSection")] Header header)
         {
             if (id != header.Id)
             {
