@@ -1,0 +1,118 @@
+﻿@model SAcademy.Models.Contact
+
+<div class="modal fade" id="EditContact-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:1000px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Conatact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Content" class="control-label"></label>
+                        <textarea asp-for="Content" id="Content" class="form-control"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Localisation" class="control-label"></label>
+                        <input asp-for="Localisation" class="form-control" />
+                        <span asp-validation-for="Localisation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Call" class="control-label"></label>
+                        <input type="number" asp-for="Call" class="form-control" />
+                        <span asp-validation-for="Call" class="text-danger"></span>
+                    </div>
+                    @*<div class="form-group">
+                        <label asp-for="image" class="control-label"></label>
+                        <input type="file" asp-for="image" class="form-control" />
+                        <span asp-validation-for="image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="" class="control-label"></label>
+                        <p>Best size : 590</p>
+                        <input type="number" asp-for="" class="form-control" />
+                        <span asp-validation-for="" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="" class="control-label"></label>
+                        <p>Best size : 345</p>
+                        <input type="number" asp-for="" class="form-control" />
+                        <span asp-validation-for="" class="text-danger"></span>
+                    </div>*@
+                    <div class="form-group">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                            <img src="~/img/save.png" style="width:1.3em;">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+    $("#Content").summernote({
+        placeholder: "Content ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans'],
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ],
+        imageAttributes: {
+            icon: '<i class="note-icon-pencil"/>',
+            figureClass: 'figureClass',
+            figcaptionClass: 'captionClass',
+            captionText: 'Caption Goes Here.',
+            manageAspectRatio: true // true = Lock the Image Width/Height, Default to true
+        },
+        lang: 'en-US',
+        popover: {
+            image: [
+                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']],
+                ['custom', ['imageAttributes']],
+            ],
+        },
+    });
+</script>

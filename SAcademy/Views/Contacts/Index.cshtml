@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SAcademy.Models.Contact>
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">O</a>
+</p>
+<div class="w-75 m-auto p-2">
+    @foreach (var item in Model)
+    {
+        <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditContact-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+                    <img src="~/img/edit.png">
+        </button>
+        @await Html.PartialAsync("_EditContactPartialView",item)
+    
+        <p class="text-center" style="font-weight:bold;">@item.Title</p>
+        @Html.Raw(item.Content)<br /><br />
+        <div class="d-flex flex-row justify-content-center">
+            <div class="m-auto">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>@item.Localisation</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>@item.Email</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>@item.Call</p>
+                    </div>
+                    <iframe src="@item.Localisation" width="100%" height="290px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="m-auto">
+                <form action="" method="POST" class="">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Message</label>
+                        <textarea class="form-control" name="message" rows="10" required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,17 +1,14 @@
-﻿@model SAcademy.Models.About
+﻿@model SAcademy.Models.Contact
 
 @{
     Layout = "_LayoutDashboard";
-
 }
 
 <h1>Create</h1>
 
-<h4>About</h4>
-<hr />
 <div class="">
     <div class="w-75 m-auto">
-        <form asp-action="Create" enctype="multipart/form-data">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -19,39 +16,24 @@
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TitleColor" class="control-label"></label>
-                <input type="color" asp-for="TitleColor" class="form-control" />
-                <span asp-validation-for="TitleColor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TitleSize" class="control-label"></label>
-                <input type="number" asp-for="TitleSize" class="form-control" />
-                <span asp-validation-for="TitleSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
                 <textarea type="text" asp-for="Content" id="Content" class="form-control"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Video" class="control-label"></label>
-                <input asp-for="Video" class="form-control" />
-                <span asp-validation-for="Video" class="text-danger"></span>
+                <label asp-for="Localisation" class="control-label"></label>
+                <input asp-for="Localisation" class="form-control" />
+                <span asp-validation-for="Localisation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="image" class="control-label"></label>
-                <input type="file" asp-for="image" class="form-control" />
-                <span asp-validation-for="image" class="text-danger"></span>
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VideoWidth" class="control-label"></label>
-                <input type="number" asp-for="VideoWidth" class="form-control" />
-                <span asp-validation-for="VideoWidth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VideoHeight" class="control-label"></label>
-                <input type="number" asp-for="VideoHeight" class="form-control" />
-                <span asp-validation-for="VideoHeight" class="text-danger"></span>
+                <label asp-for="Call" class="control-label"></label>
+                <input type="number" asp-for="Call" class="form-control" />
+                <span asp-validation-for="Call" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -63,7 +45,6 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 
 <script>
     $("#Content").summernote({
@@ -87,7 +68,6 @@
         ],
     });
 </script>
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

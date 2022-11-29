@@ -85,7 +85,7 @@ namespace SAcademy.Controllers
             var about = await _context.Abouts.FindAsync(id);
             if (about == null)
             {
-                return View();
+                return NotFound();
             }
             return PartialView("_EditAboutPartialView",about);
         }
