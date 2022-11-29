@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
+using SAcademy.Data.Migrations;
 using SAcademy.Models;
 
 namespace SAcademy.Controllers
@@ -25,23 +26,23 @@ namespace SAcademy.Controllers
               return View(await _context.Abouts.ToListAsync());
         }
 
-        // GET: Abouts/Details/id
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Abouts == null)
-            {
-                return NotFound();
-            }
+        //// GET: Abouts/Details/id
+        //public async Task<IActionResult> Details(string id)
+        //{
+        //    if (id == null || _context.Abouts == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var about = await _context.Abouts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (about == null)
-            {
-                return NotFound();
-            }
+        //    var about = await _context.Abouts
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (about == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(about);
-        }
+        //    return View(about);
+        //}
 
         // GET: Abouts/Create
         public IActionResult Create()
@@ -52,7 +53,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,Video,image")] About about)
+        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,Content,Video,image,VideoWidth,VideoHeight")] About about)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +85,7 @@ namespace SAcademy.Controllers
             var about = await _context.Abouts.FindAsync(id);
             if (about == null)
             {
-                return NotFound();
+                return View();
             }
             return PartialView("_EditAboutPartialView",about);
         }
@@ -92,7 +93,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Content,Video,image")] About about)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,Content,Video,image,VideoWidth,VideoHeight")] About about)
         {
             if (id != about.Id)
             {
@@ -103,6 +104,15 @@ namespace SAcademy.Controllers
             {
                 try
                 {
+                    if (Request.Form.Files.Count > 0)
+                    {
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(dataStream);
+                            about.image = dataStream.ToArray();
+                        }
+                    }
                     _context.Update(about);
                     await _context.SaveChangesAsync();
                 }

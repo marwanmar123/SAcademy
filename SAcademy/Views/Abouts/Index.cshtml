@@ -5,24 +5,45 @@
 
 }
 
-<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">O</a>
 </p>
-
-@foreach (var item in Model) {
-    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditAbout-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
-        <img src="~/img/edit.png">
-    </button>
-    @await Html.PartialAsync("_EditAboutPartialView",item)
-
-    <p>@item.Title</p>
-
-    @Html.Raw(item.Content)
-
-    <img src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
-        <iframe width="560" height="315" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-}
-
+<div class="w-75 m-auto">
+    @foreach (var item in Model) {
+        <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditAbout-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+            <img src="~/img/edit.png">
+        </button>
+        @await Html.PartialAsync("_EditAboutPartialView",item)
+        var size = string.Concat(item.TitleSize, "px");
+        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+        <div class="d-flex">
+                @if (item.Video == null && item.image == null)
+                {
+                    <div class="m-auto">
+                        @Html.Raw(item.Content)
+                    </div>
+                }
+                else if (item.Video == null)
+                {
+                    <div>
+                        <img class="pr-4" width="590" height="345" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
+                    </div>
+                    <div class="d-flex flex-column">
+                        @Html.Raw(item.Content)
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <iframe class="pr-4" width="590" height="345" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="d-flex flex-column">
+                        @Html.Raw(item.Content)
+                    </div>
+                }
+            
+            
+        </div>
+    }
+</div>

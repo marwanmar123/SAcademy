@@ -4,11 +4,6 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>About</h4>
-<hr />
-
 <div class="modal fade" id="EditAbout-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="max-width:1000px;">
         <div class="modal-content">
@@ -28,6 +23,16 @@
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="TitleColor" class="control-label"></label>
+                        <input type="color" asp-for="TitleColor" class="form-control" />
+                        <span asp-validation-for="TitleColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TitleSize" class="control-label"></label>
+                        <input type="number" asp-for="TitleSize" class="form-control" />
+                        <span asp-validation-for="TitleSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Content" class="control-label"></label>
                         <textarea asp-for="Content" id="Content" class="form-control" ></textarea>
                         <span asp-validation-for="Content" class="text-danger"></span>
@@ -43,7 +48,22 @@
                         <span asp-validation-for="image" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <label asp-for="VideoWidth" class="control-label"></label>
+                        <p>Best size : 590</p>
+                        <input type="number" asp-for="VideoWidth" class="form-control" />
+                        <span asp-validation-for="VideoWidth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VideoHeight" class="control-label"></label>
+                        <p>Best size : 345</p>
+                        <input type="number" asp-for="VideoHeight" class="form-control" />
+                        <span asp-validation-for="VideoHeight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                            <img src="~/img/save.png" style="width:1.3em;">
+                            Save
+                        </button>
                     </div>
                 </form>
             </div>
@@ -65,16 +85,38 @@
 <script>
     $("#Content").summernote({
         placeholder: "Content ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans'],
         tabsize: 2,
         height: 120,
         toolbar: [
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
             ["table", ["table"]],
             ["insert", ["link", "picture", "video"]],
             ["view", ["fullscreen", "codeview", "help"]],
         ],
+        imageAttributes: {
+            icon: '<i class="note-icon-pencil"/>',
+            figureClass: 'figureClass',
+            figcaptionClass: 'captionClass',
+            captionText: 'Caption Goes Here.',
+            manageAspectRatio: true // true = Lock the Image Width/Height, Default to true
+        },
+        lang: 'en-US',
+        popover: {
+            image: [
+                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']],
+                ['custom', ['imageAttributes']],
+            ],
+        },
     });
 </script>
