@@ -53,7 +53,7 @@ namespace SAcademy.Controllers
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize")] Header header)
+        public async Task<IActionResult> Create([Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize,ButtonBgColor")] Header header)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +112,7 @@ namespace SAcademy.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize")] Header header)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize,ButtonBgColor")] Header header)
         {
             if (id != header.Id)
             {

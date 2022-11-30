@@ -14,11 +14,11 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col pr-0">
+    <div class="d-flex">
+        <div class="" style="width:22.2em;">
             <partial name="_SideBar" />
         </div>
-        <div class="col-10 pl-0 pr-0">
+        <div class="w-100">
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container-fluid">
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </nav>
-            <div>
+            <div class="p-2">
                 @RenderBody()
             </div>
         </div>

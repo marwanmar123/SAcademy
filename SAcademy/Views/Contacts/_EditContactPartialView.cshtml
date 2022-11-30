@@ -19,6 +19,17 @@
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="TitleColor" class="control-label"></label>
+                        <p>Simplon color : #ce0033 </p>
+                        <input type="color" asp-for="TitleColor" class="form-control" />
+                        <span asp-validation-for="TitleColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TitleSize" class="control-label"></label>
+                        <input type="number" asp-for="TitleSize" class="form-control" />
+                        <span asp-validation-for="TitleSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Content" class="control-label"></label>
                         <textarea asp-for="Content" id="Content" class="form-control"></textarea>
                         <span asp-validation-for="Content" class="text-danger"></span>
@@ -29,32 +40,52 @@
                         <span asp-validation-for="Localisation" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="LocalColor" class="control-label"></label>
+                        <input type="color" asp-for="LocalColor" class="form-control" />
+                        <span asp-validation-for="LocalColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Email" class="control-label"></label>
                         <input asp-for="Email" class="form-control" />
                         <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmailColor" class="control-label"></label>
+                        <input type="color" asp-for="EmailColor" class="form-control" />
+                        <span asp-validation-for="EmailColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Call" class="control-label"></label>
                         <input type="number" asp-for="Call" class="form-control" />
                         <span asp-validation-for="Call" class="text-danger"></span>
                     </div>
-                    @*<div class="form-group">
-                        <label asp-for="image" class="control-label"></label>
-                        <input type="file" asp-for="image" class="form-control" />
-                        <span asp-validation-for="image" class="text-danger"></span>
+                    <div class="form-group">
+                        <label asp-for="CallColor" class="control-label"></label>
+                        <input type="color" asp-for="CallColor" class="form-control" />
+                        <span asp-validation-for="CallColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="" class="control-label"></label>
-                        <p>Best size : 590</p>
-                        <input type="number" asp-for="" class="form-control" />
-                        <span asp-validation-for="" class="text-danger"></span>
+                        <label asp-for="Maps" class="control-label"></label>
+                        <input asp-for="Maps" class="form-control" />
+                        <span asp-validation-for="Maps" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="" class="control-label"></label>
-                        <p>Best size : 345</p>
-                        <input type="number" asp-for="" class="form-control" />
-                        <span asp-validation-for="" class="text-danger"></span>
-                    </div>*@
+                        <label asp-for="MapWidth" class="control-label"></label>
+                        <p>best width : 520</p>
+                        <input type="number" asp-for="MapWidth" class="form-control" />
+                        <span asp-validation-for="MapWidth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MapHeight" class="control-label"></label>
+                        <p>best width : 370</p>
+                        <input type="number" asp-for="MapHeight" class="form-control" />
+                        <span asp-validation-for="MapHeight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ButtonBgColor" class="control-label"></label>
+                        <input type="color" asp-for="ButtonBgColor" class="form-control" />
+                        <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
                             <img src="~/img/save.png" style="width:1.3em;">
@@ -82,7 +113,7 @@
     $("#Content").summernote({
         placeholder: "Content ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
-        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans'],
+        fontNames: ['Serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
         tabsize: 2,
         height: 120,
         toolbar: [

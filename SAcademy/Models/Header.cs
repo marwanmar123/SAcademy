@@ -16,5 +16,6 @@ namespace SAcademy.Models
         public int? BVLeftSize { get; set; }
         public string? BVColor { get; set; }
         public int? BVSize { get; set; }
+        public string? ButtonBgColor { get; set; }
     }
 }

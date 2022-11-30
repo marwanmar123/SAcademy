@@ -59,6 +59,11 @@
                 <span asp-validation-for="BVSize" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="ButtonBgColor" class="control-label"></label>
+                <input type="color" asp-for="ButtonBgColor" class="form-control" />
+                <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -74,7 +79,7 @@
     $("#Content").summernote({
         placeholder: "Content ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
-        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
         tabsize: 2,
         height: 120,
         toolbar: [

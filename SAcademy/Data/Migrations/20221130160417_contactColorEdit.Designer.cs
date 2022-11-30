@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221130160417_contactColorEdit")]
+    partial class contactColorEdit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,9 +202,6 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ButtonBgColor")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("Call")
                         .HasColumnType("int");
 
@@ -269,9 +268,6 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Button")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ButtonBgColor")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
