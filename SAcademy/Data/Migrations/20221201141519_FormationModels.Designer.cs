@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201141519_FormationModels")]
+    partial class FormationModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,62 +249,6 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("SAcademy.Models.Formation", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Certificate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Duration")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("EndDay")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ModeId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Presentation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Skills")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("StartDay")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TypeId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("VilleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ModeId");
-
-                    b.HasIndex("TypeId");
-
-                    b.HasIndex("VilleId");
-
-                    b.ToTable("Formations");
-                });
-
             modelBuilder.Entity("SAcademy.Models.FormationPage", b =>
                 {
                     b.Property<string>("Id")
@@ -324,20 +270,6 @@ namespace SAcademy.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FormationPages");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.FType", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FTypes");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Header", b =>
@@ -427,60 +359,6 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Menus");
                 });
 
-            modelBuilder.Entity("SAcademy.Models.Mode", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Modes");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Registration", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FormationId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("JobRole")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nom")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Phone")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Prenom")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Region")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ville")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FormationId");
-
-                    b.ToTable("Registrations");
-                });
-
             modelBuilder.Entity("SAcademy.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -552,20 +430,6 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("SAcademy.Models.Ville", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Villes");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -615,56 +479,6 @@ namespace SAcademy.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Formation", b =>
-                {
-                    b.HasOne("SAcademy.Models.Mode", "Mode")
-                        .WithMany("Formations")
-                        .HasForeignKey("ModeId");
-
-                    b.HasOne("SAcademy.Models.FType", "Type")
-                        .WithMany("Formations")
-                        .HasForeignKey("TypeId");
-
-                    b.HasOne("SAcademy.Models.Ville", "Ville")
-                        .WithMany("Formations")
-                        .HasForeignKey("VilleId");
-
-                    b.Navigation("Mode");
-
-                    b.Navigation("Type");
-
-                    b.Navigation("Ville");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Registration", b =>
-                {
-                    b.HasOne("SAcademy.Models.Formation", "Formation")
-                        .WithMany("Registration")
-                        .HasForeignKey("FormationId");
-
-                    b.Navigation("Formation");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Formation", b =>
-                {
-                    b.Navigation("Registration");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.FType", b =>
-                {
-                    b.Navigation("Formations");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Mode", b =>
-                {
-                    b.Navigation("Formations");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.Ville", b =>
-                {
-                    b.Navigation("Formations");
                 });
 #pragma warning restore 612, 618
         }

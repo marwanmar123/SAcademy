@@ -18,5 +18,10 @@ namespace SAcademy.Data
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<FormationPage> FormationPages { get; set; }
         public DbSet<InscriptionPage> InscriptionPages { get; set; }
+        public DbSet<Formation> Formations { get; set; }
+        public DbSet<Mode> Modes { get; set; }
+        public DbSet<FType> FTypes { get; set; }
+        public DbSet<Ville> Villes { get; set; }
+        public DbSet<Registration> Registrations { get; set; }
     }
 }
