@@ -27,24 +27,6 @@ namespace SAcademy.Controllers
         }
 
         
-        //public async Task<IActionResult> Details(string id)
-        //{
-        //    if (id == null || _context.Headers == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var header = await _context.Headers
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (header == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(header);
-        //}
-
-        
         public IActionResult Create()
         {
             return View();

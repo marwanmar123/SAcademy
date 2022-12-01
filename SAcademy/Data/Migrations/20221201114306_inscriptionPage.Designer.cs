@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201114306_inscriptionPage")]
+    partial class inscriptionPage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -309,29 +311,6 @@ namespace SAcademy.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Headers");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.InscriptionPage", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ContentBgColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ContentHeight")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ContentOne")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentTwo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InscriptionPages");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Menu", b =>

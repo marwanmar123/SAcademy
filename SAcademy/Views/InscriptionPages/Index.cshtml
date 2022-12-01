@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SAcademy.Models.InscriptionPage>
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">O</a>
+</p>
+@foreach (var item in Model)
+{
+    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditInscriptionPage-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+        <img src="~/img/edit.png">
+    </button>
+    @await Html.PartialAsync("_EditInscriptionPagePartialView",item)
+
+    var size = string.Concat(item.ContentHeight, "px");
+
+    <div>
+        <div style="background:@item.ContentBgColor; height:@size;">
+            @Html.Raw(item.ContentOne)
+        </div>
+        <div>
+            @Html.Raw(item.ContentTwo)
+        </div>
+    </div>
+}

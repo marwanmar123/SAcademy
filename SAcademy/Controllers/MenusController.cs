@@ -25,23 +25,6 @@ namespace SAcademy.Controllers
               return View(await _context.Menus.ToListAsync());
         }
 
-        // GET: Menus/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Menus == null)
-            {
-                return NotFound();
-            }
-
-            var menu = await _context.Menus
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (menu == null)
-            {
-                return NotFound();
-            }
-
-            return View(menu);
-        }
 
         // GET: Menus/Create
         public IActionResult Create()

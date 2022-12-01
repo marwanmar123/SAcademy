@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221201100520_intFormPage")]
+    partial class intFormPage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -253,16 +255,19 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("PoneContent")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ContentBgColor")
+                    b.Property<string>("PoneContentBgColor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ContentHeight")
+                    b.Property<int?>("PoneContentHeight")
                         .HasColumnType("int");
 
-                    b.Property<string>("DescriptionFilter")
+                    b.Property<string>("PoneDescriptionFilter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PtwoContent")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -309,29 +314,6 @@ namespace SAcademy.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Headers");
-                });
-
-            modelBuilder.Entity("SAcademy.Models.InscriptionPage", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ContentBgColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ContentHeight")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ContentOne")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContentTwo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InscriptionPages");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Menu", b =>

@@ -27,8 +27,10 @@
             @Html.Raw(item.Content)
             <div class="position-relative" style="top:@Top; left:@left;" >
                 <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
-
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
+                @if(item.Video != null)
+                {
+                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
+                }
                 <a class="" href="#" style="background:@item.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
             </div>
         </div>
@@ -38,8 +40,10 @@
             @Html.Raw(item.Content)
             <div class="position-relative" style="top:@Top; left:@left;">
                 <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
-
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
+                @if(item.Video != null)
+                {
+                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
+                }       
                 <a class="" href="#" style="background:@item.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
             </div>
         </div>

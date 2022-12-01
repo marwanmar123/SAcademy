@@ -26,23 +26,6 @@ namespace SAcademy.Controllers
               return View(await _context.Abouts.ToListAsync());
         }
 
-        //// GET: Abouts/Details/id
-        //public async Task<IActionResult> Details(string id)
-        //{
-        //    if (id == null || _context.Abouts == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var about = await _context.Abouts
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (about == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(about);
-        //}
 
         // GET: Abouts/Create
         public IActionResult Create()
