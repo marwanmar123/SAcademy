@@ -220,12 +220,52 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/FormationPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcRm9ybWF0aW9uUGFuZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_CreateFTypePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0NyZWF0ZUZUeXBlUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_CreateModePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0NyZWF0ZU1vZGVQYXJ0aWFsVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_CreateVillePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0NyZWF0ZVZpbGxlUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_DeleteFTypePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0RlbGV0ZUZUeXBlUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_DeleteModePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0RlbGV0ZU1vZGVQYXJ0aWFsVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_DeleteVillePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0RlbGV0ZVZpbGxlUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_EditFomationPagesPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0VkaXRGb21hdGlvblBhZ2VzUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_EditFTypePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0VkaXRGVHlwZVBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_EditModePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0VkaXRNb2RlUGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_EditVillePartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0VkaXRWaWxsZVBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Headers/Create.cshtml]

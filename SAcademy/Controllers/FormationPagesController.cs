@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
@@ -23,6 +24,18 @@ namespace SAcademy.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.FormationPages.ToListAsync());
+        }
+
+        public async Task<IActionResult> FormationPanel()
+        {
+            var formationData = new FVTMViewModel()
+            {
+                Formation = await _context.Formations.ToListAsync(),
+                Ville = await _context.Villes.ToListAsync(),
+                FType = await _context.FTypes.ToListAsync(),
+                Mode = await _context.Modes.ToListAsync()
+            };
+            return View(formationData);
         }
 
         //// GET: FormationPages/Details/5

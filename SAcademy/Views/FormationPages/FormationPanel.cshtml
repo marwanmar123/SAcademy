@@ -1,0 +1,130 @@
+﻿@model SAcademy.ViewModel.FVTMViewModel
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+<div class="d-flex justify-content-around">
+    <h3 class="bold">Formation</h3>
+    <a class="btn btn-secondary" asp-action="Index">Design</a>
+</div>
+<hr />
+<div>
+    <div class="d-flex justify-content-around">
+        <div>
+            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateVille">
+                Ajouter Ville
+            </button>
+            @await Html.PartialAsync("_CreateVillePartialView", new Ville())
+            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Ville
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ville in Model.Ville)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => ville.Name)
+                            </td>
+                            <td>
+                                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditVille-"+ville.Id)" data-url="@Url.Action($"Edit/{ville.Id}")">
+                                    <img src="~/img/edit.png" >
+                                </button>
+                                @await Html.PartialAsync("_EditVillePartialView",ville)
+            
+                                <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteVille-"+ville.Id)" data-url="@Url.Action($"Delete/{ville .Id}")">
+                                    <img src="~/img/delete.png">
+                                </button>
+                                @await Html.PartialAsync("_DeleteVillePartialView",ville)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFType">
+                Ajouter Type de formation
+            </button>
+            @await Html.PartialAsync("_CreateFTypePartialView", new FType())
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Type
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ftype in Model.FType)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => ftype.Name)
+                            </td>
+                            <td>
+                                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditFType-"+ftype.Id)" data-url="@Url.Action($"Edit/{ftype.Id}")">
+                                    <img src="~/img/edit.png">
+                                </button>
+                                @await Html.PartialAsync("_EditFTypePartialView",ftype)
+
+                                <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteFType-"+ftype.Id)" data-url="@Url.Action($"Delete/{ftype .Id}")">
+                                    <img src="~/img/delete.png">
+                                </button>
+                                @await Html.PartialAsync("_DeleteFTypePartialView",ftype)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateMode">
+                Ajouter Mode de formation
+            </button>
+            @await Html.PartialAsync("_CreateModePartialView", new Mode())
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Mode
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mode in Model.Mode)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => mode.Name)
+                            </td>
+                            <td>
+                                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditMode-"+mode.Id)" data-url="@Url.Action($"Edit/{mode.Id}")">
+                                    <img src="~/img/edit.png">
+                                </button>
+                                @await Html.PartialAsync("_EditModePartialView",mode)
+
+                                <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteMode-"+mode.Id)" data-url="@Url.Action($"Delete/{mode .Id}")">
+                                    <img src="~/img/delete.png">
+                                </button>
+                                @await Html.PartialAsync("_DeleteModePartialView",mode)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div></div>
+</div>
