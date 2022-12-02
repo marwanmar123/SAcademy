@@ -4,11 +4,13 @@
     Layout = "_LayoutDashboard";
 }
 
-
 <h1>Menu</h1>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+<button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateMenu">
+    Ajouter
+</button>
+@await Html.PartialAsync("_CreateMenuPartialView", new Menu())
+
 <table class="table">
     <thead>
         <tr>

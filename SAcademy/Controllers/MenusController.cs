@@ -29,7 +29,8 @@ namespace SAcademy.Controllers
         // GET: Menus/Create
         public IActionResult Create()
         {
-            return View();
+            Menu menu = new Menu();
+            return PartialView("_CreateMenuPartialView",menu);
         }
 
 
