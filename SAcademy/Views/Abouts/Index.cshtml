@@ -16,6 +16,8 @@
         </button>
         @await Html.PartialAsync("_EditAboutPartialView",item)
         var size = string.Concat(item.TitleSize, "px");
+        var videoWidth = string.Concat(item.VideoWidth, "px");
+        var videoHeight = string.Concat(item.VideoHeight, "px");
         <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
         <div class="d-flex">
                 @if (item.Video == null && item.image == null)
@@ -27,7 +29,7 @@
                 else if (item.Video == null)
                 {
                     <div>
-                        <img class="pr-4" width="590" height="345" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
+                    <img class="pr-4" width="@videoWidth" height="@videoWidth" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
                     </div>
                     <div class="d-flex flex-column">
                         @Html.Raw(item.Content)
@@ -36,7 +38,7 @@
                 else
                 {
                     <div>
-                        <iframe class="pr-4" width="590" height="345" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="pr-4" width="@videoWidth" height="@videoWidth" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="d-flex flex-column">
                         @Html.Raw(item.Content)
