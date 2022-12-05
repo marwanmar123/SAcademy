@@ -1,0 +1,9 @@
+﻿@model List<SAcademy.Models.Menu>
+
+
+@foreach(var menu in Model){
+var size = string.Concat(menu.Size, "px");
+    <li class="nav-item">
+        <a class="nav-link mr-3" href="@menu.Link" style="color:@menu.Color; font-size:@size;">@menu.TitleMenu</a>
+    </li>
+}

@@ -2,4 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-
+@await Component.InvokeAsync("Header")
+<div class="w-75 m-auto">
+    @await Component.InvokeAsync("About")
+    @await Component.InvokeAsync("Contact")
+</div>
