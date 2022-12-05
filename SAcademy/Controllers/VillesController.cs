@@ -122,12 +122,16 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Villes'  is null.");
             }
-            var ville = await _context.Villes.FindAsync(id);
+            var ville = await _context.Villes.Include(v => v.Formations).FirstOrDefaultAsync(m => m.Id == id);
             if (ville != null)
             {
                 _context.Villes.Remove(ville);
             }
-            
+            foreach (var f in ville.Formations)
+            {
+                _context.Remove(f);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
         }

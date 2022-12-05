@@ -139,12 +139,15 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Modes'  is null.");
             }
-            var mode = await _context.Modes.FindAsync(id);
+            var mode = await _context.Modes.Include(m => m.Formations).FirstOrDefaultAsync(m => m.Id == id);
             if (mode != null)
             {
                 _context.Modes.Remove(mode);
             }
-            
+            foreach (var f in mode.Formations)
+            {
+                _context.Remove(f);
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
         }

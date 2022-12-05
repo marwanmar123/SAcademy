@@ -119,12 +119,15 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.FTypes'  is null.");
             }
-            var fType = await _context.FTypes.FindAsync(id);
+            var fType = await _context.FTypes.Include(ft => ft.Formations).FirstOrDefaultAsync(m => m.Id == id);
             if (fType != null)
             {
                 _context.FTypes.Remove(fType);
             }
-            
+            foreach (var f in fType.Formations)
+            {
+                _context.Remove(f);
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
         }
