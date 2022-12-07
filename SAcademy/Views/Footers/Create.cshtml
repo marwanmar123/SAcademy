@@ -1,0 +1,98 @@
+﻿@model SAcademy.Models.Footer
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Footer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ContentInfos" class="control-label"></label>
+                <textarea asp-for="ContentInfos" id="ContentInfos" class="form-control"></textarea>
+                <span asp-validation-for="ContentInfos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Logo" class="control-label"></label>
+                <input type="file" asp-for="Logo" class="form-control" />
+                <span asp-validation-for="Logo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentNews" class="control-label"></label>
+                <textarea asp-for="ContentNews" id="ContentNews" class="form-control"></textarea>
+                <span asp-validation-for="ContentNews" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentCopyRight" class="control-label"></label>
+                <input asp-for="ContentCopyRight" class="form-control" />
+                <span asp-validation-for="ContentCopyRight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Background" class="control-label"></label>
+                <input type="color" asp-for="Background" class="form-control" />
+                <span asp-validation-for="Background" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<script>
+    $("#ContentInfos").summernote({
+        placeholder: "ContentNews ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ]
+    });
+
+    $("#ContentNews").summernote({
+        placeholder: "ContentNews ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ]
+    });
+</script>

@@ -247,6 +247,32 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.Footer", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Background")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentCopyRight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentInfos")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentNews")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Footers");
+                });
+
             modelBuilder.Entity("SAcademy.Models.Formation", b =>
                 {
                     b.Property<string>("Id")
@@ -413,10 +439,16 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ColorFooter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Size")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SizeFooter")
                         .HasColumnType("int");
 
                     b.Property<string>("TitleMenu")

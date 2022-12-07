@@ -46,7 +46,7 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                @Model.Presentation
+                                @Html.Raw(Model.Presentation)
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                @Model.Skills
+                                @Html.Raw(Model.Skills)
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                                @Model.Certificate
+                                @Html.Raw(Model.Certificate)
                             </div>
                         </div>
                     </div>

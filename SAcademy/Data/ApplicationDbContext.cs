@@ -23,5 +23,6 @@ namespace SAcademy.Data
         public DbSet<FType> FTypes { get; set; }
         public DbSet<Ville> Villes { get; set; }
         public DbSet<Registration> Registrations { get; set; }
+        public DbSet<Footer> Footers { get; set; }
     }
 }

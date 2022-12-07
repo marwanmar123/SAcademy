@@ -1,0 +1,10 @@
+﻿@model List<SAcademy.Models.Menu>
+
+
+@foreach (var menu in Model)
+{
+    var size = string.Concat(menu.SizeFooter, "px");
+    <div class="d-flex flex-column">
+        <a class="nav-link" href="@menu.Link" style="color:@menu.ColorFooter; font-size:@size;">@menu.TitleMenu</a>
+    </div>
+}

@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\logoFooter.png",
+      "PackagePath": "staticwebassets\\img\\logoFooter.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\menu.png",
       "PackagePath": "staticwebassets\\img\\menu.png"
     },
