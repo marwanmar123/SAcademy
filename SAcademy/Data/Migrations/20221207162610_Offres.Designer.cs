@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SAcademy.Data;
 
@@ -11,9 +12,10 @@ using SAcademy.Data;
 namespace SAcademy.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207162610_Offres")]
+    partial class Offres
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -484,12 +486,6 @@ namespace SAcademy.Data.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TitleColor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TitleSize")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -9,11 +9,11 @@
             <div class="d-flex flex-column">
                 @if (item.Logo != null)
                 {
-                    <img class="pb-3" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" style="width:45%;" />
+                    <a href="/"><img class="pb-3" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" style="width:30%;" /></a>
                 }
                 else
                 {
-                    <img class="pb-3" src="~/img/logoFooter.png" style="width:45%;" />
+                    <a href="/"><img class="pb-3" src="~/img/logoFooter.png" style="width:30%;" /></a>
                 }
                 <div>
                     @Html.Raw(item.ContentInfos)
@@ -25,12 +25,12 @@
             <div class="">
                 @Html.Raw(item.ContentNews)<br>
                 <article class="">
-                    <input type="email" placeholder="Votre adresse Email">
+                    <input type="email" placeholder="Votre adresse Email" style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;">
                     <button class="border-0 rounded">S'inscrire</button>
                 </article>
             </div>
         </div>
-        <hr>
+        <hr class="bg-light">
         <div class="text-white font-weight-bold">
             &copy; @Html.Raw(item.ContentCopyRight)
         </div>
