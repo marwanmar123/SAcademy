@@ -61,7 +61,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-        <form class="w-100" method="post" name="google-sheet" asp-action="Inscription">
+        <form class="w-100" method="post" name="google-sheet" asp-action="Register">
             <div class="form-group">
                 <input type="hidden" name="FormationId" class="form-control" id="exampleInputPassword1" value="@Model.Id" placeholder="Nom">
             </div>
@@ -97,18 +97,18 @@
                 <label>Ville</label>
                 <input type="text" class="form-control" name="Ville" placeholder="Ville" required>
             </div>
-            <div class="form-group">
+           @* <div class="form-group">
                 <input type="hidden" class="form-control" name="FormationTitle" value="@Model.Title">
             </div>
             <div class="form-group">
                 <input type="hidden" class="form-control" name="FormationMode" value="@Model.Mode">
-            </div>
-            <div class="form-group">
+            </div>*@
+            @*<div class="form-group">
                 <input type="hidden" class="form-control" name="FormationVille" value="@Model.Ville.Name">
-            </div>
-            <div class="form-group">
+            </div>*@
+            @*<div class="form-group">
                 <input type="hidden" class="form-control" name="FormationDateStart" value="@Model.StartDay">
-            </div>
+            </div>*@
             <button type="submit" class="btn inscription w-100">Submit</button>
         </form>
     </div>

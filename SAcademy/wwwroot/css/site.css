@@ -368,3 +368,12 @@ body {
     width: 100%;
     color: white;
 }
+
+.descFormation {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

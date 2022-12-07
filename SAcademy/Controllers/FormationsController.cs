@@ -38,6 +38,7 @@ namespace SAcademy.Controllers
                 .Include(f => f.Mode)
                 .Include(f => f.Type)
                 .Include(f => f.Ville)
+                .Include(f => f.Registration)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (formation == null)
             {
@@ -157,12 +158,17 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Formations'  is null.");
             }
-            var formation = await _context.Formations.FindAsync(id);
+            var formation = await _context.Formations.Include(f => f.Registration).FirstOrDefaultAsync(m => m.Id == id);
             if (formation != null)
             {
                 _context.Formations.Remove(formation);
             }
-            
+
+            foreach (var f in formation.Registration)
+            {
+                _context.Remove(f);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
         }
@@ -170,6 +176,36 @@ namespace SAcademy.Controllers
         private bool FormationExists(string id)
         {
           return _context.Formations.Any(e => e.Id == id);
+        }
+
+
+        // POST: Register
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,FormationId")] Registration registration)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(registration);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", "Formations", new { id = registration.FormationId });
+            }
+            return View(registration);
+        }
+
+        // POST: Formations/DeleteRegister
+        [HttpPost]
+        public async Task<IActionResult> DeleteRegister(string id)
+        {
+            var register = await _context.Registrations.FirstOrDefaultAsync(m => m.Id == id);
+
+            if(register != null)
+            {
+                _context.Remove(register);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction("FormationPanel", "FormationPages");
+
         }
     }
 }

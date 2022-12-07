@@ -5,95 +5,158 @@
 }
 
 <div class="modal fade" id="DetailsFormation-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width:1000px;">
+    <div class="modal-dialog" style="max-width:1800px;">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Details Ville</h5>
+            <div class="d-flex justify-content-between p-3 border border-1">
+                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                <h5 class="text-primary">@Model.Title</h5> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <dl class="row">
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Title)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Title)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Description)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Description)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Duration)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Duration)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.StartDay)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.StartDay)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.EndDay)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.EndDay)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.StartTime)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.StartTime)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.EndTime)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.EndTime)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Certificate)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Certificate)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Presentation)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Presentation)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Skills)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Skills)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Mode)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Mode.Name)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Ville)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Ville.Name)
-                    </dd>
-                    <dt class = "col-sm-2">
-                        @Html.DisplayNameFor(model => model.Type)
-                    </dt>
-                    <dd class = "col-sm-10">
-                        @Html.DisplayFor(model => model.Type.Name)
-                    </dd>
-                </dl>
+                <div class="d-flex justify-content-between">
+                    <h5>@Model.Duration</h5> 
+                    <h5>@Model.Mode.Name</h5>
+                    <h5>@Model.Ville.Name</h5> 
+                    <h5>@Model.Type.Name</h5>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column">
+                        <p>@Model.StartDay</p>
+                        <p>@Model.EndDay</p>
+                    </div>
+                    <p>@Model.Description</p>
+                    <div class="d-flex flex-column">
+                        <p>@Model.StartTime</p>
+                        <p>@Model.EndTime</p>
+                    </div>
+                </div>
+                <hr />
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Presentation
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                @Model.Presentation
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Skills
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+                                @Model.Skills
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Certificate
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                @Model.Certificate
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample">
+                    Inscrits
+                </button>
+                <div class="collapse pt-3" id="collapseExample">
+                    <div class="card card-body">
+                        <table class="table table-striped " id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Nom
+                                    </th>
+                                    <th>
+                                        Prenom
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Phone
+                                    </th>
+                                    <th>
+                                        Company Name
+                                    </th>
+                                    <th>
+                                        Job Role
+                                    </th>
+                                    <th>
+                                        Region
+                                    </th>
+                                    <th>
+                                        Ville
+                                    </th>
+                                    <th>
+                                        action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Registration)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Nom
+                                        </td>
+                                        <td>
+                                            @item.Prenom
+                                        </td>
+                                        <td>
+                                            @item.Email
+                                        </td>
+                                        <td>
+                                            @item.Phone
+                                        </td>
+                                        <td>
+                                            @item.CompanyName
+                                        </td>
+                                        <td>
+                                            @item.JobRole
+                                        </td>
+                                        <td>
+                                            @item.Region
+                                        </td>
+                                        <td>
+                                            @item.Ville
+                                        </td>
+                                        <td>
+                                            <form asp-controller="Formations" asp-action="DeleteRegister">
+                                                <input type="hidden" name="Id" asp-for="@item.Id" />
+                                                <input type="submit" value="Delete" class="btn btn-danger" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

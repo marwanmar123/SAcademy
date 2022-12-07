@@ -10,10 +10,10 @@
 </div>
 <hr />
 <div>
-    <div class="d-flex justify-content-around">
-        <div>
+    <div class="d-flex justify-content-between pl-3 pr-3">
+        <div class="w-25">
             <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateVille">
-                Ajouter Ville
+                Ajouter Ville de formation
             </button>
             @await Html.PartialAsync("_CreateVillePartialView", new Ville())
             
@@ -49,7 +49,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="w-25">
             <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFType">
                 Ajouter Type de formation
             </button>
@@ -87,7 +87,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div class="w-25">
             <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateMode">
                 Ajouter Mode de formation
             </button>
@@ -126,7 +126,7 @@
             </table>
         </div>
     </div>
-    <div class="">
+    <div class="pl-3 pr-3">
         <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFormation">
             Ajouter formation
         </button>
@@ -185,7 +185,7 @@
                             <h5 class="text-primary">@formation.Title</h5>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => formation.Description)
+                            <p class="descFormation">@Html.DisplayFor(modelItem => formation.Description)</p>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => formation.Duration)
@@ -203,13 +203,13 @@
                             @Html.DisplayFor(modelItem => formation.EndTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => formation.Certificate)
+                            <p class="descFormation">@Html.DisplayFor(modelItem => formation.Certificate)</p>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => formation.Presentation)
+                            <p class="descFormation">@Html.DisplayFor(modelItem => formation.Presentation)</p>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => formation.Skills)
+                            <p class="descFormation">@Html.DisplayFor(modelItem => formation.Skills)</p>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => formation.Mode.Name)
@@ -226,12 +226,12 @@
                             </button>
                             @await Html.PartialAsync("_EditFormationPartialView",formation)
 
-                            <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteFormation-"+formation.Id)" data-url="@Url.Action($"Delete/{formation .Id}")">
+                            <button type="button" class="border-0 bg-transparent" title="Suprimer" data-toggle="modal" data-target="@("#DeleteFormation-"+formation.Id)" data-url="@Url.Action($"Delete/{formation .Id}")">
                                 <img src="~/img/delete.png">
                             </button>
                             @await Html.PartialAsync("_DeleteFormationPartialView",formation)
 
-                            <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DetailsFormation-"+formation.Id)" data-url="@Url.Action($"Details/{formation .Id}")">
+                            <button type="button" class="border-0 bg-transparent" title="Details and registrants" data-toggle="modal" data-target="@("#DetailsFormation-"+formation.Id)" data-url="@Url.Action($"Details/{formation .Id}")">
                                 <img src="~/img/info.png">
                             </button>
                             @await Html.PartialAsync("_DetailsFormationPartialView",formation)

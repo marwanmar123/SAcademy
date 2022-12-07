@@ -35,7 +35,7 @@ namespace SAcademy.Controllers
             ViewData["VilleId"] = new SelectList(_context.Villes, "Id", "Name", formation.VilleId);
             var formationData = new FVTMViewModel()
             {
-                Formation = await _context.Formations.ToListAsync(),
+                Formation = await _context.Formations.Include(f => f.Registration).ToListAsync(),
                 Ville = await _context.Villes.ToListAsync(),
                 FType = await _context.FTypes.ToListAsync(),
                 Mode = await _context.Modes.ToListAsync()
