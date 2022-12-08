@@ -1,0 +1,112 @@
+﻿
+
+
+<div class="">
+    <section class="d-flex justify-content-center" id="types"></section>
+</div>
+<div class="d-flex justify-content-center">
+    <section id="formations" class="d-flex m-auto" style="max-width:40%;">
+    </section>
+</div>
+
+
+
+
+<script>
+    $.ajax({
+        url: '/FTypes/GetTypeAPI',
+        type: 'GET',
+        success: function (res) {
+            $("#types").append(
+                `
+                    <p class="btn-type bg-dark text-light" onclick="get_All()">All</p>
+                `
+            );
+            $.each(res, function (index, option) {
+                $("#types").append(
+                    `
+                        <p class="btn-type" id="${option.id}" onClick="get_Formation(this.id)" style="color:${option.color}; background:${option.bgColor};">${option.name}</p>
+                    `
+                );
+            });
+        }
+    });
+
+
+    function get_Formation(formationTypeId) {
+        $("#formations").load(location.href + " #formations");
+        setTimeout(function () {
+            $.ajax({
+                url: '/Formations/GetFormationsByFilter?formationTypeId=' + formationTypeId,
+                type: 'GET',
+                success: function (res) {
+                    if (res.length == 0) {
+                        $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                    } else {
+                        $.each(res, function (index, option) {
+                            $("#formations").append(
+                                `
+                                    <div class="m-2 p-3" style="background:${option.offreFBgColor};">
+                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize};">${option.title}</p>
+                                        <p style="">${option.duration}</p>
+                                        <a href="formations/details/${option.id}" style="background:${option.offreFBgColorButton};">Details</p>
+                                    </div>
+                                `
+                            );
+                        });
+                    }
+
+                },
+                error: function (errorThrown) {
+                    $("#formations").append(
+                        `
+                            <h1>Error</h1>
+                        `
+                    );
+                }
+            });
+        }, 500)
+    }
+
+
+
+
+    function get_All() {
+        $("#formations").load(location.href + " #formations");
+        setTimeout(function () {
+            $.ajax({
+                url: '/Formations/GetFormationAPI',
+                type: 'GET',
+                success: function (res) {
+                    if (res.length == 0) {
+                        $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                    } else {
+                        $.each(res, function (index, option) {
+                            $("#formations").append(
+                                `
+                                    <div class="m-2 p-3" style="background:${option.offreFBgColor};">
+                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize};">${option.title}</p>
+                                        <p style="">${option.duration}</p>
+                                        <a href="formations/details/${option.id}" style="background:${option.offreFBgColorButton};">Details</p>
+                                    </div>
+                                `
+                            );
+
+                        });
+                    }
+                },
+                error: function (errorThrown) {
+                    $("#formations").append(
+                        `
+                            <h1>Error</h1>
+                        `
+                    );
+                }
+            });
+        }, 500)
+    }
+
+    $(document).ready(get_All);
+
+</script>
+

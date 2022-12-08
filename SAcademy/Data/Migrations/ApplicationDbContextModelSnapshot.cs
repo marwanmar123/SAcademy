@@ -297,6 +297,18 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("ModeId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("OffreFBgColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OffreFBgColorButton")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OffreFColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OffreFSize")
+                        .HasColumnType("int");
+
                     b.Property<string>("Presentation")
                         .HasColumnType("nvarchar(max)");
 
@@ -357,6 +369,12 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BgColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

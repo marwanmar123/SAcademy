@@ -24,5 +24,11 @@ namespace SAcademy.Models
         public string? TypeId { get; set; }
         public FType? Type { get; set; }
         public ICollection<Registration>? Registration { get; set; }
+
+        //Offres
+        public string? OffreFColor { get; set; }
+        public int? OffreFSize { get; set; }
+        public string? OffreFBgColor { get; set; }
+        public string? OffreFBgColorButton { get; set; }
     }
 }

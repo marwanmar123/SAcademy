@@ -10,18 +10,23 @@
 <p>
     <a asp-action="Create">O</a>
 </p>
-
-@foreach (var item in Model) {
-    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditOffre-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
-        <img src="~/img/edit.png">
-    </button>
-    @await Html.PartialAsync("_EditOffrePartialView",item)
-    
-    var size = string.Concat(item.TitleSize, "px");
+<div class="w-75 m-auto">
+    @foreach (var item in Model) {
+        <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditOffre-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+            <img src="~/img/edit.png">
+        </button>
+        @await Html.PartialAsync("_EditOffrePartialView",item)
+        
+        var size = string.Concat(item.TitleSize, "px");
+        <div class="text-center">
+            <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            @Html.Raw(item.Content)
+        </div>
+               
+    }
     <div class="text-center">
-        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
-        @Html.Raw(item.Content)
+        <partial name="_Offres" />
     </div>
-           
-}
-    
+</div>
+
+

@@ -26,6 +26,29 @@ namespace SAcademy.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> GetFormationAPI()
+        {
+            var applicationDbContext = _context.Formations;
+            return Ok(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> GetFormationsByFilter(string? formationTypeId)
+        {
+            var formations = await _context.Formations.Include(f => f.Type).Where(f => f.TypeId == formationTypeId).Select(s => new Formation
+            {
+               Id = s.Id,
+               Title = s.Title,
+               Duration = s.Duration,
+               TypeId = s.TypeId,
+               OffreFColor= s.OffreFColor,
+               OffreFBgColor= s.OffreFBgColor,
+               OffreFSize= s.OffreFSize,
+               OffreFBgColorButton= s.OffreFBgColorButton
+               
+            }).ToListAsync();
+            return Ok(formations);
+        }
+
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -60,7 +83,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId")] Formation formation)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +118,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId")] Formation formation)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (id != formation.Id)
             {

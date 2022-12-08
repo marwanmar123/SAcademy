@@ -25,6 +25,11 @@ namespace SAcademy.Controllers
               return View(await _context.FTypes.ToListAsync());
         }
 
+        public async Task<IActionResult> GetTypeAPI()
+        {
+            return Ok(await _context.FTypes.ToListAsync());
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -33,7 +38,7 @@ namespace SAcademy.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] FType fType)
+        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor")] FType fType)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +67,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name")] FType fType)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor")] FType fType)
         {
             if (id != fType.Id)
             {
