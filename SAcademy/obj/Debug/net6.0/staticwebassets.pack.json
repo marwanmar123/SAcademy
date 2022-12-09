@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\img\\hide.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\home.png",
+      "PackagePath": "staticwebassets\\img\\home.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\info.png",
       "PackagePath": "staticwebassets\\img\\info.png"
     },

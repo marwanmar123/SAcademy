@@ -344,10 +344,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zY3JpcHRpb25QYWdlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/InscriptionPages/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zY3JpcHRpb25QYWdlc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/InscriptionPages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zY3JpcHRpb25QYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -400,12 +396,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/Components/FormationPages/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9ybWF0aW9uUGFnZXNcRGVmYXVsdC5jc2h0bWw=
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/Components/FormationPage/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9ybWF0aW9uUGFnZVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/Components/Header/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGVhZGVyXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/Components/InscriptionPage/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW5zY3JpcHRpb25QYWdlXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/Components/Navbar/Default.cshtml]

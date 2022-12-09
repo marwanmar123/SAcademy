@@ -25,23 +25,23 @@ namespace SAcademy.Controllers
               return View(await _context.InscriptionPages.ToListAsync());
         }
 
-        // GET: InscriptionPages/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.InscriptionPages == null)
-            {
-                return NotFound();
-            }
+        //// GET: InscriptionPages/Details/5
+        //public async Task<IActionResult> Details(string id)
+        //{
+        //    if (id == null || _context.InscriptionPages == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var inscriptionPage = await _context.InscriptionPages
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (inscriptionPage == null)
-            {
-                return NotFound();
-            }
+        //    var inscriptionPage = await _context.InscriptionPages
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (inscriptionPage == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(inscriptionPage);
-        }
+        //    return View(inscriptionPage);
+        //}
 
         // GET: InscriptionPages/Create
         public IActionResult Create()

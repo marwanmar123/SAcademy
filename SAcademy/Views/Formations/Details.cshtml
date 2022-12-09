@@ -3,6 +3,14 @@
 @{
     ViewData["Title"] = "Details";
 }
+@await Component.InvokeAsync("InscriptionPage")
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item text-center"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+        <li class="breadcrumb-item"><a href="/formations">Nos Formation</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+    </ol>
+</nav>
 
 <div class="d-flex gap-5 justify-content-between">
     <div class="w-50 p-5">

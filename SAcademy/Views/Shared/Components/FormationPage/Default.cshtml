@@ -1,0 +1,15 @@
+﻿@model List<SAcademy.Models.FormationPage>
+
+
+
+<div>
+@foreach (var item in Model) {
+    
+    var size = string.Concat(item.ContentHeight, "px");
+
+    <div style="background:@item.ContentBgColor; height:@size;">
+        @Html.Raw(item.Content)
+    </div>
+    @Html.Raw(item.DescriptionFilter)
+}
+</div>

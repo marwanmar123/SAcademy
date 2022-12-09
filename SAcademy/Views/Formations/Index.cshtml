@@ -3,8 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+@await Component.InvokeAsync("FormationPage")
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item text-center"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nos Formation</li>
+    </ol>
+</nav>
 
 
 <table class="table">

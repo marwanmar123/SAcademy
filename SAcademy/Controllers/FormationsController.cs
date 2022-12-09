@@ -22,21 +22,21 @@ namespace SAcademy.Controllers
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Formations.Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville);
+            var applicationDbContext = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville);
             return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: FormationsAPI
         public async Task<IActionResult> GetFormationAPI()
         {
-            var applicationDbContext = _context.Formations;
+            var applicationDbContext = _context.Formations.AsNoTracking();
             return Ok(await applicationDbContext.ToListAsync());
         }
 
         // GET: FormationsByFilter
         public async Task<IActionResult> GetFormationsByFilter(string? formationTypeId)
         {
-            var formations = await _context.Formations.Include(f => f.Type).Where(f => f.TypeId == formationTypeId).Select(s => new Formation
+            var formations = await _context.Formations.AsNoTracking().Include(f => f.Type).Where(f => f.TypeId == formationTypeId).Select(s => new Formation
             {
                Id = s.Id,
                Title = s.Title,
