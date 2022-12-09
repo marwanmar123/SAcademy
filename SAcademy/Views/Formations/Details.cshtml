@@ -4,64 +4,26 @@
     ViewData["Title"] = "Details";
 }
 
-<div class="d-flex justify-content-between">
-    <div class="">
-        
-        <div class="">
-            @Html.DisplayFor(model => model.Title)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.Description)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.Duration)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.StartDay)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.EndDay)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.StartTime)
-        </div>
-       
-        <div class="">
-            @Html.DisplayFor(model => model.EndTime)
-        </div>
-        
-        <div class="">
-            @Html.Raw(Model.Presentation)
-        </div>
-      
-        <div class="">
-            @Html.Raw(Model.Skills)
-        </div>
-       
-        <div class="">
-            @Html.Raw(Model.Certificate)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.Mode.Name)
-        </div>
-        
-        <div class="">
-            @Html.DisplayFor(model => model.Ville.Name)
-        </div>
-       
-        <div class="">
-            @Html.DisplayFor(model => model.Type.Name)
-        </div>
+<div class="d-flex gap-5 justify-content-between">
+    <div class="w-50 p-5">
+        <hr />
+            <h5>@Model.Title</h5>
+            <p>@Model.Description</p>
+            <p>@Model.Duration</p>
+            <p>@Model.StartDay</p>
+            <p>@Model.EndDay</p>
+            <p>@Model.StartTime</p>
+            <p>@Model.EndTime</p>
+            <p>@Model.Mode.Name</p>
+            <p>@Model.Ville.Name</p>
+            <p>@Model.Type.Name</p>
+            <p>@Html.Raw(Model.Presentation)</p>
+            <p>@Html.Raw(Model.Skills)</p>
+            <p>@Html.Raw(Model.Certificate)</p>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center">
-        <form class="w-100" method="post" name="google-sheet" asp-action="Register">
+    <div class="w-50 d-flex justify-content-center align-items-center">
+        <form class="w-75" method="post" name="google-sheet" asp-action="Register">
             <div class="form-group">
                 <input type="hidden" name="FormationId" class="form-control" id="exampleInputPassword1" value="@Model.Id" placeholder="Nom">
             </div>

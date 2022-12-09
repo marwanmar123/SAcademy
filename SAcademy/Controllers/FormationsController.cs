@@ -26,12 +26,14 @@ namespace SAcademy.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: FormationsAPI
         public async Task<IActionResult> GetFormationAPI()
         {
             var applicationDbContext = _context.Formations;
             return Ok(await applicationDbContext.ToListAsync());
         }
 
+        // GET: FormationsByFilter
         public async Task<IActionResult> GetFormationsByFilter(string? formationTypeId)
         {
             var formations = await _context.Formations.Include(f => f.Type).Where(f => f.TypeId == formationTypeId).Select(s => new Formation
