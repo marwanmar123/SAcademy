@@ -12,16 +12,7 @@
 </head>
 <body oncopy="return false" oncut="return false" onpaste="return false">
     <header>
-        <div class="d-flex justify-content-between p-3">
-            <div>
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Academy</a>
-            </div>
-            <div class="">
-                <ul class="navbar-nav d-flex flex-row">
-                    <partial name="_NavBar" />
-                </ul>
-            </div>
-        </div>
+        @await Component.InvokeAsync("Navbar")
     </header>
     <div class="">
         <main role="main" class="pb-3">

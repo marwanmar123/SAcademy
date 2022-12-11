@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
@@ -22,7 +23,12 @@ namespace SAcademy.Controllers
         // GET: Menus
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Menus.ToListAsync());
+            var Nav = new NavViewModel()
+            {
+                Menu = await _context.Menus.ToListAsync(),
+                Home = await _context.Homes.ToListAsync(),
+            };
+            return View(Nav);
         }
 
 
@@ -140,5 +146,85 @@ namespace SAcademy.Controllers
         {
           return _context.Menus.Any(e => e.Id == id);
         }
+
+
+        public IActionResult CreateHomeNav()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateHomeNav([Bind("Id,BgNav,Logo")] Home home)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Request.Form.Files.Count > 0)
+                {
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        home.Logo = dataStream.ToArray();
+                    }
+                }
+                _context.Add(home);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(home);
+        }
+
+
+        public async Task<IActionResult> EditHomeNav(string id)
+        {
+            if (id == null || _context.Homes == null)
+            {
+                return NotFound();
+            }
+
+            var home = await _context.Homes.FindAsync(id);
+            if (home == null)
+            {
+                return NotFound();
+            }
+            return View(home);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditHomeNav(string id, [Bind("Id,BgNav,Logo")] Home home)
+        {
+            if (id != home.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    if (Request.Form.Files.Count > 0)
+                    {
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(dataStream);
+                            home.Logo = dataStream.ToArray();
+                        }
+                    }
+                    _context.Update(home);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(home);
+        }
     }
 }
+

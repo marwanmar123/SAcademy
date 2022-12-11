@@ -425,6 +425,23 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Headers");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.Home", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BgNav")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Logo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Homes");
+                });
+
             modelBuilder.Entity("SAcademy.Models.InscriptionPage", b =>
                 {
                     b.Property<string>("Id")

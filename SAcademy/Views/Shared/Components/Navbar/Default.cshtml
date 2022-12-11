@@ -1,9 +1,26 @@
-﻿@model List<SAcademy.Models.Menu>
+﻿@model SAcademy.ViewModel.NavViewModel
 
-
-@foreach(var menu in Model){
-var size = string.Concat(menu.Size, "px");
-    <li class="nav-item">
-        <a class="nav-link mr-3" href="@menu.Link" style="color:@menu.Color; font-size:@size;">@menu.TitleMenu</a>
-    </li>
+@foreach(var item in Model.Home)
+{
+    <div class="d-flex justify-content-between p-3" style="background:@item.BgNav;">
+        <div>
+            @if(item.Logo != null)
+            { 
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
+            }else{
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;" src="~/img/logoFooter.png" /></a>
+            }
+        </div>
+        <div class="">
+            <ul class="navbar-nav d-flex flex-row">
+                    @foreach(var n in Model.Menu)
+                    {
+                         var size = string.Concat(n.Size, "px");
+                        <li class="nav-item">
+                        <a class="nav-link mr-3" href="@n.Link" style="color:@n.Color; font-size:@size;">@n.TitleMenu</a>
+                        </li>
+                    }
+                </ul>
+        </div>
+    </div>
 }

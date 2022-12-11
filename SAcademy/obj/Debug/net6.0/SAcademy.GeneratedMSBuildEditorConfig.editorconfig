@@ -360,12 +360,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcX0NyZWF0ZU1lbnVQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Menus/_CreateNavPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcX0NyZWF0ZU5hdlBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Menus/_DeleteMenuPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcX0RlbGV0ZU1lbnVQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Menus/_EditMenuPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcX0VkaXRNZW51UGFydGlhbFZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Menus/_EditNavPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVudXNcX0VkaXROYXZQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Offres/Create.cshtml]
@@ -434,10 +442,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/_NavBar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/Shared/_Offres.cshtml]

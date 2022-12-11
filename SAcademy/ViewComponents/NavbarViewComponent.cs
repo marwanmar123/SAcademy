@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
+using SAcademy.ViewModel;
 
 namespace SAcademy.ViewComponents
 {
@@ -14,8 +15,12 @@ namespace SAcademy.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var menu = await _context.Menus.ToListAsync();
-            return View(menu);
+            var Nav = new NavViewModel()
+            {
+                Menu = await _context.Menus.ToListAsync(),
+                Home = await _context.Homes.ToListAsync(),
+            };
+            return View(Nav);
         }
     }
 }
