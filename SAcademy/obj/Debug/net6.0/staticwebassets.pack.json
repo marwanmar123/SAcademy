@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\img\\info.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\invisible.png",
+      "PackagePath": "staticwebassets\\img\\invisible.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
@@ -67,6 +71,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",
       "PackagePath": "staticwebassets\\img\\save.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\visible.png",
+      "PackagePath": "staticwebassets\\img\\visible.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\js\\site.js",

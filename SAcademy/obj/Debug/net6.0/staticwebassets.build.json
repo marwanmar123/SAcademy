@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "axKcueXdkQthNhsQ9fUjAbVWj+Cz6pEB1HuFMYuWT/4=",
+  "Hash": "P4hwH63jk8HkTenEYt/IUugu5SJxjiTMzFnGyBGnHbE=",
   "Source": "SAcademy",
   "BasePath": "_content/SAcademy",
   "Mode": "Default",
@@ -1241,6 +1241,23 @@
       "OriginalItemSpec": "wwwroot\\img\\info.png"
     },
     {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\invisible.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/invisible.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\invisible.png"
+    },
+    {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\logo.png",
       "SourceId": "SAcademy",
       "SourceType": "Discovered",
@@ -1341,6 +1358,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\save.png"
+    },
+    {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\visible.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/visible.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\visible.png"
     },
     {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\js\\site.js",

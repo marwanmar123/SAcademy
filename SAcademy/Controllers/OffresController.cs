@@ -151,5 +151,16 @@ namespace SAcademy.Controllers
         {
           return _context.Offres.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> isVisible(bool? visible, string? id)
+        {
+
+            var offre = _context.Offres.FirstOrDefault(a => a.Id == id);
+            offre.Visible = visible;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

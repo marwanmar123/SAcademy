@@ -14,5 +14,6 @@ namespace SAcademy.Models
         public byte[]? image { get; set; }
         public int? VideoWidth { get; set; }
         public int? VideoHeight { get; set; }
+        public Boolean? Visible { get; set; } = true;
     }
 }

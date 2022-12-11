@@ -12,6 +12,24 @@
 </p>
 <div class="w-75 m-auto">
     @foreach (var item in Model) {
+        if (item.Visible == true)
+        {
+            <form id="online" style="display:inline;" asp-action="isVisible">
+                <input type="hidden" name="Id" value="@item.Id" />
+                <input type="hidden" name="visible" value="false" />
+                <button type="submit" class="btn online p-1"><img style="width:25px;" src="~/img/visible.png" /></button>
+                <label>visible</label>
+            </form>
+        }
+        else
+        {
+            <form id="online" style="display:inline;" asp-action="isVisible">
+                <input type="hidden" name="Id" value="@item.Id" />
+                <input type="hidden" name="visible" value="true" />
+                <button type="submit" class="btn online p-1"><img style="width:25px;" src="~/img/invisible.png" /></button>
+                <label>InVisible</label>
+            </form>
+        }
         <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditOffre-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
             <img src="~/img/edit.png">
         </button>

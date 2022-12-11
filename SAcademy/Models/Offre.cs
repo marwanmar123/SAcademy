@@ -10,5 +10,6 @@ namespace SAcademy.Models
         public string? TitleColor { get; set; }
         public int? TitleSize { get; set; }
         public string? Content { get; set; }
+        public Boolean? Visible { get; set; } = true;
     }
 }

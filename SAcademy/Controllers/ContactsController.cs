@@ -135,5 +135,16 @@ namespace SAcademy.Controllers
         {
           return _context.Contacts.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> isVisible(bool? visible, string? id)
+        {
+
+            var contact = _context.Contacts.FirstOrDefault(a => a.Id == id);
+            contact.Visible = visible;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

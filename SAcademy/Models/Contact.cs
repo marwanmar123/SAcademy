@@ -20,5 +20,6 @@ namespace SAcademy.Models
         public int? MapWidth { get; set; }
         public int? MapHeight { get; set; }
         public string? ButtonBgColor { get; set; }
+        public Boolean? Visible { get; set; } = true;
     }
 }

@@ -156,5 +156,18 @@ namespace SAcademy.Controllers
         {
           return _context.Abouts.Any(e => e.Id == id);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> isVisible(bool? visible, string? id)
+        {
+
+            var about = _context.Abouts.FirstOrDefault(a => a.Id == id);
+            about.Visible = visible;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

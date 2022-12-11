@@ -5,9 +5,13 @@
 
     @foreach (var item in Model)
     {
-        var size = string.Concat(item.TitleSize, "px");
-        <p class="text-center p-3" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
-        @Html.Raw(item.Content)
+        if(item.Visible == true)
+        {
+            var size = string.Concat(item.TitleSize, "px");
+            <p class="text-center p-3" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            @Html.Raw(item.Content)
+            <partial name="_Offres" />
+        }
     }
-    <partial name="_Offres" />
+    
 </div>
