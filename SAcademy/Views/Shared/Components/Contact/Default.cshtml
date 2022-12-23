@@ -1,42 +1,55 @@
 ﻿@model List<SAcademy.Models.Contact>
 
-<div id="contact">
+<div id="contact" class="contact p-3">
 @foreach (var item in Model)
 {
         if(item.Visible == true)
         {
             var size = string.Concat(item.TitleSize, "px");
+            var mapwidth = string.Concat(item.MapWidth, "%");
+            var mapHeight = string.Concat(item.MapHeight, "%");
 
             <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
-            @Html.Raw(item.Content)
+            <p>@Html.Raw(item.Content)</p>
             <br />
-            <br />
-            <div class="d-flex flex-row justify-content-center">
-                <div class="m-auto">
+            <div class="row">
+                <div class="col-lg-5 d-flex align-items-stretch">
                     <div class="info">
-                        <div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4 style="color:@item.LocalColor;">Localisation :</h4>
-                            <p>@item.Localisation</p>
+                        <div class="address d-flex">
+                            <div>
+                                <img style="width: 25px;" src="~/img/location.png" alt="">
+                            </div>
+                            <div>
+                                <h4 style="color:@item.LocalColor;">Localisation :</h4>
+                                <p>@item.Localisation</p>
+                            </div>
                         </div>
 
-                        <div class="email">
-                            <i class="bi bi-envelope"></i>
-                            <h4 style="color:@item.EmailColor;">Email :</h4>
-                            <p>@item.Email</p>
+                        <div class="email d-flex">
+                            <div>
+                                <img style="width: 25px;" src="~/img/email.png" alt="">
+                            </div>
+                            <div>
+                                <h4 style="color:@item.EmailColor;">Email :</h4>
+                                <p>@item.Email</p>
+                            </div>
                         </div>
 
-                        <div class="phone">
-                            <i class="bi bi-phone"></i>
-                            <h4 style="color:@item.CallColor;">Phone :</h4>
-                            <p>@("0" + item.Call)</p>
+                        <div class="phone d-flex">
+                            <div>
+                                <img style="width: 25px;" src="~/img/phone.png" alt="">
+                            </div>
+                            <div>
+                                <h4 style="color:@item.CallColor;">Phone :</h4>
+                                <p>@("0" + item.Call)</p>
+                            </div>
                         </div>
-                        <iframe src="@item.Maps" width="@item.MapWidth" height="@item.MapHeight" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe class="maps" src="@item.Maps" width="@mapwidth" height="@mapHeight" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
-                <div class="m-auto">
-                    <form action="" method="POST" class="">
+                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                    <form action="" method="POST" class="php-email-form">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Your Name</label>

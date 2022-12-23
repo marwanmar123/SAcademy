@@ -274,6 +274,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<byte[]>("Logo")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<bool?>("Visible")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("Footers");

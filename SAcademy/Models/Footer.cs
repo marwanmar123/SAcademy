@@ -11,5 +11,7 @@ namespace SAcademy.Models
         public string? ContentNews { get; set; }
         public string? ContentCopyRight { get; set; }
         public string? Background { get; set; }
+        public Boolean? Visible { get; set; } = true;
+
     }
 }

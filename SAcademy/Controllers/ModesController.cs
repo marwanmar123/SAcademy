@@ -25,6 +25,11 @@ namespace SAcademy.Controllers
               return View(await _context.Modes.ToListAsync());
         }
 
+        public async Task<IActionResult> GetModeAPI()
+        {
+            return Ok(await _context.Modes.ToListAsync());
+        }
+
         // GET: Modes/Details/5
         public async Task<IActionResult> Details(string id)
         {

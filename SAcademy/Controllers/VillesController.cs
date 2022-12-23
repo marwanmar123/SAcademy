@@ -25,7 +25,11 @@ namespace SAcademy.Controllers
               return View(await _context.Villes.ToListAsync());
         }
 
-        
+        public async Task<IActionResult> GetVilleAPI()
+        {
+            return Ok(await _context.Villes.ToListAsync());
+        }
+
         // GET: Villes/Create
         public IActionResult Create()
         {

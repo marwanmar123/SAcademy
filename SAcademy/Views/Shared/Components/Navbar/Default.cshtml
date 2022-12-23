@@ -1,26 +1,34 @@
 ﻿@model SAcademy.ViewModel.NavViewModel
 
-@foreach(var item in Model.Home)
+
+@foreach (var item in Model.Home)
 {
-    <div class="d-flex justify-content-between p-3" style="background:@item.BgNav;">
-        <div>
-            @if(item.Logo != null)
-            { 
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
-            }else{
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;" src="~/img/logoFooter.png" /></a>
-            }
+    <nav class="nav-bar" style="background:@item.BgNav;">
+        <div class="nav-hold">
+            <div class="nav-logo">
+                @if (item.Logo != null)
+                {
+                    <a class="" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;"
+                    src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
+                }
+                else
+                {
+                    <a class="" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;"
+                    src="~/img/logoFooter.png" /></a>
+                }
+            </div>
+            <div class="nav-menu pt-3" id="nav"><img style="width:40px; color:white;" src="~/img/menu.png"></div>
+            <ul class="nav-items">
+                @foreach (var n in Model.Menu)
+                {
+                    var size = string.Concat(n.Size, "px");
+                    <li class="pt-3">
+                        <a class="mr-3" href="@n.Link" style="color:@n.Color; font-size:@size;">@n.TitleMenu</a>
+                    </li>
+                }
+            </ul>
         </div>
-        <div class="">
-            <ul class="navbar-nav d-flex flex-row">
-                    @foreach(var n in Model.Menu)
-                    {
-                         var size = string.Concat(n.Size, "px");
-                        <li class="nav-item">
-                        <a class="nav-link mr-3" href="@n.Link" style="color:@n.Color; font-size:@size;">@n.TitleMenu</a>
-                        </li>
-                    }
-                </ul>
-        </div>
+    </nav>
+    <div class="main-content">
     </div>
 }

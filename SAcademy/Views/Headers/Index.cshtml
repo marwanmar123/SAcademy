@@ -2,7 +2,7 @@
 
 @{
     Layout = "_LayoutDashboard";
-    
+
 }
 
 
@@ -10,41 +10,47 @@
     <a asp-action="Create">O</a>
 </p>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
 
-    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditHeader-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
-        <img src="~/img/edit.png" >
+    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal"
+    data-target="@("#EditHeader-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+        <img src="~/img/edit.png">
     </button>
     @await Html.PartialAsync("_EditHeaderPartialView",item)
 
     var height = string.Concat(item.HeightSection, "em");
-    var Top = string.Concat(item.BVTopSize, "px");
-    var left = string.Concat(item.BVLeftSize, "px");
+    var Top = string.Concat(item.BVTopSize, "%");
+    var left = string.Concat(item.BVLeftSize, "%");
     var size = string.Concat(item.BVSize, "px");
-    if(item.Background != null)
+    if (item.Background != null)
     {
-        <div class="ok" style="background-image:url(data:image/*;base64,@Convert.ToBase64String(item.Background)); height:@height;">
+        <div class="ok"
+    style="background-image:url(data:image/*;base64,@Convert.ToBase64String(item.Background)); height:@height;">
             @Html.Raw(item.Content)
-            <div class="position-relative" style="top:@Top; left:@left;" >
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
-                @if(item.Video != null)
+            <div class="position-relative" style="top:@Top; left:@left;">
+                <a class="btn font-weight-bold pl-4 pr-4" href="#"
+            style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
+                @if (item.Video != null)
                 {
-                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
+                    <a class="" href="@item.Video" style="background:@item.ButtonBgColor; border-radius:100%;"><img
+                src="~/img/play.png"></a>
                 }
-                <a class="" href="#" style="background:@item.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
             </div>
         </div>
-    }else
+    }
+    else
     {
         <div class="ok" style="background:red; height:@height;">
             @Html.Raw(item.Content)
             <div class="position-relative" style="top:@Top; left:@left;">
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
-                @if(item.Video != null)
+                <a class="btn font-weight-bold pl-4 pr-4" href="#"
+            style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
+                @if (item.Video != null)
                 {
-                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Video</a>
-                }       
-                <a class="" href="#" style="background:@item.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
+                    <a class="" href="@item.Video" style="background:@item.ButtonBgColor; border-radius:100%;"><img
+                src="~/img/play.png"></a>
+                }
             </div>
         </div>
     }

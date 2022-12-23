@@ -13,6 +13,7 @@
 
 
 <script>
+
     $.ajax({
         url: '/FTypes/GetTypeAPI',
         type: 'GET',
@@ -65,11 +66,8 @@
                     );
                 }
             });
-        }, 300)
+        }, 500)
     }
-
-
-
 
     function get_All() {
         $("#formations").load(location.href + " #formations");
@@ -84,12 +82,12 @@
                         $.each(res, function (index, option) {
                             $("#formations").append(
                                 `
-                                    <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-                                        <p style="">${option.duration}</p>
-                                        <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
-                                    </div>
-                                `
+                                        <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
+                                            <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
+                                            <p style="">${option.duration}</p>
+                                            <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
+                                        </div>
+                                    `
                             );
 
                         });
@@ -98,15 +96,44 @@
                 error: function (errorThrown) {
                     $("#formations").append(
                         `
-                            <h1>Error</h1>
-                        `
+                                <h1>Error</h1>
+                            `
                     );
                 }
             });
-        }, 300)
+        }, 500)
     }
 
-    $(document).ready(get_All);
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Formations/GetFormationAPI',
+            type: 'GET',
+            success: function (res) {
+                if (res.length == 0) {
+                    $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                } else {
+                    $.each(res, function (index, option) {
+                        $("#formations").append(
+                            `
+                                            <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
+                                                <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
+                                                <p style="">${option.duration}</p>
+                                                <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
+                                            </div>
+                                        `
+                        );
 
+                    });
+                }
+            },
+            error: function (errorThrown) {
+                $("#formations").append(
+                    `
+                                    <h1>Error</h1>
+                                `
+                );
+            }
+        });
+    });
 </script>
 

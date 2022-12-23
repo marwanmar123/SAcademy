@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using SAcademy.ViewModel;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SAcademy.Controllers
 {
@@ -18,12 +21,28 @@ namespace SAcademy.Controllers
         {
             _context = context;
         }
-         
+
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville);
-            return View(await applicationDbContext.ToListAsync());
+            var fomramtion = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville);
+            return View(await fomramtion.ToListAsync());
+        }
+
+
+
+        public async Task<IActionResult> Filter([FromQuery] string villeId, string typeId, string modeId)
+        {
+            List<Formation> formations = new List<Formation>();
+            if (villeId != null || typeId != null || modeId != null)
+            {
+
+                formations = await _context.Formations.Include(f => f.Ville).Include(f => f.Type).Include(f => f.Mode)
+                   .Where(f => f.VilleId == villeId && f.TypeId == typeId && f.ModeId == modeId)
+                   .ToListAsync();
+
+            }
+            return Ok(formations);
         }
 
         // GET: FormationsAPI
@@ -38,15 +57,15 @@ namespace SAcademy.Controllers
         {
             var formations = await _context.Formations.AsNoTracking().Include(f => f.Type).Where(f => f.TypeId == formationTypeId).Select(s => new Formation
             {
-               Id = s.Id,
-               Title = s.Title,
-               Duration = s.Duration,
-               TypeId = s.TypeId,
-               OffreFColor= s.OffreFColor,
-               OffreFBgColor= s.OffreFBgColor,
-               OffreFSize= s.OffreFSize,
-               OffreFBgColorButton= s.OffreFBgColorButton
-               
+                Id = s.Id,
+                Title = s.Title,
+                Duration = s.Duration,
+                TypeId = s.TypeId,
+                OffreFColor = s.OffreFColor,
+                OffreFBgColor = s.OffreFBgColor,
+                OffreFSize = s.OffreFSize,
+                OffreFBgColorButton = s.OffreFBgColorButton
+
             }).ToListAsync();
             return Ok(formations);
         }
@@ -200,7 +219,7 @@ namespace SAcademy.Controllers
 
         private bool FormationExists(string id)
         {
-          return _context.Formations.Any(e => e.Id == id);
+            return _context.Formations.Any(e => e.Id == id);
         }
 
 
@@ -224,7 +243,7 @@ namespace SAcademy.Controllers
         {
             var register = await _context.Registrations.FirstOrDefaultAsync(m => m.Id == id);
 
-            if(register != null)
+            if (register != null)
             {
                 _context.Remove(register);
             }

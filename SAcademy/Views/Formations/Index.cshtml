@@ -11,80 +11,233 @@
     </ol>
 </nav>
 
+<div class="row w-100">
+    <div class="col-2" id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Type ▼
+                    </button>
+                </h5>
+            </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ville)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                <p class="descFormation">@Html.DisplayFor(modelItem => item.Description)</p>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mode.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ville.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type.Name)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">register</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="" id="ftype"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        Ville ▼
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="villes"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        Mode ▼
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="modes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="formation"></div>
+</div>
+
+
+
+
+
+
+<script>
+
+
+
+
+    $.ajax({
+        url: '/Villes/GetVilleAPI',
+        type: 'GET',
+        success: function (res) {
+            $.each(res, function (index, option) {
+                $("#villes").append(
+                    `
+                                    <div class="d-flex">
+                                        <input type="checkbox" class="villeId" name="villes" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                    </div>
+                                `
+                );
+            });
+        }
+    });
+
+    $.ajax({
+        url: '/FTypes/GetTypeAPI',
+        type: 'GET',
+        success: function (res) {
+            $.each(res, function (index, option) {
+                $("#ftype").append(
+                    `
+                        <div class="d-flex">
+                            <input type="checkbox" class="typeId" name="types" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                        </div>
+                    `
+                );
+            });
+        }
+    });
+
+
+    $.ajax({
+        url: '/Modes/GetModeAPI',
+        type: 'GET',
+        success: function (res) {
+            $.each(res, function (index, option) {
+                $("#modes").append(
+                    `
+                        <div class="d-flex">
+                            <input type="checkbox" class="modeId" name="modes" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                        </div>
+                    `
+                );
+            });
+        }
+    });
+
+
+    //function get_Formation(villeId, typeId, modeId) {
+    //    $("#formation").load(location.href + " #formation");
+    //    setTimeout(function () {
+    //        $.ajax({
+    //            url: '/Formations/Filter',
+    //            data: {
+    //                villeId: villeId,
+    //                typeId: typeId,
+    //                modeId: modeId
+    //            },
+    //            type: 'GET',
+    //            //beforeSend: function () {
+    //            //    $("#loader").show();
+    //            //},
+    //            //complete: function () {
+    //            //    $("#loader").hide();
+    //            //},
+    //            success: function (res) {
+    //                console.log(res);
+    //                if (res.length == 0) {
+    //                    $("#formation").append(`<h1 class="text-center">No Data</h1>`)
+    //                } else {
+    //                    console.log(res);
+    //                    $.each(res, function (index, option) {
+    //                        $("#formation").append(
+    //                            `
+    //                                <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
+    //                                    <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
+    //                                    <p style="">${option.duration}</p>
+    //                                    <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
+    //                                </div>
+    //                            `
+    //                        );
+    //                    });
+    //                }
+
+    //            },
+    //            error: function (errorThrown) {
+    //                $("#formation").append(
+    //                    `
+    //                            <h1>Error</h1>
+    //                        `
+    //                );
+    //            }
+    //        });
+    //    }, 500)
+    //}
+
+
+    //$(document).ready(function () {
+    //    filterFormations()
+
+    //})
+    function filterFormations() {
+        //debugger
+        //$("#formation").load(location.href + " #formation");
+        var modeInputs = [];
+        var villeInputs = [];
+        var typeInputs = [];
+
+        $('.modeId').on('click', function () {
+            debugger;
+            var modes = $('[name="modes"]');
+            $(this).each(modes, function () {
+                debugger;
+                if ($(this).is(":checked")) {
+                    modeInputs.push($(this).val())
+                }
+            })
+            return modeInputs;
+        })
+
+        $('.villeId').on('click', function () {
+            var modes = $('[name="villes"]');
+            $.each(modes, function () {
+                if ($(this).is(":checked")) {
+                    villeInputs.push($(this).val())
+                }
+            })
+            return villeInputs;
+        })
+
+        $('.typeId').on('click', function () {
+            var modes = $('[name="types"]');
+            $.each(modes, function () {
+                if ($(this).is(":checked")) {
+                    typeInputs.push($(this).val())
+                }
+            })
+            return typeInputs;
+        })
+
+        $.ajax({
+            url: '/Formations/Filter',
+            type: 'GET',
+            data: {
+                modeId: modeInputs.join(','),
+                typeId: typeInputs.join(','),
+                villeId: villeInputs.join(','),
+            },
+            success: function (data) {
+                console.log(data)
+                $.each(data, function (index, option) {
+                    $("#formation").append(
+                        `
+                            <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
+                                <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
+                            </div>
+                        `
+                    );
+                });
+
+            }
+        });
+    }
+
+
+</script>

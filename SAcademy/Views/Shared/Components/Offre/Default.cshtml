@@ -1,11 +1,11 @@
 ﻿@model List<SAcademy.Models.Offre>
 
 
-<div class="text-center" id="offres">
+<div class="text-center p-3" id="offres">
 
     @foreach (var item in Model)
     {
-        if(item.Visible == true)
+        if (item.Visible == true)
         {
             var size = string.Concat(item.TitleSize, "px");
             <p class="text-center p-3" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
@@ -13,5 +13,5 @@
             <partial name="_Offres" />
         }
     }
-    
+
 </div>

@@ -4,20 +4,24 @@
 @foreach (var header in Model)
 {
     var height = string.Concat(header.HeightSection, "em");
-    var Top = string.Concat(header.BVTopSize, "px");
-    var left = string.Concat(header.BVLeftSize, "px");
+    var Top = string.Concat(header.BVTopSize, "%");
+    var left = string.Concat(header.BVLeftSize, "%");
     var size = string.Concat(header.BVSize, "px");
     if (header.Background != null)
     {
-        <div class="Header" style="background-image:url(data:image/*;base64,@Convert.ToBase64String(header.Background)); height:@height;">
-            @Html.Raw(header.Content)
-            <div class="position-relative" style="top:@Top; left:@left; width:300px;">
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
+        <div class="Header"
+    style="background-image:url(data:image/*;base64,@Convert.ToBase64String(header.Background)); height:@height;">
+            <div class="Header-Content">
+                @Html.Raw(header.Content)
+            </div>
+            <div class="position-relative buttonHeader" style="top:@Top; left:@left; width:300px;">
+                <a class="btn font-weight-bold pl-4 pr-4" href="/formations"
+            style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
                 @if (header.Video != null)
                 {
-                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Video</a>
+                    <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
+                src="~/img/play.png"></a>
                 }
-                <a class="" href="#" style="background:@header.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
             </div>
         </div>
     }
@@ -26,12 +30,13 @@
         <div class="Header" style="background:red; height:@height;">
             @Html.Raw(header.Content)
             <div class="position-relative" style="top:@Top; left:@left; width:300px;">
-                <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
+                <a class="btn font-weight-bold pl-4 pr-4" href="/formations"
+            style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
                 @if (header.Video != null)
                 {
-                    <a class="btn font-weight-bold pl-4 pr-4" href="#" style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Video</a>
+                    <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
+                src="~/img/play.png"></a>
                 }
-                <a class="" href="#" style="background:@header.ButtonBgColor; border-radius:100%;"><img src="~/img/play.png"></a>
             </div>
         </div>
     }
