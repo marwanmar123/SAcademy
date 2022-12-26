@@ -25,23 +25,6 @@ namespace SAcademy.Controllers
               return View(await _context.Offres.ToListAsync());
         }
 
-        //// GET: Offres/Details/5
-        //public async Task<IActionResult> Details(string id)
-        //{
-        //    if (id == null || _context.Offres == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var offre = await _context.Offres
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (offre == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(offre);
-        //}
 
         // GET: Offres/Create
         public IActionResult Create()

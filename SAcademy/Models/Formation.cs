@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient.DataClassification;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SAcademy.Models
@@ -10,9 +11,14 @@ namespace SAcademy.Models
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Duration { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MMMM yyyy}")]
         public DateTime StartDay { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MMMM yyyy}")]
         public DateTime EndDay { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
         public DateTime StartTime { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
         public DateTime EndTime { get; set; }
         public string? Certificate { get; set; }
         public string? Presentation { get; set; }

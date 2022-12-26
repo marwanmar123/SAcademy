@@ -9,6 +9,5 @@ namespace SAcademy.Models
         public string? Content { get; set; }
         public string? ContentBgColor { get; set; }
         public int? ContentHeight { get; set; }
-        public string? DescriptionFilter { get; set; }
     }
 }

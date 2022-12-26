@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "E2og3UWE3SFtC0RzDQxMTXNVaXgko/q2pka9TjmAQQA=",
+  "Hash": "+BI7QsmE12sGCGXR/KnOLpJzaIok7cysQYajA9sgBHc=",
   "Source": "SAcademy",
   "BasePath": "_content/SAcademy",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\55.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\arrow.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/arrow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\arrow.png"
     },
     {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\dashboard.png",

@@ -43,24 +43,7 @@ namespace SAcademy.Controllers
             return View(formationData);
         }
 
-        //// GET: FormationPages/Details/5
-        //public async Task<IActionResult> Details(string id)
-        //{
-        //    if (id == null || _context.FormationPages == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var formationPage = await _context.FormationPages
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (formationPage == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(formationPage);
-        //}
-
+        
         // GET: FormationPages/Create
         public IActionResult Create()
         {
@@ -69,7 +52,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Content,ContentBgColor,ContentHeight,DescriptionFilter")] FormationPage formationPage)
+        public async Task<IActionResult> Create([Bind("Id,Content,ContentBgColor,ContentHeight")] FormationPage formationPage)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +81,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Content,ContentBgColor,ContentHeight,DescriptionFilter")] FormationPage formationPage)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Content,ContentBgColor,ContentHeight")] FormationPage formationPage)
         {
             if (id != formationPage.Id)
             {

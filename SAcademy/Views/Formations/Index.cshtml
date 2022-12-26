@@ -5,67 +5,91 @@
 }
 @await Component.InvokeAsync("FormationPage")
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-transparent">
-        <li class="breadcrumb-item text-center"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+    <ol class="breadcrumb bg-transparent pl-5">
+        <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
         <li class="breadcrumb-item active" aria-current="page">Nos Formation</li>
     </ol>
 </nav>
+<div class="container">
 
-<div class="row w-100">
-    <div class="col-2" id="accordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Type ▼
-                    </button>
-                </h5>
+    <div class="row p-4">
+        <div class="col-3" id="accordion">
+            <div class="card border-0 w-75">
+                <h3>Filtrer Par</h3>
+                <hr class="w-75 p-0" />
+                <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span class="pr-5 text-dark">Type</span>
+                            <img class="" style="width:26px; margin-left:2.4em;" src="~/img/arrow.png" />
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="" id="ftype"></div>
+                    </div>
+                </div>
+                <hr class="w-75 p-0" />
             </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <div class="" id="ftype"></div>
+            <div class="card border-0 w-75">
+                <div class="card-header bg-transparent border-0 pl-0" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <span class="pr-5 text-dark">Ville</span>
+                            <img class="" style="width:26px; margin-left:2.7em;" src="~/img/arrow.png" />
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div id="villes"></div>
+                    </div>
+                </div>
+                <hr class="w-75 p-0" />
+            </div>
+            <div class="card border-0 w-75">
+                <div class="card-header bg-transparent border-0 pl-0" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <span class="pr-5 text-dark">Mode</span>
+                            <img class="" style="width:26px; margin-left:2em;" src="~/img/arrow.png" />
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div id="modes"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
-                        Ville ▼
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    <div id="villes"></div>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                        Mode ▼
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                    <div id="modes"></div>
-                </div>
-            </div>
+
+        <div class="col-9 float-right p-3">
+            @{
+                string result = null;
+                if (Model.Count() > 0)
+                {
+                    result = "nombre de formation disponible actuellement : " + " " + Model.Count().ToString();
+                }
+                else
+                {
+                    result = "Aucune Formation pour l'instant";
+                }
+            }
+            <h5>@result</h5>
+            <div id="formation"></div>
         </div>
     </div>
-    <div id="formation"></div>
+
 </div>
-
-
-
-
+@* @{
+    var date = @Html.DisplayFor(modelItem => Model.StartDay);
+    } *@
 
 
 <script defer>
@@ -80,10 +104,10 @@
             $.each(res, function (index, option) {
                 $("#villes").append(
                     `
-                                    <div class="d-flex">
-                                            <input type="checkbox" class="villeId common" name="villes" onClick="filterFormations()" value="${option.id}"> ${option.name}
-                                    </div>
-                                `
+                        <div class="d-flex">
+                                <input type="checkbox" style="width:26px;" class="villeId common" name="villes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4" style="font-size:26px;">${option.name}</span>
+                        </div>
+                    `
                 );
             });
         }
@@ -97,7 +121,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex">
-                                <input type="checkbox" class="typeId common" name="types" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                        <input type="checkbox"  style="width:26px;" class="typeId common" name="types" onClick="filterFormations()" value="${option.id}"> <span class="pl-4" style="font-size:26px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -114,7 +138,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                                <input type="checkbox" class="modeId common" name="modes" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                            <input type="checkbox" style="width:26px;" class="modeId common" name="modes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4"  style="font-size:26px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -123,154 +147,91 @@
     });
 
 
-    //function get_Formation(villeId, typeId, modeId) {
-    //    $("#formation").load(location.href + " #formation");
-    //    setTimeout(function () {
-    //        $.ajax({
-    //            url: '/Formations/Filter',
-    //            data: {
-    //                villeId: villeId,
-    //                typeId: typeId,
-    //                modeId: modeId
-    //            },
-    //            type: 'GET',
-    //            //beforeSend: function () {
-    //            //    $("#loader").show();
-    //            //},
-    //            //complete: function () {
-    //            //    $("#loader").hide();
-    //            //},
-    //            success: function (res) {
-    //                console.log(res);
-    //                if (res.length == 0) {
-    //                    $("#formation").append(`<h1 class="text-center">No Data</h1>`)
-    //                } else {
-    //                    console.log(res);
-    //                    $.each(res, function (index, option) {
-    //                        $("#formation").append(
-    //                            `
-    //                                <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-    //                                    <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-    //                                    <p style="">${option.duration}</p>
-    //                                    <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
-    //                                </div>
-    //                            `
-    //                        );
-    //                    });
-    //                }
-
-    //            },
-    //            error: function (errorThrown) {
-    //                $("#formation").append(
-    //                    `
-    //                            <h1>Error</h1>
-    //                        `
-    //                );
-    //            }
-    //        });
-    //    }, 500)
-    //}
 
 
- 
+
+    filterFormations();
+
+    $('.common').click(function () {
         filterFormations();
+    });
+    function filterFormations() {
 
-        $('.common').click(function () {
-            filterFormations();
-        });
-        function filterFormations() {
-            //debugger
-            //$("#formation").load(location.href + " #formation");
-            /* 
-            var modeInputs = [];
-            var villeInputs = [];
-            var typeInputs = [];
+        //debugger
+        var modes = get_filter('modeId');
+        var types = get_filter('typeId');
+        var villes = get_filter('villeId');
 
-            $('.modeId').on('click', function () {
-                debugger;
-                var modes = $('[name="modes"]');
-                $(this).each(modes, function () {
-                    debugger;
-                    if ($(this).is(":checked")) {
-                        modeInputs.push($(this).val())
-                    }
-                })
-                return modeInputs;
-            })
-
-            $('.villeId').on('click', function () {
-                var modes = $('[name="villes"]');
-                $.each(modes, function () {
-                    if ($(this).is(":checked")) {
-                        villeInputs.push($(this).val())
-                    }
-                })
-                return villeInputs;
-            })
-
-            $('.typeId').on('click', function () {
-                var modes = $('[name="types"]');
-                $.each(modes, function () {
-                    if ($(this).is(":checked")) {
-                        typeInputs.push($(this).val())
-                    }
-                })
-                return typeInputs;
-            })
-            */
-            debugger
-            var modes = get_filter('modeId');
-            var types = get_filter('typeId');
-            var villes = get_filter('villeId');
-
-            $.ajax({
-                url: '/Formations/Filter',
-                type: 'GET',
-                data: {
-                    modeId: modes?.join(','),
-                    typeId: types?.join(','),
-                    villeId: villes?.join(','),
-                },
-                success: function (data) {
-                    console.log(data)
-                    if(data && data.length>0){
-                    $("#formation").html('')
+        $.ajax({
+            url: '/Formations/Filter',
+            type: 'GET',
+            data: {
+                modeId: modes?.join(','),
+                typeId: types?.join(','),
+                villeId: villes?.join(','),
+            },
+            success: function (data) {
+                 
+                console.log(data)
+                if (data && data.length > 0) {
+                    $("#formation").html('') 
                     $.each(data, function (index, option) {
-
+                        var ds = option.startDay.toString().split('T')[0];
+                        var de = option.endDay.toString().split('T')[0];
+                        var time1 = option.startTime;
+                        var time2 = option.endTime;
+                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
                         $("#formation").append(
                             `
-                            <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-                                <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-                            </div>
+                                <div class="row formation p-3 mb-3 w-100 float-right">
+                                        <div class="col-3 p-2 text-center">
+                                            <img src="/img/icons/time.png" style="width:3em;"/>
+                                            <h5>${ds}<span class="text-muted"> => </span><br/>${de}</h5>
+                                            <h6>${st} => ${et}</h6>
+                                            <img src="/img/icons/iconForm1.png" style="width:3em;"/>
+                                            <img src="/img/icons/iconForm2.png" style="width:3em;"/>
+                                            <img src="/img/icons/iconForm4.png" style="width:3em;"/>
+                                        </div>
+                                        <div class="col-6 p-2 w-50 text-center">
+                                            <h5>${option.title}</h5>
+                                            <p class="descFormation">${option.description}</p>
+                                            <h5><span class="text-muted">ville: </span>${option.ville.name}</h5>
+                                        </div>
+                                            <div class="col-3 p-2 text-center">
+                                            <img src="/img/icons/iconForm3.png" style="width:3em;"/>
+                                            <h5>${option.type.name}</h5>
+                                            <h6 class="mb-4">${option.mode.name}</h6>
+                                            <a href="formations/details/${option.id}" class=" inscription">Inscription</a>
+                                        </div>
+                                </div>
                         `
                         );
                     });
-                    }else{
+                } else {
                     $("#formation").append(
-                            `
+                        `
                                 <div class="col-3 m-2 p-3" >
-                                  
+
                                 </div>
                             `
-                        );
-                    }
-
+                    );
                 }
-            });
-        }
+
+            }
+        });
+    }
 
 
+    function get_filter(class_name) {
+        var filter = [];
+        $('.' + class_name + ':checked').each(function () {
+            filter.push($(this).val());
+        });
+        return filter;
+    }
 
 
-        function get_filter(class_name) {
-            var filter = [];
-            $('.' + class_name + ':checked').each(function () {
-                filter.push($(this).val());
-            });
-            return filter;
-        }
-
-  
 
 
 

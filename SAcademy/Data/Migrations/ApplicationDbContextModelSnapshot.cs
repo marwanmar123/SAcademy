@@ -365,9 +365,6 @@ namespace SAcademy.Data.Migrations
                     b.Property<int?>("ContentHeight")
                         .HasColumnType("int");
 
-                    b.Property<string>("DescriptionFilter")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("FormationPages");

@@ -18,10 +18,10 @@
             <h5>@Model.Title</h5>
             <p>@Model.Description</p>
             <p>@Model.Duration</p>
-            <p>@Model.StartDay</p>
-            <p>@Model.EndDay</p>
-            <p>@Model.StartTime</p>
-            <p>@Model.EndTime</p>
+            <p>@Html.DisplayFor(modelItem => Model.StartDay)</p>
+            <p>@Html.DisplayFor(modelItem => Model.EndDay)</p>
+            <p>@Html.DisplayFor(modelItem => Model.StartTime)</p>
+            <p>@Html.DisplayFor(modelItem => Model.EndTime)</p>
             <p>@Model.Mode.Name</p>
             <p>@Model.Ville.Name</p>
             <p>@Model.Type.Name</p>

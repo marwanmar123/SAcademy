@@ -4,7 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="modal fade" id="CreateFormation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="CreateFormation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width:1000px;">
         <div class="modal-content">
             <div class="modal-header">
@@ -33,22 +34,22 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="StartDay" class="control-label"></label>
-                        <input asp-for="StartDay" class="form-control" />
+                        <input type="date" asp-for="StartDay" class="form-control" />
                         <span asp-validation-for="StartDay" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="EndDay" class="control-label"></label>
-                        <input asp-for="EndDay" class="form-control" />
+                        <input type="date" asp-for="EndDay" class="form-control" />
                         <span asp-validation-for="EndDay" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="StartTime" class="control-label"></label>
-                        <input asp-for="StartTime" class="form-control" />
+                        <input type="time" asp-for="StartTime" class="form-control" />
                         <span asp-validation-for="StartTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="EndTime" class="control-label"></label>
-                        <input asp-for="EndTime" class="form-control" />
+                        <input type="time" asp-for="EndTime" class="form-control" />
                         <span asp-validation-for="EndTime" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -68,18 +69,19 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="ModeId" class="control-label"></label>
-                        <select asp-for="ModeId" class ="form-control" asp-items="ViewBag.ModeId"></select>
+                        <select asp-for="ModeId" class="form-control" asp-items="ViewBag.ModeId"></select>
                     </div>
                     <div class="form-group">
                         <label asp-for="VilleId" class="control-label"></label>
-                        <select asp-for="VilleId" class ="form-control" asp-items="ViewBag.VilleId"></select>
+                        <select asp-for="VilleId" class="form-control" asp-items="ViewBag.VilleId"></select>
                     </div>
                     <div class="form-group">
                         <label asp-for="TypeId" class="control-label"></label>
-                        <select asp-for="TypeId" class ="form-control" asp-items="ViewBag.TypeId"></select>
+                        <select asp-for="TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save"
+                            style="border-radius:25px; background:black;">
                             <img src="~/img/plus.png" style="width:1.3em;">
                             Ajouter
                         </button>
@@ -94,7 +96,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
 <script>
@@ -161,6 +163,3 @@
         ],
     });
 </script>
-
-
-
