@@ -276,3 +276,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\refint\SAc
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\SAcademy.pdb
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\SAcademy.genruntimeconfig.cache
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\ref\SAcademy.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MailKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MimeKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\BouncyCastle.Crypto.dll

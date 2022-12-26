@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SAcademy.Data;
 using SAcademy.Models;
 using SAcademy.ViewModel;
@@ -33,14 +34,26 @@ namespace SAcademy.Controllers
 
         public async Task<IActionResult> Filter([FromQuery] string villeId, string typeId, string modeId)
         {
+            // Console.WriteLine("VV ", villeId.Split(','));
+            // Console.WriteLine("TT ", typeId.Split(','));
+            // Console.WriteLine("MM ", modeId.Split(','));
+
             List<Formation> formations = new List<Formation>();
-            if (villeId != null || typeId != null || modeId != null)
+            var query = _context.Formations.Include(f => f.Ville).Include(f => f.Type).Include(f => f.Mode).AsQueryable();
+            if (!string.IsNullOrEmpty(villeId) || !string.IsNullOrEmpty(typeId) || !string.IsNullOrEmpty(modeId))
             {
 
-                formations = await _context.Formations.Include(f => f.Ville).Include(f => f.Type).Include(f => f.Mode)
-                   .Where(f => f.VilleId == villeId && f.TypeId == typeId && f.ModeId == modeId)
-                   .ToListAsync();
+                string[] villes = villeId != null ? villeId.Split(',') : new string[] { };
+                string[] types = typeId != null ? typeId.Split(',') : new string[] { };
+                string[] modes = modeId != null ? modeId.Split(',') : new string[] { };
+                var select = query.Where(f => villes.Contains(f.VilleId) || types.Contains(f.TypeId) || modes.Contains(f.ModeId) );
+                
+                formations = await select.ToListAsync();
 
+            }
+            else
+            {
+                formations = await query.ToListAsync();
             }
             return Ok(formations);
         }

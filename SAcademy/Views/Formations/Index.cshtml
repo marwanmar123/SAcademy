@@ -68,7 +68,7 @@
 
 
 
-<script>
+<script defer>
 
 
 
@@ -81,7 +81,7 @@
                 $("#villes").append(
                     `
                                     <div class="d-flex">
-                                        <input type="checkbox" class="villeId" name="villes" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                            <input type="checkbox" class="villeId common" name="villes" onClick="filterFormations()" value="${option.id}"> ${option.name}
                                     </div>
                                 `
                 );
@@ -97,7 +97,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" class="typeId" name="types" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                <input type="checkbox" class="typeId common" name="types" onClick="filterFormations()" value="${option.id}"> ${option.name}
                         </div>
                     `
                 );
@@ -114,7 +114,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" class="modeId" name="modes" onClick="filterFormations()" value="${option.id}"> ${option.name}
+                                <input type="checkbox" class="modeId common" name="modes" onClick="filterFormations()" value="${option.id}"> ${option.name}
                         </div>
                     `
                 );
@@ -172,72 +172,107 @@
     //}
 
 
-    //$(document).ready(function () {
-    //    filterFormations()
+ 
+        filterFormations();
 
-    //})
-    function filterFormations() {
-        //debugger
-        //$("#formation").load(location.href + " #formation");
-        var modeInputs = [];
-        var villeInputs = [];
-        var typeInputs = [];
+        $('.common').click(function () {
+            filterFormations();
+        });
+        function filterFormations() {
+            //debugger
+            //$("#formation").load(location.href + " #formation");
+            /* 
+            var modeInputs = [];
+            var villeInputs = [];
+            var typeInputs = [];
 
-        $('.modeId').on('click', function () {
-            debugger;
-            var modes = $('[name="modes"]');
-            $(this).each(modes, function () {
+            $('.modeId').on('click', function () {
                 debugger;
-                if ($(this).is(":checked")) {
-                    modeInputs.push($(this).val())
-                }
+                var modes = $('[name="modes"]');
+                $(this).each(modes, function () {
+                    debugger;
+                    if ($(this).is(":checked")) {
+                        modeInputs.push($(this).val())
+                    }
+                })
+                return modeInputs;
             })
-            return modeInputs;
-        })
 
-        $('.villeId').on('click', function () {
-            var modes = $('[name="villes"]');
-            $.each(modes, function () {
-                if ($(this).is(":checked")) {
-                    villeInputs.push($(this).val())
-                }
+            $('.villeId').on('click', function () {
+                var modes = $('[name="villes"]');
+                $.each(modes, function () {
+                    if ($(this).is(":checked")) {
+                        villeInputs.push($(this).val())
+                    }
+                })
+                return villeInputs;
             })
-            return villeInputs;
-        })
 
-        $('.typeId').on('click', function () {
-            var modes = $('[name="types"]');
-            $.each(modes, function () {
-                if ($(this).is(":checked")) {
-                    typeInputs.push($(this).val())
-                }
+            $('.typeId').on('click', function () {
+                var modes = $('[name="types"]');
+                $.each(modes, function () {
+                    if ($(this).is(":checked")) {
+                        typeInputs.push($(this).val())
+                    }
+                })
+                return typeInputs;
             })
-            return typeInputs;
-        })
+            */
+            debugger
+            var modes = get_filter('modeId');
+            var types = get_filter('typeId');
+            var villes = get_filter('villeId');
 
-        $.ajax({
-            url: '/Formations/Filter',
-            type: 'GET',
-            data: {
-                modeId: modeInputs.join(','),
-                typeId: typeInputs.join(','),
-                villeId: villeInputs.join(','),
-            },
-            success: function (data) {
-                console.log(data)
-                $.each(data, function (index, option) {
-                    $("#formation").append(
-                        `
+            $.ajax({
+                url: '/Formations/Filter',
+                type: 'GET',
+                data: {
+                    modeId: modes?.join(','),
+                    typeId: types?.join(','),
+                    villeId: villes?.join(','),
+                },
+                success: function (data) {
+                    console.log(data)
+                    if(data && data.length>0){
+                    $("#formation").html('')
+                    $.each(data, function (index, option) {
+
+                        $("#formation").append(
+                            `
                             <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
                                 <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
                             </div>
                         `
-                    );
-                });
+                        );
+                    });
+                    }else{
+                    $("#formation").append(
+                            `
+                                <div class="col-3 m-2 p-3" >
+                                  
+                                </div>
+                            `
+                        );
+                    }
 
-            }
-        });
-    }
+                }
+            });
+        }
+
+
+
+
+        function get_filter(class_name) {
+            var filter = [];
+            $('.' + class_name + ':checked').each(function () {
+                filter.push($(this).val());
+            });
+            return filter;
+        }
+
+  
+
+
 
 
 </script>
