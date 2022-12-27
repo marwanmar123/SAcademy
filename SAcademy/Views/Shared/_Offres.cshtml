@@ -10,8 +10,6 @@
 </div>
 
 
-
-
 <script>
 
     $.ajax({
@@ -20,7 +18,7 @@
         success: function (res) {
             $("#types").append(
                 `
-                    <p class="btn-type bg-dark text-light" onclick="get_All()">All</p>
+                    <p style="background:black;" class="btn-type text-light" onclick="get_All()">All</p>
                 `
             );
             $.each(res, function (index, option) {
@@ -47,10 +45,10 @@
                         $.each(res, function (index, option) {
                             $("#formations").append(
                                 `
-                                    <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-                                        <p style="">${option.duration}</p>
-                                        <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
+                                    <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                        <p style="">Durée ${option.duration}</p>
+                                        <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
                                     </div>
                                 `
                             );
@@ -82,10 +80,10 @@
                         $.each(res, function (index, option) {
                             $("#formations").append(
                                 `
-                                        <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-                                            <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-                                            <p style="">${option.duration}</p>
-                                            <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
+                                        <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                            <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                            <p style="">Durée ${option.duration}</p>
+                                            <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
                                         </div>
                                     `
                             );
@@ -115,12 +113,12 @@
                     $.each(res, function (index, option) {
                         $("#formations").append(
                             `
-                                            <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:9em; border-radius:5px;">
-                                                <p style="color:${option.offreFColor}; font-size:${option.offreFSize};font-weight:bold;">${option.title}</p>
-                                                <p style="">${option.duration}</p>
-                                                <a class="p-2 pl-3 pr-3" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:8px;">Details</a>
-                                            </div>
-                                        `
+                                <div data-aos="flip-left" class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                    <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                    <p style="">Durée ${option.duration}</p>
+                                    <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                </div>
+                            `
                         );
 
                     });

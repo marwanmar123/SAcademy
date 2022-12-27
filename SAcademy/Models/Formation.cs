@@ -32,9 +32,9 @@ namespace SAcademy.Models
         public ICollection<Registration>? Registration { get; set; }
 
         //Offres
-        public string? OffreFColor { get; set; }
-        public int? OffreFSize { get; set; }
-        public string? OffreFBgColor { get; set; }
-        public string? OffreFBgColorButton { get; set; }
+        public string? OffreFColor { get; set; } = "#000000";
+        public int? OffreFSize { get; set; } = 25;
+        public string? OffreFBgColor { get; set; } = "#FBFBFB";
+        public string? OffreFBgColorButton { get; set; } = "#CE0033";
     }
 }

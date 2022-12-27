@@ -26,5 +26,6 @@ namespace SAcademy.Data
         public DbSet<Footer> Footers { get; set; }
         public DbSet<Offre> Offres { get; set; }
         public DbSet<Home> Homes { get; set; }
+        public DbSet<Section> Sections { get; set; }
     }
 }

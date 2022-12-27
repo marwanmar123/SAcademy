@@ -49,6 +49,22 @@
       "PackagePath": "staticwebassets\\img\\home.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm1.png",
+      "PackagePath": "staticwebassets\\img\\iconForm1.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm2.png",
+      "PackagePath": "staticwebassets\\img\\iconForm2.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm3.png",
+      "PackagePath": "staticwebassets\\img\\iconForm3.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm4.png",
+      "PackagePath": "staticwebassets\\img\\iconForm4.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\info.png",
       "PackagePath": "staticwebassets\\img\\info.png"
     },
@@ -87,6 +103,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",
       "PackagePath": "staticwebassets\\img\\save.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\time.png",
+      "PackagePath": "staticwebassets\\img\\time.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\visible.png",

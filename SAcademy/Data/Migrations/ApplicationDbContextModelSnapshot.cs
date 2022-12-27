@@ -17,7 +17,7 @@ namespace SAcademy.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.11")
+                .HasAnnotation("ProductVersion", "6.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -578,6 +578,44 @@ namespace SAcademy.Data.Migrations
                     b.HasIndex("FormationId");
 
                     b.ToTable("Registrations");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.Section", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TitleSize")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Video")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("VideoHeight")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VideoWidth")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Visible")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("image")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sections");
                 });
 
             modelBuilder.Entity("SAcademy.Models.User", b =>

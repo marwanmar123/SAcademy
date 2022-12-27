@@ -279,3 +279,4 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\ref\SAcade
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MailKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MimeKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll

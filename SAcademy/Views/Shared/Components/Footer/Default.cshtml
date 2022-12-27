@@ -7,7 +7,7 @@
     if (item.Visible == true)
     {
         <footer class="p-4" style="background:@item.Background;">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between footer">
                 <div class="d-flex flex-column">
                     @if (item.Logo != null)
                     {
@@ -22,6 +22,7 @@
                     </div>
                 </div>
                 <div class="pt-2">
+                    <h5 class="text-light">Liens utiles</h5>
                     @await Component.InvokeAsync("NavFooter")
                 </div>
                 <div class="">

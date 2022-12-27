@@ -683,3 +683,20 @@ body {
 .container{
     max-width:97%;
 }
+
+/*.btn-type {
+    cursor:pointer;
+}
+.btn-type:focus {
+    border: 2px solid red !important;
+    border: 2em;
+    background:yellow;
+}*/
+
+@media screen and (max-width: 850px){
+    .footer{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+    }
+}

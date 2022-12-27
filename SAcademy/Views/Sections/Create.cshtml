@@ -1,0 +1,93 @@
+﻿@model SAcademy.Models.Section
+
+@{
+    Layout = "_LayoutDashboard";
+
+}
+
+<h1>Create</h1>
+
+<h4>Section</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TitleColor" class="control-label"></label>
+                <input type="color" asp-for="TitleColor" class="form-control" />
+                <span asp-validation-for="TitleColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TitleSize" class="control-label"></label>
+                <input type="number" asp-for="TitleSize" class="form-control" />
+                <span asp-validation-for="TitleSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea type="text" asp-for="Content" id="ContentS" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Video" class="control-label"></label>
+                <input asp-for="Video" class="form-control" />
+                <span asp-validation-for="Video" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="image" class="control-label"></label>
+                <input type="file" asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoWidth" class="control-label"></label>
+                <input type="number" asp-for="VideoWidth" class="form-control" />
+                <span asp-validation-for="VideoWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoHeight" class="control-label"></label>
+                <input type="number" asp-for="VideoHeight" class="form-control" />
+                <span asp-validation-for="VideoHeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<script>
+    $("#ContentS").summernote({
+        placeholder: "Content ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ],
+    });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
