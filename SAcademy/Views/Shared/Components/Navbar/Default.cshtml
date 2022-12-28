@@ -3,17 +3,20 @@
 
 @foreach (var item in Model.Home)
 {
+    var sizeLogo = string.Concat(item.LogoSize, "px");
     <nav class="nav-bar" style="background:@item.BgNav;">
         <div class="nav-hold">
             <div class="nav-logo">
                 @if (item.Logo != null)
                 {
-                    <a class="" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;"
+                    <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img style="width:@sizeLogo;"
                     src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
                 }
                 else
                 {
-                    <a class="" asp-area="" asp-controller="Home" asp-action="Index"><img style="width:100px;"
+                    <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img style="width:@sizeLogo;"
                     src="~/img/logoFooter.png" /></a>
                 }
             </div>
@@ -23,7 +26,7 @@
                 {
                     var size = string.Concat(n.Size, "px");
                     <li class="pt-3">
-                        <a class="mr-3" href="@n.Link" style="color:@n.Color; font-size:@size;">@n.TitleMenu</a>
+                        <a class="mr-3" href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold;">@n.TitleMenu</a>
                     </li>
                 }
             </ul>

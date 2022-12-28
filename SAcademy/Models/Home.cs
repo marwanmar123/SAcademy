@@ -8,5 +8,6 @@ namespace SAcademy.Models
         public string? Id { get; set; }
         public string? BgNav { get; set; }
         public byte[]? Logo { get; set; }
+        public string? LogoSize { get; set; }
     }
 }

@@ -12,17 +12,17 @@
 </nav>
 <div class="container">
 
-    <div class="row p-4">
-        <div class="col-3" id="accordion">
-            <div class="card border-0 w-75">
+    <div class="d-flex p-4 formations">
                 <h3>Filtrer Par</h3>
+        <div class="accordion" id="accordion" style="width:25%;">
+            <div class="card border-0 w-75">
                 <hr class="w-75 p-0" />
                 <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
                     <h5 class="mb-0">
                         <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <span class="pr-5 text-dark">Type</span>
-                            <img class="" style="width:26px; margin-left:2.4em;" src="~/img/arrow.png" />
+                            <img class="" style="width:1.5vw; margin-left:2.4em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
                 </div>
@@ -40,7 +40,7 @@
                         <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <span class="pr-5 text-dark">Ville</span>
-                            <img class="" style="width:26px; margin-left:2.7em;" src="~/img/arrow.png" />
+                            <img class="" style="width:1.5vw; margin-left:2.7em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
                 </div>
@@ -57,7 +57,7 @@
                         <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             <span class="pr-5 text-dark">Mode</span>
-                            <img class="" style="width:26px; margin-left:2em;" src="~/img/arrow.png" />
+                            <img class="" style="width:1.5vw; margin-left:2em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
                 </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <div class="col-9 float-right p-3">
+        <div class="float-right p-3 itemsFormation" style="width:70%;">
             @{
                 string result = null;
                 if (Model.Count() > 0)

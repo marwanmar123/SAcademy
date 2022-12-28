@@ -2,7 +2,7 @@
 
 
 <div class="modal fade" id="EditHeader-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width:1000px;">
+    <div class="modal-dialog" style="max-width:1500px;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Header</h5>
@@ -22,11 +22,11 @@
                         }
                         else
                         {
-                            <img id="background" style="width:150px;height:150px; object-fit:cover" src="~/img/doc.png">
+                            <img id="background" style="width:150px;height:150px; object-fit:cover" src="~/img/hero.jpg">
                         }
                         <input type="file"
-                               accept=".png,.jpg,.jpeg,.gif,.tif"
-                               asp-for="Background"
+                               asp-for="@Model.Background"
+                               value="@Model.Background"
                                class="w-100"
                                style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
                                onchange="document.getElementById('background').src = window.URL.createObjectURL(this.files[0])"
@@ -40,7 +40,7 @@
                         <span asp-validation-for="Content" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Button" class="control-label"></label>
+                        <label class="control-label"> Button Text</label>
                         <input asp-for="Button" class="form-control" />
                         <span asp-validation-for="Button" class="text-danger"></span>
                     </div>
@@ -50,32 +50,32 @@
                         <span asp-validation-for="Video" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="HeightSection" class="control-label"></label>
+                        <label class="control-label"> Height Section</label>
                         <input type="number" asp-for="HeightSection" class="form-control" />
                         <span asp-validation-for="HeightSection" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="BVTopSize" class="control-label"></label>
+                        <label class="control-label"> Button & video Top Size</label>
                         <input type="number" asp-for="BVTopSize" class="form-control" />
                         <span asp-validation-for="BVTopSize" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="BVLeftSize" class="control-label"></label>
+                        <label class="control-label"> Button & video Left Size</label>
                         <input type="number" asp-for="BVLeftSize" class="form-control" />
                         <span asp-validation-for="BVLeftSize" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="BVColor" class="control-label"></label>
+                        <label asp-for="BVColor" class="control-label"> Button & video Color </label>
                         <input type="color" asp-for="BVColor" class="form-control" />
                         <span asp-validation-for="BVColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="BVSize" class="control-label"></label>
+                        <label class="control-label"> Button & video Size</label>
                         <input type="number" asp-for="BVSize" class="form-control" />
                         <span asp-validation-for="BVSize" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ButtonBgColor" class="control-label"></label>
+                        <label class="control-label">  Button & video Background Color</label>
                         <input type="color" asp-for="ButtonBgColor" class="form-control" />
                         <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
                     </div>
@@ -106,6 +106,8 @@
     $("#Content").summernote({
         placeholder: "Content ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontSizes: ['1','2','3','4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
         tabsize: 2,
         height: 120,
@@ -113,6 +115,7 @@
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
             ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsize', 'fontsizeunit']],
             ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],

@@ -3,41 +3,62 @@
 
 @foreach (var header in Model)
 {
-    var height = string.Concat(header.HeightSection, "em");
+    var height = string.Concat(header.HeightSection, "vh");
     var Top = string.Concat(header.BVTopSize, "%");
     var left = string.Concat(header.BVLeftSize, "%");
     var size = string.Concat(header.BVSize, "px");
     if (header.Background != null)
     {
-        <div class="Header"
-    style="background-image:url(data:image/*;base64,@Convert.ToBase64String(header.Background)); height:@height;">
-            <div class="Header-Content" data-aos="fade-right">
-                @Html.Raw(header.Content)
-            </div>
-            <div class="position-relative buttonHeader" style="top:@Top; left:@left; width:300px;" data-aos="fade-right">
-                <a class="btn font-weight-bold pl-4 pr-4" href="/formations"
-            style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
-                @if (header.Video != null)
-                {
-                    <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
-                src="~/img/play.png"></a>
-                }
+        <div style="background: url(data:image/*;base64,@Convert.ToBase64String(header.Background)); height:@height;" class="bg-cover">
+            <div class="container py-5 content">
+                <p class="">@Html.Raw(header.Content)</p>
+                <div class="buttonHeader" style="top:@Top; left:@left; width:300px;" data-aos="fade-right">
+                    <a class="btn font-weight-bold" href="/formations"
+                        style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
+                        @if (header.Video != null)
+                        {
+                            <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
+                        src="~/img/play.png">
+                        </a>
+                    }
+                </div>
             </div>
         </div>
     }
     else
     {
-        <div class="Header" style="background:red; height:@height;" data-aos="fade-right">
-            @Html.Raw(header.Content)
-            <div class="position-relative" style="top:@Top; left:@left; width:300px;">
-                <a class="btn font-weight-bold pl-4 pr-4" href="/formations"
-            style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
-                @if (header.Video != null)
-                {
-                    <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
-                src="~/img/play.png"></a>
-                }
+        <div class="jumbotron bg-cover" style="background: url('img/hero.jpg'); height:@height;" data-aos="fade-right">
+            <div class="container py-5 content">
+                <p class="">@Html.Raw(header.Content)</p>
+                <div class="buttonHeader" style="top:@Top; left:@left; width:300px;" data-aos="fade-right">
+                    <a class="btn font-weight-bold" href="/formations"
+                    style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
+                    @if (header.Video != null)
+                    {
+                        <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;">
+                            <img src="~/img/play.png">
+                        </a>
+                    }
+                </div>
             </div>
         </div>
     }
+    @*<div id="intro-example" class="p-5 text-center bg-image"
+     style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white">
+                    <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
+                    <h5 class="mb-4">
+                        Best & free guide of responsive web design
+                    </h5>
+                    <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A"
+                   role="button" rel="nofollow" target="_blank">Start tutorial</a>
+                    <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/"
+                   target="_blank" role="button">Download MDB UI KIT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    *@
 }

@@ -153,7 +153,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateHomeNav([Bind("Id,BgNav,Logo")] Home home)
+        public async Task<IActionResult> CreateHomeNav([Bind("Id,BgNav,Logo,LogoSize")] Home home)
         {
             if (ModelState.IsValid)
             {
@@ -192,7 +192,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditHomeNav(string id, [Bind("Id,BgNav,Logo")] Home home)
+        public async Task<IActionResult> EditHomeNav(string id, [Bind("Id,BgNav,Logo,LogoSize")] Home home)
         {
             if (id != home.Id)
             {

@@ -1,6 +1,7 @@
 body {
-  margin: 0px;
-  padding: 0px;
+  height:100%;
+  margin: 0;
+  padding: 0;
 }
 /*///////////////////SideBar*/
 
@@ -343,21 +344,19 @@ body {
   max-width: 100%;
 }
 .Header-Content {
-  width: 50%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1300px) {
   .Header {
     width: 100vw;
   }
-  .Header-Content {
-    margin: auto;
-    text-align: center;
-    width: 50%;
+  .header-content {
+      margin: auto;
+      text-align: center;
+      width: 100%;
   }
-  .buttonHeader {
-    text-align: center;
-  }
+  
 }
 
 .descFormation {
@@ -370,14 +369,14 @@ body {
 }
 
 .btn-type {
-  font-size: 1.2em;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 3px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-right: 1em;
-  border-radius: 45px;
+    font-size: 1.2vw;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 1em;
+    border-radius: 45px;
 }
 
 .btn-type:focus {
@@ -385,10 +384,25 @@ body {
   border-width: 2em;
 }
 
+.cardOffre-title {
+    font-size: 1vw;
+}
+.cardOffre-button {
+    padding: .2em 1em;
+}
 @media only screen and (max-width: 600px) {
-  .about-title {
+    .about-title {
     font-size: 2em;
   }
+  .btn-type{
+      font-size:.7em;
+  }
+    .cardOffre-title {
+        font-size:15px !important;
+    }
+    .cardOffre-button{
+        padding:.2em;
+    }
 }
 
 @media only screen and (max-width: 1300px) {
@@ -440,13 +454,14 @@ body {
   display: none;
 }
 /*media Queries*/
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
   .nav-menu {
     display: block;
     float: right;
     padding: 10px 20px;
     cursor: pointer;
     color: #fff;
+    margin:0;
   }
   .nav-items {
     width: 100%;
@@ -666,7 +681,7 @@ body {
     margin-top:1em;
     background: #ce0033;
     border: 0;
-    padding: .5em 1.5em .5em 1.5em;
+    padding: .5vh 1.5vw .5vh 1.5vw;
     color: #fff;
     font-weight: bold;
     font-family: "Nunito Sans", sans-serif;
@@ -698,5 +713,138 @@ body {
         display:flex;
         flex-direction:column;
         text-align:center;
+    }
+}
+
+#top {
+    background-color: #ce0033;
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#top:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+#top:active {
+    background-color: #555;
+}
+
+#top.show {
+    opacity: 1;
+    visibility: visible;
+}
+.bg-cover {
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+}
+@media only screen and (max-width: 1400px) {
+    .bg-cover {
+        background-size: cover !important;
+        width: 100vw !important;
+        height: 70vh !important;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .bg-cover {
+        background-size: cover !important;
+        width: 100vw !important;
+        height: 50vh !important;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .bg-cover {
+        background-size: cover !important;
+        width: 100vw !important;
+        height: 40vh !important;
+        text-align: center;
+    }
+}
+.buttonHeader{
+    position:relative;
+}
+.buttonHeader a {
+    padding: .2em 1em .2em 1em;
+}
+@media only screen and (max-width: 1000px) {
+    .buttonHeader {
+        margin:0 auto !important;
+        left: 0;
+        width:100%;
+    }
+    .buttonHeader a {
+        width: 60%;
+        left: 17%;
+        text-align: center !important;
+        padding: 7px !important;
+        font-size: 20px !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .buttonHeader {
+        margin: 0 auto !important;
+        left: 0;
+        width: 50%;
+    }
+    .buttonHeader a {
+        width: 40%;
+        left: 17%;
+        text-align: center !important;
+        padding: 0px !important;
+        font-size:20px !important;
+    }
+    .content{
+        position:relative;
+        top:-5em;
+        text-align:center;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .inscriptionPage{
+        display:flex;
+        flex-direction:column;
+    }
+    .inscriptionPage-content{
+        margin:auto;
+        width:100% !important;
+    }
+    .inscriptionPage-form{
+        margin:auto;
+        width:100% !important;
+    }
+}
+@media only screen and (max-width: 1400px) {
+
+    .accordion{
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        margin:auto;
+        width:100%;
+    }
+    .accordion card{
+        width:30% !important;
+    }
+        .formations {
+            display: flex;
+            flex-direction: column;
+        }
+    .itemsFormation {
+        margin: 0 auto;
+        width: 100%;
     }
 }

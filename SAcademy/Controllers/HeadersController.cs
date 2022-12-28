@@ -84,6 +84,16 @@ namespace SAcademy.Controllers
             }
 
             var header = await _context.Headers.FindAsync(id);
+            if (Request.Form.Files.Count > 0)
+            {
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    header.Background = dataStream.ToArray();
+                    //_context.Update(header);
+                }
+            }
             if (header == null)
             {
                 return NotFound();

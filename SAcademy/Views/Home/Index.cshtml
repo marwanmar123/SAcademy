@@ -4,6 +4,9 @@
 
 @await Component.InvokeAsync("Header")
 <div class="w-75 m-auto">
+    <a id="top">
+        <img class="pt-2 w-75" src="~/img/top.png" />
+    </a>
     @await Component.InvokeAsync("About")
     @await Component.InvokeAsync("Section")
     @await Component.InvokeAsync("Offre")

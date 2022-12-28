@@ -443,6 +443,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<byte[]>("Logo")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("LogoSize")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Homes");

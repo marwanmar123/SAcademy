@@ -45,10 +45,10 @@
                         $.each(res, function (index, option) {
                             $("#formations").append(
                                 `
-                                    <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
-                                        <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                    <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                        <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
                                         <p style="">Durée ${option.duration}</p>
-                                        <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                        <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
                                     </div>
                                 `
                             );
@@ -80,10 +80,10 @@
                         $.each(res, function (index, option) {
                             $("#formations").append(
                                 `
-                                        <div class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
-                                            <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                        <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                                <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
                                             <p style="">Durée ${option.duration}</p>
-                                            <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                                <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
                                         </div>
                                     `
                             );
@@ -113,10 +113,10 @@
                     $.each(res, function (index, option) {
                         $("#formations").append(
                             `
-                                <div data-aos="flip-left" class="col-3 m-2 p-3" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
-                                    <p style="color:${option.offreFColor}; font-size:${option.offreFSize + 'px'};font-weight:bold;">${option.title}</p>
+                                <div data-aos="flip-left" class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};border-radius:5px; border:1px solid #D2D2D2;">
+                                        <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
                                     <p style="">Durée ${option.duration}</p>
-                                    <a class="p-2 pl-3 pr-3 text-light" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                    <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
                                 </div>
                             `
                         );

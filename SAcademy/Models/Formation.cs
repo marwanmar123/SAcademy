@@ -33,7 +33,7 @@ namespace SAcademy.Models
 
         //Offres
         public string? OffreFColor { get; set; } = "#000000";
-        public int? OffreFSize { get; set; } = 25;
+        public int? OffreFSize { get; set; } = 2;
         public string? OffreFBgColor { get; set; } = "#FBFBFB";
         public string? OffreFBgColorButton { get; set; } = "#CE0033";
     }
