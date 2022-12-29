@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SAcademy.Models.Contact>
+﻿@model SAcademy.ViewModel.ContactMailViewModel
 
 @{
     Layout = "_LayoutDashboard";
@@ -10,7 +10,7 @@
     <a asp-action="Create">O</a>
 </p>
 <div class="w-75 m-auto p-2">
-    @foreach (var item in Model)
+    @foreach (var item in Model.Contact)
     {
         if (item.Visible == true)
         {
@@ -42,8 +42,8 @@
 
         <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
         @Html.Raw(item.Content)<br /><br />
-        <div class="d-flex flex-row justify-content-center">
-            <div class="m-auto">
+        <div class="d-flex flex-row justify-content-center contact">
+            <div class="m-auto contact-item">
                 <div class="info">
                     <div class="address">
                         <i class="bi bi-geo-alt"></i>
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="m-auto">
+            <div class="m-auto contact-item">
                 <form action="" method="POST" class="">
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -96,4 +96,50 @@
             </div>
         </div>
     }
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Subject
+                </th>
+                <th>
+                    Message
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var mail in Model.Email)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => mail.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => mail.Mail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => mail.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => mail.Message)
+                    </td>
+                    <td>
+                        <form style="display:inline;" method="post" asp-controller="Contacts" asp-action="DeleteMail">
+                            <input type="hidden" name="Id" value="@mail.Id" />
+                            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

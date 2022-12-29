@@ -1,0 +1,13 @@
+﻿@model List<SAcademy.Models.Thematic>
+
+
+@foreach (var item in Model)
+{
+
+    var size = string.Concat(item.Title, "vw");
+    <div class="p-3" style="background:@item.Background;">
+        <h5 style="color:@item.ColorTitle;">@item.Title</h5>
+        <img src="~/img/info.png">
+    </div>
+
+}

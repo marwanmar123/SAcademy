@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
+    [Authorize]
     public class ModesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -144,7 +146,7 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Modes'  is null.");
             }
-            var mode = await _context.Modes.Include(m => m.Formations).FirstOrDefaultAsync(m => m.Id == id);
+            var mode = await _context.Modes.Include(m => m.Formations).ThenInclude(ft => ft.Registration).FirstOrDefaultAsync(m => m.Id == id);
             if (mode != null)
             {
                 _context.Modes.Remove(mode);

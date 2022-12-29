@@ -40,7 +40,7 @@
         @*var videoWidth = string.Concat(item.VideoWidth, "px");
         var videoHeight = string.Concat(item.VideoHeight, "px");*@
         <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
-        <div class="d-flex">
+        <div class="d-flex about">
                 @if (item.Video == null && item.image == null)
                 {
                     <div class="m-auto">
@@ -49,19 +49,19 @@
                 }
                 else if (item.Video == null)
                 {
-                    <div>
-                    <img class="pr-4" width="@item.VideoWidth" height="@item.VideoHeight" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
+                <div class="about-item">
+                    <img class="pr-4 abou-video" width="@item.VideoWidth" height="@item.VideoHeight" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
                     </div>
-                    <div class="d-flex flex-column">
+                <div class="d-flex flex-column about-item">
                         @Html.Raw(item.Content)
                     </div>
                 }
                 else
                 {
-                    <div>
-                    <iframe class="pr-4" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="about-item">
+                        <iframe class="pr-4 abou-video" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="d-flex flex-column">
+                    <div class="d-flex flex-column about-item">
                         @Html.Raw(item.Content)
                     </div>
                 }

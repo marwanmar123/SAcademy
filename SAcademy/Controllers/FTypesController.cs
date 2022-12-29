@@ -22,31 +22,54 @@ namespace SAcademy.Controllers
         // GET: FTypes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.FTypes.ToListAsync());
+              return Ok(await _context.FTypes.ToListAsync());
         }
-
-        public async Task<IActionResult> GetTypeAPI()
+        public async Task<IActionResult> GetFormationType(string? id)
         {
-            return Ok(await _context.FTypes.ToListAsync());
+            var formations = await _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville).Where(f => f.TypeId == id)
+                .ToListAsync();
+            return Ok(formations);
         }
 
+        // GET: FTypes/Details/5
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null || _context.FTypes == null)
+            {
+                return NotFound();
+            }
+
+            var fType = await _context.FTypes
+                .Include(f => f.Formations).ThenInclude(m => m.Mode)
+                .Include(f => f.Formations).ThenInclude(m => m.Ville)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (fType == null)
+            {
+                return NotFound();
+            }
+            
+
+            return View(fType);
+        }
+
+        // GET: FTypes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor")] FType fType)
+        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(fType);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("FormationPanel", "FormationPages");
+                return RedirectToAction(nameof(Index));
             }
-            return View(fType);
+            return RedirectToAction("FormationPanel", "FormationPages");
         }
 
         // GET: FTypes/Edit/5
@@ -65,9 +88,10 @@ namespace SAcademy.Controllers
             return View(fType);
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor")] FType fType)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
         {
             if (id != fType.Id)
             {
@@ -124,15 +148,12 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.FTypes'  is null.");
             }
-            var fType = await _context.FTypes.Include(ft => ft.Formations).FirstOrDefaultAsync(m => m.Id == id);
+            var fType = await _context.FTypes.FindAsync(id);
             if (fType != null)
             {
                 _context.FTypes.Remove(fType);
             }
-            foreach (var f in fType.Formations)
-            {
-                _context.Remove(f);
-            }
+            
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
         }

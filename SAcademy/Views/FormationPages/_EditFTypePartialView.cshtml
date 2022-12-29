@@ -33,6 +33,21 @@
                         <span asp-validation-for="BgColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="Content" class="control-label"></label>
+                        <textarea asp-for="Content" id="TypeContent" class="form-control TypeContent"></textarea>
+                        <span asp-validation-for="Content" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BgCard" class="control-label"></label>
+                        <input type="color" asp-for="BgCard" class="form-control" />
+                        <span asp-validation-for="BgCard" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SizeCard" class="control-label"></label>
+                        <input type="number" asp-for="SizeCard" class="form-control" />
+                        <span asp-validation-for="SizeCard" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
                             <img src="~/img/save.png" style="width:1.3em;">
                             Save
@@ -50,3 +65,29 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    $(".TypeContent").summernote({
+        placeholder: "TypeContent ",
+        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+            ["style", ["style"]],
+            ["font", ["bold", "underline", 'italic', "clear"]],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsizeunit']],
+            ['fontsize', ['fontsize']],
+            ["color", ["color"]],
+            ["para", ["ul", "ol", "paragraph"]],
+            ['height', ['height']],
+            ['fontname', ['fontname']],
+            ["table", ["table"]],
+            ["insert", ["link", "picture", "video"]],
+            ["view", ["fullscreen", "codeview", "help"]],
+        ]
+    });
+</script>

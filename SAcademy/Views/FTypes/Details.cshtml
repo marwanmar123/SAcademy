@@ -1,0 +1,35 @@
+﻿@model SAcademy.Models.FType
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Formation</h1>
+
+
+@foreach(var f in Model.Formations)
+{
+    <div class="row p-3 mb-3 w-100">
+        <div class="col-3 p-2 text-center">
+            <img src="~/img/time.png" style="width:3em;"/>
+            <h5>@f.StartDay<span class="text-muted"> => </span><br/>@f.EndDay</h5>
+            <h6>@f.StartTime => @f.EndTime</h6>
+            <img src="~/img/iconForm1.png" style="width:3em;"/>
+            <img src="~/img/iconForm2.png" style="width:3em;"/>
+            <img src="~/img/iconForm4.png" style="width:3em;"/>
+        </div>
+        <div class="col-6 p-2 w-50 text-center">
+            <h5>@f.Title</h5>
+            <p class="descFormation">@f.Description</p>
+            <h5><span class="text-muted">ville: </span>@f.Ville.Name</h5>
+        </div>
+            <div class="col-3 p-2 text-center">
+            <img src="~/img/iconForm3.png" style="width:3em;"/>
+            <h5>@Model.Name</h5>
+            <h6 class="mb-4">@f.Mode.Name}</h6>
+            <a asp-controller="Formations" asp-action="details" asp-route-id ="@f.Id" class=" inscription">Inscription</a>
+        </div>
+    </div>
+}
+
+

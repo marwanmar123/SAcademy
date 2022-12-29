@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
+    [Authorize]
     public class FormationPagesController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -2,12 +2,11 @@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
+    Layout = "_LayoutIdentity";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
+<div class="w-50 pt-5 m-auto">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
@@ -29,8 +28,9 @@
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
+        <a id="confirm-link" href="/dashboard">Back To Dashboard</a>
+</div>
+    @*<div class="col-md-6 col-md-offset-2">
         <section>
             <h3>Use another service to register.</h3>
             <hr />
@@ -59,8 +59,7 @@
                 }
             }
         </section>
-    </div>
-</div>
+    </div>*@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -253,6 +253,29 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.Email", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Emails");
+                });
+
             modelBuilder.Entity("SAcademy.Models.Footer", b =>
                 {
                     b.Property<string>("Id")
@@ -376,13 +399,22 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("BgCard")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BgColor")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Color")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SizeCard")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -621,6 +653,31 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Sections");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.Thematic", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Background")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ColorTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TypeId");
+
+                    b.ToTable("Thematics");
+                });
+
             modelBuilder.Entity("SAcademy.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -787,6 +844,15 @@ namespace SAcademy.Data.Migrations
                     b.Navigation("Formation");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.Thematic", b =>
+                {
+                    b.HasOne("SAcademy.Models.FType", "Type")
+                        .WithMany("Thematics")
+                        .HasForeignKey("TypeId");
+
+                    b.Navigation("Type");
+                });
+
             modelBuilder.Entity("SAcademy.Models.Formation", b =>
                 {
                     b.Navigation("Registration");
@@ -795,6 +861,8 @@ namespace SAcademy.Data.Migrations
             modelBuilder.Entity("SAcademy.Models.FType", b =>
                 {
                     b.Navigation("Formations");
+
+                    b.Navigation("Thematics");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Mode", b =>

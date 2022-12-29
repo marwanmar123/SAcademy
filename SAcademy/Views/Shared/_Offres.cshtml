@@ -4,33 +4,33 @@
 <div class="">
     <section class="d-flex justify-content-center" id="types"></section>
 </div>
-<div class="m-auto">
-    <section id="formations" class="row gx-5 justify-content-center" style="">
-    </section>
-</div>
 
+<div class="parent">
+        @await Component.InvokeAsync("Thematic")
+</div>
+ @*<p class="btn-type" id="${option.id}" onClick="get_Formation(this.id)" style="color:${option.color}; background:${option.bgColor};">${option.name}</p>*@
 
 <script>
 
     $.ajax({
-        url: '/FTypes/GetTypeAPI',
+        url: '/FTypes',
         type: 'GET',
         success: function (res) {
-            $("#types").append(
-                `
-                    <p style="background:black;" class="btn-type text-light" onclick="get_All()">All</p>
-                `
-            );
             $.each(res, function (index, option) {
                 $("#types").append(
                     `
-                        <p class="btn-type" id="${option.id}" onClick="get_Formation(this.id)" style="color:${option.color}; background:${option.bgColor};">${option.name}</p>
+                        <div class="p-3 m-2 div1" style="background:${option.bgCard};">
+                            <p>${option.content}</p>
+                            <a style="color:${option.Color};" href="ftypes/details/${option.id}">${option.name}</a>
+                        </div>
                     `
                 );
             });
         }
     });
 
+
+    @*
 
     function get_Formation(formationTypeId) {
         $("#formations").load(location.href + " #formations");
@@ -132,6 +132,6 @@
                 );
             }
         });
-    });
+    });*@
 </script>
 

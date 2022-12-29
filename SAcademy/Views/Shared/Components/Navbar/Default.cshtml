@@ -1,5 +1,7 @@
 ﻿@model SAcademy.ViewModel.NavViewModel
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
 @foreach (var item in Model.Home)
 {
@@ -28,6 +30,12 @@
                     <li class="pt-3">
                         <a class="mr-3" href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold;">@n.TitleMenu</a>
                     </li>
+                }
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a class="mr-3" href="/dashboard" style="color:; font-size:; font-weight:bold;">
+                        <img src="~/img/dashboard.png">    
+                    </a>
                 }
             </ul>
         </div>

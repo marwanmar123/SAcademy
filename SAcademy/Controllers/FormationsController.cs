@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -105,6 +106,7 @@ namespace SAcademy.Controllers
             return View(formation);
         }
 
+        [Authorize]
         // GET: Formations/Create
         public IActionResult Create()
         {
@@ -131,6 +133,7 @@ namespace SAcademy.Controllers
             return View(formation);
         }
 
+        [Authorize]
         // GET: Formations/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -184,6 +187,8 @@ namespace SAcademy.Controllers
             ViewData["VilleId"] = new SelectList(_context.Villes, "Id", "Name", formation.VilleId);
             return View(formation);
         }
+
+        [Authorize]
 
         // GET: Formations/Delete/5
         public async Task<IActionResult> Delete(string id)
@@ -250,6 +255,7 @@ namespace SAcademy.Controllers
             return View(registration);
         }
 
+        [Authorize]
         // POST: Formations/DeleteRegister
         [HttpPost]
         public async Task<IActionResult> DeleteRegister(string id)

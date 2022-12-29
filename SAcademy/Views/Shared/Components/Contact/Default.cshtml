@@ -51,32 +51,32 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" >
-                    <form action="" method="POST" class="php-email-form" data-aos="fade-left"
+                    <form asp-action="Mail" asp-controller="Contacts" method="post" class="php-email-form" data-aos="fade-left"
                   data-aos-anchor="#example-anchor"
                   data-aos-offset="500"
                   data-aos-duration="500">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Your Name</label>
-                                <input type="text" name="name" class="form-control" id="name" required>
+                                <input type="text" name="Name" class="form-control" id="name" autocomplete="off" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="name">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required>
+                                <input type="email" class="form-control" name="Mail" id="email" autocomplete="off" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="name">Subject</label>
-                            <input type="text" class="form-control" name="subject" id="subject" required>
+                            <input type="text" class="form-control" name="Subject" id="subject" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Message</label>
-                            <textarea class="form-control" name="message" rows="10" required></textarea>
+                            <textarea class="form-control" name="Message" id="message" rows="10" required></textarea>
                         </div>
                         <div class="my-3">
                             <div class="sent-message">Votre message a été envoyé. Merci!</div>
                         </div>
-                        <div class="text-center"><button type="submit" class="btn text-light font-weight-bold" style="border-radius:50px; background:@item.ButtonBgColor;">Envoyer</button></div>
+                        <div class="text-center"><button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:50px; background:@item.ButtonBgColor;">Envoyer</button></div>
                     </form>
                 </div>
             </div>
@@ -84,3 +84,27 @@
         
 }
 </div>
+<script>
+    //var btnEmail = document.getElementById('btnemail');
+    //btnEmail.addEventListener('click', function () {
+    //    var name = document.getElementById('name').value;
+    //    var email = document.getElementById('email').value;
+    //    var subject = document.getElementById('subject').value;
+    //    var message = document.getElementById('message').value;
+    //    var body = 'name: + name + ' < br /> email: + email + '<br/> subject' +
+    //        subject + '<br/> message' + message;
+
+    //    Email.send({
+    //        Host: "smtp.gmail.com",
+    //        Username: "",
+    //        Password: "",
+    //        To: '',
+    //        From: email,
+    //        Subject: subject,
+    //        Body: body
+    //    }).then(
+    //        message => alert(message)
+    //    );
+    //})
+</script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>

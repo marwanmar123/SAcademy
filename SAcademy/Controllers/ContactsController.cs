@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
+    [Authorize]
     public class ContactsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,7 +25,12 @@ namespace SAcademy.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Contacts.ToListAsync());
+            var contactData = new ContactMailViewModel()
+            {
+                Contact = await _context.Contacts.ToListAsync(),
+                Email = await _context.Emails.ToListAsync(),
+            };
+            return View(contactData);
         }
 
 
@@ -144,6 +152,35 @@ namespace SAcademy.Controllers
             contact.Visible = visible;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Mail(Email email)
+        {
+
+            var addComment = new Email
+            {
+               Name = email.Name,
+               Subject = email.Subject,
+               Message = email.Message,
+               Mail = email.Mail
+            };
+            await _context.AddAsync(addComment);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteContact(string id, string postId)
+        {
+            var resId = _context.Contacts.FirstOrDefault(a => a.Id == id);
+            _context.Remove(resId);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Contacts");
 
         }
     }

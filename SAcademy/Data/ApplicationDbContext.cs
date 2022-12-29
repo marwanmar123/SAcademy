@@ -27,5 +27,7 @@ namespace SAcademy.Data
         public DbSet<Offre> Offres { get; set; }
         public DbSet<Home> Homes { get; set; }
         public DbSet<Section> Sections { get; set; }
+        public DbSet<Email> Emails { get; set; }
+        public DbSet<Thematic> Thematics { get; set; }
     }
 }
