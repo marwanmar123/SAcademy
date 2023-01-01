@@ -4,32 +4,195 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Formation</h1>
 
 
-@foreach(var f in Model.Formations)
-{
-    <div class="row p-3 mb-3 w-100">
-        <div class="col-3 p-2 text-center">
-            <img src="~/img/time.png" style="width:3em;"/>
-            <h5>@f.StartDay<span class="text-muted"> => </span><br/>@f.EndDay</h5>
-            <h6>@f.StartTime => @f.EndTime</h6>
-            <img src="~/img/iconForm1.png" style="width:3em;"/>
-            <img src="~/img/iconForm2.png" style="width:3em;"/>
-            <img src="~/img/iconForm4.png" style="width:3em;"/>
-        </div>
-        <div class="col-6 p-2 w-50 text-center">
-            <h5>@f.Title</h5>
-            <p class="descFormation">@f.Description</p>
-            <h5><span class="text-muted">ville: </span>@f.Ville.Name</h5>
-        </div>
-            <div class="col-3 p-2 text-center">
-            <img src="~/img/iconForm3.png" style="width:3em;"/>
-            <h5>@Model.Name</h5>
-            <h6 class="mb-4">@f.Mode.Name}</h6>
-            <a asp-controller="Formations" asp-action="details" asp-route-id ="@f.Id" class=" inscription">Inscription</a>
-        </div>
+<div id="ofr"></div>
+<div id="frm"></div>
+
+<div class="">
+
+    <div class="d-flex flex-row">
+
+        @*@foreach (var t in Model.Thematics)
+        {
+            <div class="p-3 m-2" style="background:@t.Background;">
+                <h5 style="color:@t.ColorTitle;">@t.Title</h5>
+                <img src="~/img/info.png">
+            </div>
+        }*@
     </div>
-}
+    <div>
+        <h3 class="p-3">Formations @Model.Name</h3>
+        @foreach(var f in Model.Formations)
+        { 
+            <div class="row p-3 mb-3 w-100">
+                <div class="col-3 p-2 text-center">
+                    <img src="~/img/time.png" style="width:3em;"/>
+                    <h5>@f.StartDay<span class="text-muted"> => </span><br/>@f.EndDay</h5>
+                    <h6>@f.StartTime => @f.EndTime</h6>
+                    <img src="~/img/iconForm1.png" style="width:3em;"/>
+                    <img src="~/img/iconForm2.png" style="width:3em;"/>
+                    <img src="~/img/iconForm4.png" style="width:3em;"/>
+                </div>
+                <div class="col-6 p-2 w-50 text-center">
+                    <h5>@f.Title</h5>
+                    <p class="descFormation">@f.Description</p>
+                    <h5><span class="text-muted">ville: </span>@f.Ville.Name</h5>
+                </div>
+                    <div class="col-3 p-2 text-center">
+                    <img src="~/img/iconForm3.png" style="width:3em;"/>
+                    <h5>@Model.Name</h5>
+                    <h6 class="mb-4">@f.Mode.Name}</h6>
+                    <a asp-controller="Formations" asp-action="details" asp-route-id ="@f.Id" class=" inscription">Inscription</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
 
 
+<script>
+
+    //$.ajax({
+    //    url: '/Thematics/ThemeAPI',
+    //    data: {
+    //        typeId: 
+    //    },
+    //    type: 'GET',
+    //    success: function (res) {
+    //        console.log(res);
+    //        $("#ofr").append(
+    //            `
+    //                    <button class="btn-type mr-3 font-weight-bold text-light" >All</button>
+    //            `
+    //        );
+    //        $.each(res, function (index, option) {
+    //            $("#ofr").append(
+    //                `
+    //                    <button class="p-3 m-2" id="${option.id}" onClick="get_Formation(this.id)" style="background:${option.background};color:${option.colorTitle};">
+    //                        ${option.title}
+    //                        <img src="/img/info.png">
+    //                    </button>
+    //                `
+    //            );
+    //        });
+    //    }
+    //});
+
+    //function get_Formation(themeId) {
+    //    //$("#frm").load(location.href + " #frm");
+    //        $.ajax({
+    //            url: '/Formations/GetFormationsByFilter',
+    //            data :{
+    //                ThemeId = themeId
+    //            },
+    //            type: 'GET',
+    //            success: function (res) {
+    //                console.log(res);
+    //                    //$.each(res, function (index, option) {
+    //                    //    $("#frm").append(
+    //                    //        `
+    //                    //            <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+    //                    //                <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
+    //                    //                <p style="">Durée ${option.duration}</p>
+    //                    //                <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+    //                    //            </div>
+    //                    //        `
+    //                    //    );
+    //                    //});
+
+    //            },
+    //        });
+    //}
+
+    //function get_All() {
+    //    $("#frm").load(location.href + " #frm");
+    //    setTimeout(function () {
+    //        $.ajax({
+    //            url: '/Formations/GetFormations',
+    //            type: 'GET',
+    //            success: function (res) {
+    //                if (res.length == 0) {
+    //                    $("#frm").append(`<h1 class="text-center">No Data</h1>`)
+    //                } else {
+    //                    console.log(res);
+    //                    $.each(res, function (index, option) {
+    //                        $("#frm").append(
+    //                            `
+    //                                        <div class="d-flex justify-content-between formation p-2 m-3">
+    //                                            <div class="text-center" style="width:25%;">
+    //                                                <img src="/img/icons/time.png" style="width:3em;"/>
+    //                                                    <h5>${option.dayStart}<span class="text-muted"> => </span><br/>${option.dayEnd}</h5>
+    //                                                <h6>${option.timeBeginning} => ${option.timeEnd}</h6>
+    //                                                <img src="/img/icons/iconForm1.png" style="width:3em;"/>
+    //                                                <img src="/img/icons/iconForm2.png" style="width:3em;"/>
+    //                                                <img src="/img/icons/iconForm4.png" style="width:3em;"/>
+    //                                            </div>
+    //                                            <div class="w-50">
+    //                                                <h5>${option.title}</h5>
+    //                                                <p class="descFormation">${option.description}</p>
+    //                                                <h5><span class="text-muted">ville: </span>${option.ville}</h5>
+    //                                            </div>
+    //                                            <div class="text-center" style="width:15%;">
+    //                                                <img src="/img/icons/iconForm3.png" style="width:3em;"/>
+    //                                                <h5>${option.formationType}</h5>
+    //                                                <h6>${option.mode}</h6>
+    //                                                <a href="formations/formationdetails/${option.id}" class="btn btn-danger">Inscription</a>
+    //                                            </div>
+    //                                        </div>
+    //                                `
+    //                        );
+
+    //                    });
+    //                }
+    //            },
+    //            error: function (errorThrown) {
+    //                $("#frm").append(
+    //                    `
+    //                            <h1>Error</h1>
+    //                        `
+    //                );
+    //            }
+    //        });
+    //    }, 500)
+    //}
+
+
+
+    //function get_Formation(typeId) {
+    //    $.ajax({
+    //        url: '/Formations/GetFormationAPI',
+    //        data: {
+    //            typeId: typeId
+    //        },
+    //        type: 'GET',
+    //        success: function (res) {
+    //            if (res.length == 0) {
+    //                $("#frm").append(`<h1 class="text-center">No Data</h1>`)
+    //            } else {
+    //                $.each(res, function (index, option) {
+    //                    $("#frm").append(
+    //                        `
+    //                            <div data-aos="flip-left" class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};border-radius:5px; border:1px solid #D2D2D2;">
+    //                                    <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
+    //                                <p style="">Durée ${option.duration}</p>
+    //                                <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+    //                            </div>
+    //                        `
+    //                    );
+
+    //                });
+    //            }
+    //        },
+    //        error: function (errorThrown) {
+    //            $("#frm").append(
+    //                `
+    //                    <h1>Error</h1>
+    //                `
+    //            );
+    //        }
+    //    });
+    //});
+
+</script>

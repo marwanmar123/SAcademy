@@ -1,7 +1,7 @@
 ﻿
 
 
-<div class="">
+<div class="Dtype">
     <section class="d-flex justify-content-center" id="types"></section>
 </div>
 
@@ -19,13 +19,29 @@
             $.each(res, function (index, option) {
                 $("#types").append(
                     `
-                        <div class="p-3 m-2 div1" style="background:${option.bgCard};">
-                            <p>${option.content}</p>
-                            <a style="color:${option.Color};" href="ftypes/details/${option.id}">${option.name}</a>
+                        <div>
+                            <div class="p-3 m-2 div1" style="background:${option.bgCard};">
+                                <p>${option.content}</p>
+                                <a style="color:${option.Color};" href="ftypes/details/${option.id}">${option.name}</a>
+                            </div>
                         </div>
                     `
                 );
             });
+            $(".Dtype").append(
+                    `
+                        <div class="d-flex justify-content-center text-center">
+                            <div style="padding:1em 8em 1em 0em;">
+                                <h5 class="">Formations Courtes</h5>
+                                <p class="">Des Modules d'initiation et de formation <br>De deux heures à 5 jours (en moyenne)</p>
+                            </div>
+                            <div style="padding:1em 0em 1em 10em;">
+                                <h5 class="">Formations Longues</h5>
+                                <p class="">Des formations de 4 semaines à 9 mois<br>(avec des dispositifs d'alternance ou stage)</p>
+                            </div>
+                        </div>
+                    `
+                );
         }
     });
 

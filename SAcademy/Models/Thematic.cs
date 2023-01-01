@@ -11,5 +11,6 @@ namespace SAcademy.Models
         public string? Background { get; set; }
         public string? TypeId { get; set; }
         public FType? Type { get; set; }
+        public ICollection<Formation>? Formations { get; set; }
     }
 }

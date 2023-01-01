@@ -1,7 +1,9 @@
 body {
-  height:100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
 }
 /*///////////////////SideBar*/
 
@@ -243,17 +245,21 @@ ul ul a {
 .nav-items {
   float: right;
 }
+
 .nav-items li {
-  display: block;
-  float: left;
+    display: block;
+    float: left;
 }
 .nav-items li a {
   color: #f9f9f9;
   text-decoration: none;
 }
+.nav-items li a:hover{
+    color:black !important;
+}
 
 .nav-hold {
-  overflow: hidden;
+    overflow: hidden;
 }
 .nav-menu {
   display: none;
@@ -707,7 +713,7 @@ ul ul a {
     margin:auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 8px;
     grid-row-gap: 8px;
 }

@@ -6,7 +6,7 @@
 {
     if (item.Visible == true)
     {
-        <footer class="p-4" style="background:@item.Background;">
+        <footer class="p-4 w-100" style="background:@item.Background; position:absolute; bottom:0; margin-bottom: -17em !important;">
             <div class="d-flex justify-content-between footer">
                 <div class="d-flex flex-column">
                     @if (item.Logo != null)
@@ -27,10 +27,10 @@
                 </div>
                 <div class="">
                     @Html.Raw(item.ContentNews)<br>
-                    <article class="">
-                        <input type="email" placeholder="Votre adresse Email" style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;">
-                        <button class="border-0 rounded">S'inscrire</button>
-                    </article>
+                    <form class="" action="/Newsletters/Create">
+                        <input type="email" placeholder="Votre adresse Email" style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;" required>
+                        <button type="submit"  class="border-0 rounded text-dark" style="background:#e6e6e6; padding:2px 7px;">S'inscrire</button>
+                    </form>
                 </div>
             </div>
             <hr class="bg-light">

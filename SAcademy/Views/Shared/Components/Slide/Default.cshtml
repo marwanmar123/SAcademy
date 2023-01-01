@@ -1,0 +1,39 @@
+﻿@model List<SAcademy.Models.Slide>
+
+
+
+<div class="p-5" id="slide">
+    @foreach (var item in Model)
+    {
+        var size = string.Concat(item.TitleSize, "vw");
+        <div class="text-center">
+            <p class="p-3" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            <div class="p-2">@Html.Raw(item.Content)</div>
+        </div>
+    }
+    <section class="splide" aria-label="Splide Basic HTML Example">
+      <div class="splide__track text-center">
+    		<ul class="splide__list">
+                @foreach (var item in Model)
+                {
+                    @foreach(var i in item.Images)
+                    { 
+    			        <li class="splide__slide m-auto">
+                            <img class="w-50 m-auto" style="height:40px;" src="data:image/*;base64,@Convert.ToBase64String(i.Data)">
+                        </li>
+                    }
+                }
+    		</ul>
+      </div>
+    </section>
+</div>
+
+<script>
+    var splide = new Splide( '.splide', {
+        perPage : 6,
+        type:'loop',
+        autoplay: true,
+    } );
+
+    splide.mount();
+</script>

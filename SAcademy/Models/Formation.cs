@@ -29,6 +29,8 @@ namespace SAcademy.Models
         public Ville? Ville { get; set; }
         public string? TypeId { get; set; }
         public FType? Type { get; set; }
+        public string? ThematicId { get; set; }
+        public Thematic? Thematic { get; set; }
         public ICollection<Registration>? Registration { get; set; }
 
         //Offres

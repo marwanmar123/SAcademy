@@ -12,7 +12,7 @@
 <div>
     <div class="d-flex justify-content-between pl-3 pr-3 formationPanel">
         <div class="w-25 formationPanel-item">
-            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateVille">
+            <button type="button" class="btn text-light m-2" title="Ajouter" data-toggle="modal" data-target="#CreateVille" style="background:#ce0033;">
                 Ajouter Ville de formation
             </button>
             @await Html.PartialAsync("_CreateVillePartialView", new Ville())
@@ -50,7 +50,7 @@
             </table>
         </div>
         <div class="w-25 formationPanel-item">
-            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFType">
+            <button type="button" class="btn text-light m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFType" style="background:#ce0033;">
                 Ajouter Type de formation
             </button>
             @await Html.PartialAsync("_CreateFTypePartialView", new FType())
@@ -88,7 +88,45 @@
             </table>
         </div>
         <div class="w-25 formationPanel-item">
-            <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateMode">
+            <button type="button" class="btn text-light m-2" title="Ajouter" data-toggle="modal" data-target="#CreateThematic" style="background:#ce0033;">
+                Ajouter Thematic de formation
+            </button>
+            @await Html.PartialAsync("_CreateThematicPartialView", new Thematic())
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Theme
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var theme in Model.Thematic)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => theme.Title)
+                            </td>
+                            <td>
+                                <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditThematic-"+theme.Id)" data-url="@Url.Action($"Edit/{theme.Id}")">
+                                    <img src="~/img/edit.png">
+                                </button>
+                                @await Html.PartialAsync("_EditThematicPartialView",theme)
+
+                                <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal" data-target="@("#DeleteThematic-"+theme.Id)" data-url="@Url.Action($"Delete/{theme.Id}")">
+                                    <img src="~/img/delete.png">
+                                </button>
+                                @await Html.PartialAsync("_DeleteThematicPartialView",theme)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="w-25 formationPanel-item">
+            <button type="button" class="btn text-light m-2" title="Ajouter" data-toggle="modal" data-target="#CreateMode" style="background:#ce0033;">
                 Ajouter Mode de formation
             </button>
             @await Html.PartialAsync("_CreateModePartialView", new Mode())
@@ -127,7 +165,7 @@
         </div>
     </div>
     <div class="pl-3 pr-3">
-        <button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFormation">
+        <button type="button" class="btn text-light m-2" title="Ajouter" data-toggle="modal" data-target="#CreateFormation" style="background:#ce0033;">
             Ajouter formation
         </button>
         @await Html.PartialAsync("_CreateFormationPartialView", new Formation())
@@ -165,7 +203,12 @@
                     <th>
                         Type
                     </th>
-                    <th></th>
+                    <th>
+                        Thematic
+                    </th>
+                    <th>
+                        Action
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -201,6 +244,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => formation.Type.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => formation.Thematic.Title)
                         </td>
                         <td class="d-flex">
                             <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditFormation-"+formation.Id)" data-url="@Url.Action($"Edit/{formation.Id}")">

@@ -7,15 +7,17 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-transparent pl-5">
         <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
-        <li class="breadcrumb-item active" aria-current="page">Nos Formation</li>
+        <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
     </ol>
 </nav>
 <div class="container">
 
     <div class="d-flex p-4 formations">
-                <h3>Filtrer Par</h3>
         <div class="accordion" id="accordion" style="width:25%;">
             <div class="card border-0 w-75">
+                <button class="border-0 bg-transparent" style="font-size:26px;">
+                    <span class=" text-dark">Filtrer Par :</span>
+                </button>
                 <hr class="w-75 p-0" />
                 <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
                     <h5 class="mb-0">
@@ -187,7 +189,7 @@
                                 <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center">
                                             <img src="/img/time.png" style="width:3em;"/>
-                                            <h5>${ds}<span class="text-muted"> => </span><br/>${de}</h5>
+                                            <h5> Du ${ds}<span class="text-muted">  </span><br/>Au ${de}</h5>
                                             <h6>${st} => ${et}</h6>
                                             <img src="/img/iconForm1.png" style="width:3em;"/>
                                             <img src="/img/iconForm2.png" style="width:3em;"/>
@@ -196,7 +198,7 @@
                                         <div class="col-6 p-2 w-50 text-center">
                                             <h5>${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
-                                            <h5><span class="text-muted">ville: </span>${option.ville.name}</h5>
+                                            <h5  style="color:#ce0033;"><span class="text-muted">ville<br/></span>${option.ville.name}</h5>
                                         </div>
                                             <div class="col-3 p-2 text-center">
                                             <img src="/img/iconForm3.png" style="width:3em;"/>

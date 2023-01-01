@@ -21,7 +21,7 @@
 
     var size = string.Concat(item.ContentHeight, "px");
 
-    <div style="background:@item.ContentBgColor; height:@size;">
+    <div class="p-2" style="background:@item.ContentBgColor; height:@size;">
         @Html.Raw(item.Content)
     </div>
 }

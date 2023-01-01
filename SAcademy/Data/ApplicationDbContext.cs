@@ -29,5 +29,8 @@ namespace SAcademy.Data
         public DbSet<Section> Sections { get; set; }
         public DbSet<Email> Emails { get; set; }
         public DbSet<Thematic> Thematics { get; set; }
+        public DbSet<Newsletter> Newsletters { get; set; }
+        public DbSet<Slide> Slides { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

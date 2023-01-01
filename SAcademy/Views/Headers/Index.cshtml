@@ -25,10 +25,10 @@
     var size = string.Concat(item.BVSize, "px");
     if (item.Background != null)
     {
-        <div class="ok"
+        <div class="bg-cover"
     style="background-image:url(data:image/*;base64,@Convert.ToBase64String(item.Background)); height:@height;">
             @Html.Raw(item.Content)
-            <div class="position-relative" style="top:@Top; left:@left;">
+            <div class="position-relative content" style="top:@Top; left:@left;">
                 <a class="btn font-weight-bold pl-4 pr-4" href="#"
             style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
                 @if (item.Video != null)
@@ -41,9 +41,9 @@
     }
     else
     {
-        <div class="ok" style="background:url('img/hero.jpg'); height:@height;">
+        <div class="bg-cover" style="background:url('img/hero.jpg'); height:@height;">
             @Html.Raw(item.Content)
-            <div class="position-relative" style="top:@Top; left:@left;">
+            <div class="position-relative content" style="top:@Top; left:@left;">
                 <a class="btn font-weight-bold pl-4 pr-4" href="#"
             style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:50px;">@item.Button</a>
                 @if (item.Video != null)

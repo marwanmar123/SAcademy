@@ -14,7 +14,7 @@ namespace SAcademy.Models
         public string? LocalColor { get; set; }
         public string? Email { get; set; }
         public string? EmailColor { get; set; }
-        public int? Call { get; set; }
+        public string? Call { get; set; }
         public string? CallColor { get; set; }
         public string? Maps { get; set; }
         public int? MapWidth { get; set; }

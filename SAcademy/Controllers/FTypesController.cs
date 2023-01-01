@@ -42,6 +42,7 @@ namespace SAcademy.Controllers
             var fType = await _context.FTypes
                 .Include(f => f.Formations).ThenInclude(m => m.Mode)
                 .Include(f => f.Formations).ThenInclude(m => m.Ville)
+                .Include(f => f.Thematics)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (fType == null)
             {
@@ -61,7 +62,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
+        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor,Content,DetailType,BgCard,SizeCard")] FType fType)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +92,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor,Content,DetailType,BgCard,SizeCard")] FType fType)
         {
             if (id != fType.Id)
             {
@@ -148,7 +149,7 @@ namespace SAcademy.Controllers
             {
                 return Problem("Entity set 'ApplicationDbContext.FTypes'  is null.");
             }
-            var fType = await _context.FTypes.FindAsync(id);
+            var fType = await _context.FTypes.Include(x => x.Thematics).FirstOrDefaultAsync(x => x.Id == id);
             if (fType != null)
             {
                 _context.FTypes.Remove(fType);

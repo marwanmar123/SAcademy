@@ -10,5 +10,6 @@ namespace SAcademy.Models
         public string? ContentBgColor { get; set; }
         public int? ContentHeight { get; set; }
         public string? ContentTwo { get; set; }
+        public Boolean? Visible { get; set; } = true;
     }
 }

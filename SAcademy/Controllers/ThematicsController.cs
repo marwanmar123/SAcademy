@@ -59,9 +59,10 @@ namespace SAcademy.Controllers
             {
                 _context.Add(thematic);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("FormationPanel", "FormationPages");
             }
             ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", thematic.TypeId);
+
             return View(thematic);
         }
 
@@ -79,6 +80,7 @@ namespace SAcademy.Controllers
                 return NotFound();
             }
             ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", thematic.TypeId);
+
             return View(thematic);
         }
 
@@ -110,9 +112,11 @@ namespace SAcademy.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("FormationPanel", "FormationPages");
             }
+
             ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", thematic.TypeId);
+
             return View(thematic);
         }
 
@@ -150,7 +154,7 @@ namespace SAcademy.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("FormationPanel", "FormationPages");
         }
 
         private bool ThematicExists(string id)
