@@ -9,7 +9,7 @@
             var mapwidth = string.Concat(item.MapWidth, "%");
             var mapHeight = string.Concat(item.MapHeight, "%");
 
-            <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            <p class="text-center Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
             <p>@Html.Raw(item.Content)</p>
             <br />
             <div class="row">
@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <h4 style="color:@item.CallColor;">Phone :</h4>
-                                <p class="text-dark">@("0" + item.Call)</p>
+                                <p class="text-dark">@item.Call</p>
                             </div>
                         </div>
                         <iframe class="maps" src="@item.Maps" width="@mapwidth" height="@mapHeight" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -57,16 +57,16 @@
                   data-aos-duration="500">
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <label for="name">Your Name</label>
+                                <label for="name">Nom</label>
                                 <input type="text" name="Name" class="form-control" id="name" autocomplete="off" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="name">Your Email</label>
+                                <label for="name">Email</label>
                                 <input type="email" class="form-control" name="Mail" id="email" autocomplete="off" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Subject</label>
+                            <label for="name">Objet</label>
                             <input type="text" class="form-control" name="Subject" id="subject" autocomplete="off" required>
                         </div>
                         <div class="form-group">

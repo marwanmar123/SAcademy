@@ -6,12 +6,13 @@
 {
     if (item.Visible == true)
     {
-        <footer class="p-4 w-100" style="background:@item.Background; position:absolute; bottom:0; margin-bottom: -17em !important;">
+        <footer id="footer" class="p-4 w-100" style="background:@item.Background;">
             <div class="d-flex justify-content-between footer">
                 <div class="d-flex flex-column">
                     @if (item.Logo != null)
                     {
-                        <a href="/"><img class="pb-3" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" style="width:30%;" /></a>
+                        <a href="/"><img class="pb-3" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))"
+                    style="width:30%;" /></a>
                     }
                     else
                     {
@@ -28,8 +29,11 @@
                 <div class="">
                     @Html.Raw(item.ContentNews)<br>
                     <form class="" action="/Newsletters/Create">
-                        <input type="email" placeholder="Votre adresse Email" style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;" required>
-                        <button type="submit"  class="border-0 rounded text-dark" style="background:#e6e6e6; padding:2px 7px;">S'inscrire</button>
+                        <input type="email" placeholder="Votre adresse Email"
+                    style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;"
+                    required>
+                        <button type="submit" class="border-0 rounded text-dark"
+                    style="background:#e6e6e6; padding:2px 7px;">S'inscrire</button>
                     </form>
                 </div>
             </div>

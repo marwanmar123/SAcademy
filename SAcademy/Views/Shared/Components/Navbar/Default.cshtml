@@ -27,7 +27,7 @@
                 @foreach (var n in Model.Menu)
                 {
                     var size = string.Concat(n.Size, "px");
-                    <li class="pt-3 nvItem">
+                    <li class="">
                         <a class="mr-3 " href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold;">@n.TitleMenu |</a>
                     </li>
                 }

@@ -1,0 +1,16 @@
+﻿@model List<SAcademy.Models.StaticNum>
+
+<div class="p-3" id="statisticNum">
+
+<section class="three d-flex justify-content-center">
+    <div class="nums">
+    @foreach (var item in Model)
+    {
+        <div class="d-flex flex-column">
+            <div class="num" data-goal="@item.Number">0</div>
+            <h5>@item.Description</h5>
+        </div>
+    }
+     </div>
+ </section>
+</div>

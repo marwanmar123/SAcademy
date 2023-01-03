@@ -16,14 +16,14 @@
         <div class="accordion" id="accordion" style="width:25%;">
             <div class="card border-0 w-75">
                 <button class="border-0 bg-transparent" style="font-size:26px;">
-                    <span class=" text-dark">Filtrer Par :</span>
+                    <span class=" filtertext text-dark">Filtrer Par :</span>
                 </button>
                 <hr class="w-75 p-0" />
                 <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
                     <h5 class="mb-0">
                         <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                             data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <span class="pr-5 text-dark">Type</span>
+                            <span class="pr-5 text-dark filtertext">Type</span>
                             <img class="" style="width:1.5vw; margin-left:2.4em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
@@ -41,7 +41,7 @@
                     <h5 class="mb-0">
                         <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="pr-5 text-dark">Ville</span>
+                            <span class="pr-5 text-dark filtertext">Ville</span>
                             <img class="" style="width:1.5vw; margin-left:2.7em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
@@ -58,7 +58,7 @@
                     <h5 class="mb-0">
                         <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="pr-5 text-dark">Mode</span>
+                            <span class="pr-5 text-dark filtertext">Mode</span>
                             <img class="" style="width:1.5vw; margin-left:2em;" src="~/img/arrow.png" />
                         </button>
                     </h5>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="float-right p-3 itemsFormation" style="width:70%;">
-            @{
+            @*@{
                 string result = null;
                 if (Model.Count() > 0)
                 {
@@ -83,7 +83,7 @@
                     result = "Aucune Formation pour l'instant";
                 }
             }
-            <h5>@result</h5>
+            <h5>@result</h5>*@
             <div id="formation"></div>
         </div>
     </div>
@@ -107,7 +107,7 @@
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                                <input type="checkbox" style="width:26px;" class="villeId common" name="villes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4" style="font-size:26px;">${option.name}</span>
+                                <input type="checkbox" style="width:25%;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter" style="font-size:26px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -123,7 +123,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex">
-                                        <input type="checkbox"  style="width:26px;" class="typeId common" name="types" onClick="filterFormations()" value="${option.id}"> <span class="pl-4" style="font-size:26px;">${option.name}</span>
+                                        <input type="checkbox"  style="width:25%;" class="typeId common m-1" name="types" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter" style="font-size:26px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -140,7 +140,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                                            <input type="checkbox" style="width:26px;" class="modeId common" name="modes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4"  style="font-size:26px;">${option.name}</span>
+                                            <input type="checkbox" style="width:25%;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter"  style="font-size:26px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -173,13 +173,13 @@
                 villeId: villes?.join(','),
             },
             success: function (data) {
-                 
+
                 console.log(data)
                 if (data && data.length > 0) {
-                    $("#formation").html('') 
+                    $("#formation").html('')
                     $.each(data, function (index, option) {
-                        var ds = option.startDay.toString().split('T')[0];
                         var de = option.endDay.toString().split('T')[0];
+                        var test = option.startDay.split('T')[0];
                         var time1 = option.startTime;
                         var time2 = option.endTime;
                         var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -187,18 +187,18 @@
                         $("#formation").append(
                             `
                                 <div class="row formation p-3 mb-3 w-100 float-right">
-                                        <div class="col-3 p-2 text-center">
-                                            <img src="/img/time.png" style="width:3em;"/>
-                                            <h5> Du ${ds}<span class="text-muted">  </span><br/>Au ${de}</h5>
+                                        <div class="col-3 p-2 text-center formation-1">
+                                            <img src="/img/time.png" style="width:3vw;"/>
+                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
                                             <h6>${st} => ${et}</h6>
-                                            <img src="/img/iconForm1.png" style="width:3em;"/>
-                                            <img src="/img/iconForm2.png" style="width:3em;"/>
-                                            <img src="/img/iconForm4.png" style="width:3em;"/>
+                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
                                         </div>
                                         <div class="col-6 p-2 w-50 text-center">
                                             <h5>${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
-                                            <h5  style="color:#ce0033;"><span class="text-muted">ville<br/></span>${option.ville.name}</h5>
+                                            <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
                                         </div>
                                             <div class="col-3 p-2 text-center">
                                             <img src="/img/iconForm3.png" style="width:3em;"/>

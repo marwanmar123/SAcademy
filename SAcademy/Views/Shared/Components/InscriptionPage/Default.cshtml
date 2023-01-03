@@ -6,13 +6,15 @@
 @foreach (var item in Model)
 {
     var size = string.Concat(item.ContentHeight, "px");
-
-    <div>
-        <div style="background:@item.ContentBgColor; height:@size;">
-        @Html.Raw(item.ContentOne)
-        </div>
+    if (item.Visible == true)
+    {
         <div>
-        @Html.Raw(item.ContentTwo)
+            <div style="background:@item.ContentBgColor; height:@size;">
+                @Html.Raw(item.ContentOne)
+            </div>
+            <div>
+                @Html.Raw(item.ContentTwo)
+            </div>
         </div>
-    </div>
+    }
 }

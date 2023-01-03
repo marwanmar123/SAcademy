@@ -1,0 +1,52 @@
+﻿@model SAcademy.Models.Statistics
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="modal fade" id="EditStatistics-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width:1000px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Statistics</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TitleColor" class="control-label"></label>
+                        <input type="color" asp-for="TitleColor" class="form-control" />
+                        <span asp-validation-for="TitleColor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TitleSize" class="control-label"></label>
+                        <input type="number" asp-for="TitleSize" class="form-control" />
+                        <span asp-validation-for="TitleSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                            <img src="~/img/save.png" style="width:1.3em;">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

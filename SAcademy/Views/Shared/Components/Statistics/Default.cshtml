@@ -1,0 +1,17 @@
+﻿@model List<SAcademy.Models.Statistics>
+
+<div class="p-3" id="statistics">
+
+
+    @foreach (var item in Model)
+    {
+        if (item.Visible == true)
+        {
+            var size = string.Concat(item.TitleSize, "vw");
+            <p class="text-center p-3 about-title" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            @await Component.InvokeAsync("StaticNum")
+                
+        }
+
+    }
+</div>

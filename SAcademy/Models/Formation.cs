@@ -12,10 +12,10 @@ namespace SAcademy.Models
         public string? Description { get; set; }
         public string? Duration { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MMMM yyyy}")]
-        public DateTime StartDay { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MMMM yyyy}")]
-        public DateTime EndDay { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MM yyyy}")]
+        public DateTimeOffset StartDay { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd MM yyyy}")]
+        public DateTimeOffset EndDay { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
         public DateTime StartTime { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]

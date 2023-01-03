@@ -320,8 +320,8 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDay")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTimeOffset>("EndDay")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
@@ -347,8 +347,8 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDay")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTimeOffset>("StartDay")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
@@ -414,9 +414,6 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DetailType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -721,6 +718,32 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Sections");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.SectionTheme", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TitleSize")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SectionTheme");
+                });
+
             modelBuilder.Entity("SAcademy.Models.Slide", b =>
                 {
                     b.Property<string>("Id")
@@ -747,6 +770,46 @@ namespace SAcademy.Data.Migrations
                     b.ToTable("Slides");
                 });
 
+            modelBuilder.Entity("SAcademy.Models.StaticNum", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Number")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StaticNums");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.Statistics", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TitleSize")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Statistics");
+                });
+
             modelBuilder.Entity("SAcademy.Models.Thematic", b =>
                 {
                     b.Property<string>("Id")
@@ -757,6 +820,9 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ColorTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

@@ -3,12 +3,13 @@
 
 
 <div>
-@foreach (var item in Model) {
-    
-    var size = string.Concat(item.ContentHeight, "px");
+    @foreach (var item in Model)
+    {
 
-    <div class="pl-3 pt-5" style="background:@item.ContentBgColor; height:@size;">
-        @Html.Raw(item.Content)
-    </div>
-}
+        var size = string.Concat(item.ContentHeight, "px");
+
+        <div class="pl-3 pt-5 formationPage" style="background:@item.ContentBgColor; height:@size;">
+            @Html.Raw(item.Content)
+        </div>
+    }
 </div>

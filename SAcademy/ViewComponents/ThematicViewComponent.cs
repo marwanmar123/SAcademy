@@ -14,7 +14,7 @@ namespace SAcademy.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var thematics = await _context.Thematics.ToListAsync();
+            var thematics = await _context.Thematics.Include(x => x.Formations).ToListAsync();
             return View(thematics);
         }
     }

@@ -2,38 +2,58 @@
 
 
 
-<div class="p-5" id="slide">
+<div class="p-5 w-100 m-auto" id="nosreferences">
     @foreach (var item in Model)
     {
-        var size = string.Concat(item.TitleSize, "vw");
-        <div class="text-center">
-            <p class="p-3" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
-            <div class="p-2">@Html.Raw(item.Content)</div>
-        </div>
+        if (item.Visible == true)
+        {
+            var size = string.Concat(item.TitleSize, "vw");
+            <div class="text-center">
+                <p class="Titles tslide" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            </div>
+            <div class="p-4 contentSlide">@Html.Raw(item.Content)</div>
+
+            <section class="splide" aria-label="Splide Basic HTML Example">
+                <div class="splide__track text-center">
+                    <ul class="splide__list">
+                        @foreach (var img in item.Images)
+                        {
+                            <li class="splide__slide m-auto">
+                                <img class="m-auto" style="padding:2em 3em; width:100%;"
+                        src="data:image/*;base64,@Convert.ToBase64String(img.Data)">
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </section>
+        }
     }
-    <section class="splide" aria-label="Splide Basic HTML Example">
-      <div class="splide__track text-center">
-    		<ul class="splide__list">
-                @foreach (var item in Model)
-                {
-                    @foreach(var i in item.Images)
-                    { 
-    			        <li class="splide__slide m-auto">
-                            <img class="w-50 m-auto" style="height:40px;" src="data:image/*;base64,@Convert.ToBase64String(i.Data)">
-                        </li>
-                    }
-                }
-    		</ul>
-      </div>
-    </section>
 </div>
 
 <script>
-    var splide = new Splide( '.splide', {
-        perPage : 6,
-        type:'loop',
+    var splide = new Splide('.splide', {
+        perPage: 6,
+        type: 'loop',
         autoplay: true,
-    } );
+        breakpoints: {
+            1500: {
+                perPage: 5,
+
+            },
+            1300: {
+                perPage: 3,
+
+            },
+            767: {
+                perPage: 2,
+
+            },
+            640: {
+                perPage: 1,
+
+            },
+        },
+    });
 
     splide.mount();
 </script>

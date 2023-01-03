@@ -9,6 +9,7 @@ namespace SAcademy.Models
         public string? Title { get; set; }
         public string? ColorTitle { get; set; }
         public string? Background { get; set; }
+        public string? Description { get; set; }
         public string? TypeId { get; set; }
         public FType? Type { get; set; }
         public ICollection<Formation>? Formations { get; set; }

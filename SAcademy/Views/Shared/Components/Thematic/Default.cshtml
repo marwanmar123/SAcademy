@@ -1,13 +1,50 @@
 ﻿@model List<SAcademy.Models.Thematic>
 
 
-@foreach (var item in Model)
-{
-
-    var size = string.Concat(item.Title, "vw");
-    <div class="p-3" style="background:@item.Background;">
-        <h5 style="color:@item.ColorTitle;">@item.Title</h5>
-        <img src="~/img/info.png">
+    @foreach (var item in Model)
+    {
+    
+        var size = string.Concat(item.Title, "vw");
+        <div>
+            <div class="p-3 d-flex flex-column justify-content-center" style="background:@item.Background; height:50%;">
+                <h5 style="color:@item.ColorTitle;">@item.Title</h5>
+                <p>@item.Formations.Count()</p>
+                @if (@item.Formations.Count() == 0)
+                {
+                    <a href="#" class="" data-toggle="modal" data-target="#exampleModal">
+                        details
+                    </a>
+                }
+                else
+                {
+                    <a href="thematics/details/@item.Id">details</a>
+                }
+            </div>
+            <div class="card mt-1 text-left p-1" style="border:1px dotted black !important; height:50%;">
+                <div class="card-body">
+                    @Html.Raw(item.Description)
+                </div>
+            </div>
+        </div>
+    
+    }
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-}

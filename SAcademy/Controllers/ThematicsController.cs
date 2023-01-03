@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
+    
     public class ThematicsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,6 +37,8 @@ namespace SAcademy.Controllers
             }
 
             var thematic = await _context.Thematics
+                .Include(x => x.Formations).ThenInclude(m => m.Mode)
+                .Include(f => f.Formations).ThenInclude(m => m.Ville)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (thematic == null)
             {
@@ -44,6 +48,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
+        [Authorize]
         // GET: Thematics/Create
         public IActionResult Create()
         {
@@ -53,7 +58,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ColorTitle,Background,TypeId")] Thematic thematic)
+        public async Task<IActionResult> Create([Bind("Id,Title,ColorTitle,Background,Description,TypeId")] Thematic thematic)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +71,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
+        [Authorize]
         // GET: Thematics/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -87,7 +93,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,ColorTitle,Background,TypeId")] Thematic thematic)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,ColorTitle,Background,Description,TypeId")] Thematic thematic)
         {
             if (id != thematic.Id)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -40,9 +41,7 @@ namespace SAcademy.Controllers
             }
 
             var fType = await _context.FTypes
-                .Include(f => f.Formations).ThenInclude(m => m.Mode)
-                .Include(f => f.Formations).ThenInclude(m => m.Ville)
-                .Include(f => f.Thematics)
+                .Include(f => f.Formations)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (fType == null)
             {
@@ -53,6 +52,7 @@ namespace SAcademy.Controllers
             return View(fType);
         }
 
+        [Authorize]
         // GET: FTypes/Create
         public IActionResult Create()
         {
@@ -62,7 +62,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor,Content,DetailType,BgCard,SizeCard")] FType fType)
+        public async Task<IActionResult> Create([Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +73,7 @@ namespace SAcademy.Controllers
             return RedirectToAction("FormationPanel", "FormationPages");
         }
 
+        [Authorize]
         // GET: FTypes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -92,7 +93,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor,Content,DetailType,BgCard,SizeCard")] FType fType)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Name,Color,BgColor,Content,BgCard,SizeCard")] FType fType)
         {
             if (id != fType.Id)
             {

@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets\\img\\invisible.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\local.png",
+      "PackagePath": "staticwebassets\\img\\local.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\location.png",
       "PackagePath": "staticwebassets\\img\\location.png"
     },

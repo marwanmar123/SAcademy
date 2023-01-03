@@ -6,12 +6,12 @@
 
 
 
-<div id="ofr"></div>
+@*<div id="ofr"></div>
 <div id="frm"></div>
 
 <div class="">
 
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row">*@
 
         @*@foreach (var t in Model.Thematics)
         {
@@ -20,12 +20,12 @@
                 <img src="~/img/info.png">
             </div>
         }*@
-    </div>
-    <div>
-        <h3 class="p-3">Formations @Model.Name</h3>
-        @foreach(var f in Model.Formations)
-        { 
-            <div class="row p-3 mb-3 w-100">
+    @*</div>
+    <div class="m-auto" style="width:70%;">
+    <h3 class="pt-4 pb-2">Formations @Model.Name</h3>*@
+        @*@foreach(var f in Model.Formations)
+        {
+            <div class="row formation w-100 m-auto" style="margin-bottom:1.5em !important;">
                 <div class="col-3 p-2 text-center">
                     <img src="~/img/time.png" style="width:3em;"/>
                     <h5>@f.StartDay<span class="text-muted"> => </span><br/>@f.EndDay</h5>
@@ -37,22 +37,22 @@
                 <div class="col-6 p-2 w-50 text-center">
                     <h5>@f.Title</h5>
                     <p class="descFormation">@f.Description</p>
-                    <h5><span class="text-muted">ville: </span>@f.Ville.Name</h5>
+                    <h5><span class="text-muted"><img class="" style="width:5%;" src="~/img/local.png"> </span>@f.Ville.Name</h5>
                 </div>
                     <div class="col-3 p-2 text-center">
                     <img src="~/img/iconForm3.png" style="width:3em;"/>
                     <h5>@Model.Name</h5>
-                    <h6 class="mb-4">@f.Mode.Name}</h6>
+                    <h6 class="mb-4">@f.Mode.Name</h6>
                     <a asp-controller="Formations" asp-action="details" asp-route-id ="@f.Id" class=" inscription">Inscription</a>
                 </div>
             </div>
-        }
-    </div>
+        }*@
+    @*</div>
 
 </div>
+*@
 
-
-<script>
+@*<script>
 
     //$.ajax({
     //    url: '/Thematics/ThemeAPI',
@@ -195,4 +195,4 @@
     //    });
     //});
 
-</script>
+</script>*@

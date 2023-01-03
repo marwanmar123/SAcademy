@@ -8,7 +8,7 @@
         if (item.Visible == true)
         {
             var size = string.Concat(item.TitleSize, "vw");
-            <p class="text-center p-3 " style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            <p class="text-center p-3 Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
             <div class="d-flex justify-content-between aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
@@ -22,18 +22,20 @@
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-up-right">
-                        <img class="aboutImg" width="@item.VideoWidth" height="@item.VideoHeight" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
+                        <img class="aboutImg" width="@item.VideoWidth" height="@item.VideoHeight"
+                src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
                     </div>
                 }
                 else
                 {
                     <div class="" data-aos="fade-up-left">
                         @Html.Raw(item.Content)
-                    </div> 
-                    <div data-aos="fade-right"
-                            data-aos-offset="300"
-                            data-aos-easing="ease-in-sine">
-                        <iframe class="aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                        <iframe class="aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
                     </div>
                 }
 
