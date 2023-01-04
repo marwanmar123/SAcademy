@@ -34,23 +34,23 @@ btn.on('click', function (e) {
     $('html, body').animate({ scrollTop: 0 }, '300');
 });
 
+//////////ENd Top/////
 
 
 
+/////////////////////increase numbers
 
-
-
-let nums = document.querySelectorAll(".nums .num");
+    let nums = document.querySelectorAll(".nums .num");
     let section = document.querySelector(".three");
     let started = false; // Function Started ? No
 
     window.onscroll = function () {
-      if (window.scrollY >= 800) {
-        if (!started) {
-          nums.forEach((num) => startCount(num));
+        if (window.scrollY >= 800) {
+            if (!started) {
+                nums.forEach((num) => startCount(num));
+            }
+            started = true;
         }
-        started = true;
-      }
     };
 
     function startCount(el) {
@@ -62,3 +62,24 @@ let nums = document.querySelectorAll(".nums .num");
         }
       }, 1000 / goal);
     }
+
+/////////////////////END increase numbers
+
+///////////////////// ScrollFixed
+
+function storePagePosition() {
+    var page_y = window.pageYOffset;
+    localStorage.setItem("page_y", page_y);
+}
+window.addEventListener("scroll", storePagePosition);
+var currentPageY;
+try {
+    currentPageY = localStorage.getItem("page_y");
+    if (currentPageY === undefined) {
+        localStorage.setItem("page_y") = 0;
+    }
+    window.scrollTo(0, currentPageY);
+} catch (e) {
+    // no localStorage available
+}
+/////////////////////END ScrollFixed
