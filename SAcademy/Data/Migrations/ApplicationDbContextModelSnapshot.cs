@@ -168,6 +168,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -219,6 +222,9 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmailColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FontFamily")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LocalColor")
@@ -554,6 +560,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("ColorFooter")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Link")
                         .HasColumnType("nvarchar(max)");
 
@@ -623,6 +632,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -689,6 +701,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -727,6 +742,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -751,6 +769,9 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FontFamily")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -793,6 +814,9 @@ namespace SAcademy.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -825,6 +849,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ThemeInscritId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -833,9 +860,34 @@ namespace SAcademy.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ThemeInscritId");
+
                     b.HasIndex("TypeId");
 
                     b.ToTable("Thematics");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.ThemeInscrit", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Phone")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ThematicName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ThemeInscrits");
                 });
 
             modelBuilder.Entity("SAcademy.Models.User", b =>
@@ -1021,6 +1073,10 @@ namespace SAcademy.Data.Migrations
 
             modelBuilder.Entity("SAcademy.Models.Thematic", b =>
                 {
+                    b.HasOne("SAcademy.Models.ThemeInscrit", null)
+                        .WithMany("Thematic")
+                        .HasForeignKey("ThemeInscritId");
+
                     b.HasOne("SAcademy.Models.FType", "Type")
                         .WithMany("Thematics")
                         .HasForeignKey("TypeId");
@@ -1053,6 +1109,11 @@ namespace SAcademy.Data.Migrations
             modelBuilder.Entity("SAcademy.Models.Thematic", b =>
                 {
                     b.Navigation("Formations");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.ThemeInscrit", b =>
+                {
+                    b.Navigation("Thematic");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Ville", b =>

@@ -9,6 +9,7 @@ namespace SAcademy.Models
         public string? Title { get; set; }
         public string? TitleColor { get; set; } 
         public int? TitleSize { get; set; }
+        public string? FontFamily { get; set; }
         public string? Content { get; set; }
         public string? Localisation { get; set; }
         public string? LocalColor { get; set; }

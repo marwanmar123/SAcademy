@@ -27,7 +27,6 @@
             </div>
         </div>
     
-    }
     
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -39,12 +38,37 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                <form asp-action="Register" asp-controller="Thematics">
+                    <div class="form-group">
+                        <label class="control-label">FullName</label>
+                        <input name="FullName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <input type="email" name="Email" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Phone</label>
+                        <input type="number" name="Phone" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Thematique</label>
+                        <select name="ThematicName" class="form-control">
+                            @foreach(var s in Model)
+                            {
+                                <option value="@s.Title">@s.Title</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+    }

@@ -5,11 +5,11 @@
 {
         if(item.Visible == true)
         {
-            var size = string.Concat(item.TitleSize, "px");
+            var size = string.Concat(item.TitleSize, "vw");
             var mapwidth = string.Concat(item.MapWidth, "%");
             var mapHeight = string.Concat(item.MapHeight, "%");
 
-            <p class="text-center Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+            <p class="text-center Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
             <p>@Html.Raw(item.Content)</p>
             <br />
             <div class="row">

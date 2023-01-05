@@ -6,7 +6,7 @@
 @foreach (var item in Model.Home)
 {
     var sizeLogo = string.Concat(item.LogoSize, "px");
-    <nav class="nav-bar" style="background:@item.BgNav;">
+    <nav class="nav-bar fixed-top" style="background:@item.BgNav;">
         <div class="nav-hold">
             <div class="nav-logo">
                 @if (item.Logo != null)
@@ -28,12 +28,12 @@
                 {
                     var size = string.Concat(n.Size, "px");
                     <li class="">
-                        <a class="mr-3 " href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold;">@n.TitleMenu |</a>
+                        <a class="mr-3 " href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu |</a>
                     </li>
                 }
                 @if (SignInManager.IsSignedIn(User))
                 {
-                    <a class="mr-3" href="/dashboard" style="color:; font-size:; font-weight:bold;">
+                    <a class="mr-3" href="/dashboard" style="font-weight:bold;">
                         <img src="~/img/dashboard.png">    
                     </a>
                 }

@@ -36,7 +36,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,Content")] Offre offre)
+        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content")] Offre offre)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,Content")] Offre offre)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content")] Offre offre)
         {
             if (id != offre.Id)
             {

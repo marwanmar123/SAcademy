@@ -32,7 +32,7 @@
             var size = string.Concat(item.Size, "px");
             <tr>
                 <td>
-                    <p style="color:@item.Color; font-size:@size; font-weight:bold;">@item.TitleMenu</p>
+                    <p style="color:@item.Color; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.TitleMenu</p>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Link)

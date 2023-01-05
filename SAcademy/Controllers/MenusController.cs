@@ -44,7 +44,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TitleMenu,Link,Color,ColorFooter,Size,SizeFooter")] Menu menu)
+        public async Task<IActionResult> Create([Bind("Id,TitleMenu,Link,Color,ColorFooter,FontFamily,Size,SizeFooter")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,TitleMenu,Link,Color,ColorFooter,Size,SizeFooter")] Menu menu)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,TitleMenu,Link,Color,ColorFooter,FontFamily,Size,SizeFooter")] Menu menu)
         {
             if (id != menu.Id)
             {

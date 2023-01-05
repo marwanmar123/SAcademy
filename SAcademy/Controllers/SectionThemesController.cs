@@ -51,7 +51,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,Content,Visible")] SectionTheme sectionTheme)
+        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content,Visible")] SectionTheme sectionTheme)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,Content,Visible")] SectionTheme sectionTheme)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content,Visible")] SectionTheme sectionTheme)
         {
             if (id != sectionTheme.Id)
             {

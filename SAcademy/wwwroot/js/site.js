@@ -67,19 +67,19 @@ btn.on('click', function (e) {
 
 ///////////////////// ScrollFixed
 
-function storePagePosition() {
-    var page_y = window.pageYOffset;
-    localStorage.setItem("page_y", page_y);
-}
-window.addEventListener("scroll", storePagePosition);
-var currentPageY;
-try {
-    currentPageY = localStorage.getItem("page_y");
-    if (currentPageY === undefined) {
-        localStorage.setItem("page_y") = 0;
-    }
-    window.scrollTo(0, currentPageY);
-} catch (e) {
-    // no localStorage available
-}
+//function storePagePosition() {
+//    var page_y = window.pageYOffset;
+//    localStorage.setItem("page_y", page_y);
+//}
+//window.addEventListener("scroll", storePagePosition);
+//var currentPageY;
+//try {
+//    currentPageY = localStorage.getItem("page_y");
+//    if (currentPageY === undefined) {
+//        localStorage.setItem("page_y") = 0;
+//    }
+//    window.scrollTo(0, currentPageY);
+//} catch (e) {
+//    // no localStorage available
+//}
 /////////////////////END ScrollFixed

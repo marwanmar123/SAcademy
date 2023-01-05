@@ -36,11 +36,11 @@
         </button>
         @await Html.PartialAsync("_EditContactPartialView",item)
 
-        var size = string.Concat(item.TitleSize, "px");
+        var size = string.Concat(item.TitleSize, "vw");
         var mapwidth = string.Concat(item.MapWidth, "%");
         var mapHeight = string.Concat(item.MapHeight, "%");
 
-        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold;">@item.Title</p>
+        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
         @Html.Raw(item.Content)<br /><br />
         <div class="d-flex flex-row justify-content-center contact">
             <div class="m-auto contact-item">

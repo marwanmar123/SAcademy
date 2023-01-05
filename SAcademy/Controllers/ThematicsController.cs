@@ -167,5 +167,36 @@ namespace SAcademy.Controllers
         {
           return _context.Thematics.Any(e => e.Id == id);
         }
+
+
+        public IActionResult GetRegisters()
+        {
+            return View(_context.ThemeInscrits.ToList());
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(ThemeInscrit themeInscrit)
+        {
+            if (ModelState.IsValid)
+            {
+                var addinscrit = new ThemeInscrit
+                {
+                    FullName = themeInscrit.FullName,
+                    Email = themeInscrit.Email,
+                    Phone = themeInscrit.Phone,
+                    ThematicName = themeInscrit.ThematicName
+                };
+                _context.Add(addinscrit);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

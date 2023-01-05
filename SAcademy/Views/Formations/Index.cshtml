@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="yeld">
 @await Component.InvokeAsync("FormationPage")
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-transparent pl-5">
@@ -16,7 +17,7 @@
         <div class="accordion" id="accordion" style="width:25%;">
             <div class="card border-0 w-75">
                 <button class="border-0 bg-transparent" style="font-size:26px;">
-                    <span class=" filtertext text-dark">Filtrer Par :</span>
+                    <span class="float-left filtertext text-dark">Filtrer Par :</span>
                 </button>
                 <hr class="w-75 p-0" />
                 <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
@@ -88,6 +89,7 @@
         </div>
     </div>
 
+</div>
 </div>
 @* @{
     var date = @Html.DisplayFor(modelItem => Model.StartDay);

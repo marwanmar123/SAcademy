@@ -35,5 +35,6 @@ namespace SAcademy.Data
         public DbSet<SectionTheme> SectionTheme { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<StaticNum> StaticNums { get; set; }
+        public DbSet<ThemeInscrit> ThemeInscrits { get; set; }
     }
 }

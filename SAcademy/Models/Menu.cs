@@ -10,6 +10,7 @@ namespace SAcademy.Models
         public string? Link { get; set; }
         public string? Color { get; set; } = "white";
         public string? ColorFooter { get; set; } = "white";
+        public string? FontFamily { get; set; }
         public int? Size { get; set; } = 18;
         public int? SizeFooter { get; set; } = 18;
     }

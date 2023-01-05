@@ -51,7 +51,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize")] Statistics statistics)
+        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,FontFamily,")] Statistics statistics)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize")] Statistics statistics)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,FontFamily,")] Statistics statistics)
         {
             if (id != statistics.Id)
             {

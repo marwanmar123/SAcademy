@@ -12,26 +12,26 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Nom" class="control-label"></label>
-            <input asp-for="Nom" class="form-control" />
+            <input type="text" asp-for="Nom" class="form-control" required />
             <span asp-validation-for="Nom" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Prenom" class="control-label"></label>
-            <input asp-for="Prenom" class="form-control" />
+            <input asp-for="Prenom" class="form-control" required />
             <span asp-validation-for="Prenom" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" />
+            <input asp-for="Email" class="form-control" required/>
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Phone" class="control-label"></label>
-            <input asp-for="Phone" class="form-control" />
+            <input asp-for="Phone" class="form-control" required />
             <span asp-validation-for="Phone" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Region" class="control-label"></label>
+            <label class="control-label">Entreprise</label>
             <input asp-for="Region" class="form-control" />
             <span asp-validation-for="Region" class="text-danger"></span>
         </div>
@@ -45,7 +45,7 @@
         </div>
     </form>
     <div>
-        <a asp-action="Index" style="color:#ec0033;">Back to List</a>
+        <a asp-action="Index" style="color:#ec0033;">Retour</a>
     </div>
 </div>
 
@@ -55,16 +55,15 @@
 
 <script>
     $(function () {
-        $("#btnSave").click(function (e) {
-            e.preventDefault();
+        $("#studentForm").submit(function () {
             swal("Merci", "Bienvenu  .", "success")
                 .then((confirm) => {
-                    $("#studentForm").submit();
+                    setTimeout(myURL, 5000);
                 })
         });
 
-        //$("#studentForm").on('submit',function(){
-        //  alert('form POST');
-        //})
+        function myURL() {
+            document.location.href = '/';
+        }
     });
 </script>

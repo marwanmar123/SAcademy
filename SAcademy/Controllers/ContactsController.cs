@@ -43,7 +43,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,Content,Localisation,LocalColor,Email,EmailColor,Call,CallColor,Maps,MapWidth,MapHeight,ButtonBgColor")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content,Localisation,LocalColor,Email,EmailColor,Call,CallColor,Maps,MapWidth,MapHeight,ButtonBgColor")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,Content,Localisation,LocalColor,Email,EmailColor,Call,CallColor,Maps,MapWidth,MapHeight,ButtonBgColor")] Contact contact)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,TitleColor,TitleSize,FontFamily,Content,Localisation,LocalColor,Email,EmailColor,Call,CallColor,Maps,MapWidth,MapHeight,ButtonBgColor")] Contact contact)
         {
             if (id != contact.Id)
             {

@@ -1,7 +1,15 @@
 ﻿@model SAcademy.Models.Menu
-
-
-
+@{
+        List<SelectListItem> font = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text="Nunito Sans", Value="Nunito Sans"},
+            new SelectListItem() { Text="Nunito Black", Value="Nunito Black"},
+            new SelectListItem() { Text="Nunito", Value="Nunito"},
+            new SelectListItem() { Text="'Nunito' bold", Value="'Nunito' bold"},
+            new SelectListItem() { Text="Roboto", Value="Roboto"},
+            new SelectListItem() { Text="Comic Sans MS", Value="Comic Sans MS"},
+        };
+}
 <div class="modal fade" id="CreateMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -34,8 +42,14 @@
                 <input type="color" asp-for="ColorFooter" class="form-control" required />
                 <span asp-validation-for="ColorFooter" class="text-danger"></span>
             </div>
+            <div>
+                <select asp-for="FontFamily" asp-items="@font" class="form-control custom-select">
+                    <option>-Select Font family-</option>
+                    <option value="@Model.FontFamily">@Model.FontFamily</option>
+                </select>
+            </div> 
             <div class="form-group">
-                        <label class="control-label"> Size Menu</label>
+                <label class="control-label"> Size Menu</label>
                 <input type="number" asp-for="Size" class="form-control" required />
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
