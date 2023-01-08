@@ -803,6 +803,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<int?>("Number")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("image")
+                        .HasColumnType("varbinary(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("StaticNums");

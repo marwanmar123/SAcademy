@@ -10,6 +10,7 @@
 </div>
  @*<p class="btn-type" id="${option.id}" onClick="get_Formation(this.id)" style="color:${option.color}; background:${option.bgColor};">${option.name}</p>*@
 
+@* <a style="color:${option.color}; text-decoration:none; font-weight:bold;" href="ftypes/details/${option.id}">#${option.name}</a> *@
 <script>
 
     $.ajax({
@@ -22,7 +23,7 @@
                         <div>
                             <div class="p-3 m-2 div1" style="background:${option.bgCard}; width:${option.sizeCard}vw; height:100%;">
                                 <p>${option.content}</p>
-                                <a style="color:${option.color}; text-decoration:none; font-weight:bold;" href="ftypes/details/${option.id}">#${option.name}</a>
+                                <p style="color:${option.color}; text-decoration:none; font-weight:bold;">#${option.name}</p>
                             </div>
                         </div>
                     `
@@ -50,106 +51,106 @@
 
     @*
 
-                                function get_Formation(formationTypeId) {
-                                    $("#formations").load(location.href + " #formations");
-                                    setTimeout(function () {
-                                        $.ajax({
-                                            url: '/Formations/GetFormationsByFilter?formationTypeId=' + formationTypeId,
-                                            type: 'GET',
-                                            success: function (res) {
-                                                if (res.length == 0) {
-                                                    $("#formations").append(`<h1 class="text-center">No Data</h1>`)
-                                                } else {
-                                                    $.each(res, function (index, option) {
-                                                        $("#formations").append(
-                                                            `
-                                                                <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
-                                                                    <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
-                                                                    <p style="">Durée ${option.duration}</p>
-                                                                    <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
-                                                                </div>
-                                                            `
-                                                        );
-                                                    });
-                                                }
-
-                                            },
-                                            error: function (errorThrown) {
-                                                $("#formations").append(
-                                                    `
-                                                        <h1>Error</h1>
-                                                    `
-                                                );
-                                            }
-                                        });
-                                    }, 500)
-                                }
-
-                                function get_All() {
-                                    $("#formations").load(location.href + " #formations");
-                                    setTimeout(function () {
-                                        $.ajax({
-                                            url: '/Formations/GetFormationAPI',
-                                            type: 'GET',
-                                            success: function (res) {
-                                                if (res.length == 0) {
-                                                    $("#formations").append(`<h1 class="text-center">No Data</h1>`)
-                                                } else {
-                                                    $.each(res, function (index, option) {
-                                                        $("#formations").append(
-                                                            `
-                                                                    <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                        function get_Formation(formationTypeId) {
+                                            $("#formations").load(location.href + " #formations");
+                                            setTimeout(function () {
+                                                $.ajax({
+                                                    url: '/Formations/GetFormationsByFilter?formationTypeId=' + formationTypeId,
+                                                    type: 'GET',
+                                                    success: function (res) {
+                                                        if (res.length == 0) {
+                                                            $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                                                        } else {
+                                                            $.each(res, function (index, option) {
+                                                                $("#formations").append(
+                                                                    `
+                                                                        <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
                                                                             <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
-                                                                        <p style="">Durée ${option.duration}</p>
+                                                                            <p style="">Durée ${option.duration}</p>
                                                                             <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
-                                                                    </div>
-                                                                `
-                                                        );
+                                                                        </div>
+                                                                    `
+                                                                );
+                                                            });
+                                                        }
 
-                                                    });
-                                                }
-                                            },
-                                            error: function (errorThrown) {
-                                                $("#formations").append(
-                                                    `
-                                                            <h1>Error</h1>
-                                                        `
-                                                );
-                                            }
-                                        });
-                                    }, 500)
-                                }
-
-                                $(document).ready(function () {
-                                    $.ajax({
-                                        url: '/Formations/GetFormationAPI',
-                                        type: 'GET',
-                                        success: function (res) {
-                                            if (res.length == 0) {
-                                                $("#formations").append(`<h1 class="text-center">No Data</h1>`)
-                                            } else {
-                                                $.each(res, function (index, option) {
-                                                    $("#formations").append(
-                                                        `
-                                                            <div data-aos="flip-left" class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};border-radius:5px; border:1px solid #D2D2D2;">
-                                                                    <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
-                                                                <p style="">Durée ${option.duration}</p>
-                                                                <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
-                                                            </div>
-                                                        `
-                                                    );
-
-                                                });
-                                            }
-                                        },
-                                        error: function (errorThrown) {
-                                            $("#formations").append(
-                                                `
+                                                    },
+                                                    error: function (errorThrown) {
+                                                        $("#formations").append(
+                                                            `
                                                                 <h1>Error</h1>
                                                             `
-                                            );
+                                                        );
+                                                    }
+                                                });
+                                            }, 500)
                                         }
-                                    });
-                                });*@
+
+                                        function get_All() {
+                                            $("#formations").load(location.href + " #formations");
+                                            setTimeout(function () {
+                                                $.ajax({
+                                                    url: '/Formations/GetFormationAPI',
+                                                    type: 'GET',
+                                                    success: function (res) {
+                                                        if (res.length == 0) {
+                                                            $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                                                        } else {
+                                                            $.each(res, function (index, option) {
+                                                                $("#formations").append(
+                                                                    `
+                                                                            <div class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};height:100%; border-radius:5px; border:1px solid #D2D2D2;">
+                                                                                    <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
+                                                                                <p style="">Durée ${option.duration}</p>
+                                                                                    <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                                                            </div>
+                                                                        `
+                                                                );
+
+                                                            });
+                                                        }
+                                                    },
+                                                    error: function (errorThrown) {
+                                                        $("#formations").append(
+                                                            `
+                                                                    <h1>Error</h1>
+                                                                `
+                                                        );
+                                                    }
+                                                });
+                                            }, 500)
+                                        }
+
+                                        $(document).ready(function () {
+                                            $.ajax({
+                                                url: '/Formations/GetFormationAPI',
+                                                type: 'GET',
+                                                success: function (res) {
+                                                    if (res.length == 0) {
+                                                        $("#formations").append(`<h1 class="text-center">No Data</h1>`)
+                                                    } else {
+                                                        $.each(res, function (index, option) {
+                                                            $("#formations").append(
+                                                                `
+                                                                    <div data-aos="flip-left" class="col-3 m-2 p-3 cardOffre" style="background:${option.offreFBgColor};border-radius:5px; border:1px solid #D2D2D2;">
+                                                                            <p class="cardOffre-title" style="color:${option.offreFColor}; font-size:${option.offreFSize + 'vw'};font-weight:bold;">${option.title}</p>
+                                                                        <p style="">Durée ${option.duration}</p>
+                                                                        <a class="text-light cardOffre-button" href="formations/details/${option.id}" style="background:${option.offreFBgColorButton}; border-radius:5px; text-decoration:none;">Details</a>
+                                                                    </div>
+                                                                `
+                                                            );
+
+                                                        });
+                                                    }
+                                                },
+                                                error: function (errorThrown) {
+                                                    $("#formations").append(
+                                                        `
+                                                                        <h1>Error</h1>
+                                                                    `
+                                                    );
+                                                }
+                                            });
+                                        });*@
 </script>
 

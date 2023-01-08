@@ -11,7 +11,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    
     public class VillesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,7 +20,7 @@ namespace SAcademy.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
         // GET: Villes
         public async Task<IActionResult> Index()
         {
@@ -31,7 +31,7 @@ namespace SAcademy.Controllers
         {
             return Ok(await _context.Villes.ToListAsync());
         }
-
+        [Authorize]
         // GET: Villes/Create
         public IActionResult Create()
         {
@@ -51,7 +51,7 @@ namespace SAcademy.Controllers
             }
             return View(ville);
         }
-
+        [Authorize]
         // GET: Villes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -100,7 +100,7 @@ namespace SAcademy.Controllers
             }
             return View(ville);
         }
-
+        [Authorize]
         // GET: Villes/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

@@ -54,7 +54,7 @@
             else
             {
                 <div>
-                    <iframe class="pr-4" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="pr-4" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="d-flex flex-column">
                     @Html.Raw(item.Content)

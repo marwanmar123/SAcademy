@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Edit";
     List<SelectListItem> font = new List<SelectListItem>()
-        {
-            new SelectListItem() { Text="Nunito Sans", Value="Nunito Sans"},
-            new SelectListItem() { Text="Nunito Black", Value="Nunito Black"},
-            new SelectListItem() { Text="Nunito", Value="Nunito"},
-            new SelectListItem() { Text="'Nunito' bold", Value="'Nunito' bold"},
-            new SelectListItem() { Text="Roboto", Value="Roboto"},
-            new SelectListItem() { Text="Comic Sans MS", Value="Comic Sans MS"},
-        };
+{
+new SelectListItem() { Text="Nunito Sans", Value="Nunito Sans"},
+new SelectListItem() { Text="Nunito Black", Value="Nunito Black"},
+new SelectListItem() { Text="Nunito", Value="Nunito"},
+new SelectListItem() { Text="'Nunito' bold", Value="'Nunito' bold"},
+new SelectListItem() { Text="Roboto", Value="Roboto"},
+new SelectListItem() { Text="Comic Sans MS", Value="Comic Sans MS"},
+};
 }
 
 <div class="modal fade" id="EditAbout-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,19 +42,20 @@
                         <span asp-validation-for="TitleSize" class="text-danger"></span>
                     </div>
                     <div>
-                    <select asp-for="FontFamily" asp-items="@font" class="form-control custom-select">
-                        <option>-Select Font family-</option>
-                        <option value="@Model.FontFamily">@Model.FontFamily</option>
-                    </select>
-                    </div> 
+                        <select asp-for="FontFamily" asp-items="@font" class="form-control custom-select">
+                            <option>-Select Font family-</option>
+                            <option value="@Model.FontFamily">@Model.FontFamily</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label asp-for="Content" class="control-label"></label>
-                        <textarea asp-for="Content" id="Content" class="form-control" ></textarea>
+                        <textarea asp-for="Content" id="Content" class="form-control"></textarea>
                         <span asp-validation-for="Content" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Video" class="control-label"></label>
-                        <input asp-for="Video" class="form-control" title="video youtube => partager => intégrer <> => copier le lien from https" />
+                        <input asp-for="Video" class="form-control"
+                            title="video youtube => partager => intégrer <> => copier le lien from https" />
                         <span asp-validation-for="Video" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -75,7 +76,8 @@
                         <span asp-validation-for="VideoHeight" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save"
+                            style="border-radius:25px; background:black;">
                             <img src="~/img/save.png" style="width:1.3em;">
                             Save
                         </button>
@@ -92,15 +94,17 @@
 
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+@{
+await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
 }
 
 <script>
     $("#Content").summernote({
         placeholder: "Content ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
         tabsize: 2,
         height: 120,
@@ -108,14 +112,14 @@
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
             ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsize', 'fontsizeunit']],
             ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],
             ['height', ['height']],
-            ['fontname', ['fontname']],
             ["table", ["table"]],
             ["insert", ["link", "picture", "video"]],
             ["view", ["fullscreen", "codeview", "help"]],
-        ]
+        ],
     });
 </script>

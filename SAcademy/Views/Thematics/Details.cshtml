@@ -11,8 +11,8 @@
         <div class="row formation w-100 m-auto" style="margin-bottom:1.5em !important;">
             <div class="col-3 p-2 text-center">
                 <img src="~/img/time.png" style="width:3em;" />
-                <h5>@f.StartDay<span class="text-muted"> => </span><br />@f.EndDay</h5>
-                <h6>@f.StartTime => @f.EndTime</h6>
+                <h5 class="w-100">Du @Html.DisplayFor(modelItem => f.StartDay)<br />Au @Html.DisplayFor(modelItem => f.EndDay)</h5>
+                <h6>@Html.DisplayFor(modelItem => f.StartTime) => @Html.DisplayFor(modelItem => f.EndTime)</h6>
                 <img src="~/img/iconForm1.png" style="width:3em;" />
                 <img src="~/img/iconForm2.png" style="width:3em;" />
                 <img src="~/img/iconForm4.png" style="width:3em;" />

@@ -1,6 +1,6 @@
 ﻿@model List<SAcademy.Models.Section>
 
-<div class="p-3" id="about">
+<div class="pt-3 pb-2" id="apropos">
 
 
     @foreach (var item in Model)
@@ -8,7 +8,8 @@
         if (item.Visible == true)
         {
             var size = string.Concat(item.TitleSize, "vw");
-            <p class="text-center p-3 Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
+            <p class="text-center Titles"
+        style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
             <div class="d-flex justify-content-between aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
@@ -22,17 +23,17 @@
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-up-right">
-                        <img class="aboutImg" width="@item.VideoWidth" height="@item.VideoHeight"
+                        <img class="aboutImg pl-4" width="@item.VideoWidth" height="@item.VideoHeight"
                 src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
                     </div>
                 }
                 else
                 {
-                    <div class="" data-aos="fade-up-left">
+                    <div class="pl-4" data-aos="fade-up-left">
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        <iframe class="aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video"
+                        <iframe class="aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video?rel=0&enablejsapi=1"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

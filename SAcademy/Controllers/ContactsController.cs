@@ -12,7 +12,7 @@ using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    
     public class ContactsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,7 +21,7 @@ namespace SAcademy.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
@@ -33,7 +33,7 @@ namespace SAcademy.Controllers
             return View(contactData);
         }
 
-
+        [Authorize]
         // GET: Contacts/Create
         public IActionResult Create()
         {
@@ -53,7 +53,7 @@ namespace SAcademy.Controllers
             }
             return View(contact);
         }
-
+        [Authorize]
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -101,7 +101,7 @@ namespace SAcademy.Controllers
             }
             return View(contact);
         }
-
+        [Authorize]
         // GET: Contacts/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -172,12 +172,12 @@ namespace SAcademy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteContact(string id, string postId)
+        public async Task<IActionResult> DeleteMail(string id)
         {
-            var resId = _context.Contacts.FirstOrDefault(a => a.Id == id);
+            var resId = _context.Emails.FirstOrDefault(a => a.Id == id);
             _context.Remove(resId);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Contacts");

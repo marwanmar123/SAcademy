@@ -27,6 +27,10 @@ namespace SAcademy.Controllers
         {
               return View(await _context.Thematics.ToListAsync());
         }
+        public async Task<IActionResult> ThematicsApi()
+        {
+            return Ok(await _context.Thematics.ToListAsync());
+        }
 
         // GET: Thematics/Details/5
         public async Task<IActionResult> Details(string id)
@@ -126,6 +130,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
+        [Authorize]
         // GET: Thematics/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -168,7 +173,7 @@ namespace SAcademy.Controllers
           return _context.Thematics.Any(e => e.Id == id);
         }
 
-
+        [Authorize]
         public IActionResult GetRegisters()
         {
             return View(_context.ThemeInscrits.ToList());
@@ -197,6 +202,18 @@ namespace SAcademy.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Index", "Home");
+        }
+        [Authorize]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteregisterTheme(string id)
+        {
+            var resId = _context.ThemeInscrits.FirstOrDefault(a => a.Id == id);
+            _context.Remove(resId);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(GetRegisters));
+
         }
     }
 }

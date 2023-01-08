@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\img\\email.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\gifile.gif",
+      "PackagePath": "staticwebassets\\img\\gifile.gif"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero.jpg",
       "PackagePath": "staticwebassets\\img\\hero.jpg"
     },
@@ -79,6 +83,18 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm4.png",
       "PackagePath": "staticwebassets\\img\\iconForm4.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm5.png",
+      "PackagePath": "staticwebassets\\img\\iconForm5.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm6.png",
+      "PackagePath": "staticwebassets\\img\\iconForm6.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm7.png",
+      "PackagePath": "staticwebassets\\img\\iconForm7.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\info.png",
@@ -123,6 +139,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",
       "PackagePath": "staticwebassets\\img\\save.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\session.png",
+      "PackagePath": "staticwebassets\\img\\session.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\time.png",

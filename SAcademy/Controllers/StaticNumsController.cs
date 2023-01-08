@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,8 @@ namespace SAcademy.Controllers
         //    return View(staticNum);
         //}
 
+        [Authorize]
+
         // GET: StaticNums/Create
         public IActionResult Create()
         {
@@ -51,10 +54,20 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Number,Description")] StaticNum staticNum)
+        public async Task<IActionResult> Create([Bind("Id,Number,Description,image")] StaticNum staticNum)
         {
             if (ModelState.IsValid)
             {
+                if (Request.Form.Files.Count > 0)
+                {
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        staticNum.image = dataStream.ToArray();
+                    }
+                }
+
                 _context.Add(staticNum);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -62,6 +75,7 @@ namespace SAcademy.Controllers
             return View(staticNum);
         }
 
+        [Authorize]
         // GET: StaticNums/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -71,6 +85,7 @@ namespace SAcademy.Controllers
             }
 
             var staticNum = await _context.StaticNums.FindAsync(id);
+            ViewData["Image"] = staticNum.image;
             if (staticNum == null)
             {
                 return NotFound();
@@ -80,7 +95,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Number,Description")] StaticNum staticNum)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Number,Description,image")] StaticNum staticNum)
         {
             if (id != staticNum.Id)
             {
@@ -91,6 +106,15 @@ namespace SAcademy.Controllers
             {
                 try
                 {
+                    if (Request.Form.Files.Count > 0)
+                    {
+                        IFormFile file = Request.Form.Files.FirstOrDefault();
+                        using (var dataStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(dataStream);
+                            staticNum.image = dataStream.ToArray();
+                        }
+                    }
                     _context.Update(staticNum);
                     await _context.SaveChangesAsync();
                 }
@@ -110,6 +134,7 @@ namespace SAcademy.Controllers
             return View(staticNum);
         }
 
+        [Authorize]
         // GET: StaticNums/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

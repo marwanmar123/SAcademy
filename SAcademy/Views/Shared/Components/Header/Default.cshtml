@@ -10,12 +10,16 @@
     if (header.Background != null)
     {
         <div style="background: url(data:image/*;base64,@Convert.ToBase64String(header.Background)); height:@height;"
-    class="bg-cover">
-            <div class="container py-5 content">
+     class="bg-cover">
+            <div class="container py-5 content" data-aos="fade-down-right">
                 <p class="">@Html.Raw(header.Content)</p>
                 <div class="buttonHeader" style="top:@Top; left:@left; width:90%; " data-aos="fade-right">
-                    <button class="btn font-weight-bold" href="/formations"
-                        style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</button>
+                    @if (header.Button != null)
+                    {
+
+                        <button class="btn font-weight-bold" href="/formations"
+                style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</button>
+                    }
                     @if (header.Video != null)
                     {
                         <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
@@ -28,12 +32,15 @@
     }
     else
     {
-        <div class="jumbotron bg-cover" style="background: url('img/hero1.jpg'); height:@height;" data-aos="fade-right">
+        <div class="jumbotron bg-cover" style="background: url('img/hero1.jpg'); height:@height;">
             <div class="container py-5 content">
-                <p class="">@Html.Raw(header.Content)</p>
+                <p class="" data-aos="fade-down-right">@Html.Raw(header.Content)</p>
                 <div class="buttonHeader" style="top:@Top; left:@left; width:90%;" data-aos="fade-right">
-                    <a class="btn font-weight-bold" href="/formations"
+                    @if (header.Button != null)
+                    {
+                        <a class="btn font-weight-bold" href="/formations"
                 style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
+                    }
                     @if (header.Video != null)
                     {
                         <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;">

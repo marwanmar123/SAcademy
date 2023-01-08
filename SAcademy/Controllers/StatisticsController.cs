@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,8 @@ namespace SAcademy.Controllers
         //}
 
         // GET: Statistics/Create
+
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -62,6 +65,7 @@ namespace SAcademy.Controllers
             return View(statistics);
         }
 
+        [Authorize]
         // GET: Statistics/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -109,6 +113,8 @@ namespace SAcademy.Controllers
             }
             return View(statistics);
         }
+
+        [Authorize]
 
         // GET: Statistics/Delete/5
         public async Task<IActionResult> Delete(string id)

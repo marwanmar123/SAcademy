@@ -11,7 +11,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    
     public class ModesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,7 +20,7 @@ namespace SAcademy.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
         // GET: Modes
         public async Task<IActionResult> Index()
         {
@@ -31,7 +31,7 @@ namespace SAcademy.Controllers
         {
             return Ok(await _context.Modes.ToListAsync());
         }
-
+        [Authorize]
         // GET: Modes/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -49,7 +49,7 @@ namespace SAcademy.Controllers
 
             return View(mode);
         }
-
+        [Authorize]
         // GET: Modes/Create
         public IActionResult Create()
         {
@@ -69,7 +69,7 @@ namespace SAcademy.Controllers
             }
             return View(mode);
         }
-
+        [Authorize]
         // GET: Modes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -118,7 +118,7 @@ namespace SAcademy.Controllers
             }
             return View(mode);
         }
-
+        [Authorize]
         // GET: Modes/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

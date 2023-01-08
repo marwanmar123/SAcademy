@@ -41,7 +41,10 @@
                 @Html.DisplayFor(modelItem => item.ThematicName)
             </td>
             <td>
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <form style="display:inline;" method="post" asp-controller="Thematics" asp-action="DeleteregisterTheme">
+                    <input type="hidden" name="Id" value="@item.Id" />
+                    <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                </form>
             </td>
         </tr>
 }

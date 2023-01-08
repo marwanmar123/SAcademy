@@ -27,27 +27,27 @@ namespace SAcademy.Controllers
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var fomramtion = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville).Include(f => f.Thematic);
-            return View(await fomramtion.ToListAsync());
+            var formation = _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include( f => f.Type);
+            return View(await formation.ToListAsync());
         }
 
 
 
-        public async Task<IActionResult> Filter([FromQuery] string villeId, string typeId, string modeId)
+        public async Task<IActionResult> Filter([FromQuery] string villeId, string themId, string modeId)
         {
             // Console.WriteLine("VV ", villeId.Split(','));
             // Console.WriteLine("TT ", typeId.Split(','));
             // Console.WriteLine("MM ", modeId.Split(','));
 
             List<Formation> formations = new List<Formation>();
-            var query = _context.Formations.Include(f => f.Ville).Include(f => f.Type).Include(f => f.Mode).Include(f => f.Thematic).AsQueryable();
-            if (!string.IsNullOrEmpty(villeId) || !string.IsNullOrEmpty(typeId) || !string.IsNullOrEmpty(modeId))
+            var query = _context.Formations.Include(f => f.Ville).Include(f => f.Mode).Include(f => f.Thematic).AsQueryable();
+            if (!string.IsNullOrEmpty(villeId) || !string.IsNullOrEmpty(themId) || !string.IsNullOrEmpty(modeId))
             {
 
                 string[] villes = villeId != null ? villeId.Split(',') : new string[] { };
-                string[] types = typeId != null ? typeId.Split(',') : new string[] { };
+                string[] themes = themId != null ? themId.Split(',') : new string[] { };
                 string[] modes = modeId != null ? modeId.Split(',') : new string[] { };
-                var select = query.Where(f => villes.Contains(f.VilleId) || types.Contains(f.TypeId) || modes.Contains(f.ModeId) );
+                var select = query.Where(f => villes.Contains(f.VilleId) || themes.Contains(f.ThematicId) || modes.Contains(f.ModeId) );
                 
                 formations = await select.ToListAsync();
 
@@ -62,9 +62,8 @@ namespace SAcademy.Controllers
         // GET: FormationsAPI
         public async Task<IActionResult> GetFormationAPI(string? typeId)
         {
-            var applicationDbContext = _context.Formations.AsNoTracking().Include(x => x.Thematic).Include(x => x.Mode).Include(x => x.Ville).Include(x => x.Type)
-                .Where(x => x.TypeId == typeId);
-            return Ok(await applicationDbContext.ToListAsync());
+            var fomramtion = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville).Include(f => f.Thematic);
+            return Ok(await fomramtion.ToListAsync());
         }
 
         // GET: FormationsByFilter

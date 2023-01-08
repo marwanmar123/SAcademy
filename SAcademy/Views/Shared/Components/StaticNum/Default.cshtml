@@ -1,16 +1,24 @@
 ﻿@model List<SAcademy.Models.StaticNum>
 
-<div class="p-3" id="statisticNum">
+<div class="p-1" id="statisticNum">
 
-<section class="three d-flex justify-content-center">
-    <div class="nums d-flex w-100 justify-content-between">
-        @foreach (var item in Model)
-        {
-            <div class="d-flex flex-column itemNum">
-                <div class="num numstyle" data-goal="@item.Number">0</div>
-                <h5 class="descrstyle">@item.Description</h5>
-            </div>
-        }
-    </div>
- </section>
+    <section class="three d-flex justify-content-center">
+        <div class="nums d-flex w-100 justify-content-between">
+            @foreach (var item in Model)
+            {
+                <div class="text-center">
+                    @if(item.image != null)
+                    {
+                        <img class="" style="width:6vw; height:6vw;" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
+                    }else{
+                        <img class="" style="width:90px; height:90px;" src="~/img/iconForm3.png" />
+                    }
+                    <div class="d-flex flex-column itemNum">
+                        <div class="num numstyle" data-goal="@item.Number">0</div>
+                        <h5 class="descrstyle">@item.Description</h5>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
 </div>

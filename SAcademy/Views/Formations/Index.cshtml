@@ -4,92 +4,92 @@
     ViewData["Title"] = "Index";
 }
 <div class="yeld">
-@await Component.InvokeAsync("FormationPage")
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-transparent pl-5">
-        <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
-        <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
-    </ol>
-</nav>
-<div class="container">
+    @await Component.InvokeAsync("FormationPage")
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent pl-5">
+            <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+            <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
+        </ol>
+    </nav>
+    <div class="container">
 
-    <div class="d-flex p-4 formations">
-        <div class="accordion" id="accordion" style="width:25%;">
-            <div class="card border-0 w-75">
-                <button class="border-0 bg-transparent" style="font-size:26px;">
-                    <span class="float-left filtertext text-dark">Filtrer Par :</span>
-                </button>
-                <hr class="w-75 p-0" />
-                <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
-                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <span class="pr-5 text-dark filtertext">Type</span>
-                            <img class="" style="width:1.5vw; margin-left:2.4em;" src="~/img/arrow.png" />
-                        </button>
-                    </h5>
+        <div class="d-flex p-4 formations">
+            <div class="accordion" id="accordion" style="width:25%;">
+                <div class="card border-0 w-100">
+                    <button class="border-0 bg-transparent" style="font-size:26px;">
+                        <span class="float-left filtertext text-dark">Filtrer Par :</span>
+                    </button>
+                    <hr class="w-75 p-0" />
+                    <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <span class="pr-5 text-dark filtertext">Thématique</span>
+                                <img class="" style="width:1.5vw; margin-left:.4em;" src="~/img/arrow.png" />
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="" id="ftype"></div>
+                        </div>
+                    </div>
+                    <hr class="w-75 p-0" />
                 </div>
-
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <div class="" id="ftype"></div>
+                <div class="card border-0 w-100">
+                    <div class="card-header bg-transparent border-0 pl-0" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="pr-5 text-dark filtertext">Ville</span>
+                                <img class="" style="width:1.5vw; margin-left:3.7em;" src="~/img/arrow.png" />
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="villes"></div>
+                        </div>
+                    </div>
+                    <hr class="w-75 p-0" />
+                </div>
+                <div class="card border-0 w-100">
+                    <div class="card-header bg-transparent border-0 pl-0" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="pr-5 text-dark filtertext">Mode</span>
+                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="modes"></div>
+                        </div>
                     </div>
                 </div>
-                <hr class="w-75 p-0" />
             </div>
-            <div class="card border-0 w-75">
-                <div class="card-header bg-transparent border-0 pl-0" id="headingTwo">
-                    <h5 class="mb-0">
-                        <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span class="pr-5 text-dark filtertext">Ville</span>
-                            <img class="" style="width:1.5vw; margin-left:2.7em;" src="~/img/arrow.png" />
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                        <div id="villes"></div>
-                    </div>
-                </div>
-                <hr class="w-75 p-0" />
-            </div>
-            <div class="card border-0 w-75">
-                <div class="card-header bg-transparent border-0 pl-0" id="headingThree">
-                    <h5 class="mb-0">
-                        <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <span class="pr-5 text-dark filtertext">Mode</span>
-                            <img class="" style="width:1.5vw; margin-left:2em;" src="~/img/arrow.png" />
-                        </button>
-                    </h5>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body">
-                        <div id="modes"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="float-right p-3 itemsFormation" style="width:70%;">
-            @*@{
-                string result = null;
-                if (Model.Count() > 0)
-                {
+            <div class="float-right p-3 itemsFormation" style="width:70%;">
+                @*@{
+                    string result = null;
+                    if (Model.Count() > 0)
+                    {
                     result = "nombre de formation disponible actuellement : " + " " + Model.Count().ToString();
-                }
-                else
-                {
+                    }
+                    else
+                    {
                     result = "Aucune Formation pour l'instant";
-                }
-            }
-            <h5>@result</h5>*@
-            <div id="formation"></div>
+                    }
+                    }
+                    <h5>@result</h5>*@
+                <div id="formation"></div>
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </div>
 @* @{
     var date = @Html.DisplayFor(modelItem => Model.StartDay);
@@ -109,7 +109,7 @@
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                                <input type="checkbox" style="width:25%;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter" style="font-size:26px;">${option.name}</span>
+                            <input type="checkbox" style="width:15%;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -118,14 +118,14 @@
     });
 
     $.ajax({
-        url: '/FTypes',
+        url: 'Thematics/ThematicsApi',
         type: 'GET',
         success: function (res) {
             $.each(res, function (index, option) {
                 $("#ftype").append(
                     `
-                        <div class="d-flex">
-                                        <input type="checkbox"  style="width:25%;" class="typeId common m-1" name="types" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter" style="font-size:26px;">${option.name}</span>
+                        <div class="d-flex" style="width:26vw;">
+                            <input type="checkbox"  style="width:15%;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.title}</span>
                         </div>
                     `
                 );
@@ -142,7 +142,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                                            <input type="checkbox" style="width:25%;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class="pl-4 nFilter"  style="font-size:26px;">${option.name}</span>
+                            <input type="checkbox" style="width:15%;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:20px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -163,7 +163,7 @@
 
         //debugger
         var modes = get_filter('modeId');
-        var types = get_filter('typeId');
+        var themes = get_filter('themId');
         var villes = get_filter('villeId');
 
         $.ajax({
@@ -171,13 +171,13 @@
             type: 'GET',
             data: {
                 modeId: modes?.join(','),
-                typeId: types?.join(','),
+                themId: themes?.join(','),
                 villeId: villes?.join(','),
             },
             success: function (data) {
 
                 console.log(data)
-                if (data && data.length > 0) {
+                if (data != null && data.length > 0) {
                     $("#formation").html('')
                     $.each(data, function (index, option) {
                         var de = option.endDay.toString().split('T')[0];
@@ -204,7 +204,7 @@
                                         </div>
                                             <div class="col-3 p-2 text-center">
                                             <img src="/img/iconForm3.png" style="width:3em;"/>
-                                            <h5>${option.type.name}</h5>
+                                            <h5>${option.thematic.title}</h5>
                                             <h6 class="mb-4">${option.mode.name}</h6>
                                             <a href="formations/details/${option.id}" class=" inscription">Inscription</a>
                                         </div>
@@ -212,13 +212,15 @@
                         `
                         );
                     });
-                } else {
+                }
+                if (data.length == 0) {
+                    $("#formation").html('')
                     $("#formation").append(
                         `
-                                <div class="col-3 m-2 p-3" >
-
-                                </div>
-                            `
+                            <div class="p-3 mb-3 w-100 float-right d-flex justify-content-center align-items-center formation" style="height:25vh;">
+                                <h5>Aucune formation de prévu actuellement, restez informés via nos réseaux!</h5>
+                            </div>
+                        `
                     );
                 }
 
@@ -236,7 +238,56 @@
     }
 
 
+    //$(document).ready(function () {
+    //    $.ajax({
+    //        url: '/Formations/GetFormationAPI',
+    //        type: 'GET',
+    //        success: function (res) {
+    //                //$("#formation").load(location.href + " #formation");
+    //                $.each(res, function (index, option) {
+    //                    var de = option.endDay.toString().split('T')[0];
+    //                    var test = option.startDay.split('T')[0];
+    //                    var time1 = option.startTime;
+    //                    var time2 = option.endTime;
+    //                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    //                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    //                    $("#formation").append(
+    //                        `
+    //                            <div class="row formation p-3 mb-3 w-100 float-right">
+    //                                    <div class="col-3 p-2 text-center formation-1">
+    //                                        <img src="/img/time.png" style="width:3vw;"/>
+    //                                        <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+    //                                        <h6>${st} => ${et}</h6>
+    //                                        <img src="/img/iconForm1.png" style="width:3vw;"/>
+    //                                        <img src="/img/iconForm2.png" style="width:3vw;"/>
+    //                                        <img src="/img/iconForm4.png" style="width:3vw;"/>
+    //                                    </div>
+    //                                    <div class="col-6 p-2 w-50 text-center">
+    //                                        <h5>${option.title}</h5>
+    //                                        <p class="descFormation">${option.description}</p>
+    //                                        <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
+    //                                    </div>
+    //                                        <div class="col-3 p-2 text-center">
+    //                                        <img src="/img/iconForm3.png" style="width:3em;"/>
+    //                                        <h5>${option.thematic.title}</h5>
+    //                                        <h6 class="mb-4">${option.mode.name}</h6>
+    //                                        <a href="formations/details/${option.id}" class=" inscription">Inscription</a>
+    //                                    </div>
+    //                            </div>
+    //                        `
+    //                    );
 
+    //                });
+    //        },
+    //        error: function (errorThrown) {
+    //            $("#formation").append(
+    //                `
+    //                    <h1>Error</h1>
+    //                `
+    //            );
+    //        }
+    //    });
+    //});
 
 
 

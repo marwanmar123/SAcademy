@@ -8,8 +8,9 @@
         if (item.Visible == true)
         {
             var size = string.Concat(item.TitleSize, "vw");
-            <p class="text-center p-2 Titles m-0" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
-            <div data-aos="zoom-in-down">@Html.Raw(item.Content)</div>
+            <p class="text-center p-2 pt-4 Titles m-0"
+        style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
+            <div class="p-4" data-aos="zoom-in-down">@Html.Raw(item.Content)</div>
         }
     }
 
