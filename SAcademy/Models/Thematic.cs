@@ -10,6 +10,12 @@ namespace SAcademy.Models
         public string? ColorTitle { get; set; }
         public string? Background { get; set; }
         public string? Description { get; set; }
+        public string? Certification { get; set; }
+        public string? Presentation { get; set; }
+        public string? Competences { get; set; }
+        public string? Programme { get; set; }
+        public string? Prerequis { get; set; }
+        public string? Price { get; set; }
         public string? TypeId { get; set; }
         public FType? Type { get; set; }
         public ICollection<Formation>? Formations { get; set; }

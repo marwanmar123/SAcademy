@@ -40,10 +40,7 @@ namespace SAcademy.Controllers
                 return NotFound();
             }
 
-            var thematic = await _context.Thematics
-                .Include(x => x.Formations).ThenInclude(m => m.Mode)
-                .Include(f => f.Formations).ThenInclude(m => m.Ville)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var thematic = await _context.Thematics.FindAsync(id);
             if (thematic == null)
             {
                 return NotFound();
@@ -56,13 +53,13 @@ namespace SAcademy.Controllers
         // GET: Thematics/Create
         public IActionResult Create()
         {
-            ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name");
+            //ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ColorTitle,Background,Description,TypeId")] Thematic thematic)
+        public async Task<IActionResult> Create([Bind("Id,Title,ColorTitle,Background,Description,Certification,Presentation,Competences,Programme,Prerequis,Price,TypeId")] Thematic thematic)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +67,7 @@ namespace SAcademy.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("FormationPanel", "FormationPages");
             }
-            ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", thematic.TypeId);
+            //ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", thematic.TypeId);
 
             return View(thematic);
         }
@@ -97,7 +94,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,ColorTitle,Background,Description,TypeId")] Thematic thematic)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,ColorTitle,Background,Description,Certification,Presentation,Competences,Programme,Prerequis,Price,TypeId")] Thematic thematic)
         {
             if (id != thematic.Id)
             {

@@ -8,6 +8,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent pl-5">
             <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+            <li class="breadcrumb-item" style="font-size:20px; color:#ce0033; cursor:pointer;" onclick="window.history.go(-1); return false;">Détails</li>
             <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
         </ol>
     </nav>
@@ -67,6 +68,25 @@
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
                             <div id="modes"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 w-100">
+                    <div class="card-header bg-transparent border-0 pl-0" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
+                                data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span class="pr-5 text-dark filtertext">Status</span>
+                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="Status">
+                                <input type="radio" name="status" style="width:15%;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
+                                <input type="radio" name="status" style="width:15%;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:20px;">Terminé</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -186,6 +206,13 @@
                         var time2 = option.endTime;
                         var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
                         var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var inscrButton = null;
+                        var url = option.id;
+                        if(option.status == true){
+                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                        }else{
+                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                        }
                         $("#formation").append(
                             `
                                 <div class="row formation p-3 mb-3 w-100 float-right">
@@ -206,7 +233,7 @@
                                             <img src="/img/iconForm3.png" style="width:3em;"/>
                                             <h5>${option.thematic.title}</h5>
                                             <h6 class="mb-4">${option.mode.name}</h6>
-                                            <a href="formations/details/${option.id}" class=" inscription">Inscription</a>
+                                            ${inscrButton}
                                         </div>
                                 </div>
                         `
@@ -237,6 +264,114 @@
         return filter;
     }
 
+
+    function GetFormationsTrue() {
+    $.ajax({
+        url: '/formations/GetFormationTrue',
+        type: 'GET',
+        success: function (res) {
+            $("#formation").html('')
+            $.each(res, function (index, option) {
+                var de = option.endDay.toString().split('T')[0];
+                        var test = option.startDay.split('T')[0];
+                        var time1 = option.startTime;
+                        var time2 = option.endTime;
+                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var inscrButton = null;
+                        var url = option.id;
+                        if(option.status == true){
+                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                        }else{
+                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                        }
+                $("#formation").append(
+                    `
+                        <div class="d-flex">
+                            <div class="row formation p-3 mb-3 w-100 float-right">
+                                        <div class="col-3 p-2 text-center formation-1">
+                                            <img src="/img/time.png" style="width:3vw;"/>
+                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+                                            <h6>${st} => ${et}</h6>
+                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
+                                        </div>
+                                        <div class="col-6 p-2 w-50 text-center">
+                                            <h5>${option.title}</h5>
+                                            <p class="descFormation">${option.description}</p>
+                                            <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
+                                        </div>
+                                            <div class="col-3 p-2 text-center">
+                                            <img src="/img/iconForm3.png" style="width:3em;"/>
+                                            <h5>${option.thematic.title}</h5>
+                                            <h6 class="mb-4">${option.mode.name}</h6>
+                                            ${inscrButton}
+                                        </div>
+                                </div>
+                        </div>
+                    `
+                );
+            });
+        }
+    });
+  
+    };
+
+
+
+function GetFormationsFalse() {
+    $.ajax({
+        url: '/formations/GetFormationFalse',
+        type: 'GET',
+        success: function (res) {
+            $("#formation").html('')
+            $.each(res, function (index, option) {
+                var de = option.endDay.toString().split('T')[0];
+                        var test = option.startDay.split('T')[0];
+                        var time1 = option.startTime;
+                        var time2 = option.endTime;
+                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                        var inscrButton = null;
+                        var url = option.id;
+                        if(option.status == true){
+                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                        }else{
+                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                        }
+                $("#formation").append(
+                    `
+                        <div class="d-flex">
+                            <div class="row formation p-3 mb-3 w-100 float-right">
+                                        <div class="col-3 p-2 text-center formation-1">
+                                            <img src="/img/time.png" style="width:3vw;"/>
+                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+                                            <h6>${st} => ${et}</h6>
+                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
+                                        </div>
+                                        <div class="col-6 p-2 w-50 text-center">
+                                            <h5>${option.title}</h5>
+                                            <p class="descFormation">${option.description}</p>
+                                            <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
+                                        </div>
+                                            <div class="col-3 p-2 text-center">
+                                            <img src="/img/iconForm3.png" style="width:3em;"/>
+                                            <h5>${option.thematic.title}</h5>
+                                            <h6 class="mb-4">${option.mode.name}</h6>
+                                            ${inscrButton}
+                                        </div>
+                                </div>
+                        </div>
+                    `
+                );
+            });
+        }
+    });
+  
+    };
 
     //$(document).ready(function () {
     //    $.ajax({

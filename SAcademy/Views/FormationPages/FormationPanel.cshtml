@@ -174,7 +174,7 @@
             <thead>
                 <tr>
                     <th>
-                        Title
+                        Status
                     </th>
                     <th>
                         Description
@@ -215,6 +215,25 @@
                 @foreach (var formation in Model.Formation)
                 {
                     <tr>
+                        <td>
+                            @if(formation.Status == true)
+                            {
+                                <form id="online" style="display:inline;" asp-controller="Formations" asp-action="StatusAction">
+                                <input type="hidden" name="Id" value="@formation.Id" />
+                                    <input type="hidden" name="stu" value="false" />
+                                <button type="submit" class="btn online p-1"><img style="width:25px;" src="~/img/visible.png" /></button>
+                                <label>Ouverte</label>
+                                </form>
+                            }else
+                            {
+                                <form id="online" style="display:inline;" asp-controller="Formations" asp-action="StatusAction">
+                                <input type="hidden" name="Id" value="@formation.Id" />
+                                    <input type="hidden" name="stu" value="true" />
+                                    <button type="submit" class="btn online p-1"><img style="width:25px;" src="~/img/invisible.png" /></button>
+                                    <label>Terminé</label>
+                                </form>   
+                            }
+                        </td>
                         <td>
                             <h5 class="text-primary">@formation.Title</h5>
                         </td>

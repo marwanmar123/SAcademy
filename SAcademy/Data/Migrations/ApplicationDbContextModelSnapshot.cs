@@ -359,6 +359,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ThematicId")
                         .HasColumnType("nvarchar(450)");
 
@@ -846,10 +849,28 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Background")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Certification")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ColorTitle")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Competences")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prerequis")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Presentation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Programme")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ThemeInscritId")

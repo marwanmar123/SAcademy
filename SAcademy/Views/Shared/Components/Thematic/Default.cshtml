@@ -1,6 +1,6 @@
 ﻿@model List<SAcademy.Models.Thematic>
 
-<style>
+@*<style>
     .cardthem {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
@@ -21,38 +21,28 @@
         padding: .4em 1em;
         text-align: justify;
     }
-</style>
+
+    .p1 {
+        display: block;
+    }
+
+    .More{
+        all:unset;
+        color: #ce0033;
+    }
+</style>*@
 
 @foreach (var item in Model)
 {
 
     var size = string.Concat(item.Title, "vw");
-    @* <div>
-        <div class="p-3 d-flex flex-column justify-content-center" style="background:@item.Background; height:50%;">
-        <h5 style="color:@item.ColorTitle;">@item.Title</h5>
-        <p>@item.Formations.Count()</p>
-        @if (@item.Formations.Count() == 0)
-        {
-        <a href="#" class="" data-toggle="modal" data-target="#exampleModal">
-        details
-        </a>
-        }
-        else
-        {
-        <a href="thematics/details/@item.Id">details</a>
-        }
-        </div>
-        <div class="mt-1 text-left p-1 pl-1" style="border:1px dotted black !important; height:50%;">
-        <div class="">
-        @Html.Raw(item.Description)
-        </div>
-        </div>
-        </div> *@
+    
     <div class="cardthem">
         <div class="d-flex flex-column justify-content-around p-2" style="background:@item.Background; height:22vh;">
             <h5 style="color:@item.ColorTitle;">@item.Title</h5>
             <div>
-                @if (@item.Formations.Count() == 0)
+                <a class="btn w-50 m-auto btnThem" href="thematics/details/@item.Id">Découvrir</a>
+                @*@if (@item.Formations.Count() == 0)
                 {
                     <a href="#" class="btn btnThem w-50 m-auto" data-toggle="modal" data-target="#exampleModal">
                         Découvrir
@@ -61,12 +51,13 @@
                 else
                 {
                     <a class="btn w-50 m-auto btnThem" href="thematics/details/@item.Id">Découvrir</a>
-                }
+                }*@
             </div>
         </div>
-        <div class="containercard">
-            @Html.Raw(item.Description)
-        </div>
+       @* <div class="containercard">
+            <span class="p1">@Html.Raw(item.Description)</span>
+            <button class="More">Show More</button>
+        </div>*@
     </div>
 
 
@@ -117,3 +108,23 @@
         </div>
     </div>
 }
+
+@*<script>
+    document.querySelectorAll('.More').forEach(bttn => {
+        bttn.dataset.state = 0;
+        bttn.addEventListener('click', function (e) {
+            let span = this.previousElementSibling;
+            span.dataset.tmp = span.innerHTML;
+            span.innerHTML = span.dataset.content;
+            span.dataset.content = span.dataset.tmp;
+
+            this.innerHTML = this.dataset.state == 1 ? 'Show More' : 'Show Less';
+            this.dataset.state = 1 - this.dataset.state;
+        })
+    });
+
+    document.querySelectorAll('.p1').forEach(span => {
+        span.dataset.content = span.innerHTML;
+        span.innerHTML = span.innerHTML.substr(0, 100) + '...';
+    })
+</script>*@

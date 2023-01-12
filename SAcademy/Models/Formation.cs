@@ -23,6 +23,7 @@ namespace SAcademy.Models
         public string? Certificate { get; set; }
         public string? Presentation { get; set; }
         public string? Skills { get; set; }
+        public Boolean? Status { get; set; } = true;
         public string? ModeId { get; set; }
         public Mode? Mode { get; set; }
         public string? VilleId { get; set; }

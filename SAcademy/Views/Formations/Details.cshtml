@@ -8,7 +8,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent">
             <li class="breadcrumb-item text-center"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
-            <li class="breadcrumb-item" style="font-size:20px;;"><a style="color:#ce0033 !important"
+            <li class="breadcrumb-item" style="font-size:20px; color:#ce0033; cursor:pointer;" onclick="window.history.go(-2); return false;">Détails</li>
+            <li class="breadcrumb-item" style="font-size:20px;"><a style="color:#ce0033 !important; text-decoration:none !important;"
                     href="/formations">Nos Formation</a></li>
             <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Inscription</li>
         </ol>
@@ -18,17 +19,19 @@
         <div class="w-50 p-5 inscriptionPage-content">
             <hr />
             <h5>@Model.Title</h5>
-            <p>@Model.Description</p>
-            <p>@Model.Duration</p>
-            <p>@Html.DisplayFor(modelItem => Model.StartDay)</p>
-            <p>@Html.DisplayFor(modelItem => Model.EndDay)</p>
-            <p>@Html.DisplayFor(modelItem => Model.StartTime)</p>
-            <p>@Html.DisplayFor(modelItem => Model.EndTime)</p>
-            <p>@Model.Mode.Name</p>
-            <p>@Model.Ville.Name</p>
-            <p>@Model.Type.Name</p>
+            <p>Description : @Model.Description</p>
+            <p>Durée : @Model.Duration</p>
+            <p>Du : @Html.DisplayFor(modelItem => Model.StartDay)</p>
+            <p>Au : @Html.DisplayFor(modelItem => Model.EndDay)</p>
+            <p>@Html.DisplayFor(modelItem => Model.StartTime) => @Html.DisplayFor(modelItem => Model.EndTime)</p>
+            <p>Mode : @Model.Mode.Name</p>
+            <p>Ville : @Model.Ville.Name</p>
+            <p>Type : @Model.Type.Name</p>
+            <h5>Presentation</h5> 
             <p>@Html.Raw(Model.Presentation)</p>
+            <h5>Compétences</h5> 
             <p>@Html.Raw(Model.Skills)</p>
+            <h5>Certification</h5> 
             <p>@Html.Raw(Model.Certificate)</p>
         </div>
 

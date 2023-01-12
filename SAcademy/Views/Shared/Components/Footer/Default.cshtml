@@ -1,7 +1,26 @@
 ﻿@model List<SAcademy.Models.Footer>
 
 
-
+    <style>
+    ::placeholder {
+        
+        /* Firefox, Chrome, Opera */
+        color: white;
+    }
+      
+    :-ms-input-placeholder {
+        
+        /* Internet Explorer 10-11 */
+        color: white;
+    }
+      
+    ::-ms-input-placeholder {
+        
+        /* Microsoft Edge */
+        color: white;
+    }
+    
+    </style>
 @foreach (var item in Model)
 {
     if (item.Visible == true)
@@ -29,8 +48,8 @@
                 <div class="">
                     @Html.Raw(item.ContentNews)<br>
                     <form class="" action="/Newsletters/Create">
-                        <input type="email" placeholder="Votre adresse Email"
-                    style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;"
+                        <input type="email" placeholder="Votre adresse Email" class="inputfooter"
+                       style="border:none; background:transparent; border-bottom:1px solid; border-bottom-left-radius:8px;border-bottom-right-radius:8px;"
                     required>
                         <button type="submit" class="border-0 rounded text-dark"
                     style="background:#e6e6e6; padding:2px 7px;">S'inscrire</button>

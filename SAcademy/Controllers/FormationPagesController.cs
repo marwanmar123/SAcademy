@@ -42,7 +42,7 @@ namespace SAcademy.Controllers
                 Ville = await _context.Villes.ToListAsync(),
                 FType = await _context.FTypes.ToListAsync(),
                 Mode = await _context.Modes.ToListAsync(),
-                Thematic = await _context.Thematics.ToListAsync()
+                Thematic = await _context.Thematics.AsNoTracking().ToListAsync()
             };
             return View(formationData);
         }

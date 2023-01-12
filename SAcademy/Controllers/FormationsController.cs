@@ -60,10 +60,15 @@ namespace SAcademy.Controllers
         }
 
         // GET: FormationsAPI
-        public async Task<IActionResult> GetFormationAPI(string? typeId)
+        public async Task<IActionResult> GetFormationTrue(string? typeId)
         {
-            var fomramtion = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Type).Include(f => f.Ville).Include(f => f.Thematic);
-            return Ok(await fomramtion.ToListAsync());
+            var fomramtionT = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Ville).Include(f => f.Thematic).Where(f => f.Status == true);
+            return Ok(await fomramtionT.ToListAsync());
+        }
+        public async Task<IActionResult> GetFormationFalse(string? typeId)
+        {
+            var fomramtionF = _context.Formations.AsNoTracking().Include(f => f.Mode).Include(f => f.Ville).Include(f => f.Thematic).Where(f => f.Status == false);
+            return Ok(await fomramtionF.ToListAsync());
         }
 
         // GET: FormationsByFilter
@@ -110,7 +115,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (ModelState.IsValid)
             {
@@ -148,7 +153,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (id != formation.Id)
             {
@@ -264,6 +269,15 @@ namespace SAcademy.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("FormationPanel", "FormationPages");
 
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StatusAction(bool? stu, string? id)
+        {
+            var formation = await _context.Formations.FindAsync(id);
+            formation.Status = stu;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("FormationPanel", "FormationPages");
         }
     }
 }

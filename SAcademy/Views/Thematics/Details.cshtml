@@ -3,10 +3,176 @@
 @{
     ViewData["Title"] = "Details";
 }
-<div class="yeld">
+<style>
+    .navtheme{
+        width:90%;
+    }
+
+    .allerA{
+        font-size: 1.5em;
+        font-weight: bold;
+        color: black;
+    }
+    .navThemeitem {
+        font-size:2em;
+        font-weight:bold;
+        color:black;
+        text-decoration:none !important;
+    }
+
+    article{
+        padding:1.5em 2em 4em 2em;
+        margin:1em;
+    }
+
+    .bar{
+        width:30px;
+        height:5px;
+        background:#ce0033;
+        margin-right:.5em;
+    }
+
+    .btnSession{
+        background:#ce0033;
+        color:white;
+        font-weight:bold;
+        text-transform:uppercase;
+        margin:1em 0 1em 0;
+    }
+
+    .pls{
+        font-weight:bold;
+        font-size:2em;
+    }
+</style>
+<div class="yeld mb-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent pl-5">
+            <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
+            <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Détails</li>
+        </ol>
+    </nav>
 <div class="m-auto" style="width:70%;">
-    <h3 class="pt-4 pb-2">Formations @Model.Title</h3>
-    @foreach (var f in Model.Formations)
+    <h2 class="pt-4 pb-2" style="color:#ce0033; font-weight:bold;">Formations @Model.Title</h2>
+    <article class="border border-1">
+        <p class="allerA">Aller à</p>
+        <div class="d-flex justify-content-between navtheme">
+            <div class="d-flex align-items-center ">
+                <span class="bar"></span>
+                <a class="navThemeitem" href="#">Présentation</a>
+            </div>
+            <div class="d-flex align-items-center ">
+                <span class="bar"></span>
+                <a class="navThemeitem" href="#">Compétences</a>
+            </div>
+            <div class="d-flex align-items-center ">
+                <span class="bar"></span>
+                <a class="navThemeitem" href="#">Prérequis</a>
+            </div>
+        </div>
+        <a href="/formations" class="float-right btn btn-danger btnSession">Les Sessions Ouvertes</a>
+    </article>
+
+        <div class="mt-3">
+            <div id="accordion">
+                <div class="card border-0 p-2">
+                    <div class="card-header border-0 bg-transparent" id="headingOne">
+                        <h5 class="mb-0 d-flex justify-content-between">
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <img style="width:65px;" src="~/img/presentation.svg" />
+                                Presentation
+                            </button>
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">+</button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            @Html.Raw(Model.Presentation)
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 p-2">
+                    <div class="card-header border-0 bg-transparent" id="headingTwo">
+                        <h5 class="mb-0 d-flex justify-content-between">
+                            <button class="btn btn-link collapsed navThemeitem" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <img style="width:65px;" src="~/img/iconForm1.png" />
+                                Compétences visées
+                            </button>
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">+</button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            @Html.Raw(Model.Competences)
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 p-2">
+                    <div class="card-header border-0 bg-transparent" id="headingThree ">
+                        <h5 class="mb-0 d-flex justify-content-between">
+                            <button class="btn btn-link collapsed navThemeitem" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <img style="width:65px;" src="~/img/iconForm8.png" />
+                                Programme
+                            </button>
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">+</button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            @Html.Raw(Model.Programme)
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-0 p-2">
+                    <div class="card-header border-0 bg-transparent" id="headingFour ">
+                        <h5 class="mb-0 d-flex justify-content-between">
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                <img style="width:65px;" src="~/img/iconForm7.png" />
+                                Prérequis
+                            </button>
+                            <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">+</button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            @Html.Raw(Model.Prerequis)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/formations" class="btn btn-danger btnSession ml-5">Les Sessions Ouvertes</a>
+        <div class="card border-0 p-2">
+            <div class="card-header border-0 bg-transparent" id="headingFive ">
+                <h5 class="mb-0 d-flex justify-content-between">
+                    <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                        <img style="width:65px;" src="~/img/iconForm2.png" />
+                        Prix de la formation
+                    </button>
+                    <button class="btn btn-link navThemeitem" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">+</button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordion">
+                <div class="card-body">
+                    @Html.Raw(Model.Price)
+                </div>
+            </div>
+        </div>
+</div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+    @*@foreach (var f in Model.Formations)
     {
         <div class="row formation w-100 m-auto" style="margin-bottom:1.5em !important;">
             <div class="col-3 p-2 text-center">
@@ -29,6 +195,4 @@
                 <a asp-controller="Formations" asp-action="details" asp-route-id="@f.Id" class=" inscription">Inscription</a>
             </div>
         </div>
-    }
-</div>
-</div>
+    }*@

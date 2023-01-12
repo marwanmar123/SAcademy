@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\img\\iconForm7.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm8.png",
+      "PackagePath": "staticwebassets\\img\\iconForm8.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\info.png",
       "PackagePath": "staticwebassets\\img\\info.png"
     },
@@ -139,6 +143,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\plus.png",
       "PackagePath": "staticwebassets\\img\\plus.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\presentation.svg",
+      "PackagePath": "staticwebassets\\img\\presentation.svg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",
