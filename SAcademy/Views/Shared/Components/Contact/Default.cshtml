@@ -71,12 +71,37 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Message</label>
-                            <textarea class="form-control" name="Message" id="message" rows="10" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="sent-message">Votre message a été envoyé. Merci!</div>
+                            <textarea class="form-control textereasize" name="Message" id="message" rows="10" required></textarea>
                         </div>
                         <div class="text-center"><button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:50px; background:@item.ButtonBgColor;">Envoyer</button></div>
+                        <div class="pt-2">
+                            <p>Planifiez une rencontre gratuite d'une heure avec un expert, pour obtenir :</p>
+                            <ul>
+                                <li>Une démonstration sur mesure</li>
+                                <li>Recommandations en fonction de vos besoins</li>
+                                <li>Réponses à vos questions concernat la formation</li>
+                                <li>Informations sur la tarification et la méthodologie</li>
+                            </ul>
+                            <div>
+                                <!-- Google Calendar Appointment Scheduling begin -->
+                                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                                <script>
+                                (function() {
+                                  var target = document.currentScript;
+                                  window.addEventListener('load', function() {
+                                    calendar.schedulingButton.load({
+                                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Vbh_Kgs8K1whZFFwYbniz0ClxxCX1osHUkAL_KOiGBNaKCwX25Lckjnylm5eB44w1w8V14eEp?gv=true',
+                                      color: '#ce0033',
+                                      label: 'Réserver un rendez-vous',
+                                      target,
+                                    });
+                                  });
+                                })();
+                                </script>
+                                <!-- end Google Calendar Appointment Scheduling -->
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -108,3 +133,5 @@
     //})
 </script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+

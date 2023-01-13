@@ -6,20 +6,19 @@
 @foreach (var item in Model.Home)
 {
     var sizeLogo = string.Concat(item.LogoSize, "px");
-    <nav class="nav-bar fixed-top" style="background:@item.BgNav;">
+    @await Component.InvokeAsync("ContactNav")
+    <nav id="navbar_top" class="nav-bar" style="background:@item.BgNav;">
         <div class="nav-hold">
             <div class="nav-logo">
                 @if (item.Logo != null)
                 {
                     <a class="" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img style="width:@sizeLogo;"
-                    src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
+                        <img style="width:@sizeLogo;" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))" /></a>
                 }
                 else
                 {
                     <a class="" asp-area="" asp-controller="Home" asp-action="Index">
-                        <img style="width:@sizeLogo;"
-                    src="~/img/logoFooter.png" /></a>
+                        <img style="width:@sizeLogo;" src="~/img/logoFooter.png" /></a>
                 }
             </div>
             <div class="nav-menu pt-3" id="nav"><img style="width:40px; color:white;" src="~/img/menu.png"></div>
@@ -28,13 +27,14 @@
                 {
                     var size = string.Concat(n.Size, "px");
                     <li class="">
-                        <a class="mr-4 " href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
+                        <a class="mr-4 " href="@n.Link"
+                    style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
                     </li>
                 }
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <a class="mr-3" href="/dashboard" style="font-weight:bold;">
-                        <img src="~/img/dashboard.png">    
+                        <img src="~/img/dashboard.png">
                     </a>
                 }
             </ul>
@@ -43,3 +43,20 @@
     <div class="main-content">
     </div>
 }
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.getElementById('navbar_top').classList.add('fixed-top');
+                // add padding top to show content behind navbar
+                navbar_height = document.querySelector('.navbar').offsetHeight;
+                document.body.style.paddingTop = navbar_height + 'px';
+            } else {
+                document.getElementById('navbar_top').classList.remove('fixed-top');
+                // remove padding top from body
+                document.body.style.paddingTop = '0';
+            }
+        });
+    }); 
+</script>

@@ -5,12 +5,16 @@
 @await Component.InvokeAsync("Header")
 <div class="w-75 m-auto">
     <a id="top">
-        <img class="pt-2 w-75" src="~/img/top.png" />
+        <img class="p-0" src="~/img/top.png" />
     </a>
     @await Component.InvokeAsync("Section")
+    @await Component.InvokeAsync("Offre")
     @await Component.InvokeAsync("About")
     @await Component.InvokeAsync("Statistics")
-    @await Component.InvokeAsync("Offre")
+    @await Component.InvokeAsync("SectionTheme")
+    <div class="parent">
+        @await Component.InvokeAsync("Thematic")
+    </div>
     @await Component.InvokeAsync("Slide")
     @await Component.InvokeAsync("Contact")
 </div>

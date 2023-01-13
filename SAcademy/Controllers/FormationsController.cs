@@ -27,8 +27,8 @@ namespace SAcademy.Controllers
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var formation = _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include( f => f.Type);
-            return View(await formation.ToListAsync());
+            var formation = await _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include( f => f.Type).ToListAsync();
+            return View();
         }
 
 

@@ -39,10 +39,10 @@ namespace SAcademy.Controllers
             var formationData = new FVTMViewModel()
             {
                 Formation = await _context.Formations.Include(f => f.Registration).ToListAsync(),
+                Thematic = await _context.Thematics.AsNoTracking().ToListAsync(),
                 Ville = await _context.Villes.ToListAsync(),
                 FType = await _context.FTypes.ToListAsync(),
-                Mode = await _context.Modes.ToListAsync(),
-                Thematic = await _context.Thematics.AsNoTracking().ToListAsync()
+                Mode = await _context.Modes.ToListAsync()
             };
             return View(formationData);
         }

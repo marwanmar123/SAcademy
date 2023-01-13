@@ -1,0 +1,29 @@
+﻿@model List<SAcademy.Models.Contact>
+
+
+<div class="d-flex justify-content-between align-items-center p-1 text-light navcontact">
+    <div class="d-flex">
+        @foreach (var c in Model)
+        {
+            <div class="mr-4 itemNvcontact">
+                <img style="width:20px;" src="~/img/phoneNav.png">
+                @c.Call
+            </div>
+            <div class="mr-4 itemNvcontact">
+                <img style="width:20px;" src="~/img/LocNav.png">
+                @c.Localisation
+            </div>
+            <div class="mr-4 itemNvcontact">
+                <img style="width:20px;" src="~/img/mailNav.png">
+                @c.Email
+            </div>
+        }
+    </div>
+    <div class="">
+        <a href="#"><img style="width:50px;" src="~/img/fbnav.png" /></a>
+        <a href="#"><img style="width:50px;" src="~/img/twitnav.png" /></a>
+        <a href="#"><img style="width:50px;" src="~/img/linkednav.png" /></a>
+        <a href="#"><img style="width:50px;" src="~/img/ytbnav.png" /></a>
+        <a href="#"><img style="width:50px;" src="~/img/instanav.png" /></a>
+    </div>
+</div>
