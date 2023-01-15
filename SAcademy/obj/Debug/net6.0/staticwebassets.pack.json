@@ -153,6 +153,46 @@
       "PackagePath": "staticwebassets\\img\\menu.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\AXA.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\AXA.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Accenture-Logo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Accenture-Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Azéo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Azéo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\BNPP.jpg",
+      "PackagePath": "staticwebassets\\img\\partenaire\\BNPP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Capgemini.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Capgemini.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Société Générale.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Société Générale.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\codev.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\codev.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\octo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\octo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\orange.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\orange.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\share-avanade-logo.jpg",
+      "PackagePath": "staticwebassets\\img\\partenaire\\share-avanade-logo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\phone.png",
       "PackagePath": "staticwebassets\\img\\phone.png"
     },

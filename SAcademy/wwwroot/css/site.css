@@ -4,7 +4,6 @@ body {
   padding: 0;
   position: relative;
   min-height: 100vh;
-  font-family: "Roboto" sans-serif;
 }
 /*///////////////////SideBar*/
 
@@ -770,6 +769,14 @@ ul ul a {
   }
   .itemNvcontact {
     font-size: 11px;
+  }
+  .navtheme {
+    display: flex !important;
+    flex-direction: column !important;
+    font-size: 20px;
+  }
+  .navThemeitem {
+    font-size: 1.2em !important;
   }
 }
 #footer {
