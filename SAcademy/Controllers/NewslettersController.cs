@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +20,7 @@ namespace SAcademy.Controllers
             _context = context;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Newsletters
         public async Task<IActionResult> Index()
         {
@@ -114,7 +114,7 @@ namespace SAcademy.Controllers
         //    return View(newsletter);
         //}
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Newsletters/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

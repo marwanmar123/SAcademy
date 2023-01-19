@@ -9,7 +9,7 @@
         {
             var size = string.Concat(item.TitleSize, "vw");
             <p class="text-center about-title pb-5" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
-            <div class="d-flex aboutSplit">
+            <div class="d-flex flex-row aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
                     <div class="m-auto about-content" data-aos="fade-up">

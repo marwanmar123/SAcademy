@@ -64,3 +64,26 @@ btn.on('click', function (e) {
     }
 
 /////////////////////END increase numbers
+
+
+
+/*$(".smrnote").summernote({
+    placeholder: "Certificate ",
+    lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+    tabsize: 2,
+    height: 120,
+    toolbar: [
+        ["style", ["style"]],
+        ["font", ["bold", "underline", 'italic', "clear"]],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ['height', ['height']],
+        ['fontname', ['fontname']],
+        ["table", ["table"]],
+        ["insert", ["link", "picture", "video"]],
+        ["view", ["fullscreen", "codeview", "help"]],
+    ],
+});*/

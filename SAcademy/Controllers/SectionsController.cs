@@ -11,7 +11,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class SectionsController : Controller
     {
         private readonly ApplicationDbContext _context;

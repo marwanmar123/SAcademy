@@ -31,11 +31,31 @@
                     style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
                     </li>
                 }
-                @if (SignInManager.IsSignedIn(User))
+                @if (User.IsInRole("Admin"))
                 {
-                    <a class="mr-3" href="/dashboard" style="font-weight:bold;">
-                        <img src="~/img/dashboard.png">
-                    </a>
+                    <li class="">
+                        <a class="mr-3" href="/dashboard" style="font-weight:bold;">
+                            <img src="~/img/dashboard.png">
+                        </a>
+                    </li>
+                }
+                @if(User.IsInRole("User"))
+                {
+                    <li class="">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                          Dropdown
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                            </form>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    
                 }
             </ul>
         </div>

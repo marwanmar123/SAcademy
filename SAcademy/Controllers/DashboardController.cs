@@ -8,7 +8,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class DashboardController : Controller
     {
         private readonly ApplicationDbContext _db;

@@ -9,9 +9,9 @@
     <a class="btn btn-secondary" asp-action="FormationPanel">Gestion de Formations</a>
 </div>
 <hr />
-<p>
+@*<p>
     <a asp-action="Create">O</a>
-</p>
+</p>*@
 
 @foreach (var item in Model) {
     <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal" data-target="@("#EditFomationPages-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">

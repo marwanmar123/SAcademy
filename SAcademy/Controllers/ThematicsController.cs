@@ -49,7 +49,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Thematics/Create
         public IActionResult Create()
         {
@@ -72,7 +72,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Thematics/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -127,7 +127,7 @@ namespace SAcademy.Controllers
             return View(thematic);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Thematics/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -170,7 +170,7 @@ namespace SAcademy.Controllers
           return _context.Thematics.Any(e => e.Id == id);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetRegisters()
         {
             return View(_context.ThemeInscrits.ToList());
@@ -200,7 +200,7 @@ namespace SAcademy.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         [HttpPost]
         [ValidateAntiForgeryToken]

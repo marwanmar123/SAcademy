@@ -52,7 +52,7 @@ namespace SAcademy.Controllers
             return View(fType);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: FTypes/Create
         public IActionResult Create()
         {
@@ -73,7 +73,7 @@ namespace SAcademy.Controllers
             return RedirectToAction("FormationPanel", "FormationPages");
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: FTypes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {

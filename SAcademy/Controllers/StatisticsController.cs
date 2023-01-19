@@ -46,7 +46,7 @@ namespace SAcademy.Controllers
 
         // GET: Statistics/Create
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -65,7 +65,7 @@ namespace SAcademy.Controllers
             return View(statistics);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Statistics/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -114,7 +114,7 @@ namespace SAcademy.Controllers
             return View(statistics);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         // GET: Statistics/Delete/5
         public async Task<IActionResult> Delete(string id)

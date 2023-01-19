@@ -54,17 +54,17 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Presentation" class="control-label"></label>
-                        <textarea asp-for="Presentation" id="PresentationE" class="form-control"></textarea>
+                        <textarea asp-for="Presentation" id="PresentationE" class="form-control cntSumerP"></textarea>
                         <span asp-validation-for="Presentation" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Skills" class="control-label"></label>
-                        <textarea asp-for="Skills" id="SkillsE" class="form-control"></textarea>
+                        <textarea asp-for="Skills" id="SkillsE" class="form-control cntSumerS"></textarea>
                         <span asp-validation-for="Skills" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Certificate" class="control-label"></label>
-                        <textarea asp-for="Certificate" id="CertificateE" class="form-control"></textarea>
+                        <textarea asp-for="Certificate" id="CertificateE" class="form-control cntSumerC"></textarea>
                         <span asp-validation-for="Certificate" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -123,68 +123,116 @@
 
 
 <script>
-    $("#CertificateE").summernote({
-        placeholder: "Certificate ",
+    $(".cntSumerP").summernote({
+        placeholder: "TypeContent ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '16', '18', '20', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
         tabsize: 2,
         height: 120,
         toolbar: [
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
             ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsizeunit']],
             ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],
             ['height', ['height']],
-            ['fontname', ['fontname']],
             ["table", ["table"]],
             ["insert", ["link", "picture", "video"]],
             ["view", ["fullscreen", "codeview", "help"]],
-        ],
+        ]
     });
 
-    $("#PresentationE").summernote({
-        placeholder: "Presentation ",
+    $(".cntSumerS").summernote({
+        placeholder: "TypeContent ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '16', '18', '20', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
         tabsize: 2,
         height: 120,
         toolbar: [
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
             ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsizeunit']],
             ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],
             ['height', ['height']],
-            ['fontname', ['fontname']],
             ["table", ["table"]],
             ["insert", ["link", "picture", "video"]],
             ["view", ["fullscreen", "codeview", "help"]],
-        ],
+        ]
     });
 
-    $("#SkillsE").summernote({
-        placeholder: "Skills ",
+    $(".cntSumerC").summernote({
+        placeholder: "TypeContent ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '36', '48', '64', '82', '150'],
+        fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
         tabsize: 2,
         height: 120,
         toolbar: [
             ["style", ["style"]],
             ["font", ["bold", "underline", 'italic', "clear"]],
             ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['font', ['fontname', 'fontsizeunit']],
             ['fontsize', ['fontsize']],
             ["color", ["color"]],
             ["para", ["ul", "ol", "paragraph"]],
             ['height', ['height']],
-            ['fontname', ['fontname']],
             ["table", ["table"]],
             ["insert", ["link", "picture", "video"]],
             ["view", ["fullscreen", "codeview", "help"]],
-        ],
+        ]
     });
+
+    //$("#PresentationE").summernote({
+    //    placeholder: "Presentation ",
+    //    lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+    //    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+    //    tabsize: 2,
+    //    height: 120,
+    //    toolbar: [
+    //        ["style", ["style"]],
+    //        ["font", ["bold", "underline", 'italic', "clear"]],
+    //        ['font', ['strikethrough', 'superscript', 'subscript']],
+    //        ['fontsize', ['fontsize']],
+    //        ["color", ["color"]],
+    //        ["para", ["ul", "ol", "paragraph"]],
+    //        ['height', ['height']],
+    //        ['fontname', ['fontname']],
+    //        ["table", ["table"]],
+    //        ["insert", ["link", "picture", "video"]],
+    //        ["view", ["fullscreen", "codeview", "help"]],
+    //    ],
+    //});
+
+    //$("#SkillsE").summernote({
+    //    placeholder: "Skills ",
+    //    lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
+    //    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito Sans', 'Nunito', 'Nunito Black'],
+    //    tabsize: 2,
+    //    height: 120,
+    //    toolbar: [
+    //        ["style", ["style"]],
+    //        ["font", ["bold", "underline", 'italic', "clear"]],
+    //        ['font', ['strikethrough', 'superscript', 'subscript']],
+    //        ['fontsize', ['fontsize']],
+    //        ["color", ["color"]],
+    //        ["para", ["ul", "ol", "paragraph"]],
+    //        ['height', ['height']],
+    //        ['fontname', ['fontname']],
+    //        ["table", ["table"]],
+    //        ["insert", ["link", "picture", "video"]],
+    //        ["view", ["fullscreen", "codeview", "help"]],
+    //    ],
+    //});
 </script>
 
 

@@ -13,7 +13,7 @@ using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class FormationPagesController : Controller
     {
         private readonly ApplicationDbContext _context;

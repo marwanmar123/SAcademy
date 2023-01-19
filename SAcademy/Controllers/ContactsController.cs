@@ -33,7 +33,7 @@ namespace SAcademy.Controllers
             return View(contactData);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Contacts/Create
         public IActionResult Create()
         {
@@ -53,7 +53,7 @@ namespace SAcademy.Controllers
             }
             return View(contact);
         }
-        [Authorize]
+        [Authorize(Roles = "admin")]
         // GET: Contacts/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -101,7 +101,7 @@ namespace SAcademy.Controllers
             }
             return View(contact);
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Contacts/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -172,7 +172,7 @@ namespace SAcademy.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteMail(string id)

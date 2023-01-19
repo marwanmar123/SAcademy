@@ -17,13 +17,13 @@
                     @if (header.Button != null)
                     {
 
-                        <button class="btn font-weight-bold" href=""
-                style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</button>
+                        <a class="btn font-weight-bold" href="#nosoffres"
+                style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
                     }
                     @if (header.Video != null)
                     {
-                        <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;"><img
-                    src="~/img/play.png">
+                        <a class="#nosoffres" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;">
+                            <img src="~/img/play.png">
                         </a>
                     }
                 </div>
@@ -38,12 +38,12 @@
                 <div class="buttonHeader" style="top:@Top; left:@left; width:90%;" data-aos="fade-right">
                     @if (header.Button != null)
                     {
-                        <a class="btn font-weight-bold" href="/formations"
+                        <a class="btn font-weight-bold" href="#nosoffres"
                 style="color:@header.BVColor; font-size:@size; background:@header.ButtonBgColor; border-radius:50px;">@header.Button</a>
                     }
                     @if (header.Video != null)
                     {
-                        <a class="" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;">
+                        <a class="#nosoffres" href="@header.Video" style="background:@header.ButtonBgColor; border-radius:100%;">
                             <img src="~/img/play.png">
                         </a>
                     }

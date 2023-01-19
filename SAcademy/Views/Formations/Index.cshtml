@@ -8,7 +8,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent pl-5">
             <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
-            <li class="breadcrumb-item" style="font-size:20px; color:#ce0033; cursor:pointer;" onclick="window.history.go(-1); return false;">Détails</li>
+            <li class="breadcrumb-item" style="font-size:20px; color:#ce0033; cursor:pointer;"
+                onclick="window.history.go(-1); return false;">Détails</li>
             <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
         </ol>
     </nav>
@@ -84,8 +85,11 @@
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
                             <div id="Status">
-                                <input type="radio" name="status" style="width:15%;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
-                                <input type="radio" name="status" style="width:15%;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:20px;">Terminé</span>
+                                <input type="radio" name="status" style="width:15%;" class="m-1"
+                                    onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
+                                <input type="radio" name="status" style="width:15%;" class="m-1"
+                                    onclick="GetFormationsFalse()"> <span class=""
+                                    style="font-size:20px;">Terminé</span>
                             </div>
                         </div>
                     </div>
@@ -208,9 +212,9 @@
                         var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
                         var inscrButton = null;
                         var url = option.id;
-                        if(option.status == true){
+                        if (option.status == true) {
                             inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
-                        }else{
+                        } else {
                             inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
                         }
                         $("#formation").append(
@@ -266,27 +270,27 @@
 
 
     function GetFormationsTrue() {
-    $.ajax({
-        url: '/formations/GetFormationTrue',
-        type: 'GET',
-        success: function (res) {
-            $("#formation").html('')
-            $.each(res, function (index, option) {
-                var de = option.endDay.toString().split('T')[0];
-                        var test = option.startDay.split('T')[0];
-                        var time1 = option.startTime;
-                        var time2 = option.endTime;
-                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var inscrButton = null;
-                        var url = option.id;
-                        if(option.status == true){
-                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
-                        }else{
-                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
-                        }
-                $("#formation").append(
-                    `
+        $.ajax({
+            url: '/formations/GetFormationTrue',
+            type: 'GET',
+            success: function (res) {
+                $("#formation").html('')
+                $.each(res, function (index, option) {
+                    var de = option.endDay.toString().split('T')[0];
+                    var test = option.startDay.split('T')[0];
+                    var time1 = option.startTime;
+                    var time2 = option.endTime;
+                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    var inscrButton = null;
+                    var url = option.id;
+                    if (option.status == true) {
+                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                    } else {
+                        inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                    }
+                    $("#formation").append(
+                        `
                         <div class="d-flex">
                             <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center formation-1">
@@ -311,37 +315,37 @@
                                 </div>
                         </div>
                     `
-                );
-            });
-        }
-    });
-  
+                    );
+                });
+            }
+        });
+
     };
 
 
 
-function GetFormationsFalse() {
-    $.ajax({
-        url: '/formations/GetFormationFalse',
-        type: 'GET',
-        success: function (res) {
-            $("#formation").html('')
-            $.each(res, function (index, option) {
-                var de = option.endDay.toString().split('T')[0];
-                        var test = option.startDay.split('T')[0];
-                        var time1 = option.startTime;
-                        var time2 = option.endTime;
-                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var inscrButton = null;
-                        var url = option.id;
-                        if(option.status == true){
-                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
-                        }else{
-                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
-                        }
-                $("#formation").append(
-                    `
+    function GetFormationsFalse() {
+        $.ajax({
+            url: '/formations/GetFormationFalse',
+            type: 'GET',
+            success: function (res) {
+                $("#formation").html('')
+                $.each(res, function (index, option) {
+                    var de = option.endDay.toString().split('T')[0];
+                    var test = option.startDay.split('T')[0];
+                    var time1 = option.startTime;
+                    var time2 = option.endTime;
+                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    var inscrButton = null;
+                    var url = option.id;
+                    if (option.status == true) {
+                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                    } else {
+                        inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                    }
+                    $("#formation").append(
+                        `
                         <div class="d-flex">
                             <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center formation-1">
@@ -366,11 +370,11 @@ function GetFormationsFalse() {
                                 </div>
                         </div>
                     `
-                );
-            });
-        }
-    });
-  
+                    );
+                });
+            }
+        });
+
     };
 
     //$(document).ready(function () {

@@ -4,13 +4,16 @@ body {
   padding: 0;
   position: relative;
   min-height: 100vh;
-  font-family: "Roboto" sans-serif;
 }
 /*///////////////////SideBar*/
 
 
 
 /*@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";*/
+
+.navcontact {
+  background-color: black;
+}
 
 .navbar {
   padding: 15px 10px;
@@ -385,67 +388,13 @@ ul ul a {
   width: 100%;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
-  padding: 30px;
+  padding: 26px;
   background: #fff;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
 
 .contact .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-
-.contact .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br + br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .contact .php-email-form label {
@@ -459,6 +408,9 @@ ul ul a {
   font-size: 14px;
   border-radius: 4px;
 }
+.textereasize {
+  height: 90px !important;
+}
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
@@ -467,10 +419,6 @@ ul ul a {
 
 .contact .php-email-form input {
   height: 44px;
-}
-
-.contact .php-email-form textarea {
-  padding: 10px 12px;
 }
 
 .contact .php-email-form button[type="submit"] {
@@ -544,32 +492,28 @@ ul ul a {
 }
 
 #top {
-  background-color: #ce0033;
-  width: 45px;
+  width: 40px;
   height: 40px;
   text-align: center;
   border-radius: 4px;
   position: fixed;
   bottom: 20px;
   right: 30px;
-  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
-  opacity: 0;
+  /*transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;*/
   visibility: hidden;
   z-index: 1000;
+  padding: 0 !important;
 }
 
 #top:hover {
   cursor: pointer;
-  background-color: #ddd;
-}
-
-#top:active {
-  background-color: #555;
 }
 
 #top.show {
   opacity: 1;
   visibility: visible;
+  padding: 2px !important;
 }
 .bg-cover {
   background-size: cover !important;
@@ -578,10 +522,10 @@ ul ul a {
   width: 100%;
   height: 100vh;
 }
-.yeld {
+/* .yeld {
   position: relative;
-  top: 10.1vh;
-}
+  top: 9.1vh;
+} */
 @media only screen and (max-width: 1400px) {
   .bg-cover {
     background-size: cover !important;
@@ -663,10 +607,10 @@ ul ul a {
   .newsletterInsc {
     width: 75% !important;
   }
-  .yeld {
+  /* .yeld {
     position: relative;
     top: 8.1vh;
-  }
+  } */
 }
 @media only screen and (max-width: 1400px) {
   .accordion {
@@ -743,6 +687,7 @@ ul ul a {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 20px;
+  text-align: center;
 }
 
 .div1 {
@@ -751,11 +696,11 @@ ul ul a {
 .descTypes {
   display: block;
   position: relative;
-  left: 6.4em;
+  left: 4em;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 2em;
+  grid-column-gap: 0em;
   grid-row-gap: 0px;
   text-align: center;
 }
@@ -765,18 +710,31 @@ ul ul a {
 .descTypes-div2 {
   grid-area: 1 / 2 / 2 / 3;
 }
-.square {
+.square1 {
   margin: 1.5em auto;
   height: 10px;
-  width: 22vw;
+  width: 22vw !important;
   border-bottom: 2px solid gray;
   border-left: 2px solid gray;
   border-right: 2px solid gray;
+  margin-left: 12em !important;
+}
+.square {
+  margin: 1.5em auto;
+  height: 10px;
+  width: 15vw;
+  border-bottom: 2px solid gray;
+  border-left: 2px solid gray;
+  border-right: 2px solid gray;
+  margin-left: 12em !important;
+}
+.descTypes-div1_title {
+  margin-left: 7em !important;
 }
 @media only screen and (max-width: 1400px) {
   .descTypes {
     position: relative;
-    left: 5.8vw;
+    left: 2vw;
   }
   /*.descTypes-div1 {
         grid-area: 1 / 1 / 2 / 2;
@@ -801,16 +759,35 @@ ul ul a {
   .nav-items li a {
     font-size: 1em !important;
   }
+  .descTypes {
+    position: relative;
+    left: -9vw;
+  }
+  .navcontact {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .itemNvcontact {
+    font-size: 11px;
+  }
+  .navtheme {
+    display: flex !important;
+    flex-direction: column !important;
+    font-size: 20px;
+  }
+  .navThemeitem {
+    font-size: 1.2em !important;
+  }
 }
 #footer {
   position: absolute;
   bottom: 0;
-  margin-bottom: -20em !important;
+  margin-bottom: -18em !important;
 }
 @media only screen and (max-width: 900px) {
   .descTypes {
     position: relative;
-    left: 5vw;
+    left: -23vw;
   }
   /*.descTypes-div1 {
         grid-area: 1 / 1 / 2 / 2;
@@ -831,7 +808,7 @@ ul ul a {
   #footer {
     position: absolute !important;
     bottom: 0 !important;
-    margin-bottom: -26em !important;
+    margin-bottom: -21em !important;
   }
   .nav-logo a img {
     width: 6em !important;
@@ -872,12 +849,15 @@ ul ul a {
     grid-column-gap: 8px;
     grid-row-gap: 8px;
   }
+  .itemNvcontact {
+    font-size: 9px;
+  }
 }
 @media only screen and (max-width: 850px) {
   #footer {
     position: absolute !important;
     bottom: 0 !important;
-    margin-bottom: -42em !important;
+    margin-bottom: -35em !important;
   }
 }
 .three {

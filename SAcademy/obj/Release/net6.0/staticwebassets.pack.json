@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\img\\55.jpg"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\LocNav.png",
+      "PackagePath": "staticwebassets\\img\\LocNav.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\arrow.png",
       "PackagePath": "staticwebassets\\img\\arrow.png"
     },
@@ -47,6 +51,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\email.png",
       "PackagePath": "staticwebassets\\img\\email.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\fbnav.png",
+      "PackagePath": "staticwebassets\\img\\fbnav.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\gifile.gif",
@@ -97,12 +105,24 @@
       "PackagePath": "staticwebassets\\img\\iconForm7.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\iconForm8.png",
+      "PackagePath": "staticwebassets\\img\\iconForm8.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\info.png",
       "PackagePath": "staticwebassets\\img\\info.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\instanav.png",
+      "PackagePath": "staticwebassets\\img\\instanav.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\invisible.png",
       "PackagePath": "staticwebassets\\img\\invisible.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\linkednav.png",
+      "PackagePath": "staticwebassets\\img\\linkednav.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\local.png",
@@ -125,12 +145,60 @@
       "PackagePath": "staticwebassets\\img\\logoFooter.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\mailNav.png",
+      "PackagePath": "staticwebassets\\img\\mailNav.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\menu.png",
       "PackagePath": "staticwebassets\\img\\menu.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\AXA.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\AXA.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Accenture-Logo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Accenture-Logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Azéo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Azéo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\BNPP.jpg",
+      "PackagePath": "staticwebassets\\img\\partenaire\\BNPP.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Capgemini.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Capgemini.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\Société Générale.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\Société Générale.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\codev.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\codev.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\octo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\octo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\orange.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\orange.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\share-avanade-logo.jpg",
+      "PackagePath": "staticwebassets\\img\\partenaire\\share-avanade-logo.jpg"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\phone.png",
       "PackagePath": "staticwebassets\\img\\phone.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\phoneNav.png",
+      "PackagePath": "staticwebassets\\img\\phoneNav.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\play.png",
@@ -139,6 +207,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\plus.png",
       "PackagePath": "staticwebassets\\img\\plus.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\presentation.svg",
+      "PackagePath": "staticwebassets\\img\\presentation.svg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",
@@ -157,8 +229,16 @@
       "PackagePath": "staticwebassets\\img\\top.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\twitnav.png",
+      "PackagePath": "staticwebassets\\img\\twitnav.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\visible.png",
       "PackagePath": "staticwebassets\\img\\visible.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\ytbnav.png",
+      "PackagePath": "staticwebassets\\img\\ytbnav.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\js\\site.js",

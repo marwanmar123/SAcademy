@@ -20,7 +20,7 @@ namespace SAcademy.Controllers
         {
             _context = context;
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Villes
         public async Task<IActionResult> Index()
         {
@@ -31,7 +31,7 @@ namespace SAcademy.Controllers
         {
             return Ok(await _context.Villes.ToListAsync());
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Villes/Create
         public IActionResult Create()
         {
@@ -51,7 +51,7 @@ namespace SAcademy.Controllers
             }
             return View(ville);
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Villes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -100,7 +100,7 @@ namespace SAcademy.Controllers
             }
             return View(ville);
         }
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Villes/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

@@ -44,7 +44,7 @@ namespace SAcademy.Controllers
         //    return View(staticNum);
         //}
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         // GET: StaticNums/Create
         public IActionResult Create()
@@ -75,7 +75,7 @@ namespace SAcademy.Controllers
             return View(staticNum);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: StaticNums/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -134,7 +134,7 @@ namespace SAcademy.Controllers
             return View(staticNum);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: StaticNums/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

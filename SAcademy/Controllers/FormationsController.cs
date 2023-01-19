@@ -24,6 +24,7 @@ namespace SAcademy.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Formations
         public async Task<IActionResult> Index()
         {
@@ -101,7 +102,7 @@ namespace SAcademy.Controllers
             return View(formation);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Formations/Create
         public IActionResult Create()
         {
@@ -130,7 +131,7 @@ namespace SAcademy.Controllers
             return View(formation);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // GET: Formations/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -187,7 +188,7 @@ namespace SAcademy.Controllers
             return View(formation);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
 
         // GET: Formations/Delete/5
         public async Task<IActionResult> Delete(string id)
@@ -255,7 +256,7 @@ namespace SAcademy.Controllers
             return View(registration);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         // POST: Formations/DeleteRegister
         [HttpPost]
         public async Task<IActionResult> DeleteRegister(string id)

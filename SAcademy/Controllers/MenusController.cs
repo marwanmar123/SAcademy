@@ -12,7 +12,7 @@ using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class MenusController : Controller
     {
         private readonly ApplicationDbContext _context;

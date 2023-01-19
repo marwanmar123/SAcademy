@@ -13,7 +13,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class SlidesController : Controller
     {
         private readonly ApplicationDbContext _context;
