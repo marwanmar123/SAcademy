@@ -32,9 +32,9 @@ namespace SAcademy.Controllers
         public async Task<IActionResult> FormationPanel()
         {
             Formation formation = new Formation();
-            ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", formation.TypeId);
-            ViewData["VilleId"] = new SelectList(_context.Villes, "Id", "Name", formation.VilleId);
             ViewData["ThematicId"] = new SelectList(_context.Thematics, "Id", "Title", formation.ThematicId);
+            ViewData["VilleId"] = new SelectList(_context.Villes, "Id", "Name", formation.VilleId);
+            ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", formation.TypeId);
             ViewData["ModeId"] = new SelectList(_context.Modes, "Id", "Name", formation.ModeId);
             var formationData = new FVTMViewModel()
             {

@@ -446,7 +446,7 @@ ul ul a {
 .contact .php-email-form button[type="submit"] {
   background: black;
   border: 0;
-  padding: 12px 34px;
+  padding:7px 20px;
   color: #fff;
   transition: 0.4s;
   border-radius: 50px;
@@ -874,6 +874,9 @@ ul ul a {
   .itemNvcontact {
     font-size: 9px;
   }
+    #accordion{
+        display:none;
+    }
 }
 @media only screen and (max-width: 850px) {
   #footer {

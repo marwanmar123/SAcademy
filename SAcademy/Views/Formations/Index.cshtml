@@ -78,37 +78,26 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <span class="pr-5 text-dark filtertext">Status</span>
-                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:2.9em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                        <div class="card-body">
-                            <div id="Status">
-                                <input type="radio" name="status" style="width:15%;" class="m-1"
-                                    onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
-                                <input type="radio" name="status" style="width:15%;" class="m-1"
-                                    onclick="GetFormationsFalse()"> <span class=""
-                                    style="font-size:20px;">Terminé</span>
+                        <div class="">
+                            <div id="Status" class="d-flex flex-column">
+                                <div class="d-flex">
+                                    <input type="checkbox" name="status" style="width:3em;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
+                                </div>
+                                <div class="d-flex">
+                                    <input type="checkbox" name="status" style="width:3em;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:20px;">Terminé</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="float-right p-3 itemsFormation" style="width:70%;">
-                @*@{
-                    string result = null;
-                    if (Model.Count() > 0)
-                    {
-                    result = "nombre de formation disponible actuellement : " + " " + Model.Count().ToString();
-                    }
-                    else
-                    {
-                    result = "Aucune Formation pour l'instant";
-                    }
-                    }
-                    <h5>@result</h5>*@
+            <div class="float-right p-3 itemsFormation" style="width:70%;"> 
                 <div id="formation"></div>
             </div>
         </div>
@@ -133,7 +122,7 @@
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:15%;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.name}</span>
+                            <input type="checkbox" style="width:3em;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.name}</span>
                         </div>
                     `
                 );
@@ -149,7 +138,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex" style="width:26vw;">
-                            <input type="checkbox"  style="width:15%;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.title}</span>
+                            <input type="checkbox"  style="width:3em;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.title}</span>
                         </div>
                     `
                 );
@@ -166,7 +155,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:15%;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:20px;">${option.name}</span>
+                            <input type="checkbox" style="width:3em;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:20px;">${option.name}</span>
                         </div>
                     `
                 );

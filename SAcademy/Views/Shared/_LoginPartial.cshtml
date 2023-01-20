@@ -2,6 +2,22 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
+
+@{
+    string? fullName = null;
+    if (SignInManager.IsSignedIn(User))
+    {
+        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            fullName = user.FullName;
+        }
+
+
+    }
+}
+
+
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
@@ -9,7 +25,7 @@
         <a class="btn btn-danger text-light" href="/Identity/Account/register" title="Manage">Add User</a>
     </li>
     <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@fullName</a>
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

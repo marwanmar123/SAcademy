@@ -12,7 +12,7 @@ namespace SAcademy.ViewModel
         public string? Email { get; set; }
         public string? RoleId { get; set; }
         public string? RoleName { get; set; }
-        public bool? Selected { get; set; }
+        public Boolean Selected { get; set; }
 
     }
 }

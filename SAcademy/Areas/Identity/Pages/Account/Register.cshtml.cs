@@ -23,7 +23,7 @@ using SAcademy.Models;
 
 namespace SAcademy.Areas.Identity.Pages.Account
 {
-    [Authorize(Roles = "admin")]
+    //[Authorize(Roles = "admin")]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<User> _signInManager;

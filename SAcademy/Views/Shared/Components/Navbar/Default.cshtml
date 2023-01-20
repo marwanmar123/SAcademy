@@ -3,6 +3,18 @@
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
+@{
+    string? fullName = null;
+    if (SignInManager.IsSignedIn(User))
+    {
+        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            fullName = user.FullName;
+        }
+    }
+}
+
 @foreach (var item in Model.Home)
 {
     var sizeLogo = string.Concat(item.LogoSize, "px");
@@ -34,7 +46,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="">
-                        <a class="mr-3" href="/dashboard" style="font-weight:bold;">
+                        <a class="mr-3" href="/dashboard" style="font-weight:bold;" target="_blank">
                             <img src="~/img/dashboard.png">
                         </a>
                     </li>
@@ -42,11 +54,11 @@
                 @if(User.IsInRole("User"))
                 {
                     <li class="">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                          Dropdown
+                        <a class="nav-link " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <img class="m-0" style="width:1.5vw;" src="~/img/arrow.png" />
                         </a>
                         <div class="dropdown-menu">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name</a>
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@fullName</a>
                             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
                             </form>

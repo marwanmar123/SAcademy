@@ -174,7 +174,7 @@ namespace SAcademy.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Manage(List<ProfileViewModel> model, string userId)
+        public async Task<IActionResult> Manage(List<ProfileViewModel> model, string userId, ProfileViewModel x)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -188,7 +188,7 @@ namespace SAcademy.Controllers
                 ModelState.AddModelError("", "Cannot remove user existing roles");
                 return View(model);
             }
-            result = await _userManager.AddToRolesAsync(user, model.Where(x => (bool)x.Selected).Select(y => y.RoleName));
+            result = await _userManager.AddToRolesAsync(user, model.Where(x => x.Selected).Select(y => y.RoleName));
             if (!result.Succeeded)
             {
                 ModelState.AddModelError("", "Cannot add selected roles to user");
