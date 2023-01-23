@@ -24,7 +24,7 @@ namespace SAcademy.Controllers
             _context = context;
         }
 
-        [Authorize]
+        
         // GET: Formations
         public async Task<IActionResult> Index()
         {
@@ -78,7 +78,7 @@ namespace SAcademy.Controllers
             var formations = await _context.Formations.Include(f => f.Type).Include(f => f.Thematic).Where(f => f.ThematicId == ThemeId).ToListAsync();
             return Ok(formations);
         }
-
+        [Authorize]
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(string id)
         {

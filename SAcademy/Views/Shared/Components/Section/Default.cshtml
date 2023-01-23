@@ -13,13 +13,13 @@
             <div class="d-flex justify-content-between aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
-                    <div class="m-auto" data-aos="fade-up">
+                    <div class="m-auto about-content" data-aos="fade-up">
                         @Html.Raw(item.Content)
                     </div>
                 }
                 else if (item.Video == null)
                 {
-                    <div class="d-flex flex-column" data-aos="fade-up-left">
+                    <div class="d-flex flex-column about-content" data-aos="fade-up-left">
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-up-right">
@@ -29,7 +29,7 @@
                 }
                 else
                 {
-                    <div class="pl-4" data-aos="fade-up-left">
+                    <div class="pl-4 about-content" data-aos="fade-up-left">
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">

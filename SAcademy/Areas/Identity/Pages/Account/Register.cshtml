@@ -5,10 +5,10 @@
     Layout = "_LayoutIdentity";
 }
 
-
+<a href="/">Home</a>
 <div class="w-50 pt-5 m-auto">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h2>Register.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
@@ -33,7 +33,7 @@
             </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
-        <a id="confirm-link" href="/dashboard">Back To Dashboard</a>
+        <a id="confirm-link" href="/dashboard">Retour</a>
 </div>
     @*<div class="col-md-6 col-md-offset-2">
         <section>

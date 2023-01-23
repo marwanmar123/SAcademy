@@ -197,6 +197,22 @@ namespace SAcademy.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var aspNetUser = await _context.Users
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            _context.Remove(aspNetUser);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
 

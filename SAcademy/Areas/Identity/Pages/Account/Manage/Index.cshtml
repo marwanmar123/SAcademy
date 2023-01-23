@@ -14,11 +14,11 @@
                 @if (Model.Input.Logo != null)
                 {
 
-                    <img style="" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.Logo))">
+                    <img style="width:60px;height:60px;" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.Logo))">
                 }
                 else
                 {
-                    <img style="width:80px;height:80px;" src="~/img/hide.png">
+                    <img style="width:40px;height:40px;" src="~/img/hide.png">
                 }
                 <input type="file"
                        accept=".png,.jpg,.jpeg,.gif,.tif"

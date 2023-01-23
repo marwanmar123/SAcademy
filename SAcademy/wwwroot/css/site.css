@@ -212,6 +212,15 @@ ul ul a {
   .cardOffre-button {
     padding: 0.2em;
   }
+
+}
+
+
+@media only screen and (max-width: 1600px) {
+
+    .about-content p span {
+        font-size: 15px !important;
+    }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -239,19 +248,19 @@ ul ul a {
 @media only screen and (max-width: 1000px) {
   .aboutSplit {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     text-align: center;
     font-size: 12px !important;
   }
-  .about-content {
-    font-size: 10px !important;
+  .about-content p span{
+    font-size: 12px !important;
   }
   .aboutImg {
     width: 20em !important;
     height: 15em !important;
   }
   .aboutvideo {
-    width: 20em !important;
+    width: 30em !important;
     height: 20vh !important;
   }
 }
@@ -611,7 +620,12 @@ ul ul a {
     position: relative;
     top: -2em;
     text-align: center;
+    margin-top:0 !important;
   }
+    .content h1{
+        margin:20px 0 0 0 !important;
+        padding:0 !important;
+    }
 }
 @media only screen and (max-width: 900px) {
   .inscriptionPage {
