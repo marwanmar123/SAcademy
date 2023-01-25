@@ -16,7 +16,7 @@
     <WebStackScaffolding_DbContextTypeFullName>SAcademy.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <ActiveDebugProfile>EnvironmentsSample-Production</ActiveDebugProfile>
+    <ActiveDebugProfile>SAcademy-Production</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\Properties\PublishProfiles\FolderProfile2.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

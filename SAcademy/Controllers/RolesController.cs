@@ -14,17 +14,15 @@ namespace SAcademy.Controllers
     {
         RoleManager<IdentityRole> _roleManager;
         UserManager<User> _userManager;
-        ApplicationDbContext _context;
 
-        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, ApplicationDbContext context)
+        public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
-            _context = context;
         }
         public async Task<IActionResult> Index()
         {
-            var roles = _roleManager.Roles.ToList();
+            var roles = await _roleManager.Roles.ToListAsync();
             ViewBag.Roles = roles;
             var users = await _userManager.Users.ToListAsync();
             var userRolesViewModel = new List<ProfileViewModel>();
@@ -145,32 +143,42 @@ namespace SAcademy.Controllers
 
         public async Task<IActionResult> Manage(string userId)
         {
-            ViewBag.userId = userId;
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
+                var model = new List<ProfileViewModel>();
+            var f = await _roleManager.Roles.ToListAsync();
+            try
             {
-                ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
-                return View("NotFound");
+                ViewBag.userId = userId;
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    ViewBag.ErrorMessage = $"User with Id = {userId} cannot be found";
+                    return View("NotFound");
+                }
+                ViewBag.UserName = user.UserName;
+                foreach (var role in f)
+                {
+                    var userRolesViewModel = new ProfileViewModel
+                    {
+                        RoleId = role.Id,
+                        RoleName = role.Name
+                    };
+                    var ro = await _userManager.IsInRoleAsync(user, role.Name);
+                    if (ro)
+                    {
+                        userRolesViewModel.Selected = true;
+                    }
+                    else
+                    {
+                        userRolesViewModel.Selected = false;
+                    }
+                    model.Add(userRolesViewModel);
+                }
             }
-            ViewBag.UserName = user.UserName;
-            var model = new List<ProfileViewModel>();
-            foreach (var role in _roleManager.Roles)
+            catch(Exception ex)
             {
-                var userRolesViewModel = new ProfileViewModel
-                {
-                    RoleId = role.Id,
-                    RoleName = role.Name
-                };
-                if (await _userManager.IsInRoleAsync(user, role.Name))
-                {
-                    userRolesViewModel.Selected = true;
-                }
-                else
-                {
-                    userRolesViewModel.Selected = false;
-                }
-                model.Add(userRolesViewModel);
+                
             }
+            //return View();
             return View(model);
         }
         [HttpPost]
@@ -198,21 +206,21 @@ namespace SAcademy.Controllers
         }
 
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteUser(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var aspNetUser = await _context.Users
-                .FirstOrDefaultAsync(a => a.Id == id);
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteUser(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    var aspNetUser = await _context.Users
+        //        .FirstOrDefaultAsync(a => a.Id == id);
 
-            _context.Remove(aspNetUser);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    _context.Remove(aspNetUser);
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
     }
 }
 

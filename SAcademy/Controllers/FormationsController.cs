@@ -165,7 +165,7 @@ namespace SAcademy.Controllers
             {
                 try
                 {
-                    _context.Update(formation);
+                    _context.Formations.Update(formation);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
