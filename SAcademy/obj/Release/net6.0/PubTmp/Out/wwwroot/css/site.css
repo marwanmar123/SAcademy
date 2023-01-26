@@ -151,7 +151,7 @@ ul ul a {
 .Header {
   background: no-repeat;
   background-size: cover;
-  max-width: 100%;
+  max-width: 100% !important;
 }
 .Header-Content {
   width: 100%;
@@ -515,6 +515,9 @@ ul ul a {
 }*/
 
 @media screen and (max-width: 850px) {
+    .Header {
+        width: 100vw;
+    }
   .footer {
     display: flex;
     flex-direction: column;
@@ -529,12 +532,13 @@ ul ul a {
   border-radius: 4px;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 40px;
   /*transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
   opacity: 0;*/
   visibility: hidden;
   z-index: 1000;
   padding: 0 !important;
+  /*display:none;*/
 }
 
 #top:hover {
@@ -590,6 +594,11 @@ ul ul a {
   padding: 0.1em 1em 0.1em 1em;
 }
 @media only screen and (max-width: 1000px) {
+    .content h1 {
+        margin: 20px 0 0 0 !important;
+        padding: 0 !important;
+        line-height: 17px !important;
+    }
   .buttonHeader {
     margin: 0 auto !important;
     left: 0 !important;
@@ -625,6 +634,7 @@ ul ul a {
     .content h1{
         margin:20px 0 0 0 !important;
         padding:0 !important;
+        line-height:10px !important;
     }
 }
 @media only screen and (max-width: 900px) {
@@ -643,6 +653,7 @@ ul ul a {
   .newsletterInsc {
     width: 75% !important;
   }
+    
   /* .yeld {
     position: relative;
     top: 8.1vh;
@@ -767,169 +778,246 @@ ul ul a {
 .descTypes-div1_title {
   margin-left: 7em !important;
 }
-@media only screen and (max-width: 1400px) {
-  .descTypes {
-    position: relative;
-    left: 2vw;
-  }
-  /*.descTypes-div1 {
+@media only screen and (max-width: 1600px) {
+    .descTypes {
+        position: relative;
+        left: 1vw;
+    }
+}
+    @media only screen and (max-width: 1400px) {
+        .descTypes {
+            position: relative;
+            left: 2vw;
+        }
+        .descTypes-div1 {
         grid-area: 1 / 1 / 2 / 2;
     }
     .descTypes-div2 {
         grid-area: 1 / 2 / 2 / 3;
-    }*/
-}
-@media only screen and (max-width: 1100px) {
-  .parent {
-    width: 82%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
-  }
-  .Titles {
-    font-size: 1.5em !important;
-  }
-  .nav-items li a {
-    font-size: 1em !important;
-  }
-  .descTypes {
-    position: relative;
-    left: -9vw;
-  }
-  .navcontact {
-    display: flex;
-    flex-direction: column !important;
-  }
-  .itemNvcontact {
-    font-size: 11px;
-  }
-  .navtheme {
-    display: flex !important;
-    flex-direction: column !important;
-    font-size: 20px;
-  }
-  .navThemeitem {
-    font-size: 1.2em !important;
-  }
-}
-#footer {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -18em !important;
-}
-@media only screen and (max-width: 900px) {
-  .descTypes {
-    position: relative;
-    left: -23vw;
-  }
-  /*.descTypes-div1 {
-        grid-area: 1 / 1 / 2 / 2;
     }
-    .descTypes-div2 {
-        grid-area: 1 / 2 / 2 / 3;
-    }*/
-  .contentSlide {
-    font-size: 2em !important;
-    padding: 0 !important;
-  }
-  #slide {
-    width: 100% !important;
-  }
-  .tslide {
-    margin: 0 !important;
-  }
-  #footer {
-    position: absolute !important;
-    bottom: 0 !important;
-    margin-bottom: -21em !important;
-  }
-  .nav-logo a img {
-    width: 6em !important;
-  }
-  .formationPage {
-    padding: 0 !important;
-    height: 7em !important;
-  }
-  .formation {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-  }
-  .formation-1 {
-    margin: 0 6vw;
-    width: 75% !important;
-    border-bottom: 1px gray solid;
-  }
-}
-@media only screen and (max-width: 700px) {
-  #types {
-    display: flex;
-    flex-direction: column;
-  }
-  .div1 {
-    width: 100% !important;
-    margin: 0.5em auto !important;
-  }
-  .descTypes {
-    display: none !important;
-  }
-  .parent {
-    width: 82%;
-    margin: 1em auto;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 8px;
-  }
-  .itemNvcontact {
-    font-size: 9px;
-  }
-    #accordion{
-        display:none;
     }
-}
-@media only screen and (max-width: 850px) {
-  #footer {
-    position: absolute !important;
-    bottom: 0 !important;
-    margin-bottom: -35em !important;
-  }
-}
-.three {
-  /* background: #dddddd; */
-  padding: 2vw 3vw 2vw 3vw;
-  width: 100%;
-}
-.numstyle {
-  font-size: 2.8vw;
-  text-align: center;
-  font-weight: bold;
-  color: #4d04c4;
-  font-family: "Nunito black" sans-serif;
-}
-.descrstyle {
-  font-weight: bold;
-  color: black;
-  font-size: 1.2vw;
-  text-align: center;
-  font-family: "Nunito black" sans-serif;
-}
-.itemNum {
-  /* background: white; */
-  /* width: 18%; */
-  border-radius: 7px;
+@media only screen and (max-width: 1350px) {
+    .descTypes {
+        position: relative;
+        left: .5vw;
+    }
 }
 
+@media only screen and (max-width: 1270px) {
+    .descTypes {
+        position: relative;
+        left: -1vw;
+    }
+}
+
+@media only screen and (max-width: 1212px) {
+    .descTypes {
+        position: relative;
+        left: -4vw;
+    }
+}
+
+    @media only screen and (max-width: 1100px) {
+        .parent {
+            width: 82%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 8px;
+            grid-row-gap: 8px;
+        }
+
+        .Titles {
+            font-size: 1.5em !important;
+        }
+
+        .nav-items li a {
+            font-size: 1em !important;
+        }
+
+        .descTypes {
+            position: relative;
+            left: -9vw;
+        }
+
+        .navcontact {
+            display: flex;
+            flex-direction: column !important;
+        }
+
+        .itemNvcontact {
+            font-size: 11px;
+        }
+
+        .navtheme {
+            display: flex !important;
+            flex-direction: column !important;
+            font-size: 20px;
+        }
+
+        .navThemeitem {
+            font-size: 1.2em !important;
+        }
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: -18em !important;
+    }
+
+    @media only screen and (max-width: 900px) {
+        #types {
+            display: flex;
+            flex-direction: column;
+        }
+        .div1 {
+            width: 100% !important;
+            margin: 0.5em auto !important;
+        }
+
+        .descTypes {
+            display: none !important;
+        }
+        /*.descTypes-div1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .descTypes-div2 {
+        grid-area: 1 / 2 / 2 / 3;
+    }*/
+        .contentSlide {
+            font-size: 2em !important;
+            padding: 0 !important;
+        }
+
+        #slide {
+            width: 100% !important;
+        }
+
+        .tslide {
+            margin: 0 !important;
+        }
+
+        #footer {
+            position: absolute !important;
+            bottom: 0 !important;
+            margin-bottom: -21em !important;
+        }
+
+        .nav-logo a img {
+            width: 6em !important;
+        }
+
+        .formationPage {
+            padding: 0 !important;
+            height: 7em !important;
+        }
+
+        .formation {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+        }
+
+        .formation-1 {
+            margin: 0 6vw;
+            width: 75% !important;
+            border-bottom: 1px gray solid;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        
+
+        
+
+        .parent {
+            width: 82%;
+            margin: 1em auto;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 8px;
+            grid-row-gap: 8px;
+        }
+
+        .itemNvcontact {
+            font-size: 9px;
+        }
+
+            .itemNvcontact img {
+                width: 14px !important;
+            }
+
+        #accordion {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 850px) {
+        #footer {
+            position: absolute !important;
+            bottom: 0 !important;
+            margin-bottom: -35em !important;
+        }
+        .staticImg {
+            width: 50px !important;
+            height: 50px !important;
+        }
+        .descrstyle {
+            font-size: 10px !important;
+        }
+    }
+
+    .three {
+        /* background: #dddddd; */
+        padding: 2vw 3vw 2vw 3vw;
+        width: 100%;
+    }
+
+    .numstyle {
+        font-size: 2.8vw;
+        text-align: center;
+        font-weight: bold;
+        color: #4d04c4;
+        font-family: "Nunito black" sans-serif;
+    }
+
+    .descrstyle {
+        font-weight: bold;
+        color: black;
+        font-size: 1.2vw;
+        text-align: center;
+        font-family: "Nunito black" sans-serif;
+    }
+
+    .itemNum {
+        /* background: white; */
+        /* width: 18%; */
+        border-radius: 7px;
+    }
+
 .btnThem {
-  margin-top: 5em;
-  border: 1px solid #ddd;
-  color: white;
+    /*margin-top: 5em;*/
+    border: 1px solid #ddd;
+    color: white;
 }
-.btnThem:hover {
-  background: #ddd;
-  border: none;
-}
+
+ .btnThem:hover {
+     background: #ddd;
+     border: none;
+     color:gray;
+ }
+
+
+    @media only screen and (max-width:500px) {
+        .itemNvcontact {
+            font-size: 6px;
+        }
+
+        .itemNvcontact img {
+            width: 10px !important;
+        }
+        
+    }

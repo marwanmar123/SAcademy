@@ -17,7 +17,7 @@ namespace SAcademy.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.12")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -518,9 +518,14 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("SlideId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("SlideTwoId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SlideId");
+
+                    b.HasIndex("SlideTwoId");
 
                     b.ToTable("Images");
                 });
@@ -792,6 +797,35 @@ namespace SAcademy.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Slides");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.SlideTwo", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FontFamily")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleColor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TitleSize")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Visible")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SlideTwos");
                 });
 
             modelBuilder.Entity("SAcademy.Models.StaticNum", b =>
@@ -1083,7 +1117,13 @@ namespace SAcademy.Data.Migrations
                         .WithMany("Images")
                         .HasForeignKey("SlideId");
 
+                    b.HasOne("SAcademy.Models.SlideTwo", "SlideTwo")
+                        .WithMany("Images")
+                        .HasForeignKey("SlideTwoId");
+
                     b.Navigation("Slide");
+
+                    b.Navigation("SlideTwo");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Registration", b =>
@@ -1126,6 +1166,11 @@ namespace SAcademy.Data.Migrations
                 });
 
             modelBuilder.Entity("SAcademy.Models.Slide", b =>
+                {
+                    b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.SlideTwo", b =>
                 {
                     b.Navigation("Images");
                 });

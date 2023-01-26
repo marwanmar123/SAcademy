@@ -31,6 +31,7 @@ namespace SAcademy.Data
         public DbSet<Thematic> Thematics { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<SlideTwo> SlideTwos { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<SectionTheme> SectionTheme { get; set; }
         public DbSet<Statistics> Statistics { get; set; }

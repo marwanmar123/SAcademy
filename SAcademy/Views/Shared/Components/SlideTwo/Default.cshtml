@@ -1,0 +1,57 @@
+﻿@model List<SAcademy.Models.SlideTwo>
+
+
+
+<div class="p-3 w-100 m-auto" id="nosreferences">
+    @foreach (var item in Model)
+    {
+        if (item.Visible == true)
+        {
+            var size = string.Concat(item.TitleSize, "vw");
+            <div class="text-center">
+                <p class="Titles tslide mt-2" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
+            </div>
+            <div class="contentSlide">@Html.Raw(item.Content)</div>
+
+            <div class="center m-auto" style="width:85%;">
+                @foreach (var img in item.Images)
+                {
+                    <div class="m-auto">
+                        <img class="" style="padding:.3em .5em; width:9em; height:9em; margin-left:2em !important;"
+                        src="data:image/*;base64,@Convert.ToBase64String(img.Data)">
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.center').slick({
+            centerMode: true,
+            centerPadding: '30px',
+            slidesToShow: 4,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '20px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '10px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    });
+</script>

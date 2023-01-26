@@ -13,5 +13,7 @@ namespace SAcademy.Models
         public byte[]? Data { get; set; }
         public string? SlideId { get; set; }
         public Slide? Slide { get; set; }
+        public string? SlideTwoId { get; set; }
+        public SlideTwo? SlideTwo { get; set; }
     }
 }
