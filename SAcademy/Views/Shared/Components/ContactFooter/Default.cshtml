@@ -1,0 +1,13 @@
+﻿@model List<SAcademy.Models.Contact>
+
+
+<div class="d-flex flex-column">
+    @foreach (var c in Model)
+    {
+        <a class="text-decoration-none text-light" href="https://goo.gl/maps/rTuLwJPL42xfjJ3HA"
+            target="_blank">@c.Localisation</a>
+        <a class="text-decoration-none text-light" href="mailto:@c.Email">@c.Email</a>
+        <a class="text-decoration-none text-light" href="tel:@c.Call">@c.Call</a>
+    
+    }
+</div>

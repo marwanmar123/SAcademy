@@ -125,6 +125,38 @@
       "PackagePath": "staticwebassets\\img\\invisible.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Logo-Qualiopi - Copy.jpg",
+      "PackagePath": "staticwebassets\\img\\labels\\Logo-Qualiopi - Copy.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Logo-Qualiopi.jpg",
+      "PackagePath": "staticwebassets\\img\\labels\\Logo-Qualiopi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\LogoAgrément-ESUS-2-21 - Copy.png",
+      "PackagePath": "staticwebassets\\img\\labels\\LogoAgrément-ESUS-2-21 - Copy.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\LogoAgrément-ESUS-2-21.png",
+      "PackagePath": "staticwebassets\\img\\labels\\LogoAgrément-ESUS-2-21.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\datadocke - Copy.jpeg",
+      "PackagePath": "staticwebassets\\img\\labels\\datadocke - Copy.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\datadocke.jpeg",
+      "PackagePath": "staticwebassets\\img\\labels\\datadocke.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\global-compact-logo - Copy.jpeg",
+      "PackagePath": "staticwebassets\\img\\labels\\global-compact-logo - Copy.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\global-compact-logo.jpeg",
+      "PackagePath": "staticwebassets\\img\\labels\\global-compact-logo.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\linkednav.png",
       "PackagePath": "staticwebassets\\img\\linkednav.png"
     },

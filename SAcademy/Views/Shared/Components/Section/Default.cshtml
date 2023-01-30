@@ -1,6 +1,6 @@
 ﻿@model List<SAcademy.Models.Section>
 
-<div class="pt-3 pb-2" id="apropos">
+<div class="pt-3 pb-2" id="">
 
 
     @foreach (var item in Model)
@@ -10,16 +10,16 @@
             var size = string.Concat(item.TitleSize, "vw");
             <p class="text-center Titles"
         style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
-            <div class="d-flex justify-content-between aboutSplit">
+            <div id="" class="d-flex justify-content-between aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
-                    <div class="m-auto about-content" data-aos="fade-up">
+                    <div class="m-auto about-content">
                         @Html.Raw(item.Content)
                     </div>
                 }
                 else if (item.Video == null)
                 {
-                    <div class="d-flex flex-column about-content" data-aos="fade-up-left">
+                    <div class="d-flex flex-column about-content">
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-up-right">
@@ -29,10 +29,10 @@
                 }
                 else
                 {
-                    <div class="pl-4 about-content" data-aos="fade-up-left">
+                    <div class="pl-4 about-content">
                         @Html.Raw(item.Content)
                     </div>
-                    <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    <div>
                         <iframe class="aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video?rel=0&enablejsapi=1"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

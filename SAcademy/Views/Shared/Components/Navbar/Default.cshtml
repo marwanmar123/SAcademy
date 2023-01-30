@@ -51,14 +51,14 @@
                         </a>
                     </li>
                 }
-                @if(User.IsInRole("User"))
+                @if (User.IsInRole("User") || User.IsInRole(""))
                 {
                     <li class="">
                         <a class="nav-link " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                             <img class="m-0" style="width:1.5vw;" src="~/img/arrow.png" />
                         </a>
                         <div class="dropdown-menu">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@fullName</a>
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">User : @fullName</a>
                             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
                             </form>

@@ -8,6 +8,8 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\O
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

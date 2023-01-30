@@ -280,3 +280,5 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\refint\S
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\SAcademy.pdb
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\SAcademy.genruntimeconfig.cache
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\ref\SAcademy.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll

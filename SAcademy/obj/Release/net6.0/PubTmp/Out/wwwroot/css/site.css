@@ -2,8 +2,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  position: relative;
+  /*position: relative;*/
   min-height: 100vh;
+  font-family:'Nunito' sans-serif !important;
 }
 /*///////////////////SideBar*/
 
@@ -260,7 +261,7 @@ ul ul a {
     height: 15em !important;
   }
   .aboutvideo {
-    width: 30em !important;
+    width: 27em !important;
     height: 20vh !important;
   }
 }
@@ -366,21 +367,21 @@ ul ul a {
 }
 
 .contact .info h4 {
-  padding: 0 0 0 60px;
+  padding: 0 0 0 40px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #37517e;
 }
 
-.contact .info p {
-  padding: 0 0 10px 60px;
+.contact .info a {
+  padding: 0 0 10px 40px;
   margin-bottom: 20px;
   font-size: 14px;
   color: #6182ba;
 }
 
-.contact .info .email p {
+.contact .info .email a {
   padding-top: 5px;
 }
 
@@ -861,11 +862,11 @@ ul ul a {
         }
     }
 
-    #footer {
+    /*#footer {
         position: absolute;
         bottom: 0;
         margin-bottom: -18em !important;
-    }
+    }*/
 
     @media only screen and (max-width: 900px) {
         #types {
@@ -899,11 +900,11 @@ ul ul a {
             margin: 0 !important;
         }
 
-        #footer {
+        /*#footer {
             position: absolute !important;
             bottom: 0 !important;
             margin-bottom: -21em !important;
-        }
+        }*/
 
         .nav-logo a img {
             width: 6em !important;
@@ -956,11 +957,11 @@ ul ul a {
     }
 
     @media only screen and (max-width: 850px) {
-        #footer {
+        /*#footer {
             position: absolute !important;
             bottom: 0 !important;
             margin-bottom: -35em !important;
-        }
+        }*/
         .staticImg {
             width: 50px !important;
             height: 50px !important;

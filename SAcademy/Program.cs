@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using System.Configuration;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +29,24 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = googleAuthSection["ClientId"];
+                    options.ClientSecret = googleAuthSection["ClientSecret"];
+                })
+                .AddFacebook(facebookOptions =>
+                {
+                    facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+                });
+                //.AddMicrosoftAccount(microsoftOptions =>
+                //{
+                //    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                //    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                //});
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

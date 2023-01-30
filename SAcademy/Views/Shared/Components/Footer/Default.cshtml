@@ -25,7 +25,7 @@
 {
     if (item.Visible == true)
     {
-        <footer id="footer" class="p-4 w-100" style="background:@item.Background;">
+        <footer id="" class="p-4 w-100" style="background:@item.Background;">
             <div class="d-flex justify-content-between footer">
                 <div class="d-flex flex-column">
                     @if (item.Logo != null)
@@ -38,7 +38,8 @@
                         <a href="/"><img class="pb-3" src="~/img/logoFooter.png" style="width:30%;" /></a>
                     }
                     <div>
-                        @Html.Raw(item.ContentInfos)
+                        @*@Html.Raw(item.ContentInfos)*@
+                        @await Component.InvokeAsync("ContactFooter")
                     </div>
                 </div>
                 <div class="pt-2">

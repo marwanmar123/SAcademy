@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hr5s7uzfjJSt4jqiELjRGHYDcheeLY1UUySANzJvEzNqCCKuLJx3GvpORb3W57o4mmpqWtx1s8SmHT1Ate7RUQ==",
+  "dgSpecHash": "lgAfjIh0La204mj9i8K9asdu8S2UtzAPNe/7C0B+APtFfKeQR3BsehNwuSQK+rfRnYqh2PxoaThMH4GIeiETTw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\SAcademy.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\Marwan Maryo\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\6.0.0\\microsoft.aspnetcore.authentication.facebook.6.0.0.nupkg.sha512",
+    "C:\\Users\\Marwan Maryo\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.0\\microsoft.aspnetcore.authentication.google.6.0.0.nupkg.sha512",
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.11\\microsoft.aspnetcore.cryptography.internal.6.0.11.nupkg.sha512",
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.11\\microsoft.aspnetcore.cryptography.keyderivation.6.0.11.nupkg.sha512",
     "C:\\Users\\Marwan Maryo\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.11\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.11.nupkg.sha512",
