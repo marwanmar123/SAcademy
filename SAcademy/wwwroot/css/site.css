@@ -4,7 +4,7 @@ body {
   padding: 0;
   /*position: relative;*/
   min-height: 100vh;
-  font-family:'Nunito' sans-serif !important;
+  font-family:'Nunito Sans' !important;
 }
 /*///////////////////SideBar*/
 
@@ -491,7 +491,7 @@ ul ul a {
   padding: 0.5vh 1.5vw 0.5vh 1.5vw;
   color: #fff;
   font-weight: bold;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito";
 }
 
 .inscription:hover {
@@ -500,7 +500,7 @@ ul ul a {
   background: transparent;
   color: black;
   font-weight: bold;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Nunito";
 }
 .container {
   max-width: 97%;
@@ -674,10 +674,10 @@ ul ul a {
   .filtertext {
     font-size: 3vw !important;
   }
-  .nFilter {
+ /* .nFilter {
     font-size: 10px !important;
     padding: 0 2px !important;
-  }
+  }*/
   .card-body {
     padding: 0 !important;
   }

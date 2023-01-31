@@ -12,7 +12,7 @@
             <div class="d-flex flex-row aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
-                    <div class="m-auto about-content" data-aos="fade-up">
+                    <div class="m-auto about-content" data-aos="fade-up" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                 }
@@ -21,7 +21,7 @@
                     <div data-aos="fade-up-right">
                         <img class="pr-4 aboutImg" width="@item.VideoWidth" height="@item.VideoHeight" src="data:image/*;base64,@(Convert.ToBase64String(item.image))" />
                     </div>
-                    <div class="d-flex flex-column about-content" data-aos="fade-up-left">
+                    <div class="d-flex flex-column about-content" data-aos="fade-up-left" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                 }
@@ -30,7 +30,7 @@
                     <div>
                         <iframe class="pr-4 aboutvideo" width="@item.VideoWidth" height="@item.VideoHeight" src="@item.Video?rel=0&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="d-flex flex-column about-content" data-aos="fade-up-left">
+                    <div class="d-flex flex-column about-content" data-aos="fade-up-left" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                 }

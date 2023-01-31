@@ -45,7 +45,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
                                 data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <span class="pr-5 text-dark filtertext">Ville</span>
-                                <img class="" style="width:1.5vw; margin-left:3.7em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:3.8em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
@@ -62,7 +62,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <span class="pr-5 text-dark filtertext">Mode</span>
-                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:3.4em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
@@ -78,7 +78,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <span class="pr-5 text-dark filtertext">Status</span>
-                                <img class="" style="width:1.5vw; margin-left:2.9em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
@@ -86,10 +86,10 @@
                         <div class="">
                             <div id="Status" class="d-flex flex-column">
                                 <div class="d-flex">
-                                    <input type="checkbox" name="status" style="width:3em;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:20px;">Ouverte</span>
+                                    <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:.8vw;">Ouverte</span>
                                 </div>
                                 <div class="d-flex">
-                                    <input type="checkbox" name="status" style="width:3em;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:20px;">Terminé</span>
+                                    <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:.8vw;">Terminé</span>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:3em;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.name}</span>
+                            <input type="checkbox" style="width:1.5VW;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.name}</span>
                         </div>
                     `
                 );
@@ -138,7 +138,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex" style="width:26vw;">
-                            <input type="checkbox"  style="width:3em;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:20px;">${option.title}</span>
+                            <input type="checkbox"  style="width:1.5vw;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.9vw;">${option.title}</span>
                         </div>
                     `
                 );
@@ -155,7 +155,7 @@
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:3em;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:20px;">${option.name}</span>
+                            <input type="checkbox" style="width:1.5vw;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:.8vw;">${option.name}</span>
                         </div>
                     `
                 );

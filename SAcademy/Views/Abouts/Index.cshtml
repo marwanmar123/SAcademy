@@ -39,7 +39,7 @@
         var size = string.Concat(item.TitleSize, "vw");
         @*var videoWidth = string.Concat(item.VideoWidth, "px");
         var videoHeight = string.Concat(item.VideoHeight, "px");*@
-        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
+        <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily !important;">@item.Title</p>
         <div class="d-flex about">
                 @if (item.Video == null && item.image == null)
                 {

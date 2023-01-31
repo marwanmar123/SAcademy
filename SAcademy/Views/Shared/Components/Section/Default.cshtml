@@ -13,13 +13,13 @@
             <div id="" class="d-flex justify-content-between aboutSplit">
                 @if (item.Video == null && item.image == null)
                 {
-                    <div class="m-auto about-content">
+                    <div class="m-auto about-content" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                 }
                 else if (item.Video == null)
                 {
-                    <div class="d-flex flex-column about-content">
+                    <div class="d-flex flex-column about-content" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                     <div data-aos="fade-up-right">
@@ -29,7 +29,7 @@
                 }
                 else
                 {
-                    <div class="pl-4 about-content">
+                    <div class="pl-4 about-content" style="font-family:'Nunito' !important;">
                         @Html.Raw(item.Content)
                     </div>
                     <div>
