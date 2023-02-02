@@ -457,6 +457,15 @@ namespace SAcademy.Data.Migrations
                     b.Property<byte[]>("Background")
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<byte[]>("BackgroundTwo")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("BgContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BgContentTwo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Button")
                         .HasColumnType("nvarchar(max)");
 
@@ -464,6 +473,12 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentThree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentTwo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("HeightSection")
@@ -512,6 +527,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("FileType")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("HeaderId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -522,6 +540,8 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HeaderId");
 
                     b.HasIndex("SlideId");
 
@@ -1113,6 +1133,10 @@ namespace SAcademy.Data.Migrations
 
             modelBuilder.Entity("SAcademy.Models.Image", b =>
                 {
+                    b.HasOne("SAcademy.Models.Header", "Header")
+                        .WithMany("Images")
+                        .HasForeignKey("HeaderId");
+
                     b.HasOne("SAcademy.Models.Slide", "Slide")
                         .WithMany("Images")
                         .HasForeignKey("SlideId");
@@ -1120,6 +1144,8 @@ namespace SAcademy.Data.Migrations
                     b.HasOne("SAcademy.Models.SlideTwo", "SlideTwo")
                         .WithMany("Images")
                         .HasForeignKey("SlideTwoId");
+
+                    b.Navigation("Header");
 
                     b.Navigation("Slide");
 
@@ -1158,6 +1184,11 @@ namespace SAcademy.Data.Migrations
                     b.Navigation("Formations");
 
                     b.Navigation("Thematics");
+                });
+
+            modelBuilder.Entity("SAcademy.Models.Header", b =>
+                {
+                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("SAcademy.Models.Mode", b =>

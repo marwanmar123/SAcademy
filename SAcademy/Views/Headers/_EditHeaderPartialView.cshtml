@@ -1,8 +1,11 @@
-﻿@model Header
+﻿@model SAcademy.Models.Header
 
+@{
+    ViewData["Title"] = "Edit";
+}
 
 <div class="modal fade" id="EditHeader-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="max-width:1500px;">
+    <div class="modal-dialog" style="max-width:1000px;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Edit Header</h5>
@@ -10,82 +13,97 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" >
-                <form asp-action="Edit" enctype="multipart/form-data">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
-                    <div class="form-group">
-                        @if (Model.Background != null)
-                        {
-
-                            <img id="background" style="width:100px;height:100px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Background))">
-                        }
-                        else
-                        {
-                            <img id="background" style="width:150px;height:150px; object-fit:cover" src="~/img/hero.jpg">
-                        }
-                        <input type="file"
-                               asp-for="@Model.Background"
-                               value="@Model.Background"
-                               class="w-100"
-                               style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
-                               onchange="document.getElementById('background').src = window.URL.createObjectURL(this.files[0])"
-                               
-                        />
-                        <span asp-validation-for="Background" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Content" class="control-label"></label>
-                        <textarea asp-for="Content" class="form-control" ></textarea>
-                        <span asp-validation-for="Content" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label"> Button Text</label>
-                        <input asp-for="Button" class="form-control" />
-                        <span asp-validation-for="Button" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Video" class="control-label"></label>
-                        <input asp-for="Video" class="form-control" />
-                        <span asp-validation-for="Video" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label"> Height Section</label>
-                        <input type="number" asp-for="HeightSection" class="form-control" />
-                        <span asp-validation-for="HeightSection" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label"> Button & video verticale</label>
-                        <input type="number" asp-for="BVTopSize" class="form-control" />
-                        <span asp-validation-for="BVTopSize" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label"> Button & video horizontale</label>
-                        <input type="number" asp-for="BVLeftSize" class="form-control" />
-                        <span asp-validation-for="BVLeftSize" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="BVColor" class="control-label"> Button & video Color </label>
-                        <input type="color" asp-for="BVColor" class="form-control" />
-                        <span asp-validation-for="BVColor" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label"> Button & video Size</label>
-                        <input type="number" asp-for="BVSize" class="form-control" />
-                        <span asp-validation-for="BVSize" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">  Button & video Background Color</label>
-                        <input type="color" asp-for="ButtonBgColor" class="form-control" />
-                        <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
-                            <img src="~/img/save.png" style="width:1.3em;">
-                            Save
-                        </button>
-                    </div>
-                </form>
+            <div class="modal-body">
+            <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Background" class="control-label"></label>
+                <input type="file" asp-for="Background" class="form-control "/>
+                <span asp-validation-for="Background" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BackgroundTwo" class="control-label"></label>
+                <input type="file" asp-for="BackgroundTwo" class="form-control " />
+                <span asp-validation-for="BackgroundTwo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Images" class="control-label"></label>
+                <input type="file" name="files" class="form-control" multiple />
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <textarea asp-for="Content" class="form-control ContentH"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentTwo" class="control-label"></label>
+                <textarea asp-for="ContentTwo" class="form-control ContentH"></textarea>
+                <span asp-validation-for="ContentTwo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContentThree" class="control-label"></label>
+                <textarea asp-for="ContentThree" class="form-control ContentH"></textarea>
+                <span asp-validation-for="ContentThree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BgContent" class="control-label"></label>
+                <input type="color" asp-for="BgContent" class="form-control" />
+                <span asp-validation-for="BgContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BgContentTwo" class="control-label"></label>
+                <input type="color" asp-for="BgContentTwo" class="form-control" />
+                <span asp-validation-for="BgContentTwo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Button" class="control-label"></label>
+                <input asp-for="Button" class="form-control" />
+                <span asp-validation-for="Button" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Video" class="control-label"></label>
+                <input asp-for="Video" class="form-control" />
+                <span asp-validation-for="Video" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeightSection" class="control-label"></label>
+                <input asp-for="HeightSection" class="form-control" />
+                <span asp-validation-for="HeightSection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVTopSize" class="control-label"></label>
+                <input asp-for="BVTopSize" class="form-control" />
+                <span asp-validation-for="BVTopSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVLeftSize" class="control-label"></label>
+                <input asp-for="BVLeftSize" class="form-control" />
+                <span asp-validation-for="BVLeftSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVColor" class="control-label"></label>
+                <input type="color" asp-for="BVColor" class="form-control" />
+                <span asp-validation-for="BVColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BVSize" class="control-label"></label>
+                <input asp-for="BVSize" class="form-control" />
+                <span asp-validation-for="BVSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ButtonBgColor" class="control-label"></label>
+                <input type="color" asp-for="ButtonBgColor" class="form-control" />
+                <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="float-right text-white pr-2 pl-2" title="Save" style="border-radius:25px; background:black;">
+                    <img src="~/img/save.png" style="width:1.3em;">
+                    Save
+                </button>
+            </div>
+        </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,21 +112,17 @@
     </div>
 </div>
 
-
-
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
 <script>
-    $("#Content").summernote({
+    $(".ContentH").summernote({
         placeholder: "Content ",
         lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
-        fontSizes: ['1','2','3','4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
+        fontSizes: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '14', '18', '24', '36', '48', '64', '82', '150'],
         fontSizeUnits: ['px', 'pt', 'em', '%', 'vw'],
-        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS','Nunito', 'Nunito Black'],
+        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Nunito', 'Nunito Black'],
         tabsize: 2,
         height: 120,
         toolbar: [

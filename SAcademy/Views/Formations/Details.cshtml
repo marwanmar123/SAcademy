@@ -18,7 +18,7 @@
     <div class="d-flex gap-5 justify-content-between inscriptionPage">
         <div class="w-50 p-5 inscriptionPage-content">
             <hr />
-            <h5>@Model.Title</h5>
+            <h4 class="font-weight-bold">@Model.Title</h4>
             <p>Description : @Model.Description</p>
             <p>Durée : @Model.Duration</p>
             <p>Du : @Html.DisplayFor(modelItem => Model.StartDay)</p>
@@ -27,11 +27,11 @@
             <p>Mode : @Model.Mode.Name</p>
             <p>Ville : @Model.Ville.Name</p>
             <p>Type : @Model.Type.Name</p>
-            <h5>Presentation</h5> 
+            <h4 class="font-weight-bold">Presentation</h4>
             <p>@Html.Raw(Model.Presentation)</p>
-            <h5>Compétences</h5> 
+            <h4 class="font-weight-bold">Compétences</h4>
             <p>@Html.Raw(Model.Skills)</p>
-            <h5>Certification</h5> 
+            <h4 class="font-weight-bold">Certification</h4>
             <p>@Html.Raw(Model.Certificate)</p>
         </div>
 
@@ -43,35 +43,35 @@
                 </div>
                 <div class="form-group">
                     <label>Nom</label>
-                    <input type="text" name="Nom" class="form-control" placeholder="Nom" required>
+                    <input type="text" name="Nom" id="dt" class="form-control" placeholder="Nom" required />
                 </div>
                 <div class="form-group">
                     <label>Prenom</label>
-                    <input type="text" class="form-control" name="Prenom" placeholder="Prenom" required>
+                    <input type="text" class="form-control" id="dt" name="Prenom" placeholder="Prenom" required />
                 </div>
                 <div class="form-group">
                     <label>Email address</label>
-                    <input type="email" class="form-control" name="Email" placeholder="Enter email" required>
+                    <input type="email" class="form-control" id="dt" name="Email" placeholder="Enter email" required />
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input type="number" class="form-control" name="Phone" placeholder="Phone" required>
+                    <input type="number" class="form-control id=" dt"" name="Phone" placeholder="Phone" required />
                 </div>
                 <div class="form-group">
                     <label>Job role</label>
-                    <input type="text" class="form-control" name="JobRole" placeholder="Job role" required>
+                    <input type="text" class="form-control" id="dt" name="JobRole" placeholder="Job role" required />
                 </div>
                 <div class="form-group">
                     <label>Campany name</label>
-                    <input type="text" class="form-control" name="CompanyName" placeholder="Campany name" required>
+                    <input type="text" class="form-control" id="dt" name="CompanyName" placeholder="Campany name" required />
                 </div>
                 <div class="form-group">
                     <label>Region</label>
-                    <input type="text" class="form-control" name="Region" placeholder="Region" required>
+                    <input type="text" class="form-control" id="dt" name="Region" placeholder="Region" required />
                 </div>
                 <div class="form-group">
                     <label>Ville</label>
-                    <input type="text" class="form-control" name="Ville" placeholder="Ville" required>
+                    <input type="text" class="form-control" id="dt" name="Ville" placeholder="Ville" required />
                 </div>
                 @* <div class="form-group">
                     <input type="hidden" class="form-control" name="FormationTitle" value="@Model.Title">
@@ -85,7 +85,7 @@
                 @*<div class="form-group">
                     <input type="hidden" class="form-control" name="FormationDateStart" value="@Model.StartDay">
                     </div>*@
-                <button type="submit" id="inscrits" class="btn inscription w-100">Submit</button>
+                <button id="inscrits" class="btn inscription w-100">Submit</button>
             </form>
         </div>
     </div>
@@ -93,12 +93,17 @@
 
 <script>
     $(function () {
-        $("#inscrits").click(function (e) {
+        $("#inscrits").on('click',function(e){
             e.preventDefault();
+            if ($('#dt').val().length === 0) {
+                alert('Remplissez les champs');
+            }else{
+
             swal("Merci", "Bienvenu  .", "success")
-                .then((confirm) => {
-                    $("#FormInscrits").submit();
-                })
+            .then((confirm) => {
+                $("#FormInscrits").submit();
+            })
+            }
         });
 
         //$("#studentForm").on('submit',function(){

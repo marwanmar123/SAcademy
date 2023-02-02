@@ -1,16 +1,14 @@
 ﻿@model SAcademy.Models.Header
 
 @{
-    ViewData["Title"] = "Create";
     Layout = "_LayoutDashboard";
 }
-
 <h1>Create</h1>
 
 <h4>Header</h4>
 <hr />
-<div class="">
-    <div class="w-75 m-auto">
+<div class="row">
+    <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -19,8 +17,13 @@
                 <span asp-validation-for="Background" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Images" class="control-label"></label>
+                <input type="file" name="files" class="form-control" multiple />
+                <span asp-validation-for="Images" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <textarea type="text" asp-for="Content" id="Content" class="form-control"></textarea>
+                <input asp-for="Content" class="form-control" />
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -35,32 +38,32 @@
             </div>
             <div class="form-group">
                 <label asp-for="HeightSection" class="control-label"></label>
-                <input type="number" asp-for="HeightSection" class="form-control" />
+                <input asp-for="HeightSection" class="form-control" />
                 <span asp-validation-for="HeightSection" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BVTopSize" class="control-label"></label>
-                <input type="number" asp-for="BVTopSize" class="form-control" />
+                <input asp-for="BVTopSize" class="form-control" />
                 <span asp-validation-for="BVTopSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BVLeftSize" class="control-label"></label>
-                <input type="number" asp-for="BVLeftSize" class="form-control" />
+                <input asp-for="BVLeftSize" class="form-control" />
                 <span asp-validation-for="BVLeftSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BVColor" class="control-label"></label>
-                <input type="color" asp-for="BVColor" class="form-control" />
+                <input asp-for="BVColor" class="form-control" />
                 <span asp-validation-for="BVColor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BVSize" class="control-label"></label>
-                <input type="number" asp-for="BVSize" class="form-control" />
+                <input asp-for="BVSize" class="form-control" />
                 <span asp-validation-for="BVSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ButtonBgColor" class="control-label"></label>
-                <input type="color" asp-for="ButtonBgColor" class="form-control" />
+                <input asp-for="ButtonBgColor" class="form-control" />
                 <span asp-validation-for="ButtonBgColor" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -73,30 +76,6 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
-
-<script>
-    $("#Content").summernote({
-        placeholder: "Content ",
-        lineHeights: ['0.2', '0.3', '0.4', '0.5', '0.6', '0.8', '1.0', '1.2', '1.4', '1.5', '2.0', '3.0'],
-        fontNames: ['Arial', 'Arial Black', 'Comic Sans MS','Nunito', 'Nunito Black'],
-        tabsize: 2,
-        height: 120,
-        toolbar: [
-            ["style", ["style"]],
-            ["font", ["bold", "underline", 'italic', "clear"]],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ["color", ["color"]],
-            ["para", ["ul", "ol", "paragraph"]],
-            ['height', ['height']],
-            ['fontname', ['fontname']],
-            ["table", ["table"]],
-            ["insert", ["link", "picture", "video"]],
-            ["view", ["fullscreen", "codeview", "help"]],
-        ],
-    });
-</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

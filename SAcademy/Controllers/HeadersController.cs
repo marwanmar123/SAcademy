@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
+using SAcademy.Data.Migrations;
 using SAcademy.Models;
 
 namespace SAcademy.Controllers
@@ -25,7 +26,7 @@ namespace SAcademy.Controllers
         // GET: Headers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Headers.ToListAsync());
+              return View(await _context.Headers.Include(x=>x.Images).ToListAsync());
         }
 
         
@@ -37,65 +38,93 @@ namespace SAcademy.Controllers
       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize,ButtonBgColor")] Header header)
+        public async Task<IActionResult> Create(Header header, List<IFormFile> files)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            var addHeader = new Header
             {
-                try
-                {
-                    var customHeader = new Header
-                    {
-                        Content = header.Content,
-                        Button = header.Button,
-                        Video = header.Video,
-                        HeightSection = header.HeightSection,
-                        BVTopSize = header.BVTopSize,
-                        BVLeftSize = header.BVLeftSize,
-                        BVColor= header.BVColor,
-                        BVSize= header.BVSize,
-                    };
+                Content = header.Content,
+                ContentTwo = header.ContentTwo,
+                ContentThree = header.ContentThree,
+                BgContent= header.BgContent,
+                BgContentTwo= header.BgContentTwo,
+                Button= header.Button,
+                ButtonBgColor = header.ButtonBgColor,
+                BVColor = header.BVColor,
+                BVLeftSize = header.BVLeftSize,
+                BVSize = header.BVSize,
+                BVTopSize= header.BVTopSize,
+                HeightSection=header.HeightSection,
+                Images = header.Images,
+                Video= header.Video,
+                
+            };
 
-                    if (Request.Form.Files.Count > 0)
-                    {
-                        IFormFile file = Request.Form.Files.FirstOrDefault();
-                        using (var dataStream = new MemoryStream())
-                        {
-                            await file.CopyToAsync(dataStream);
-                            customHeader.Background = dataStream.ToArray();
-                        }
-                    }
-                    await _context.AddAsync(customHeader);
-                    await _context.SaveChangesAsync();
-                }
-                catch
-                {
-                    throw;
-                }
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(header);
-        }
-
-        
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.Headers == null)
-            {
-                return NotFound();
-            }
-
-            var header = await _context.Headers.FindAsync(id);
             if (Request.Form.Files.Count > 0)
             {
                 IFormFile file = Request.Form.Files.FirstOrDefault();
                 using (var dataStream = new MemoryStream())
                 {
                     await file.CopyToAsync(dataStream);
-                    header.Background = dataStream.ToArray();
-                    //_context.Update(header);
+                    addHeader.Background = dataStream.ToArray();
+                    addHeader.BackgroundTwo = dataStream.ToArray();
                 }
             }
+            //if (Request.Form.Files.Count > 0)
+            //{
+            //    IFormFile file = Request.Form.Files.FirstOrDefault();
+            //    using (var dataStream = new MemoryStream())
+            //    {
+            //        await file.CopyToAsync(dataStream);
+            //    }
+            //}
+
+            await _context.AddAsync(addHeader);
+
+            foreach (var file in files)
+            {
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var fileModel = new Image
+                {
+                    FileType = file.ContentType,
+                    Extension = extension,
+                    Name = fileName,
+                    HeaderId = header.Id
+                };
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    fileModel.Data = dataStream.ToArray();
+                }
+                await _context.AddAsync(fileModel);
+            }
+            //}
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null || _context.Headers.Include(x => x.Images) == null)
+            {
+                return NotFound();
+            }
+
+            var header = await _context.Headers.Include(x => x.Images).FirstOrDefaultAsync(x =>x.Id == id);
+            //if (Request.Form.Files.Count > 0)
+            //{
+            //    IFormFile file = Request.Form.Files.FirstOrDefault();
+            //    using (var dataStream = new MemoryStream())
+            //    {
+            //        await file.CopyToAsync(dataStream);
+            //        header.Background = dataStream.ToArray();
+            //        //_context.Update(header);
+            //    }
+            //}
             if (header == null)
             {
                 return NotFound();
@@ -106,45 +135,46 @@ namespace SAcademy.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Background,Content,Button,Video,HeightSection,BVTopSize,BVLeftSize,BVColor,BVSize,ButtonBgColor")] Header header)
+        public async Task<IActionResult> Edit(string id, Header header, List<IFormFile> files)
         {
-            if (id != header.Id)
+            if (Request.Form.Files.Count > 0)
             {
-                return NotFound();
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    header.Background = dataStream.ToArray();
+                    header.BackgroundTwo = dataStream.ToArray();
+                    //_context.Update(header);
+                }
             }
+            _context.Update(header);
 
-            if (ModelState.IsValid)
+            var headerId = await _context.Headers.Include(x => x.Images).FirstOrDefaultAsync(a => a.Id == id);
+            foreach (var img in headerId.Images)
             {
-                try
-                {
-                    if (Request.Form.Files.Count > 0)
-                    {
-                        IFormFile file = Request.Form.Files.FirstOrDefault();
-                        using (var dataStream = new MemoryStream())
-                        {
-                            await file.CopyToAsync(dataStream);
-                            header.Background = dataStream.ToArray();
-                            //_context.Update(header);
-                        }
-                    }
-                    _context.Update(header);
-
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!HeaderExists(header.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Remove(img);
             }
-            return View(header);
+            foreach (var file in files)
+            {
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var fileModel = new Image
+                {
+                    FileType = file.ContentType,
+                    Extension = extension,
+                    Name = fileName,
+                    HeaderId = header.Id
+                };
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    fileModel.Data = dataStream.ToArray();
+                }
+                await _context.AddAsync(fileModel);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         

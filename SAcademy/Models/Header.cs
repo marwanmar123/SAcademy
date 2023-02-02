@@ -8,7 +8,12 @@ namespace SAcademy.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string? Id { get; set; }
         public byte[]? Background { get; set; }
+        public byte[]? BackgroundTwo { get; set; }
         public string? Content { get; set; }
+        public string? ContentTwo { get; set; }
+        public string? ContentThree { get; set; }
+        public string? BgContent { get; set; }
+        public string? BgContentTwo { get; set; }
         public string? Button { get; set; }
         public string? Video { get; set; }
         public int? HeightSection { get; set; }
@@ -17,5 +22,6 @@ namespace SAcademy.Models
         public string? BVColor { get; set; }
         public int? BVSize { get; set; }
         public string? ButtonBgColor { get; set; }
+        public ICollection<Image>? Images { get; set; }
     }
 }

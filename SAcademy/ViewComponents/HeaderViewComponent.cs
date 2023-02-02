@@ -14,7 +14,7 @@ namespace SAcademy.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var header = await _context.Headers.ToListAsync();
+            var header = await _context.Headers.Include(x => x.Images).ToListAsync();
             return View(header);
         }
     }

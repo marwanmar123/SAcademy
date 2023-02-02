@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using SAcademy.Data;
 using SAcademy.Models;
+using SAcademy.Services;
 using System.Configuration;
 using System.Text.Json.Serialization;
 
@@ -47,6 +49,7 @@ builder.Services.AddAuthentication()
                 //    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
                 //    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
                 //});
+//builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

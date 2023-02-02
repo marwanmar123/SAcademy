@@ -15,5 +15,7 @@ namespace SAcademy.Models
         public Slide? Slide { get; set; }
         public string? SlideTwoId { get; set; }
         public SlideTwo? SlideTwo { get; set; }
+        public string? HeaderId { get; set; }
+        public Header? Header { get; set; }
     }
 }
