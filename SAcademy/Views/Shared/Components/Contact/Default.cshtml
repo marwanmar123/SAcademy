@@ -9,7 +9,7 @@
             var mapwidth = string.Concat(item.MapWidth, "%");
             var mapHeight = string.Concat(item.MapHeight, "%");
 
-            <p class="text-center Titles" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
+            <p class="text-center Titles pt-4 pb-2" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
             <p>@Html.Raw(item.Content)</p>
             <br />
             <div class="row">
@@ -119,16 +119,16 @@
             subject + '<br/> message' + message;
 
         Email.send({
-            @*Host: "smtp.gmail.com",*@
-            SecureToken : "666ff426-4826-4713-a42f-fd97fc6fb603",
-            To: '',
+            Host: "smtp.gmail.com",
+            Username: "contact@simplonacademy.ma",
+            Password: "Simplon_2023",
+            To: 'contact@simplonacademy.ma',
             From: email,
             Subject: subject,
             Body: body
         }).then(
             message => alert(message)
         );
-    })
 </script>
 
 

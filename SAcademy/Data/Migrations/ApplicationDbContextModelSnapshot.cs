@@ -472,6 +472,12 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("ButtonBgColor")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ButtonThree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTwo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 

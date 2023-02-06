@@ -17,43 +17,43 @@
             <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Background" class="control-label"></label>
+                <label class="control-label">Image 1</label>
                 <input type="file" asp-for="Background" class="form-control "/>
                 <span asp-validation-for="Background" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BackgroundTwo" class="control-label"></label>
-                <input type="file" asp-for="BackgroundTwo" class="form-control " />
-                <span asp-validation-for="BackgroundTwo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Images" class="control-label"></label>
+                <label class="control-label">Image 2</label>
                 <input type="file" name="files" class="form-control" multiple />
                 <span asp-validation-for="Images" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label class="control-label">Image 3</label>
+                <input type="file" name="BackgroundTwo" class="form-control " />
+                <span asp-validation-for="BackgroundTwo" class="text-danger"></span>
+            </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Content" class="control-label"></label>
+                <label class="control-label">Content 1</label>
                 <textarea asp-for="Content" class="form-control ContentH"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ContentTwo" class="control-label"></label>
+                <label class="control-label">Content 2</label>
                 <textarea asp-for="ContentTwo" class="form-control ContentH"></textarea>
                 <span asp-validation-for="ContentTwo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ContentThree" class="control-label"></label>
+                <label class="control-label">Content 3</label>
                 <textarea asp-for="ContentThree" class="form-control ContentH"></textarea>
                 <span asp-validation-for="ContentThree" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BgContent" class="control-label"></label>
+                <label class="control-label">Background Color 2</label>
                 <input type="color" asp-for="BgContent" class="form-control" />
                 <span asp-validation-for="BgContent" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BgContentTwo" class="control-label"></label>
+                <label class="control-label">Background Color 3</label>
                 <input type="color" asp-for="BgContentTwo" class="form-control" />
                 <span asp-validation-for="BgContentTwo" class="text-danger"></span>
             </div>
@@ -61,6 +61,16 @@
                 <label asp-for="Button" class="control-label"></label>
                 <input asp-for="Button" class="form-control" />
                 <span asp-validation-for="Button" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ButtonTwo" class="control-label"></label>
+                <input asp-for="ButtonTwo" class="form-control" />
+                <span asp-validation-for="ButtonTwo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ButtonThree" class="control-label"></label>
+                <input asp-for="ButtonThree" class="form-control" />
+                <span asp-validation-for="ButtonThree" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Video" class="control-label"></label>
@@ -73,17 +83,17 @@
                 <span asp-validation-for="HeightSection" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BVTopSize" class="control-label"></label>
+                <label class="control-label">Button Video vertical</label>
                 <input asp-for="BVTopSize" class="form-control" />
                 <span asp-validation-for="BVTopSize" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BVLeftSize" class="control-label"></label>
+                <label class="control-label">Button Video horizontale</label>
                 <input asp-for="BVLeftSize" class="form-control" />
                 <span asp-validation-for="BVLeftSize" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BVColor" class="control-label"></label>
+                <label class="control-label">Button Color</label>
                 <input type="color" asp-for="BVColor" class="form-control" />
                 <span asp-validation-for="BVColor" class="text-danger"></span>
             </div>

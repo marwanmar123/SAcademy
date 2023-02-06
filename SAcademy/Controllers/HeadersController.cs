@@ -50,6 +50,8 @@ namespace SAcademy.Controllers
                 BgContent= header.BgContent,
                 BgContentTwo= header.BgContentTwo,
                 Button= header.Button,
+                ButtonTwo= header.ButtonTwo,
+                ButtonThree= header.ButtonThree,
                 ButtonBgColor = header.ButtonBgColor,
                 BVColor = header.BVColor,
                 BVLeftSize = header.BVLeftSize,
@@ -68,19 +70,17 @@ namespace SAcademy.Controllers
                 {
                     await file.CopyToAsync(dataStream);
                     addHeader.Background = dataStream.ToArray();
-                    addHeader.BackgroundTwo = dataStream.ToArray();
                 }
             }
-            //if (Request.Form.Files.Count > 0)
+            //if(header.BackgroundTwo != null)
             //{
-            //    IFormFile file = Request.Form.Files.FirstOrDefault();
             //    using (var dataStream = new MemoryStream())
             //    {
-            //        await file.CopyToAsync(dataStream);
+            //        addHeader.Background = dataStream.ToArray();
             //    }
             //}
-
             await _context.AddAsync(addHeader);
+
 
             foreach (var file in files)
             {
