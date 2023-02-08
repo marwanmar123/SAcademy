@@ -13,7 +13,7 @@
         var Top = string.Concat(item.BVTopSize, "em");
         var left = string.Concat(item.BVLeftSize, "em");
         var size = string.Concat(item.BVSize, "vw");
-        <div class="carousel-inner">
+        <div class="carousel-inner" id="apropos">
 
             @if (item.Background != null)
             {
@@ -26,7 +26,7 @@
                             {
 
                                 <button class="btn font-weight-bold downClick"
-                            style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:40px;">
+                                    style="color:@item.BVColor; font-size:@size; background:@item.ButtonBgColor; border-radius:40px;">
                                     @item.Button
                                 </button>
                             }
@@ -69,9 +69,9 @@
             @if (item.BackgroundTwo != null)
             {
                 <div class="carousel-item" style="height:@height !important;">
-                    <img class="third-slide animated zoomInDown" src="~/img/hero1.jpg" alt="" style="height:@height !important;">
+                    <img class="third-slide animated zoomInDown" src="~/img/hero.jpg" alt="" style="height:@height !important;">
                     <div class="container">
-                        <div class="carousel-caption d-block text-right" style="position:relative !important; left:0 !important; top:@Top !important;">
+                        <div class="carousel-caption d-block text-left" style="position:relative !important; left:@left !important; top:@Top !important;">
                             <div class="animated fadeInDown">@Html.Raw(item.Content)</div><br>
                             @if (item.Button != null)
                             {

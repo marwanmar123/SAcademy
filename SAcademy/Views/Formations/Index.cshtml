@@ -27,7 +27,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span class="pr-5 text-dark filtertext">Thématique</span>
-                                <img class="" style="width:1.5vw; margin-left:.4em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:.5em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
@@ -62,7 +62,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <span class="pr-5 text-dark filtertext">Mode</span>
-                                <img class="" style="width:1.5vw; margin-left:3.4em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:3.38em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
@@ -78,18 +78,20 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <span class="pr-5 text-dark filtertext">Status</span>
-                                <img class="" style="width:1.5vw; margin-left:3em;" src="~/img/arrow.png" />
+                                <img class="" style="width:1.5vw; margin-left:3.03em;" src="~/img/arrow.png" />
                             </button>
                         </h5>
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="">
                             <div id="Status" class="d-flex flex-column">
-                                <div class="d-flex">
-                                    <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:.8vw;">Ouverte</span>
-                                </div>
-                                <div class="d-flex">
-                                    <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:.8vw;">Terminé</span>
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:.8vw;">Ouverte</span>
+                                    </div>
+                                    <div class="d-flex">
+                                        <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:.8vw;">Terminé</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +124,7 @@
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:1.5VW;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.name}</span>
+                            <input type="checkbox" style="width:1.5vw;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.name}</span>
                         </div>
                     `
                 );
@@ -138,7 +140,7 @@
                 $("#ftype").append(
                     `
                         <div class="d-flex" style="width:26vw;">
-                            <input type="checkbox"  style="width:1.5vw;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.9vw;">${option.title}</span>
+                            <input type="checkbox"  style="width:1.5vw;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.title}</span>
                         </div>
                     `
                 );
@@ -172,9 +174,28 @@
     $('.common').click(function () {
         filterFormations();
     });
+
+   
+    
     function filterFormations() {
 
         //debugger
+        $.date = function(dateObject) {
+        var d = new Date(dateObject);
+        var day = d.getDate();
+        var month = d.getMonth() + 1;
+        var year = d.getFullYear();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var date = day + "/" + month + "/" + year;
+
+    return date;
+    };
+
         var modes = get_filter('modeId');
         var themes = get_filter('themId');
         var villes = get_filter('villeId');
@@ -193,6 +214,8 @@
                 if (data != null && data.length > 0) {
                     $("#formation").html('')
                     $.each(data, function (index, option) {
+                       /* var startDate = $.formattedDate(option.startDay); 
+                        var endDate = $.formattedDate(option.endDay);*/
                         var de = option.endDay.toString().split('T')[0];
                         var test = option.startDay.split('T')[0];
                         var time1 = option.startTime;
@@ -211,7 +234,7 @@
                                 <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center formation-1">
                                             <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+                                            <h5 class="w-100"> Du ${test} <br/>Au ${de}</h5>
                                             <h6>${st} => ${et}</h6>
                                             <img src="/img/iconForm1.png" style="width:3vw;"/>
                                             <img src="/img/iconForm2.png" style="width:3vw;"/>
@@ -366,57 +389,6 @@
 
     };
 
-    //$(document).ready(function () {
-    //    $.ajax({
-    //        url: '/Formations/GetFormationAPI',
-    //        type: 'GET',
-    //        success: function (res) {
-    //                //$("#formation").load(location.href + " #formation");
-    //                $.each(res, function (index, option) {
-    //                    var de = option.endDay.toString().split('T')[0];
-    //                    var test = option.startDay.split('T')[0];
-    //                    var time1 = option.startTime;
-    //                    var time2 = option.endTime;
-    //                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-    //                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-    //                    $("#formation").append(
-    //                        `
-    //                            <div class="row formation p-3 mb-3 w-100 float-right">
-    //                                    <div class="col-3 p-2 text-center formation-1">
-    //                                        <img src="/img/time.png" style="width:3vw;"/>
-    //                                        <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
-    //                                        <h6>${st} => ${et}</h6>
-    //                                        <img src="/img/iconForm1.png" style="width:3vw;"/>
-    //                                        <img src="/img/iconForm2.png" style="width:3vw;"/>
-    //                                        <img src="/img/iconForm4.png" style="width:3vw;"/>
-    //                                    </div>
-    //                                    <div class="col-6 p-2 w-50 text-center">
-    //                                        <h5>${option.title}</h5>
-    //                                        <p class="descFormation">${option.description}</p>
-    //                                        <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
-    //                                    </div>
-    //                                        <div class="col-3 p-2 text-center">
-    //                                        <img src="/img/iconForm3.png" style="width:3em;"/>
-    //                                        <h5>${option.thematic.title}</h5>
-    //                                        <h6 class="mb-4">${option.mode.name}</h6>
-    //                                        <a href="formations/details/${option.id}" class=" inscription">Inscription</a>
-    //                                    </div>
-    //                            </div>
-    //                        `
-    //                    );
-
-    //                });
-    //        },
-    //        error: function (errorThrown) {
-    //            $("#formation").append(
-    //                `
-    //                    <h1>Error</h1>
-    //                `
-    //            );
-    //        }
-    //    });
-    //});
-
-
+    
 
 </script>

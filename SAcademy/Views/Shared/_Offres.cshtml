@@ -4,13 +4,7 @@
 <div class="Dtype">
     <section class="d-flex justify-content-center w-100" id="types"></section>
 </div>
-@*@await Component.InvokeAsync("SectionTheme")
-<div class="parent">
-    @await Component.InvokeAsync("Thematic")
-</div>*@
- @*<p class="btn-type" id="${option.id}" onClick="get_Formation(this.id)" style="color:${option.color}; background:${option.bgColor};">${option.name}</p>*@
 
-@* <a style="color:${option.color}; text-decoration:none; font-weight:bold;" href="ftypes/details/${option.id}">#${option.name}</a> *@
 <script>
 
     $.ajax({
@@ -21,7 +15,7 @@
                 $("#types").append(
                     `
                         <div>
-                            <div class="p-2 m-2 div1" style="background:${option.bgCard}; width:${option.sizeCard}vw; height:100%;">
+                            <div class="p-1 m-2 div1" style="background:${option.bgCard}; width:${option.sizeCard}vw; height:100%;">
                                 <p>${option.content}</p>
                                 <p style="color:${option.color}; text-decoration:none; font-weight:bold;">#${option.name}</p>
                             </div>
@@ -40,7 +34,7 @@
                             <div class="descTypes-div2">
                                 <div class="square"></div>
                                 <h5 class="descTypes-div2_title">Formations Longues</h5>
-                                <p class="descTypes-div2_title">Des formations de 4 semaines à 9 mois<br>(avec des dispositifs d'alternance ou stage)</p>
+                                <p class="descTypes-div2_title">Des formations de 4 semaines à 9 mois<br>(avec des stages)</p>
                             </div>
                         </div>
                     `

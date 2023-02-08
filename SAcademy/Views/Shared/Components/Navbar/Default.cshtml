@@ -39,8 +39,8 @@
                 {
                     var size = string.Concat(n.Size, "px");
                     <li class="">
-                        <a class="mr-4 " href="@n.Link"
-                    style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
+                        <a class="mr-4 " href="#"
+                        style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
                     </li>
                 }
                 @if (User.IsInRole("Admin"))
@@ -92,4 +92,90 @@
         });
     }); 
 
+
+    $('.nav-items li a').each(function(i) {
+        if ( i === 0 ) {
+            $(this).addClass('firstENav');
+            $(this).click(function () {
+            var x = $(window).scrollTop();
+            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
+                setTimeout(function(){
+                    $(location).attr('href','/');
+                },1000).then(
+                    $('html, body').animate({ scrollTop: x = 225 })
+                );
+            }else{
+                $('html, body').animate({ scrollTop: x = 225 })
+            }
+                
+            });
+
+        }
+
+
+        if ( i === 1 ) {
+            $(this).addClass('secondtENav');
+            $(this).click(function () {
+             var x = $(window).scrollTop();
+            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
+                setTimeout(function(){
+                    $(location).attr('href','/');
+                },1000).then(
+                     $('html, body').animate({ scrollTop: x = 2556 })
+                );
+            }else{
+                 $('html, body').animate({ scrollTop: x = 2556 })
+            }
+            });
+        }
+
+
+        if ( i === 2 ) {
+            $(this).addClass('thirdENav');
+            $(this).click(function () {
+             var x = $(window).scrollTop();
+            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
+                setTimeout(function(){
+                    $(location).attr('href','/');
+                },1000).then(
+                     $('html, body').animate({ scrollTop: x = 3156 })
+                );
+            }else{
+                 $('html, body').animate({ scrollTop: x = 3156 })
+            }
+            });
+        }
+
+
+
+        if ( i === 3 ) {
+            $(this).addClass('foorthENav');
+            
+            $(this).click(function () {
+             var x = $(window).scrollTop();
+            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
+                setTimeout(function(){
+                    $(location).attr('href','/');
+                },1000).then(
+                     $('html, body').animate({ scrollTop: x = 3900 })
+                );
+            }else{
+                 $('html, body').animate({ scrollTop: x = 3900 })
+            }
+            });
+        }
+    });
+
+
+
+    
+
+    
+
+
+    
+
+
+
+    
 </script>
