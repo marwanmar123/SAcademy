@@ -24,11 +24,11 @@ namespace SAcademy.Controllers
             _context = context;
         }
 
-        
+
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var formation = await _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include( f => f.Type).ToListAsync();
+            var formation = await _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include(f => f.Type).ToListAsync();
             return View();
         }
 
@@ -48,8 +48,8 @@ namespace SAcademy.Controllers
                 string[] villes = villeId != null ? villeId.Split(',') : new string[] { };
                 string[] themes = themId != null ? themId.Split(',') : new string[] { };
                 string[] modes = modeId != null ? modeId.Split(',') : new string[] { };
-                var select = query.Where(f => villes.Contains(f.VilleId) || themes.Contains(f.ThematicId) || modes.Contains(f.ModeId) );
-                
+                var select = query.Where(f => villes.Contains(f.VilleId) || themes.Contains(f.ThematicId) || modes.Contains(f.ModeId));
+
                 formations = await select.ToListAsync();
 
             }
@@ -78,7 +78,7 @@ namespace SAcademy.Controllers
             var formations = await _context.Formations.Include(f => f.Type).Include(f => f.Thematic).Where(f => f.ThematicId == ThemeId).ToListAsync();
             return Ok(formations);
         }
-        [Authorize]
+        // [Authorize]
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(string id)
         {

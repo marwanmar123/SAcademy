@@ -273,6 +273,10 @@
       "PackagePath": "staticwebassets\\img\\visible.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\wtsp.png",
+      "PackagePath": "staticwebassets\\img\\wtsp.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\ytbnav.png",
       "PackagePath": "staticwebassets\\img\\ytbnav.png"
     },

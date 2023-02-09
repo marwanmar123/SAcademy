@@ -18,7 +18,7 @@
 @foreach (var item in Model.Home)
 {
     var sizeLogo = string.Concat(item.LogoSize, "px");
-    @await Component.InvokeAsync("ContactNav")
+    @await Component.InvokeAsync("ContactNav") 
     <nav id="navbar_top" class="nav-bar" style="background:@item.BgNav;">
         <div class="nav-hold">
             <div class="nav-logo">
@@ -39,7 +39,7 @@
                 {
                     var size = string.Concat(n.Size, "px");
                     <li class="">
-                        <a class="mr-4 " href="#"
+                        <a class="mr-4 " href="@n.Link"
                         style="color:@n.Color; font-size:@size; font-weight:bold; font-family:@n.FontFamily;">@n.TitleMenu</a>
                     </li>
                 }
@@ -77,7 +77,7 @@
 }
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    @* document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener('scroll', function () {
             if (window.scrollY > 50) {
                 document.getElementById('navbar_top').classList.add('fixed-top');
@@ -90,10 +90,10 @@
                 document.body.style.paddingTop = '0';
             }
         });
-    }); 
+    });  *@
 
 
-    $('.nav-items li a').each(function(i) {
+    @* $('.nav-items li a').each(function(i) {
         if ( i === 0 ) {
             $(this).addClass('firstENav');
             $(this).click(function () {
@@ -164,7 +164,7 @@
             }
             });
         }
-    });
+    }); *@
 
 
 

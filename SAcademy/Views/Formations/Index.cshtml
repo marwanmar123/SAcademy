@@ -175,26 +175,15 @@
         filterFormations();
     });
 
-   
+
+    function convertDigitIn(str){
+        return str.split('-').reverse().join('-');
+    }
+
     
     function filterFormations() {
 
         //debugger
-        $.date = function(dateObject) {
-        var d = new Date(dateObject);
-        var day = d.getDate();
-        var month = d.getMonth() + 1;
-        var year = d.getFullYear();
-        if (day < 10) {
-            day = "0" + day;
-        }
-        if (month < 10) {
-            month = "0" + month;
-        }
-        var date = day + "/" + month + "/" + year;
-
-    return date;
-    };
 
         var modes = get_filter('modeId');
         var themes = get_filter('themId');
@@ -214,10 +203,8 @@
                 if (data != null && data.length > 0) {
                     $("#formation").html('')
                     $.each(data, function (index, option) {
-                       /* var startDate = $.formattedDate(option.startDay); 
-                        var endDate = $.formattedDate(option.endDay);*/
-                        var de = option.endDay.toString().split('T')[0];
-                        var test = option.startDay.split('T')[0];
+                        var du = convertDigitIn(option.startDay.split('T')[0]);
+                        var au = convertDigitIn(option.endDay.split('T')[0]);
                         var time1 = option.startTime;
                         var time2 = option.endTime;
                         var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -234,7 +221,7 @@
                                 <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center formation-1">
                                             <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${test} <br/>Au ${de}</h5>
+                                            <h5 class="w-100"> Du ${du} <br/>Au ${au}</h5>
                                             <h6>${st} => ${et}</h6>
                                             <img src="/img/iconForm1.png" style="width:3vw;"/>
                                             <img src="/img/iconForm2.png" style="width:3vw;"/>
@@ -288,8 +275,8 @@
             success: function (res) {
                 $("#formation").html('')
                 $.each(res, function (index, option) {
-                    var de = option.endDay.toString().split('T')[0];
-                    var test = option.startDay.split('T')[0];
+                    var du = convertDigitIn(option.startDay.split('T')[0]);;
+                    var au = convertDigitIn(option.endDay.split('T')[0]);;
                     var time1 = option.startTime;
                     var time2 = option.endTime;
                     var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -307,7 +294,7 @@
                             <div class="row formation p-3 mb-3 w-100 float-right">
                                         <div class="col-3 p-2 text-center formation-1">
                                             <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+                                            <h5 class="w-100"> Du ${du}<br/>Au ${au}</h5>
                                             <h6>${st} => ${et}</h6>
                                             <img src="/img/iconForm1.png" style="width:3vw;"/>
                                             <img src="/img/iconForm2.png" style="width:3vw;"/>
