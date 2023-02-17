@@ -19,7 +19,7 @@
             <div class="accordion" id="accordion" style="width:25%;">
                 <div class="card border-0 w-100">
                     <button class="border-0 bg-transparent" style="font-size:26px;">
-                        <span class="float-left filtertext text-dark">Filtrer Par :</span>
+                        <span class="float-left text-dark fltrPar">Filtrer Par :</span>
                     </button>
                     <hr class="w-75 p-0" />
                     <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
@@ -27,7 +27,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span class="pr-5 text-dark filtertext">Thématique</span>
-                                <img class="" style="width:1.5vw; margin-left:.5em;" src="~/img/arrow.png" />
+                                @* <img class="" style="width:1.5vw; margin-left:.5em;" src="~/img/arrow.png" /> *@
                             </button>
                         </h5>
                     </div>
@@ -45,7 +45,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px; " data-toggle="collapse"
                                 data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <span class="pr-5 text-dark filtertext">Ville</span>
-                                <img class="" style="width:1.5vw; margin-left:3.8em;" src="~/img/arrow.png" />
+                                @* <img class="" style="width:1.5vw; margin-left:3.8em;" src="~/img/arrow.png" /> *@
                             </button>
                         </h5>
                     </div>
@@ -62,7 +62,7 @@
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <span class="pr-5 text-dark filtertext">Mode</span>
-                                <img class="" style="width:1.5vw; margin-left:3.38em;" src="~/img/arrow.png" />
+                                @* <img class="" style="width:1.5vw; margin-left:3.38em;" src="~/img/arrow.png" /> *@
                             </button>
                         </h5>
                     </div>
@@ -77,8 +77,8 @@
                         <h5 class="mb-0">
                             <button class="border-0 bg-transparent" style="font-size:26px;" data-toggle="collapse"
                                 data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <span class="pr-5 text-dark filtertext">Status</span>
-                                <img class="" style="width:1.5vw; margin-left:3.03em;" src="~/img/arrow.png" />
+                                <span class="pr-5 text-dark filtertext">Statut</span>
+                                @* <img class="" style="width:1.5vw; margin-left:3.03em;" src="~/img/arrow.png" /> *@
                             </button>
                         </h5>
                     </div>
@@ -218,26 +218,32 @@
                         }
                         $("#formation").append(
                             `
-                                <div class="row formation p-3 mb-3 w-100 float-right">
-                                        <div class="col-3 p-2 text-center formation-1">
-                                            <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${du} <br/>Au ${au}</h5>
+                                
+                                <div class="card card-body mb-2 formation">
+                                    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
+                                        <div class="mr-2 mb-3 mb-lg-0 text-center">
+                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
+                                            <p class="w-100"> Du ${du}</p>
+                                            <p class="w-100"> Au ${au}</p>
                                             <h6>${st} => ${et}</h6>
-                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
                                         </div>
-                                        <div class="col-6 p-2 w-50 text-center">
+
+                                        <div class="media-body text-center">
                                             <h5>${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
                                             <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
                                         </div>
-                                            <div class="col-3 p-2 text-center">
-                                            <img src="/img/iconForm3.png" style="width:3em;"/>
+
+                                        <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
+                                            <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
                                             <h5>${option.thematic.title}</h5>
                                             <h6 class="mb-4">${option.mode.name}</h6>
                                             ${inscrButton}
                                         </div>
+                                    </div>
                                 </div>
                         `
                         );
@@ -275,8 +281,8 @@
             success: function (res) {
                 $("#formation").html('')
                 $.each(res, function (index, option) {
-                    var du = convertDigitIn(option.startDay.split('T')[0]);;
-                    var au = convertDigitIn(option.endDay.split('T')[0]);;
+                    var du = convertDigitIn(option.startDay.split('T')[0]);
+                    var au = convertDigitIn(option.endDay.split('T')[0]);
                     var time1 = option.startTime;
                     var time2 = option.endTime;
                     var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -290,29 +296,32 @@
                     }
                     $("#formation").append(
                         `
-                        <div class="d-flex">
-                            <div class="row formation p-3 mb-3 w-100 float-right">
-                                        <div class="col-3 p-2 text-center formation-1">
-                                            <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${du}<br/>Au ${au}</h5>
+                        <div class="card card-body mb-2 formation">
+                                    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
+                                        <div class="mr-2 mb-3 mb-lg-0 text-center">
+                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
+                                            <p class="w-100"> Du ${du}</p>
+                                            <p class="w-100"> Au ${au}</p>
                                             <h6>${st} => ${et}</h6>
-                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
                                         </div>
-                                        <div class="col-6 p-2 w-50 text-center">
+
+                                        <div class="media-body text-center">
                                             <h5>${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
                                             <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
                                         </div>
-                                            <div class="col-3 p-2 text-center">
-                                            <img src="/img/iconForm3.png" style="width:3em;"/>
+
+                                        <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
+                                            <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
                                             <h5>${option.thematic.title}</h5>
                                             <h6 class="mb-4">${option.mode.name}</h6>
                                             ${inscrButton}
                                         </div>
+                                    </div>
                                 </div>
-                        </div>
                     `
                     );
                 });
@@ -330,8 +339,8 @@
             success: function (res) {
                 $("#formation").html('')
                 $.each(res, function (index, option) {
-                    var de = option.endDay.toString().split('T')[0];
-                    var test = option.startDay.split('T')[0];
+                    var du = convertDigitIn(option.startDay.split('T')[0]);
+                    var au = convertDigitIn(option.endDay.split('T')[0]);
                     var time1 = option.startTime;
                     var time2 = option.endTime;
                     var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
@@ -345,29 +354,32 @@
                     }
                     $("#formation").append(
                         `
-                        <div class="d-flex">
-                            <div class="row formation p-3 mb-3 w-100 float-right">
-                                        <div class="col-3 p-2 text-center formation-1">
-                                            <img src="/img/time.png" style="width:3vw;"/>
-                                            <h5 class="w-100"> Du ${test}<br/>Au ${de}</h5>
+                        <div class="card card-body mb-2 formation">
+                                    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
+                                        <div class="mr-2 mb-3 mb-lg-0 text-center">
+                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
+                                            <p class="w-100"> Du ${du}</p>
+                                            <p class="w-100"> Au ${au}</p>
                                             <h6>${st} => ${et}</h6>
-                                            <img src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img src="/img/iconForm4.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
                                         </div>
-                                        <div class="col-6 p-2 w-50 text-center">
+
+                                        <div class="media-body text-center">
                                             <h5>${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
                                             <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
                                         </div>
-                                            <div class="col-3 p-2 text-center">
-                                            <img src="/img/iconForm3.png" style="width:3em;"/>
+
+                                        <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
+                                            <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
                                             <h5>${option.thematic.title}</h5>
                                             <h6 class="mb-4">${option.mode.name}</h6>
                                             ${inscrButton}
                                         </div>
+                                    </div>
                                 </div>
-                        </div>
                     `
                     );
                 });

@@ -1,9 +1,9 @@
 body {
-  height: 100%;
+  /* height: 100%; */
   margin: 0;
   padding: 0;
   /*position: relative;*/
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-family: "Nunito";
 }
 /*///////////////////SideBar*/
@@ -331,6 +331,12 @@ ul ul a {
 
 /* /////////Contact */
 
+.TUIr4b {
+  font-family: "Nunito" !important;
+  padding: 9px 16px !important;
+  font-weight: bold !important;
+}
+
 .contact .info {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
@@ -512,6 +518,16 @@ ul ul a {
     flex-direction: column;
     text-align: center;
   }
+
+  .formation {
+    height: 70vh;
+  }
+  .contact .info a {
+    padding: 0 0 10px 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #6182ba;
+  }
 }
 
 #top {
@@ -567,6 +583,9 @@ ul ul a {
     height: 50vh !important;
     text-align: center;
   }
+  .formation .formation-3 {
+    width: 100% !important;
+  }
 }
 @media only screen and (max-width: 600px) {
   .bg-cover {
@@ -574,6 +593,10 @@ ul ul a {
     width: 100% !important;
     height: 40vh !important;
     text-align: center;
+  }
+  .aboutvideo {
+    width: 67vw !important;
+    height: 30vh !important;
   }
 }
 .buttonHeader {
@@ -821,6 +844,15 @@ ul ul a {
         margin-bottom: -18em !important;
     }*/
 
+.formation-3 {
+  width: 22% !important;
+}
+.filtertext:hover {
+  color: #ce0033 !important;
+}
+.fltrPar {
+  cursor: auto;
+}
 @media only screen and (max-width: 900px) {
   #types {
     display: flex;
@@ -873,12 +905,6 @@ ul ul a {
     flex-direction: column !important;
     justify-content: center !important;
   }
-
-  .formation-1 {
-    margin: 0 6vw;
-    width: 75% !important;
-    border-bottom: 1px gray solid;
-  }
 }
 
 @media only screen and (max-width: 850px) {
@@ -901,19 +927,32 @@ ul ul a {
   .descrstyle {
     font-size: 10px !important;
   }
+  .contentSlide span {
+    font-size: 16px !important;
+    padding: 0 !important;
+  }
+    .itemsFormation {
+        margin: 0 auto;
+        width: 100% !important;
+    }
 }
 
 @media only screen and (max-width: 700px) {
-  .carousel-caption {
-    position: relative;
+  /*.carousel-caption {
+    position: relative !important;
+    font-size: 16px !important;
     left: 0 !important;
-  }
-  .animated {
+  }*/
+  /* .animated {
     line-height: 2em !important;
+  } */
+  .animated font span {
+    font-size: 1.5em !important;
   }
-  .animated span font {
-    font-size: 0.5em !important;
+  .animated font span span {
+    font-size: 1.5em !important;
   }
+
   .parent {
     width: 82%;
     margin: 1em auto;
@@ -935,6 +974,16 @@ ul ul a {
   #accordion {
     display: none;
   }
+  .fmrImg {
+    width: 20% !important;
+  }
+  .containerHome {
+    width: 95% !important;
+  }
+.imgSld1 {
+        width: 12em !important;
+        height: 12em !important;
+    }
 }
 .three {
   /* background: #dddddd; */
@@ -986,88 +1035,66 @@ ul ul a {
   }
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  background-color: rgba(0, 0, 0, 0.3);
-  background-size: 100% 50%;
-  border-radius: 50px;
-  height: 40px;
-  width: 40px;
+
+
+
+/*/////////////////////carousel*//**/
+
+
+
+.carousel-inner {
+    padding-top: 35%;
+    display: block;
+    content: "";
 }
 
-.carousel-control-next-icon {
-  background-position-x: 0.2em;
-}
-/* Carousel base class */
-.carousel {
-  margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
-/*.carousel-caption {
-                    z-index: 10;
-                    bottom: 13rem;
-                }
-*/
-/* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 35rem;
-  background-color: #777;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.carousel-item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 35rem;
+
+a.view-demo {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 35px;
 }
 
-/* MARKETING CONTENT
-        -------------------------------------------------- */
+    a.view-demo:hover {
+        text-decoration: none;
+        color: #333;
+    }
 
-/* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
+.carousel-indicators .active {
+    background: #fff;
 }
 
-.marketing h2 {
-  font-weight: normal;
+.carousel-indicators li {
+    background: rgba(255, 255, 255, 0.4);
+    border-top: 20px solid;
+    z-index: 15;
+}
+@media only screen and (max-width: 800px) {
+
+    .caption {
+        text-align: center !important;
+        position:relative;
+        top:2em !important;
+        left:0 !important;
+    }
+    .caption span{
+        font-size:16px !important;
+    }
 }
 
-.marketing .col-lg-4 p {
-  margin-right: 0.75rem;
-  margin-left: 0.75rem;
-}
-
-/* Featurettes
-        ------------------------- */
-
-.featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.05rem;
-}
-@media (min-width: 40em) {
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
-  }
-}
+    /*/////////////////////carousel*/ /**/

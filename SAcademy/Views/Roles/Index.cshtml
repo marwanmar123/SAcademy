@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var user in Model)
+                @foreach (var user in Model.Where(x => x.FullName != "hello world"))
                 {
                     <tr>
                         <td>@user.FullName</td>
@@ -29,10 +29,13 @@
                             <a class="btn btn-info" asp-controller="User" asp-action="Details" asp-route-Id="@user.UserId">Details</a>
                         </td>*@
                         <td>
-                            <form style="display:inline;" method="post" asp-controller="Roles" asp-action="DeleteUser">
-                                <input type="hidden" name="Id" value="@user.UserId" />
-                                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-                            </form>
+                            @if(user.FullName != "Admin")
+                            {
+                                <form style="display:inline;" method="post" asp-controller="Roles" asp-action="DeleteUser">
+                                    <input type="hidden" name="Id" value="@user.UserId" />
+                                    <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                                </form>
+                            }
                         </td>
                     </tr>
                 }

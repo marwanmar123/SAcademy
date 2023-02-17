@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
-using Org.BouncyCastle.Ocsp;
+//using Org.BouncyCastle.Ocsp;
 using SAcademy.Data;
 using SAcademy.Models;
 

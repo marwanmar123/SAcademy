@@ -17,6 +17,10 @@
     .splide__arrow svg {
         fill:#ce0033 !important;
     }
+
+    .splide__pagination{
+        visibility:hidden;
+    }
 </style>
 
 <div class="p-3 w-100 m-auto" id="nosreferences">
@@ -36,7 +40,7 @@
                         @foreach (var img in item.Images)
                         {
                             <li class="splide__slide m-auto">
-                                <img class="m-auto" style="padding:2em 3em; width:100%;"
+                                <img class="m-auto imgSld1" style="padding:2em 3em; width:18em; height:11.7em;"
                         src="data:image/*;base64,@Convert.ToBase64String(img.Data)">
                             </li>
                         }
@@ -52,6 +56,7 @@
         perPage: 6,
         type: 'loop',
         autoplay: true,
+        dots: false,
         breakpoints: {
             1500: {
                 perPage: 5,

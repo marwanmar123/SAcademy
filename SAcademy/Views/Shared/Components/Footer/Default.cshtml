@@ -31,11 +31,11 @@
                     @if (item.Logo != null)
                     {
                         <a href="/"><img class="pb-3" src="data:image/*;base64,@(Convert.ToBase64String(item.Logo))"
-                    style="width:30%;" /></a>
+                    style="width:40%;" /></a>
                     }
                     else
                     {
-                        <a href="/"><img class="pb-3" src="~/img/logoFooter.png" style="width:30%;" /></a>
+                        <a href="/"><img class="pb-3" src="~/img/logoFooter.png" style="width:40%;" /></a>
                     }
                     <div>
                         @*@Html.Raw(item.ContentInfos)*@
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="pt-2">
-                    <h5 class="text-light">Liens utiles</h5>
+                    <h5 class="text-light font-weight-bold">Liens utiles</h5>
                     @await Component.InvokeAsync("NavFooter")
                 </div>
                 <div class="">

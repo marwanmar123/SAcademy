@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -140,7 +142,7 @@ namespace SAcademy.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account i wrote this just to see that it works! by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        $"Please confirm your account i wrote this just to see that it works! by <a href='"+ callbackUrl + "'>clicking here</a>.");
                     await _userManager.AddToRoleAsync(user, "User");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -162,6 +164,35 @@ namespace SAcademy.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
+        //public async Task<bool> SendEmailAsync(string email, string subject, string confirmLink)
+        //{
+        //    try
+        //    {
+        //        MailMessage message = new MailMessage();
+        //        SmtpClient smtpClient = new SmtpClient();
+        //        message.From = new MailAddress("simplonacademy3@gmail.com");
+        //        message.To.Add(email);
+        //        message.Subject = subject;
+        //        message.IsBodyHtml = true;
+        //        message.Body = confirmLink;
+
+        //        smtpClient.Port = 587;
+        //        smtpClient.Host = "smtp.gmail.com";
+
+
+        //        smtpClient.EnableSsl = true;
+        //        smtpClient.UseDefaultCredentials = true;
+        //        smtpClient.Credentials = new NetworkCredential("simplonacademy3@gmail.com", "vcyjwgcdmcxbwvxm");
+        //        smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //        smtpClient.Send(message);
+        //        return true;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return false;
+        //    }
+        //}
 
         private User CreateUser()
         {

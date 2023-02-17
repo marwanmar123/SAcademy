@@ -63,6 +63,7 @@ namespace SAcademy.Controllers
                 {
                     Title = slideTwo.Title,
                     Content = slideTwo.Content,
+                    ContentTwo = slideTwo.ContentTwo,
                     FontFamily = slideTwo.FontFamily,
                     TitleColor = slideTwo.TitleColor,
                     TitleSize = slideTwo.TitleSize

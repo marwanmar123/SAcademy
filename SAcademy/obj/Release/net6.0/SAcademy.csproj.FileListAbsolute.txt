@@ -7,7 +7,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\SAcademy
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\SAcademy.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\SAcademy.pdb
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Humanizer.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MailKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MessagePack.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MessagePack.Annotations.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -62,7 +61,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsof
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MimeKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Newtonsoft.Json.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.Common.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.Configuration.dll
@@ -73,7 +71,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.Pa
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.ProjectModel.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.Protocol.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\NuGet.Versioning.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\BouncyCastle.Crypto.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\System.Composition.AttributedModel.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\System.Composition.Convention.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\System.Composition.Hosting.dll

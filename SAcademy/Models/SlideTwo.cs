@@ -11,6 +11,7 @@ namespace SAcademy.Models
         public int? TitleSize { get; set; }
         public string? FontFamily { get; set; }
         public string? Content { get; set; }
+        public string? ContentTwo { get; set; }
         public ICollection<Image> Images { get; set; }
         public Boolean? Visible { get; set; } = true;
     }

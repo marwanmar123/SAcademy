@@ -5,7 +5,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\O
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\SAcademy.runtimeconfig.json
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\SAcademy.pdb
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MailKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MessagePack.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MessagePack.Annotations.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.Facebook.dll
@@ -61,7 +60,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\O
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MimeKit.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\NuGet.Common.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\NuGet.Configuration.dll
@@ -72,7 +70,6 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\O
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\NuGet.ProjectModel.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.dll
-C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\BouncyCastle.Crypto.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\System.Composition.Hosting.dll

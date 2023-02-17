@@ -1,5 +1,8 @@
 ﻿@model List<SAcademy.Models.SlideTwo>
 
+<style>
+
+</style>
 
 
 <div class="p-3 w-100 m-auto" id="">
@@ -17,11 +20,13 @@
                 @foreach (var img in item.Images)
                 {
                     <div class="m-auto">
-                        <img class="" style="padding:.3em .5em; width:16em; height:8em; margin-left:2em !important;"
+                        <img class="" style="padding:.3em .5em; width:13em; height:8em; margin:auto !important;"
                         src="data:image/*;base64,@Convert.ToBase64String(img.Data)">
                     </div>
                 }
             </div>
+            <br />
+            <div class="contentSlide pt-3 text-center">@Html.Raw(item.ContentTwo)</div>
         }
     }
 </div>
@@ -29,25 +34,36 @@
 <script>
     $(document).ready(function(){
         $('.center').slick({
-            centerMode: true,
-            centerPadding: '30px',
-            slidesToShow: 4,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    },
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    },
-                }
-            ]
+           slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow:`<button class='slick-prev'><img style="width:20px;" src="img/prev.png"></button>`,
+        nextArrow:`<button class='slick-next'><img style="width:20px;" src="img/next.png"></button>`,
+       dots: false, 
+        speed: 300,
+        infinite: true,
+        autoplaySpeed: 2000,
+        autoplay: true,
+        responsive: [
+        {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
         });
     });
 </script>

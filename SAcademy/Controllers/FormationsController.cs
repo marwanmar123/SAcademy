@@ -78,7 +78,7 @@ namespace SAcademy.Controllers
             var formations = await _context.Formations.Include(f => f.Type).Include(f => f.Thematic).Where(f => f.ThematicId == ThemeId).ToListAsync();
             return Ok(formations);
         }
-        // [Authorize]
+        [Authorize]
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -86,6 +86,7 @@ namespace SAcademy.Controllers
             {
                 return NotFound();
             }
+
 
             var formation = await _context.Formations
                 .Include(f => f.Mode)
@@ -99,6 +100,7 @@ namespace SAcademy.Controllers
                 return NotFound();
             }
 
+            TempData["title"] = formation.Title;
             return View(formation);
         }
 

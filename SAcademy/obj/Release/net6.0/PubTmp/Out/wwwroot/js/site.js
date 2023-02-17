@@ -90,18 +90,40 @@ btn.on('click', function (e) {
 
 
 
-function storePagePosition() {
-  var page_y = window.pageYOffset;
-  localStorage.setItem("page_y", page_y);
+//function storePagePosition() {
+//  var page_y = window.pageYOffset;
+//  localStorage.setItem("page_y", page_y);
+//}
+//window.addEventListener("scroll", storePagePosition);
+//var currentPageY;
+//try {
+//  currentPageY = localStorage.getItem("page_y");
+//  if (currentPageY === undefined) {
+//      localStorage.setItem("page_y") = 0;
+//  }
+//  window.scrollTo(0, currentPageY);
+//} catch (e) {
+//  // no localStorage available
+//}
+
+
+function submitForm(form) {
+    swal({
+        title: "Merci!",
+        text: "Votre message a été envoyé.",
+        icon: "success",
+        buttons: false,
+        dangerMode: false,
+    })
+        .then(function (isOkay, e) {
+            e.preventDefault();
+            if (isOkay) {
+                form.submit();
+
+            }
+        });
+    return true;
 }
-window.addEventListener("scroll", storePagePosition);
-var currentPageY;
-try {
-  currentPageY = localStorage.getItem("page_y");
-  if (currentPageY === undefined) {
-      localStorage.setItem("page_y") = 0;
-  }
-  window.scrollTo(0, currentPageY);
-} catch (e) {
-  // no localStorage available
-}
+
+
+

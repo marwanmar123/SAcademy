@@ -73,6 +73,18 @@
       "PackagePath": "staticwebassets\\img\\hero1.jpg"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero3.png",
+      "PackagePath": "staticwebassets\\img\\hero3.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero4.png",
+      "PackagePath": "staticwebassets\\img\\hero4.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero5.png",
+      "PackagePath": "staticwebassets\\img\\hero5.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hide.png",
       "PackagePath": "staticwebassets\\img\\hide.png"
     },
@@ -125,36 +137,32 @@
       "PackagePath": "staticwebassets\\img\\invisible.png"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Logo-Qualiopi - Copy.jpg",
-      "PackagePath": "staticwebassets\\img\\labels\\Logo-Qualiopi - Copy.jpg"
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Certified_B_Corporation_B_Corp_Logo_2022_Black_RGB.svg.png",
+      "PackagePath": "staticwebassets\\img\\labels\\Certified_B_Corporation_B_Corp_Logo_2022_Black_RGB.svg.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Ecovadis-Silver-2022-.jpeg",
+      "PackagePath": "staticwebassets\\img\\labels\\Ecovadis-Silver-2022-.jpeg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\Logo-Qualiopi.jpg",
       "PackagePath": "staticwebassets\\img\\labels\\Logo-Qualiopi.jpg"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\LogoAgrément-ESUS-2-21 - Copy.png",
-      "PackagePath": "staticwebassets\\img\\labels\\LogoAgrément-ESUS-2-21 - Copy.png"
-    },
-    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\LogoAgrément-ESUS-2-21.png",
       "PackagePath": "staticwebassets\\img\\labels\\LogoAgrément-ESUS-2-21.png"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\datadocke - Copy.jpeg",
-      "PackagePath": "staticwebassets\\img\\labels\\datadocke - Copy.jpeg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\datadocke.jpeg",
       "PackagePath": "staticwebassets\\img\\labels\\datadocke.jpeg"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\global-compact-logo - Copy.jpeg",
-      "PackagePath": "staticwebassets\\img\\labels\\global-compact-logo - Copy.jpeg"
-    },
-    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\global-compact-logo.jpeg",
       "PackagePath": "staticwebassets\\img\\labels\\global-compact-logo.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\logo-lucie-26000.png",
+      "PackagePath": "staticwebassets\\img\\labels\\logo-lucie-26000.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\linkednav.png",
@@ -189,6 +197,10 @@
       "PackagePath": "staticwebassets\\img\\menu.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\next.png",
+      "PackagePath": "staticwebassets\\img\\next.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\AXA.png",
       "PackagePath": "staticwebassets\\img\\partenaire\\AXA.png"
     },
@@ -213,12 +225,40 @@
       "PackagePath": "staticwebassets\\img\\partenaire\\Société Générale.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\bmz.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\bmz.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\codev.png",
       "PackagePath": "staticwebassets\\img\\partenaire\\codev.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\digiafrica.png vf.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\digiafrica.png vf.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\fondationM5.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\fondationM5.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\logo-ocp.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\logo-ocp.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\makeitinafrica.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\makeitinafrica.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\microsoftlogo.png",
+      "PackagePath": "staticwebassets\\img\\partenaire\\microsoftlogo.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\octo.png",
       "PackagePath": "staticwebassets\\img\\partenaire\\octo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\ofppt.jpg",
+      "PackagePath": "staticwebassets\\img\\partenaire\\ofppt.jpg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\partenaire\\orange.png",
@@ -247,6 +287,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\presentation.svg",
       "PackagePath": "staticwebassets\\img\\presentation.svg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\prev.png",
+      "PackagePath": "staticwebassets\\img\\prev.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\save.png",

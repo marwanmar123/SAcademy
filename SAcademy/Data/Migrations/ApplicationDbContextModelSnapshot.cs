@@ -834,6 +834,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ContentTwo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FontFamily")
                         .HasColumnType("nvarchar(max)");
 

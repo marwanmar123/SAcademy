@@ -31,14 +31,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddSingleton<IEmailSender, SAcademy.Models.EmailSender>();
 builder.Services.AddAuthentication()
-                //.AddGoogle(options =>
-                //{
-                //    IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Google");
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Google");
 
-                //    options.ClientId = googleAuthSection["ClientId"];
-                //    options.ClientSecret = googleAuthSection["ClientSecret"];
-                //})
+                    options.ClientId = googleAuthSection["ClientId"];
+                    options.ClientSecret = googleAuthSection["ClientSecret"];
+                })
                 .AddFacebook(facebookOptions =>
                 {
                     facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
