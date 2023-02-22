@@ -36,7 +36,7 @@
                             </div>
                             <div>
                                 <h4 style="color:@item.EmailColor;">Email :</h4>
-                                <a class="text-decoration-none text-dark" href="mailto:@item.Email">@item.Email</a>
+                                <a class="text-decoration-none text-dark" href="mailto:@item.Email" title="Envoyer un message">@item.Email</a>
                             </div>
                         </div><br>
 
@@ -55,7 +55,7 @@
 
                 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" >
-                    <form  asp-action="Mail" asp-controller="contacts" class="php-email-form" id="ctnAlert" onsubmit="return submitForm(this);">
+                    <form asp-action="Mail" asp-controller="Contacts" class="php-email-form" id="ctnAlert" onsubmit="return submitForm(this);">
                          <div class="pb-2">
                             <p>Planifiez une rencontre gratuite d'une heure avec un expert, pour obtenir :</p>
                             <ul class="">
@@ -81,24 +81,24 @@
                             </div>
                         </div> 
                         <div class="row">
-                            <div class="form-group col-md-6">
+                             <div class="form-group col-md-6">
                                 <label for="name">Nom</label>
                                 <input type="text" name="Name" class="form-control" id="name" autocomplete="off" required>
-                            </div>
+                            </div> 
                             <div class="form-group col-md-6">
-                                <label for="name">Email</label>
-                                <input type="email" class="form-control" name="Mail" id="email" autocomplete="off" required> 
+                                <label for="name">Prénom</label>
+                                <input  class="form-control" name="From" id="email" autocomplete="off" required> 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Objet</label>
-                            <input type="text" class="form-control" name="Subject" id="subject" autocomplete="off" required>
+                            <label for="name">Email</label>
+                            <input type="email" class="form-control" name="Subject" id="subject" autocomplete="off" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Message</label>
-                            <textarea class="form-control textereasize" name="Message" id="message" rows="10" required></textarea>
+                            <textarea class="form-control textereasize" name="Body" id="message" rows="10" required></textarea>
                         </div>
-                        <div class=""><button id="btnemail" type="btn" class="btn text-light font-weight-bold" style="border-radius:5px; background:@item.ButtonBgColor;">Envoyer</button></div>
+                        <div class=""><button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:5px; background:@item.ButtonBgColor;">Envoyer</button></div>
                         
                     </form>
                 </div>
@@ -112,19 +112,15 @@
 
 <script defer>
 
-    console.log('hello1');
+    @* console.log('hello1');
 
        var btnEmail = document.getElementById('btnemail');
        btnEmail.addEventListener('click', function (e) {
             e.preventDefault();
-            var name = $('#name').val();
-            var email = $('#email').val();
-            var subject = $('#subject').val();
-            var message = $('#message').val();
-            //var name = document.getElementById('name').value;
-            //var email = document.getElementById('email').value;
-            //var subject = document.getElementById('subject').value;
-            //var message = document.getElementById('message').value;
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
             var body = 'name: '+ name +  '< br /> email: '+ email + '<br/> subject' +
             subject + '<br/> message' + message;
             console.log('hello2');
@@ -134,7 +130,7 @@
             Email.send({
             Host : "smtp.gmail.com",
             Username : "simplonacademy3@gmail.com",
-            Password: "mazfrhaywxyafggk",
+            Password: "vcyjwgcdmcxbwvxm",
             To: 'simplonacademy3@gmail.com',
             From : email,
             Subject : subject,
@@ -144,7 +140,7 @@
                 console.log('hello3');
 
             );
-       });
+       }); *@
 </script>
 
 

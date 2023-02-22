@@ -33,23 +33,23 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddSingleton<IEmailSender, SAcademy.Models.EmailSender>();
 builder.Services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Google");
+                // .AddGoogle(options =>
+                // {
+                //     IConfigurationSection googleAuthSection = builder.Configuration.GetSection("Authentication:Google");
 
-                    options.ClientId = googleAuthSection["ClientId"];
-                    options.ClientSecret = googleAuthSection["ClientSecret"];
-                })
+                //     options.ClientId = googleAuthSection["ClientId"];
+                //     options.ClientSecret = googleAuthSection["ClientSecret"];
+                // })
                 .AddFacebook(facebookOptions =>
                 {
                     facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
                     facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
                 });
-                //.AddMicrosoftAccount(microsoftOptions =>
-                //{
-                //    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
-                //    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
-                //});
+//.AddMicrosoftAccount(microsoftOptions =>
+//{
+//    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+//    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+//});
 //builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews();
 

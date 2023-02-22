@@ -279,3 +279,13 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\staticweba
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SAcademy.props
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SAcademy.props
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MailKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\MimeKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\Irony.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Debug\net6.0\XLParser.dll

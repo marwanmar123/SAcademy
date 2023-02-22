@@ -7,75 +7,83 @@
 }
 
 <style>
-    .inputLog{
-        border-radius:40px;
-    }
+    .inputLog:focus {
+  border: 0 none;
+  background-color: none;
+}
+
 </style>
 
-    <section class="w-50 pt-5 p-5 m-auto position-relative d-flex flex-column" style="">
-            <form id="account" method="post" class="">
+    <div class="text-center p-5">
+        <a href="/"><img src="~/img/logo.png"></a>
+    </div>
+    <section class="pt-5 p-5 position-relative d-flex flex-row" style="">
+        <div class="w-50">  
+            <form id="account" method="post" class="w-75 m-auto">
                 <h3 style="font-size:22px;">Authentification.</h3>
-                <hr />
+                <hr/>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">
-                    <label asp-for="Input.Email" class="form-label"></label>
-                <input asp-for="Input.Email" class="form-control inputLog" autocomplete="username" aria-required="true" />
+                <input asp-for="Input.Email" class="inputLog form-control" placeholder="Email" autocomplete="username" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black;"/>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating">
-                    <label asp-for="Input.Password" class="form-label"></label>
-                <input asp-for="Input.Password" class="form-control inputLog" autocomplete="current-password" aria-required="true" />
+                <input asp-for="Input.Password" placeholder="Mot de pass" class="form-control mt-3" autocomplete="current-password" aria-required="true"  style="border: 0 none; background: none !important; border-bottom:2px solid black;" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
+                <p>
+                    <a class="pt-5 pl-1" id="forgot-password" style="color:black;" asp-page="./ForgotPassword">Mot de passe oublié</a>
+                </p>
                 <div>
-                <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-danger mt-3 inputLog">Log in</button>
-                </div>
-                <div>
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a><br />
-                     <a href="/">Home</a>
+                <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-outline-danger mt-3 inputLog">Log in</button>
                 </div>
             </form>
-                <hr />
-
-        <div class="">
-            <h3 style="font-size:22px;">Utiliser un autre service pour se connecter</h3>
-            <hr class="w-100" />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
-                                article
-                                about setting up this ASP.NET application to support logging in via external services
-                            </a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+        </div>
+        <div class="w-50  d-flex align-items-center">
+            <div class="w-75 m-auto">
+                <h3 style="font-size:22px;">Utiliser un autre service pour se connecter</h3>
+                <hr class="w-100" />
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
                         <div>
                             <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                <button type="submit" class="btn btn-light btn-block inputLog" name="provider" value="@provider.Name" title="Connectez-vous avec @provider.DisplayName account">
-                                        @{
-                                            string imageSrc = string.Empty;
-                                            if (provider.DisplayName == "Google")
-                                                imageSrc = "https://gfx4arab.com/wp-content/uploads/2020/06/google-icon.svg";
-                                            else if (provider.DisplayName == "Facebook")
-                                                imageSrc = "https://cdn.freebiesupply.com/logos/large/2x/facebook-3-logo-png-transparent.png";
-                                        }
-                                        <img src="@imageSrc" alt="@provider.DisplayName" style="height: 20px;" />
-                                        Connectez-vous avec @provider.DisplayName
-                                    </button>
-                                }
+                                There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                    article
+                                    about setting up this ASP.NET application to support logging in via external services
+                                </a>.
                             </p>
                         </div>
-                    </form>
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                    <button type="submit" class="btn btn-light btn-block inputLog" name="provider" value="@provider.Name" title="Connectez-vous avec @provider.DisplayName account">
+                                            @{
+                                                string imageSrc = string.Empty;
+                                                if (provider.DisplayName == "Google")
+                                                    imageSrc = "https://gfx4arab.com/wp-content/uploads/2020/06/google-icon.svg";
+                                                else if (provider.DisplayName == "Facebook")
+                                                    imageSrc = "https://cdn.freebiesupply.com/logos/large/2x/facebook-3-logo-png-transparent.png";
+                                            }
+                                            <img src="@imageSrc" alt="@provider.DisplayName" style="height: 20px;" />
+                                            Connectez-vous avec @provider.DisplayName
+                                        </button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
                 }
-            }
+                <div>
+                    <h3 style="font-size:22px;">Besoin de créer un compte ?</h3>
+                    <a class="btn btn-outline-secondary d-block inputLog mt-2" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Inscrivez-vous</a><br />
+                </div>
+            </div>
             </div>
         </section>
 

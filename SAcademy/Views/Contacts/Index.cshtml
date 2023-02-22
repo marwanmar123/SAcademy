@@ -68,30 +68,27 @@
             </div>
 
             <div class="m-auto contact-item">
-                <form class="" id="ctnAlertI" onsubmit="return submitForm(this);" asp-action="Mail" asp-asp-controller="contacts">
+                <form asp-action="Mail" asp-controller="Contacts" class="php-email-form" id="ctnAlert" onsubmit="return submitForm(this);">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Your Name</label>
-                            <input type="text" name="Name" class="form-control" id="name" required>
+                            <label for="name">Nom</label>
+                            <input type="text" name="Name" class="form-control" id="name" autocomplete="off" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Your Email</label>
-                            <input type="email" class="form-control" name="Mail" id="email" required>
+                            <label for="name">Prénom</label>
+                            <input class="form-control" name="From" id="email" autocomplete="off" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name">Subject</label>
-                        <input type="text" class="form-control" name="Subject" id="subject" required>
+                        <label for="name">Email</label>
+                        <input type="email" class="form-control" name="Subject" id="subject" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Message</label>
-                        <textarea class="form-control" name="Message" rows="10" required></textarea>
+                        <textarea class="form-control textereasize" name="Body" id="message" rows="10" required></textarea>
                     </div>
-                    <div class="my-3">
-                        <div class="sent-message">Votre message a été envoyé. Merci!</div>
-                    </div>
-                    <div class="text-center"><button type="submit" id="btnemailI" class="btn text-light font-weight-bold"
-                        style="border-radius:50px; background:@item.ButtonBgColor;">Envoyer</button></div>
+                    <div class=""><button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:5px; background:@item.ButtonBgColor;">Envoyer</button></div>
+
                 </form>
             </div>
         </div>
@@ -109,15 +106,12 @@
                     Email
                 </th>
                 <th>
-                    Subject
-                </th>
-                <th>
                     Message
                 </th>
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+         <tbody>
             @foreach (var mail in Model.Email)
             {
                 <tr>
@@ -125,13 +119,10 @@
                         @Html.DisplayFor(modelItem => mail.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => mail.Mail)
+                        @Html.DisplayFor(modelItem => mail.EmailAdress)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => mail.Subject)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => mail.Message)
+                        @Html.DisplayFor(modelItem => mail.Body)
                     </td>
                     <td>
                         <form style="display:inline;" method="post" asp-controller="Contacts" asp-action="DeleteMail">
@@ -141,12 +132,12 @@
                     </td>
                 </tr>
             }
-        </tbody>
+        </tbody> 
     </table>
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script>
@@ -165,4 +156,4 @@
 		});
 		return false;
 	}
-</script>
+</script>*@

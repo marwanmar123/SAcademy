@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using SAcademy.Data;
 using SAcademy.Models;
 using SAcademy.ViewModel;
 
 namespace SAcademy.Controllers
 {
-    
+
     public class ContactsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -67,7 +69,7 @@ namespace SAcademy.Controllers
             {
                 return NotFound();
             }
-            return PartialView("_EditContactPartialView",contact);
+            return PartialView("_EditContactPartialView", contact);
         }
 
         [HttpPost]
@@ -134,14 +136,14 @@ namespace SAcademy.Controllers
             {
                 _context.Contacts.Remove(contact);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ContactExists(string id)
         {
-          return _context.Contacts.Any(e => e.Id == id);
+            return _context.Contacts.Any(e => e.Id == id);
         }
 
         [HttpPost]
@@ -156,22 +158,38 @@ namespace SAcademy.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Mail(Email email)
         {
 
-            var addComment = new Email
+            var emails = new MimeMessage();
+            emails.From.Add(MailboxAddress.Parse(email.From));
+            emails.To.Add(MailboxAddress.Parse(email.To));
+            emails.Subject = email.Subject;
+            emails.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = email.Body };
+
+            using var smtp = new SmtpClient();
+            //smtp.Connect("smtp.ethereal.email", 587, MailKit.Security.SecureSocketOptions.StartTls);
+            smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+            smtp.Authenticate(email.To, email.Password);
+            smtp.Send(emails);
+            smtp.Disconnect(true);
+
+            var addMail = new Email
             {
-               Name = email.Name,
-               Subject = email.Subject,
-               Message = email.Message,
-               Mail = email.Mail
+                Name = email.Name,
+                EmailAdress = email.Subject,
+                Body = email.Body
             };
-            await _context.AddAsync(addComment);
+
+
+            await _context.AddAsync(addMail);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
         }
+
+
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]

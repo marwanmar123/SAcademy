@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,6 +26,81 @@ namespace SAcademy.Controllers
         public async Task<IActionResult> Index()
         {
               return View(await _context.Newsletters.ToListAsync());
+        }
+
+        public IActionResult ExcelNews()
+        {
+            var inscrits = _context.Newsletters.ToList();
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Users");
+            var currentRow = 1;
+            var id = 0;
+
+            worksheet.Row(currentRow).Height = 25.0;
+            worksheet.Row(currentRow).Style.Font.Bold = true;
+            worksheet.Row(currentRow).Style.Fill.BackgroundColor = XLColor.LightGray;
+            worksheet.Row(currentRow).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Cell(currentRow, 1).Value = "Id";
+
+            worksheet.Cell(currentRow, 2).Value = "Nom";
+            worksheet.Cell(currentRow, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 3).Value = "Prenom";
+            worksheet.Cell(currentRow, 3).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 5).Value = "Email";
+            worksheet.Cell(currentRow, 5).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 4).Value = "Phone";
+            worksheet.Cell(currentRow, 4).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 6).Value = "Entreprise";
+            worksheet.Cell(currentRow, 6).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+
+            worksheet.Cell(currentRow, 7).Value = "Ville";
+            worksheet.Cell(currentRow, 7).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+
+            foreach (var inscr in inscrits)
+            {
+                currentRow++;
+                id++;
+
+                worksheet.Row(currentRow).Height = 20.0;
+                worksheet.Row(currentRow).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                worksheet.Cell(currentRow, 1).Value = id;
+                worksheet.Cell(currentRow, 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 2).Value = inscr.Nom;
+                worksheet.Cell(currentRow, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 3).Value = inscr.Prenom;
+                worksheet.Cell(currentRow, 3).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 5).Value = inscr.Email;
+                worksheet.Cell(currentRow, 5).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 4).Value = inscr.Phone;
+                worksheet.Cell(currentRow, 4).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 6).Value = inscr.Region;
+                worksheet.Cell(currentRow, 6).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 7).Value = inscr.Ville;
+                worksheet.Cell(currentRow, 7).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+
+                worksheet.Columns().AdjustToContents();
+            }
+
+            using var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            var content = stream.ToArray();
+
+            return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "NewsLetterSimplonAcademy.xlsx");
         }
 
         // GET: Newsletters/Details/5

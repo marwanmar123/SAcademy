@@ -11,7 +11,7 @@ namespace SAcademy.Models
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("simplonacademy3@gmail.com", "vcyjwgcdmcxbwvxm"),
+                Credentials = new NetworkCredential("simplonacademy3@gmail.com", "ycqpkwvpocjrzehs"),
                 EnableSsl = true,
             };
             return smtpClient.SendMailAsync("simplonacademy3@gmail.com", email, subject, htmlMessage);

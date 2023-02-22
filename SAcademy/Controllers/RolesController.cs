@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using SAcademy.Data;
 using SAcademy.Data.Migrations;
 using SAcademy.Models;
 using SAcademy.ViewModel;
+using System.Drawing;
 
 namespace SAcademy.Controllers
 {
@@ -222,6 +224,58 @@ namespace SAcademy.Controllers
             _context.Remove(aspNetUser);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+
+
+        public IActionResult Excel()
+        {
+            var users = _context.Users.Where(x => x.Email != "a@a.a").ToList();
+            using var workbook = new XLWorkbook();
+            var worksheet = workbook.Worksheets.Add("Users");
+            var currentRow = 1;
+            var id = 0;
+
+            worksheet.Row(currentRow).Height = 25.0;
+            worksheet.Row(currentRow).Style.Font.Bold = true;
+            worksheet.Row(currentRow).Style.Fill.BackgroundColor = XLColor.LightGray;
+            worksheet.Row(currentRow).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            worksheet.Cell(currentRow, 1).Value = "Id";
+
+            worksheet.Cell(currentRow, 2).Value = "Username";
+            worksheet.Cell(currentRow, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 3).Value = "Email";
+            worksheet.Cell(currentRow, 3).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+
+            foreach (var user in users)
+            {
+                currentRow++;
+                id++;
+
+                worksheet.Row(currentRow).Height = 20.0;
+                worksheet.Row(currentRow).Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+                worksheet.Cell(currentRow, 1).Value = id;
+                worksheet.Cell(currentRow, 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                
+                worksheet.Cell(currentRow, 2).Value = user.FullName;
+                worksheet.Cell(currentRow, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 3).Value = user.Email;
+                worksheet.Cell(currentRow, 3).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+
+                worksheet.Columns().AdjustToContents();
+            }
+
+            using var stream = new MemoryStream();
+            workbook.SaveAs(stream);
+            var content = stream.ToArray();
+
+            return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "UsersSimplonAcademy.xlsx");
         }
     }
 }
