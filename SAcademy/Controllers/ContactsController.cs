@@ -159,32 +159,40 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Mail(Email email)
+        public IActionResult Mail(Email email)
         {
-
-            var emails = new MimeMessage();
-            emails.From.Add(MailboxAddress.Parse(email.From));
-            emails.To.Add(MailboxAddress.Parse(email.To));
-            emails.Subject = email.Subject;
-            emails.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = email.Body };
-
-            using var smtp = new SmtpClient();
-            //smtp.Connect("smtp.ethereal.email", 587, MailKit.Security.SecureSocketOptions.StartTls);
-            smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
-            smtp.Authenticate(email.To, email.Password);
-            smtp.Send(emails);
-            smtp.Disconnect(true);
-
-            var addMail = new Email
+            try
             {
-                Name = email.Name,
-                EmailAdress = email.Subject,
-                Body = email.Body
-            };
+                var emails = new MimeMessage();
+                emails.From.Add(MailboxAddress.Parse(email.From));
+                emails.To.Add(MailboxAddress.Parse(email.To));
+                emails.Subject = email.Subject;
+                emails.Body = new TextPart(MimeKit.Text.TextFormat.Html) { Text = email.Body };
+
+                using var smtp = new SmtpClient();
+                //smtp.Connect("smtp.ethereal.email", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                smtp.Connect("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
+                smtp.Authenticate(email.To, email.Password);
+                smtp.Send(emails);
+                smtp.Disconnect(true);
+
+                var addMail = new Email
+                {
+                    Name = email.Name,
+                    EmailAdress = email.Subject,
+                    Body = email.Body
+                };
 
 
-            await _context.AddAsync(addMail);
-            await _context.SaveChangesAsync();
+                _context.Add(addMail);
+                _context.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
+
 
             return RedirectToAction("Index", "Home");
         }

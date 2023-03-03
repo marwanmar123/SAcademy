@@ -141,8 +141,8 @@ namespace SAcademy.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account i wrote this just to see that it works! by <a href='"+ callbackUrl + "'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "confirmer votre compte",
+                        $"<h5>Bonjour "+ user.FullName + "</h5><p>Nous avons presque terminé de confirmer votre compte Simplon Academy.</p>Pour finaliser la création de votre compte, veuillez <a href='" + callbackUrl + "'>Cliquez ici</a><h5>Merci!</h5>L'équipe Simplon Academy.");
                     await _userManager.AddToRoleAsync(user, "User");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)

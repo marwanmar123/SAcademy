@@ -161,10 +161,6 @@
       "PackagePath": "staticwebassets\\img\\labels\\global-compact-logo.jpeg"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\labels\\logo-lucie-26000.png",
-      "PackagePath": "staticwebassets\\img\\labels\\logo-lucie-26000.png"
-    },
-    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\linkednav.png",
       "PackagePath": "staticwebassets\\img\\linkednav.png"
     },
@@ -311,6 +307,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\twitnav.png",
       "PackagePath": "staticwebassets\\img\\twitnav.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\user.png",
+      "PackagePath": "staticwebassets\\img\\user.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\visible.png",

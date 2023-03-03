@@ -73,8 +73,8 @@ namespace SAcademy.Areas.Identity.Pages.Account
 
                 await _emailSender.SendEmailAsync(
                     Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "réinitialiser le mot de passe ",
+                    $"Veuillez réinitialiser votre mot de passe <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Cliquez ici</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

@@ -20,8 +20,8 @@ namespace SAcademy.Models
 
         public Email()
         {
-            To = "youcode098@gmail.com";
-            Password = "pcjeajmhqfdzjsio";
+            To = "simplonacademy@simplon.co";
+            Password = "oimdvwnzdfnnzaqj";
         }
     }
 }

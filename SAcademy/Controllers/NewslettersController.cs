@@ -122,6 +122,7 @@ namespace SAcademy.Controllers
         //}
 
         // GET: Newsletters/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();

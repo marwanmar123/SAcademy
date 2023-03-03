@@ -1,7 +1,22 @@
 ﻿@model SAcademy.Models.Newsletter
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Inscription";
+    string email = null;
+    if (SignInManager.IsSignedIn(User))
+    {
+        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            email = user.Email;
+        }
+
+
+    }
 }
 
 
@@ -12,32 +27,34 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Nom" class="control-label"></label>
-            <input type="text" asp-for="Nom" class="form-control" required />
+            <input type="text" asp-for="Nom" class="form-control news" maxlength="8" required />
             <span asp-validation-for="Nom" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Prenom" class="control-label"></label>
-            <input asp-for="Prenom" class="form-control" required />
+            <input type="text" asp-for="Prenom" class="form-control news" maxlength="10" required />
             <span asp-validation-for="Prenom" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" required/>
+            <input asp-for="Email" readonly class="form-control" value="@email"/>
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Phone" class="control-label"></label>
-            <input asp-for="Phone" class="form-control" required />
+            <input type="number" asp-for="Phone" class="form-control news" id="phone" maxlength="11" required
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            />
             <span asp-validation-for="Phone" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Entreprise</label>
-            <input asp-for="Region" class="form-control" />
+            <input asp-for="Region" class="form-control news" maxlength="15"/>
             <span asp-validation-for="Region" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Ville" class="control-label"></label>
-            <input asp-for="Ville" class="form-control" />
+            <input asp-for="Ville" class="form-control news" maxlength="10" />
             <span asp-validation-for="Ville" class="text-danger"></span>
         </div>
         <div class="form-group">
@@ -54,9 +71,29 @@
 }
 
 <script>
+
     $(function () {
+        $( "#phone" ).change(function() {
+            var max = parseInt($(this).attr('max'));
+            var min = parseInt($(this).attr('min'));
+            if ($(this).val() > max)
+            {
+                $(this).val(max);
+            }
+            else if ($(this).val() < min)
+            {
+                $(this).val(min);
+            }       
+        }); 
+    });
+
+
+    $(function () {
+        var user = $('.news').val();
         $("#studentForm").submit(function () {
-            swal("Merci", "Bienvenu  .", "success")
+            if($('.news').val().length === 0 || $('.vl').val().length === 0)){
+                swal("Merci", "Bienvenu  .", "success");
+            }
                 .then((confirm) => {
                     setTimeout(myURL, 5000);
                 })

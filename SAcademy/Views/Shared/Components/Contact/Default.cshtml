@@ -57,12 +57,11 @@
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" >
                     <form asp-action="Mail" asp-controller="Contacts" class="php-email-form" id="ctnAlert" onsubmit="return submitForm(this);">
                          <div class="pb-2">
-                            <p>Planifiez une rencontre gratuite d'une heure avec un expert, pour obtenir :</p>
+                            <p>Planifiez une rencontre gratuite d'une heure avec un expert pour :</p>
                             <ul class="">
-                                <li>Une démonstration sur mesure</li>
-                                <li>Recommandations en fonction de vos besoins</li>
-                                <li>Réponses à vos questions concernant la formation</li>
-                                <li>Informations sur la tarification et la méthodologie</li>
+                                <li>Répondre à vos questions relatives à nos formations</li>
+                                <li>Vous orienter dans le choix de la formation</li>
+                                <li>Vous expliquer notre approche méthodologique et pédagogique</li>
                             </ul>
                             <div class="">
                                 <script>
@@ -70,7 +69,7 @@
                                         var target = document.currentScript;
                                         window.addEventListener('load', function () {
                                             calendar.schedulingButton.load({
-                                                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Vbh_Kgs8K1whZFFwYbniz0ClxxCX1osHUkAL_KOiGBNaKCwX25Lckjnylm5eB44w1w8V14eEp?gv=true',
+                                                url: 'https://calendar.app.google/nqtvugcFKjyzRpFC9',
                                                 color: '#ce0033',
                                                 label: 'Réserver un rendez-vous',
                                                 target,
@@ -92,14 +91,17 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Email</label>
-                            <input type="email" class="form-control" name="Subject" id="subject" autocomplete="off" required>
+                            <input type="email" class="form-control" name="Subject" id="subject" onkeydown="ValidateEmail()" autocomplete="off" required>
+                            <span id="text" style=" color:red"></span>
                         </div>
                         <div class="form-group">
                             <label for="name">Message</label>
                             <textarea class="form-control textereasize" name="Body" id="message" rows="10" required></textarea>
                         </div>
-                        <div class=""><button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:5px; background:@item.ButtonBgColor;">Envoyer</button></div>
-                        
+                        <div>
+                            <button id="btnemail" type="submit" class="btn text-light font-weight-bold" style="border-radius:5px; background:@item.ButtonBgColor;" >Envoyer</button>
+                        </div>
+                        @*<span id="texttwo" style=" color:red"></span>*@
                     </form>
                 </div>
             </div>
@@ -110,7 +112,22 @@
 @*<script src="sweetalert2.all.min.js"></script>*@
 
 
-<script defer>
+<script >
+
+    function ValidateEmail() {
+        var email = document.getElementById("subject").value;
+        var lblError = document.getElementById("text");
+        //var lblErrortwo = document.getElementById("texttwo");
+        lblError.innerHTML = "";
+        var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!expr.test(email)) {
+            lblError.innerHTML = "Invalid email address.";
+            document.getElementById("btnemail").style.pointerEvents = "none";
+
+        }else{
+            document.getElementById("btnemail").style.pointerEvents = "auto";
+        }
+    }
 
     @* console.log('hello1');
 

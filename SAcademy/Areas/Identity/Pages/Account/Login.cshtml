@@ -24,15 +24,15 @@
                 <hr/>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-floating">
-                <input asp-for="Input.Email" class="inputLog form-control" placeholder="Email" autocomplete="username" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black;"/>
+                <input asp-for="Input.Email" class="inputLog form-control" placeholder="Email" autocomplete="username" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black; line-height:2.5em !important;"/>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating">
-                <input asp-for="Input.Password" placeholder="Mot de pass" class="form-control mt-3" autocomplete="current-password" aria-required="true"  style="border: 0 none; background: none !important; border-bottom:2px solid black;" />
+                <input asp-for="Input.Password" placeholder="Mot de passe" class="form-control mt-3" autocomplete="current-password" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black; line-height:2.5em !important;" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <p>
-                    <a class="pt-5 pl-1" id="forgot-password" style="color:black;" asp-page="./ForgotPassword">Mot de passe oublié</a>
+                <a class="pl-1" id="forgot-password" style="color:black;" asp-page="./ForgotPassword">Vous avez oublié votre mot de passe?</a>
                 </p>
                 <div>
                 <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-outline-danger mt-3 inputLog">Log in</button>

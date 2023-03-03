@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClosedXML.Excel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,10 +20,14 @@ namespace SAcademy.Controllers
     public class FormationsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IEmailSender _emailSender;
 
-        public FormationsController(ApplicationDbContext context)
+        public FormationsController(
+            ApplicationDbContext context, 
+            IEmailSender emailSender)
         {
             _context = context;
+            _emailSender = emailSender;
         }
 
 
@@ -248,24 +253,39 @@ namespace SAcademy.Controllers
         // POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register([Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,FormationId")] Registration registration)
+        public async Task<IActionResult> Register([Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,FormationName,FormationId")] Registration registration)
         {
+            var formInfo = registration;
             if (ModelState.IsValid)
             {
-                _context.Add(registration);
+                //var formation = registration.Formation.Title;
+                //var email = registration.Email;
+                //var prenom = registration.Prenom;
+
+                await _context.AddAsync(formInfo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Formations", new { id = registration.FormationId });
             }
-            return View(registration);
+            await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " " ,
+                    $"<h3>Cher/Chère "+formInfo.Prenom+" , </h3>" +
+                    "<p>Nous sommes ravis de vous informer que votre inscription à la formation "+ formInfo.FormationName + "  a été confirmée avec succès.</p>" +
+                    "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
+                    "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
+                    "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
+                    "<h5>À très vite!</h5>L'équipe Simplon Academy.");
+
+            return RedirectToAction("Details", "Formations", new { id = registration.FormationId });
+            //return View(registration);
         }
 
         public IActionResult ExcelInscrits(string? Id)
         {
             var inscrits = _context.Registrations.Include(x => x.Formation).Where(x => x.FormationId == Id).ToList();
+
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Users");
             var currentRow = 1;
             var id = 0;
+            string? formationName = null;
 
             worksheet.Row(currentRow).Height = 25.0;
             worksheet.Row(currentRow).Style.Font.Bold = true;
@@ -289,7 +309,7 @@ namespace SAcademy.Controllers
             worksheet.Cell(currentRow, 6).Value = "CompanyName";
             worksheet.Cell(currentRow, 6).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
-            worksheet.Cell(currentRow, 7).Value = "Region";
+            worksheet.Cell(currentRow, 7).Value = "Pays";
             worksheet.Cell(currentRow, 7).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
             worksheet.Cell(currentRow, 8).Value = "Ville";
@@ -333,17 +353,17 @@ namespace SAcademy.Controllers
 
                 worksheet.Cell(currentRow, 9).Value = inscr.Formation.Title;
                 worksheet.Cell(currentRow, 9).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-                worksheet.Cell(currentRow, 9).Style.Fill.BackgroundColor = XLColor.AirForceBlue;
 
 
                 worksheet.Columns().AdjustToContents();
+                formationName = inscr.Formation.Title;
             }
 
             using var stream = new MemoryStream();
             workbook.SaveAs(stream);
             var content = stream.ToArray();
 
-            return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "InscritsFRMSimplonAcademy.xlsx");
+            return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Formation["+ formationName+"]SimplonAcademy.xlsx");
         }
 
         [Authorize(Roles = "Admin")]

@@ -481,10 +481,19 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("ButtonBgColor")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ButtonLink")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ButtonThree")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ButtonThreeLink")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ButtonTwo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ButtonTwoLink")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Content")
@@ -647,7 +656,8 @@ namespace SAcademy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nom")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
 
                     b.Property<int?>("Phone")
                         .HasColumnType("int");
@@ -709,6 +719,9 @@ namespace SAcademy.Data.Migrations
 
                     b.Property<string>("FormationId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FormationName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobRole")
                         .HasColumnType("nvarchar(max)");

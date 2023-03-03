@@ -279,3 +279,13 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\SAcademy
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\ref\SAcademy.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\ClosedXML.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\ExcelNumberFormat.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Irony.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MailKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\MimeKit.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\SixLabors.Fonts.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\System.IO.Packaging.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\XLParser.dll

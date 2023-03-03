@@ -15,8 +15,11 @@ namespace SAcademy.Models
         public string? BgContent { get; set; }
         public string? BgContentTwo { get; set; }
         public string? Button { get; set; }
+        public string? ButtonLink { get; set; }
         public string? ButtonTwo { get; set; }
+        public string? ButtonTwoLink { get; set; }
         public string? ButtonThree { get; set; }
+        public string? ButtonThreeLink { get; set; }
         public string? Video { get; set; }
         public int? HeightSection { get; set; }
         public int? BVTopSize { get; set; }

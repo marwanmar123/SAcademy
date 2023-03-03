@@ -17,16 +17,16 @@
 <div class="pt-5 p-5 position-relative d-flex flex-row">
     <div class="w-50">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="w-75 m-auto">
-            <h2>Register.</h2>
+            <h2>Inscription.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-floating">
-                <input placeholder="Nom et Prénom" asp-for="Input.FullName" class="form-control inputLog" autocomplete="username" aria-required="true"  style="border: 0 none; background: none !important; border-bottom:2px solid black;"/>
+                <input placeholder="Nom et Prénom" asp-for="Input.FullName" class="form-control inputLog" autocomplete="username" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black; line-height:2.5em !important;" />
                 <span asp-validation-for="Input.FullName" class="text-danger"></span>
             </div>
             <div class="form-floating">
                 <label></label>
-            <input placeholder="Email" asp-for="Input.Email" class="form-control p-1 inputLog" autocomplete="username" aria-required="true"  style="border: 0 none; background: none !important; border-bottom:2px solid black;"/>
+                <input placeholder="Email" asp-for="Input.Email" class="form-control p-1 inputLog" autocomplete="username" aria-required="true" style="border: 0 none; background: none !important; border-bottom:2px solid black;  line-height:2.5em !important;" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating">
