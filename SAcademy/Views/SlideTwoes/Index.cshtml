@@ -31,7 +31,7 @@
             <img src="~/img/edit.png">
         </button>
         @await Html.PartialAsync("_EditSlideTwoPartialView",item)
-        var size = string.Concat(item.TitleSize, "vw");
+        var size = string.Concat(item.TitleSize, "px");
         <div class="text-center">
             <p style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
         </div>

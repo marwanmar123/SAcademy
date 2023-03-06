@@ -1092,11 +1092,20 @@ a.view-demo {
     .caption span{
         font-size:16px !important;
     }
+    .carousel-indicators{
+        display:none;
+    }
+    .carousel-control-next{
+        visibility:visible !important;
+    }
+    .carousel-control-prev{
+        visibility:visible !important;
+    }
 }
 
     /*/ ////////////////////Congratulations*/ /**/
 
-    @keyframes confetti-slow {
+    /*@keyframes confetti-slow {
       0% {
         transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
       }
@@ -1125,7 +1134,7 @@ a.view-demo {
       100% {
         transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg);
       }
-    }
+    }*/
 
     .container {
       width: 100vw;
@@ -1165,15 +1174,17 @@ a.view-demo {
     }
 
     /* Checkmark */
-    .checkmark-circle {
-      width: 150px;
-      height: 150px;
-      position: relative;
-      display: inline-block;
-      vertical-align: top;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.checkmark-circle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+  /*  border-radius:50%;
+    box-shadow: 0px 0px 30px 4px #ce0033;*/
+}
     .checkmark-circle .background {
       width: 150px;
       height: 150px;

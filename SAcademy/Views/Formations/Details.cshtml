@@ -17,6 +17,7 @@
 
 
     }
+
 }
 <div class="yeld">
     @await Component.InvokeAsync("InscriptionPage")
@@ -64,6 +65,10 @@
                            value="@Model.Title" placeholder="FormationName">
                 </div>
                 <div class="form-group">
+                    @*<label>Email address</label>*@
+                    <input type="hidden" readonly class="form-control" name="emailUser" value="@email" required />
+                </div>
+                <div class="form-group">
                     <label>Email address</label>
                     <input type="email" readonly class="form-control dt" name="Email" value="@email" required />
                 </div>
@@ -78,7 +83,7 @@
                 <div class="form-group">
                     <label>téléphone</label>
                     @*<input type="number" class="form-control vl" name="Phone" placeholder="téléphone" maxlength="10" required />*@
-                    <input type="number" name="Phone" class="form-control vl" maxlength="11" placeholder="téléphone" required
+                    <input type="number" name="Phone" class="form-control vl" maxlength="10" placeholder="téléphone" required
                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
                 </div>
                 <div class="form-group">
@@ -110,6 +115,7 @@
                     <input type="hidden" class="form-control" name="FormationDateStart" value="@Model.StartDay">
                     </div>*@
                 <button id="inscrits" class="btn inscription w-100">Submit</button>
+                <h5 class="text-danger p-2" >@TempData["userExiste"]</h5>
             </form>
         </div>
     </div>
@@ -133,4 +139,5 @@
         });
 
     });
+
 </script>

@@ -230,7 +230,13 @@ namespace SAcademy.Controllers
 
         public IActionResult Excel()
         {
-            var users = _context.Users.Where(x => x.Email != "a@a.a").ToList();
+
+            var usersroles = _userManager.GetUsersInRoleAsync("User").Result;
+
+            var idsWithroles = usersroles.Select(u => u.Id);
+
+            var users = _context.Users.Where(x => x.Email != "a@a.a" && idsWithroles.Contains(x.Id)).ToList();
+
             using var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Users");
             var currentRow = 1;

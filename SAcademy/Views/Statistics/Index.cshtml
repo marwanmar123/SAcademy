@@ -32,7 +32,7 @@
     </button>
     @await Html.PartialAsync("_EditStatisticsPartialView",item)
 
-    var size = string.Concat(item.TitleSize, "vw");
+    var size = string.Concat(item.TitleSize, "px");
 
     <p class="text-center" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
 }

@@ -125,8 +125,3 @@ function submitForm(form) {
     return true;
 }
 
-
-
-
-
-

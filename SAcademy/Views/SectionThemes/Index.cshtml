@@ -36,7 +36,7 @@
         </button>
         @await Html.PartialAsync("_EditSectionThemPartialView",item)
 
-        var size = string.Concat(item.TitleSize, "vw");
+        var size = string.Concat(item.TitleSize, "px");
         <div class="text-center">
             <p class="text-center p-0 m-0" style="color:@item.TitleColor; font-size:@size; font-weight:bold; font-family:@item.FontFamily;">@item.Title</p>
             @Html.Raw(item.Content)

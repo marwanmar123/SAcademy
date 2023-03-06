@@ -2,7 +2,26 @@
 
 @{
     ViewData["Title"] = "Details";
+    List<SelectListItem> status = new List<SelectListItem>()
+    {
+        new SelectListItem() { Text="Prospect", Value="Prospect"},
+        new SelectListItem() { Text="Confirmé", Value="Confirmé"},
+        new SelectListItem() { Text="Annulé", Value="Annulé"},
+    };
+
+    var Count = Model.Registration.Where(x => x.FormationId == Model.Id).Count();
+    var ProspectCount = Model.Registration.Where(x => x.Statut == "Prospect").Count();
+    var ConfirmeCount = Model.Registration.Where(x => x.Statut == "Confirmé").Count();
+    var AnnuleCount = Model.Registration.Where(x => x.Statut == "Annulé").Count();
+
 }
+<style>
+    .stsstyle{
+        padding:3px;
+        border-radius:5px;
+        text-align:center;
+    }
+</style>
 
 <div class="modal fade" id="DetailsFormation-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="max-width:1800px;">
@@ -85,6 +104,10 @@
                         Inscrits
                     </button>
                     @*<a class="btn btn-success" asp-controller="Formations" asp-action="ExcelInscrits">Export to Excel</a>*@
+                    <p style="background:gray;" class="stsstyle font-weight-bold">Totale : @Count</p>
+                    <p style="background:orange;" class="stsstyle">Prospect : @ProspectCount</p>
+                    <p style="background:green;" class="stsstyle">Confirmé : @ConfirmeCount</p>
+                    <p style="background:red;" class="stsstyle">Annulé : @AnnuleCount</p>
                     <form asp-controller="Formations" asp-action="ExcelInscrits">
                         <input type="hidden" name="Id" value="@Model.Id"/>
                         <button type="submit" class="btn btn-success">Export to Excel</button>
@@ -120,6 +143,12 @@
                                         Ville
                                     </th>
                                     <th>
+                                        Statut
+                                    </th>
+                                    <th>
+                                        Commentaire
+                                    </th>
+                                    <th>
                                         action
                                     </th>
                                 </tr>
@@ -152,10 +181,41 @@
                                         <td>
                                             @item.Ville
                                         </td>
+                                        <td class="">
+                                            @*@item.Statut*@
+                                            @if (item.Statut == "Prospect")
+                                            {
+                                                <p style="background:orange;" class="stsstyle" >@item.Statut</p>
+                                            }
+                                            @if (item.Statut == "Confirmé")
+                                            {
+                                                <p style="background:green;" class="stsstyle" >@item.Statut</p>
+                                            }
+                                            @if (item.Statut == "Annulé")
+                                            {
+                                                <p style="background:red;" class="stsstyle" >@item.Statut</p>
+                                            }
+                                            <h6 class="m-2">Statut :</h6>
+                                            <form style="display:inline;" class="m-2" asp-controller="Formations" asp-action="Statusregister">
+                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                <select name="stu" asp-items="@status" class="form-control custom-select">
+                                                    <option class="sts" value="@item.Statut">@item.Statut</option>
+                                                </select>
+                                                <button type="submit" class="btn btn-dark m-2">save</button>
+                                            </form>
+                                        </td>
+                                        <td class="">
+                                            @item.Comment
+                                            <form class="d-flex flex-column" style="display:inline;" asp-controller="Formations" asp-action="Commentregister">
+                                                <input type="hidden" name="Id" value="@item.Id" />
+                                                <textarea type="text" name="cmnt" ></textarea>
+                                                <button type="submit" class="btn btn-dark mt-1">save</button>
+                                            </form>
+                                        </td>
                                         <td>
                                             <form asp-controller="Formations" asp-action="DeleteRegister">
                                                 <input type="hidden" name="Id" asp-for="@item.Id" />
-                                                <input type="submit" value="Delete" class="btn btn-danger" />
+                                                <input type="submit" value="Delete" class="btn btn-danger m-2" />
                                             </form>
                                         </td>
                                     </tr>
@@ -171,3 +231,6 @@
         </div>
     </div>
 </div>
+
+
+

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -253,28 +254,59 @@ namespace SAcademy.Controllers
         // POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register([Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,FormationName,FormationId")] Registration registration)
+        public async Task<IActionResult> Register(string? emailUser, string? formationId, [Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,Statut,Comment,FormationName,FormationId")] Registration registration)
         {
+            var userEmail = await _context.Users.SingleOrDefaultAsync(x => x.Email == emailUser);
+
+            var rgister = await _context.Registrations.SingleOrDefaultAsync(x => x.FormationId == formationId && x.Email == emailUser);
+
             var formInfo = registration;
             if (ModelState.IsValid)
             {
                 //var formation = registration.Formation.Title;
                 //var email = registration.Email;
                 //var prenom = registration.Prenom;
+                if (rgister == null)
+                {
 
-                await _context.AddAsync(formInfo);
-                await _context.SaveChangesAsync();
-            }
-            await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " " ,
-                    $"<h3>Cher/Chère "+formInfo.Prenom+" , </h3>" +
-                    "<p>Nous sommes ravis de vous informer que votre inscription à la formation "+ formInfo.FormationName + "  a été confirmée avec succès.</p>" +
+                    await _context.AddAsync(formInfo);
+                    await _context.SaveChangesAsync();
+
+                    await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
+                    $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
+                    "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
                     "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
                     "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
                     "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
                     "<h5>À très vite!</h5>L'équipe Simplon Academy.");
+                }
+                else
+                {
+                    TempData["userExiste"] = "Vous êtes déjà inscrit";
+                }
+            }
+
 
             return RedirectToAction("Details", "Formations", new { id = registration.FormationId });
             //return View(registration);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Statusregister(string? stu, string? id)
+        {
+            var register = await _context.Registrations.FindAsync(id);
+            register.Statut = stu;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("FormationPanel", "FormationPages");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Commentregister(string? cmnt, string? id)
+        {
+            var register = await _context.Registrations.FindAsync(id);
+            register.Comment = cmnt;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("FormationPanel", "FormationPages");
         }
 
         public IActionResult ExcelInscrits(string? Id)
@@ -315,8 +347,14 @@ namespace SAcademy.Controllers
             worksheet.Cell(currentRow, 8).Value = "Ville";
             worksheet.Cell(currentRow, 8).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
-            worksheet.Cell(currentRow, 9).Value = "Formation";
+            worksheet.Cell(currentRow, 9).Value = "Statut";
             worksheet.Cell(currentRow, 9).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 10).Value = "Commentaire";
+            worksheet.Cell(currentRow, 10).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+            worksheet.Cell(currentRow, 11).Value = "Formation";
+            worksheet.Cell(currentRow, 11).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
 
             foreach (var inscr in inscrits)
@@ -351,8 +389,14 @@ namespace SAcademy.Controllers
                 worksheet.Cell(currentRow, 8).Value = inscr.Ville;
                 worksheet.Cell(currentRow, 8).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
-                worksheet.Cell(currentRow, 9).Value = inscr.Formation.Title;
+                worksheet.Cell(currentRow, 9).Value = inscr.Statut;
                 worksheet.Cell(currentRow, 9).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 10).Value = inscr.Comment;
+                worksheet.Cell(currentRow, 10).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                worksheet.Cell(currentRow, 11).Value = inscr.Formation.Title;
+                worksheet.Cell(currentRow, 11).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
 
                 worksheet.Columns().AdjustToContents();
