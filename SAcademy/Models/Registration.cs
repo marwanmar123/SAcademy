@@ -9,7 +9,7 @@ namespace SAcademy.Models
         public string? Nom { get; set; }
         public string? Prenom { get; set; }
         public string? Email { get; set; }
-        public int? Phone { get; set; }
+        public string? Phone { get; set; }
         public string? JobRole { get; set; }
         public string? CompanyName { get; set; }
         public string? Region { get; set; }

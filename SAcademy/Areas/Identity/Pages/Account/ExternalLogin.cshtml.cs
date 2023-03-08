@@ -154,6 +154,8 @@ namespace SAcademy.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
+                user.FullName = Input.Email;
+
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
@@ -174,8 +176,9 @@ namespace SAcademy.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        await _emailSender.SendEmailAsync(Input.Email, "confirmer votre compte",
+                            $"<h5>Bonjour " + user.FullName + "</h5><p>Nous avons presque terminé de confirmer votre compte Simplon Academy.</p>Pour finaliser la création de votre compte, veuillez <a href='" + callbackUrl + "'>Cliquez ici</a><h5>Puis selectionnez (Connectez-vous avec Google)</h5><h5>Merci!</h5>L'équipe Simplon Academy.");
+                        await _userManager.AddToRoleAsync(user, "User");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)

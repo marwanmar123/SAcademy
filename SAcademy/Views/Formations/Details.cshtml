@@ -73,18 +73,23 @@
                     <input type="email" readonly class="form-control dt" name="Email" value="@email" required />
                 </div>
                 <div class="form-group">
-                    <label>Nom</label>
+                    <label>Nom<span class="text-danger p-1" style="font-size:22px;">*</span></label>
                     <input type="text" name="Nom" class="form-control vl" placeholder="Nom" maxlength="10" min="4" required />
                 </div>
                 <div class="form-group">
-                    <label>Prenom</label>
+                    <label>Prenom<span class="text-danger p-1" style="font-size:22px;">*</span></label>
                     <input type="text" class="form-control vl" name="Prenom" placeholder="Prenom" maxlength="10" required />
                 </div>
                 <div class="form-group">
-                    <label>téléphone</label>
-                    @*<input type="number" class="form-control vl" name="Phone" placeholder="téléphone" maxlength="10" required />*@
-                    <input type="number" name="Phone" class="form-control vl" maxlength="10" placeholder="téléphone" required
-                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />
+                    <label>Pays<span class="text-danger p-1" style="font-size:22px;">*</span></label>
+                    @* <input type="text" class="form-control vl" name="Region" placeholder="Pays" maxlength="15" required /> *@
+                    <select name="Region" id="address-country" class="form-control vl" required></select>
+                </div>
+                <div class="form-group">
+                    <label>téléphone<span class="text-danger p-1" style="font-size:22px;">*</span></label>
+                    <input class="form-control vl ph" type="tel" id="Phone" name="Phone" placeholder="e.g. +212 702 123 4567" value="+212" onkeypress="return isNumber(event)" maxlength="14" style="width:44.5em;" />
+                    @*<input type="text" name="Phone" class="form-control vl" id="PhoneVal" maxlength="10" placeholder="téléphone" required
+                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />*@
                 </div>
                 <div class="form-group">
                     <label>Rôle de l'emploi</label>
@@ -95,11 +100,7 @@
                     <input type="text" class="form-control vl" name="CompanyName" placeholder="Nom de l'entreprise" maxlength="15" />
                 </div>
                 <div class="form-group">
-                    <label>Pays</label>
-                    <input type="text" class="form-control vl" name="Region" placeholder="Region" maxlength="15" />
-                </div>
-                <div class="form-group">
-                    <label>Ville</label>
+                    <label>Ville<span class="text-danger p-1" style="font-size:22px;">*</span></label>
                     <input type="text" class="form-control vl" name="Ville" placeholder="Ville" required maxlength="10" />
                 </div>
                 @* <div class="form-group">
@@ -122,17 +123,32 @@
 </div>
 
 <script>
+
+
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+
     $(function () {
         $("#inscrits").on('click',function(e){
             e.preventDefault();
             var user = $('input[name="Nom"]').val();
+            @* var phone = $('#Phone').val();
+            var phoneVal = $('#PhoneVal').val(); *@
 
-            if ($('.dt').val().length === 0 || $('.vl').val().length === 0) {
+                if ($('.dt').val().length === 0 || $('.vl').val().length === 0 || $('.ph').val().length < 10) {
                 alert('Remplissez les champs');
             }else{
 
                 swal('Bonjour ' + user, 'Merci pour votre inscription à la formation : @TempData["title"]', "success")
             .then((confirm) => {
+                @* phoneVal == phone: *@
                 $("#FormInscrits").submit();
             })
             }
