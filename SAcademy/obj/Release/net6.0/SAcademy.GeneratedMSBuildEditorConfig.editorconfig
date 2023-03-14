@@ -248,6 +248,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/ThematicDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcVGhlbWF0aWNEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Marwan Maryo/source/repos/SAcademy/SAcademy/Views/FormationPages/_CreateFormationPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybWF0aW9uUGFnZXNcX0NyZWF0ZUZvcm1hdGlvblBhcnRpYWxWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

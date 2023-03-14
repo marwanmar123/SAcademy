@@ -99,7 +99,7 @@ namespace SAcademy.Controllers
                 .Include(f => f.Mode)
                 .Include(f => f.Type)
                 .Include(f => f.Ville)
-                .Include(f => f.Thematic)
+                //.Include(f => f.Thematic)
                 .Include(f => f.Registration)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (formation == null)
@@ -129,6 +129,10 @@ namespace SAcademy.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (formation.EndDay < DateTime.Today)
+                {
+                    formation.Status = false;
+                }
                 _context.Add(formation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("FormationPanel", "FormationPages");
@@ -174,6 +178,10 @@ namespace SAcademy.Controllers
             {
                 try
                 {
+                    if(formation.EndDay < DateTime.Today)
+                    {
+                        formation.Status = false;
+                    }
                     _context.Formations.Update(formation);
                     await _context.SaveChangesAsync();
                 }

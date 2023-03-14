@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\18.png",
+      "PackagePath": "staticwebassets\\img\\18.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\55.jpg",
       "PackagePath": "staticwebassets\\img\\55.jpg"
     },
@@ -75,6 +79,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero3.png",
       "PackagePath": "staticwebassets\\img\\hero3.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero4 (2).png",
+      "PackagePath": "staticwebassets\\img\\hero4 (2).png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero4.png",
@@ -295,10 +303,6 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\session.png",
       "PackagePath": "staticwebassets\\img\\session.png"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\slide2.png",
-      "PackagePath": "staticwebassets\\img\\slide2.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\time.png",

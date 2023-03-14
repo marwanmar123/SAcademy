@@ -4,15 +4,15 @@
     ViewData["Title"] = "Details";
     List<SelectListItem> status = new List<SelectListItem>()
     {
-        new SelectListItem() { Text="Prospect", Value="Prospect"},
-        new SelectListItem() { Text="Confirmé", Value="Confirmé"},
-        new SelectListItem() { Text="Annulé", Value="Annulé"},
+        new SelectListItem() { Text="Prospects", Value="Prospects"},
+        new SelectListItem() { Text="Confirmés", Value="Confirmés"},
+        new SelectListItem() { Text="Annulés", Value="Annulés"},
     };
 
     var Count = Model.Registration.Where(x => x.FormationId == Model.Id).Count();
-    var ProspectCount = Model.Registration.Where(x => x.Statut == "Prospect").Count();
-    var ConfirmeCount = Model.Registration.Where(x => x.Statut == "Confirmé").Count();
-    var AnnuleCount = Model.Registration.Where(x => x.Statut == "Annulé").Count();
+    var ProspectCount = Model.Registration.Where(x => x.Statut == "Prospects").Count();
+    var ConfirmeCount = Model.Registration.Where(x => x.Statut == "Confirmés").Count();
+    var AnnuleCount = Model.Registration.Where(x => x.Statut == "Annulés").Count();
 
 }
 <style>
@@ -104,10 +104,10 @@
                         Inscrits
                     </button>
                     @*<a class="btn btn-success" asp-controller="Formations" asp-action="ExcelInscrits">Export to Excel</a>*@
-                    <p style="background:gray;" class="stsstyle font-weight-bold">Totale : @Count</p>
-                    <p style="background:orange;" class="stsstyle">Prospect : @ProspectCount</p>
-                    <p style="background:green;" class="stsstyle">Confirmé : @ConfirmeCount</p>
-                    <p style="background:red;" class="stsstyle">Annulé : @AnnuleCount</p>
+                    <p style="background:gray;" class="stsstyle font-weight-bold">Total : @Count</p>
+                    <p style="background:orange;" class="stsstyle">Prospects : @ProspectCount</p>
+                    <p style="background:green;" class="stsstyle">Confirmés : @ConfirmeCount</p>
+                    <p style="background:red;" class="stsstyle">Annulés : @AnnuleCount</p>
                     <form asp-controller="Formations" asp-action="ExcelInscrits">
                         <input type="hidden" name="Id" value="@Model.Id"/>
                         <button type="submit" class="btn btn-success">Export to Excel</button>
@@ -149,7 +149,7 @@
                                         Commentaire
                                     </th>
                                     <th>
-                                        action
+                                        Action
                                     </th>
                                 </tr>
                             </thead>
@@ -183,19 +183,19 @@
                                         </td>
                                         <td class="">
                                             @*@item.Statut*@
-                                            @if (item.Statut == "Prospect")
+                                            @if (item.Statut == "Prospects")
                                             {
                                                 <p style="background:orange;" class="stsstyle" >@item.Statut</p>
                                             }
-                                            @if (item.Statut == "Confirmé")
+                                            @if (item.Statut == "Confirmés")
                                             {
                                                 <p style="background:green;" class="stsstyle" >@item.Statut</p>
                                             }
-                                            @if (item.Statut == "Annulé")
+                                            @if (item.Statut == "Annulés")
                                             {
                                                 <p style="background:red;" class="stsstyle" >@item.Statut</p>
                                             }
-                                            <h6 class="m-2">Statut :</h6>
+                                            <h6 class="m-2">Modifier statut :</h6>
                                             <form style="display:inline;" class="m-2" asp-controller="Formations" asp-action="Statusregister">
                                                 <input type="hidden" name="Id" value="@item.Id" />
                                                 <select name="stu" asp-items="@status" class="form-control custom-select">
@@ -205,7 +205,7 @@
                                             </form>
                                         </td>
                                         <td class="">
-                                            @item.Comment
+                                            <div class="bg-light p-2 mb-1 border border-dark">@item.Comment</div>
                                             <form class="d-flex flex-column" style="display:inline;" asp-controller="Formations" asp-action="Commentregister">
                                                 <input type="hidden" name="Id" value="@item.Id" />
                                                 <textarea type="text" name="cmnt" ></textarea>

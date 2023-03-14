@@ -36,16 +36,15 @@
             <hr />
             <h4 class="font-weight-bold">@Model.Title</h4>
             <p>Description : @Model.Description</p>
-            <p>Durée : @Model.Duration</p>
-            <p>Du : @Html.DisplayFor(modelItem => Model.StartDay)</p>
-            <p>Au : @Html.DisplayFor(modelItem => Model.EndDay)</p>
-            <p>@Html.DisplayFor(modelItem => Model.StartTime) => @Html.DisplayFor(modelItem => Model.EndTime)</p>
-            <p>Mode : @Model.Mode.Name</p>
+            <p>Durée de la formation : @Model.Duration</p>
+            <p>La date de la formation : Du @Html.DisplayFor(modelItem => Model.StartDay) Au : @Html.DisplayFor(modelItem => Model.EndDay)</p>
+            <p>Horaire de la formation @Html.DisplayFor(modelItem => Model.StartTime) => @Html.DisplayFor(modelItem => Model.EndTime)</p>
+            <p>Mode de la formation : @Model.Mode.Name</p>
             @if (Model.Mode.Name != "Distanciel")
             {
-                <p>Ville : @Model.Ville.Name</p>
+                <p>Ville de la formation : @Model.Ville.Name</p>
             }
-            <p>Type : @Model.Type.Name</p>
+            <p>Type de la formation : @Model.Type.Name</p>
             <h4 class="font-weight-bold">Presentation</h4>
             <p>@Html.Raw(Model.Presentation)</p>
             <h4 class="font-weight-bold">Compétences</h4>
@@ -81,6 +80,10 @@
                     <input type="text" class="form-control vl" name="Prenom" placeholder="Prenom" maxlength="10" required />
                 </div>
                 <div class="form-group">
+                    <label>Ville<span class="text-danger p-1" style="font-size:22px;">*</span></label>
+                    <input type="text" class="form-control vl" name="Ville" placeholder="Ville" required maxlength="10" />
+                </div>
+                <div class="form-group">
                     <label>Pays<span class="text-danger p-1" style="font-size:22px;">*</span></label>
                     @* <input type="text" class="form-control vl" name="Region" placeholder="Pays" maxlength="15" required /> *@
                     <select name="Region" id="address-country" class="form-control vl" required></select>
@@ -92,16 +95,12 @@
                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />*@
                 </div>
                 <div class="form-group">
-                    <label>Rôle de l'emploi</label>
-                    <input type="text" class="form-control vl" name="JobRole" placeholder="Rôle de l'emploi" maxlength="15" />
+                    <label>Poste occupé</label>
+                    <input type="text" class="form-control vl" name="JobRole" placeholder="Poste occupé" maxlength="15" />
                 </div>
                 <div class="form-group">
                     <label>Nom de l'entreprise</label>
                     <input type="text" class="form-control vl" name="CompanyName" placeholder="Nom de l'entreprise" maxlength="15" />
-                </div>
-                <div class="form-group">
-                    <label>Ville<span class="text-danger p-1" style="font-size:22px;">*</span></label>
-                    <input type="text" class="form-control vl" name="Ville" placeholder="Ville" required maxlength="10" />
                 </div>
                 @* <div class="form-group">
                     <input type="hidden" class="form-control" name="FormationTitle" value="@Model.Title">
@@ -138,7 +137,7 @@
     $(function () {
         $("#inscrits").on('click',function(e){
             e.preventDefault();
-            var user = $('input[name="Nom"]').val();
+            var user = $('input[name="Prenom"]').val();
             @* var phone = $('#Phone').val();
             var phoneVal = $('#PhoneVal').val(); *@
 

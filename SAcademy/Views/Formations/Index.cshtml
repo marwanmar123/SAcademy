@@ -6,17 +6,15 @@
 <div class="yeld">
     @await Component.InvokeAsync("FormationPage")
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent pl-5">
+        <ol class="breadcrumb bg-transparent" style="padding: 1.5em;">
             <li class="breadcrumb-item text-center pl-2"><a href="/"><img class="w-75" src="~/img/home.png"></a></li>
             <li class="breadcrumb-item" style="font-size:20px; color:#ce0033; cursor:pointer;"
                 onclick="window.history.go(-1); return false;">Détails</li>
             <li class="breadcrumb-item active" style="font-size:20px;" aria-current="page">Nos Formations</li>
         </ol>
     </nav>
-    <div class="container">
-
-        <div class="d-flex p-4 formations">
-            <div class="accordion" id="accordion" style="width:25%;">
+    <div class="d-flex flex-row">
+            <div class="accordion w-25 p-5" id="accordion" >
                 <div class="card border-0 w-100">
                     <button class="border-0 bg-transparent" style="font-size:26px;">
                         <span class="float-left text-dark fltrPar">Filtrer Par :</span>
@@ -99,11 +97,9 @@
                 </div>
             </div>
 
-            <div class="float-right p-3 itemsFormation" style="width:70%;"> 
+            <div class="p-3 w-100"> 
                 <div id="formation"></div>
             </div>
-        </div>
-
     </div>
 </div>
 @* @{
@@ -216,7 +212,7 @@
                         if (option.status == true) {
                             inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
                         } else {
-                            inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                            inscrButton = '<p class="inscription text-dark m-auto" style="width:59%;">Terminé</p>';
                         }
                         if(option.mode.name == "Distanciel"){
                             mode = `<h6 class="mb-4" ></h6>`;
@@ -227,8 +223,8 @@
                         }
                         $("#formation").append(
                             `
-                                
-                                <div class="card card-body mb-2 formation">
+                                <div class="mb-3">
+                                <div class="card card-body mb-2 formation m-auto" style="width:90%;">
                                     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
                                         <div class="mr-2 mb-3 mb-lg-0 text-center">
                                             <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
@@ -254,6 +250,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                         `
                         );
                     });
@@ -262,7 +259,7 @@
                     $("#formation").html('')
                     $("#formation").append(
                         `
-                            <div class="p-3 mb-3 w-100 float-right d-flex justify-content-center align-items-center formation" style="height:25vh;">
+                            <div class="p-3 m-auto d-flex justify-content-center align-items-center formation" style="height:25vh; width:90%;">
                                 <h5>Aucune formation de prévu actuellement, restez informés via nos réseaux!</h5>
                             </div>
                         `
@@ -305,7 +302,8 @@
                     }
                     $("#formation").append(
                         `
-                        <div class="card card-body mb-2 formation">
+                        <div class="mb-3">
+                        <div class="card card-body mb-2 formation m-auto" style="width:90%;">
                                     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
                                         <div class="mr-2 mb-3 mb-lg-0 text-center">
                                             <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
@@ -330,6 +328,7 @@
                                             ${inscrButton}
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                     `
                     );
@@ -363,7 +362,8 @@
                     }
                     $("#formation").append(
                         `
-                        <div class="card card-body mb-2 formation">
+                        <div class="mb-3">
+                        <div class="card card-body mb-2 formation m-auto" style="width:90%;">
                                     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
                                         <div class="mr-2 mb-3 mb-lg-0 text-center">
                                             <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
@@ -388,6 +388,7 @@
                                             ${inscrButton}
                                         </div>
                                     </div>
+                                </div>
                                 </div>
                     `
                     );

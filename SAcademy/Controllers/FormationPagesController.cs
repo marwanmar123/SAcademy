@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -38,16 +39,25 @@ namespace SAcademy.Controllers
             ViewData["ModeId"] = new SelectList(_context.Modes, "Id", "Name", formation.ModeId);
             var formationData = new FVTMViewModel()
             {
-                Formation = await _context.Formations.Include(f => f.Registration).ToListAsync(),
-                Thematic = await _context.Thematics.AsNoTracking().ToListAsync(),
+                Formation = await _context.Formations.Include(f => f.Registration).OrderByDescending(x => x.EndDay).ToListAsync(),
+                //Thematic = await _context.Thematics.AsNoTracking().ToListAsync(),
                 Ville = await _context.Villes.ToListAsync(),
                 FType = await _context.FTypes.ToListAsync(),
                 Mode = await _context.Modes.ToListAsync()
             };
+            
             return View(formationData);
         }
 
-        
+        public async Task<IActionResult> ThematicDetail()
+        {
+            Formation formation = new Formation();
+            ViewData["TypeId"] = new SelectList(_context.FTypes, "Id", "Name", formation.TypeId);
+            var thematic = await _context.Thematics.AsNoTracking().ToListAsync();
+            return View(thematic);
+        }
+
+
         // GET: FormationPages/Create
         public IActionResult Create()
         {

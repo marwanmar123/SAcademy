@@ -51,13 +51,13 @@
     <header>
         @await Component.InvokeAsync("Navbar")
     </header>
-    <div class="">
-        <main role="main" class="pb-3">
+    <div class="d-flex flex-column">
+        <div class="pb-3">
             @RenderBody()
-        </main>
+        </div>
+    <partial name="_Footer" />
     </div>
 
-    <partial name="_Footer" />
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -53,12 +53,16 @@
                 }
                 @if (User.IsInRole("User") || User.IsInRole(""))
                 {
+                    string str = @fullName;
+                    string res = str.Substring(0, 1).ToUpper();
                     <li class="">
-                        <a class="nav-link text-dark p-0 pr-1" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            <img style="width:35px; position:relative; bottom:0.2em;" src="~/img/user.png">
+                        <a class="nav-link text-light font-weight-bold mr-3" href="#" role="button" data-toggle="dropdown" aria-expanded="false"
+                            style="background:#ce0033; border-radius:100%; font-size:16px; position:relative; bottom:3px;"
+                        >
+                            @res
                         </a>
                         <div class="dropdown-menu">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Paramètre">@fullName</a>
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Paramètres">Paramètres</a>
                             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit" class="nav-link btn btn-link text-dark">Se déconnecter</button>
                             </form>
@@ -79,7 +83,7 @@
 <script>
      document.addEventListener("DOMContentLoaded", function () {
         window.addEventListener('scroll', function () {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 50) {                  
                 document.getElementById('navbar_top').classList.add('fixed-top');
                  //add padding top to show content behind navbar
                 navbar_height = document.querySelector('.navbar').offsetHeight;
@@ -92,79 +96,6 @@
         });
     });  
 </script>
-
- @* $('.nav-items li a').each(function(i) {
-        if ( i === 0 ) {
-            $(this).addClass('firstENav');
-            $(this).click(function () {
-            var x = $(window).scrollTop();
-            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
-                setTimeout(function(){
-                    $(location).attr('href','/');
-                },1000).then(
-                    $('html, body').animate({ scrollTop: x = 225 })
-                );
-            }else{
-                $('html, body').animate({ scrollTop: x = 225 })
-            }
-                
-            });
-
-        }
-
-
-        if ( i === 1 ) {
-            $(this).addClass('secondtENav');
-            $(this).click(function () {
-             var x = $(window).scrollTop();
-            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
-                setTimeout(function(){
-                    $(location).attr('href','/');
-                },1000).then(
-                     $('html, body').animate({ scrollTop: x = 2556 })
-                );
-            }else{
-                 $('html, body').animate({ scrollTop: x = 2556 })
-            }
-            });
-        }
-
-
-        if ( i === 2 ) {
-            $(this).addClass('thirdENav');
-            $(this).click(function () {
-             var x = $(window).scrollTop();
-            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
-                setTimeout(function(){
-                    $(location).attr('href','/');
-                },1000).then(
-                     $('html, body').animate({ scrollTop: x = 3156 })
-                );
-            }else{
-                 $('html, body').animate({ scrollTop: x = 3156 })
-            }
-            });
-        }
-
-
-
-        if ( i === 3 ) {
-            $(this).addClass('foorthENav');
-            
-            $(this).click(function () {
-             var x = $(window).scrollTop();
-            if(window.location.href.indexOf("formations") > -1 || window.location.href.indexOf("thematics") > -1){
-                setTimeout(function(){
-                    $(location).attr('href','/');
-                },1000).then(
-                     $('html, body').animate({ scrollTop: x = 3900 })
-                );
-            }else{
-                 $('html, body').animate({ scrollTop: x = 3900 })
-            }
-            });
-        }
-    }); *@
 
 
 
