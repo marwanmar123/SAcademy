@@ -795,9 +795,12 @@ ul ul a {
   .headerBtnTwo {
     display: none;
   }
-  .square {
-    margin-left: 10vw !important;
-  }
+    .headerBtnThree{
+        display:none;
+    }
+    .square {
+        margin-left: 10vw !important;
+    }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -1095,6 +1098,15 @@ a.view-demo:hover {
     left: 10em !important;
     font-size: 12px !important;
   }
+    .headerBtnThree {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    position: relative;
+    top: 7em !important;
+    left: -10.7em !important;
+    font-size: 12px !important;
+    }
   .caption span {
     font-size: 16px !important;
   }
@@ -1107,6 +1119,11 @@ a.view-demo:hover {
   .carousel-control-prev {
     visibility: visible !important;
   }
+    .btnSession{
+        margin:10px auto !important;
+        font-size:16px;
+        width:100% !important;
+    }
 }
 
 /*/ ////////////////////Congratulations*/ /**/
@@ -1274,4 +1291,66 @@ a.view-demo:hover {
       transition: all 0.2s ease-out;
     } */
 
-/*/ ////////////////////Congratulations*/ /**/
+/*/ ////////////////////loderFormations
+
+*/ /**/
+
+
+
+
+.card2 {
+    width: 70%;
+    height: 200px;
+    margin: 16px auto;
+    padding: 24px;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.08);
+}
+
+    .card2 .element1 {
+        top: 16px;
+        height: 16px;
+        width: 35%;
+    }
+
+    .card2 .element2 {
+        top: 36px;
+        height: 50px;
+        width: 75%;
+    }
+
+    .card2 .element3 {
+        top: 58px;
+        height: 14px;
+        width: 100%;
+    }
+
+    .card2 .element4 {
+        top: 68px;
+        left: 0px;
+        height: 14px;
+        width: 80%;
+    }
+
+.gradient {
+    animation-duration: 1.8s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #fafafa;
+    background: linear-gradient(to right, #fafafa 15%, #cdcdcd 20%, #fafafa 30%, #fafafa 15%);
+    background-size: 1000px 640px;
+    position: relative;
+}
+
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -468px 0
+    }
+
+    100% {
+        background-position: 468px 0
+    }
+}
+/*/ ////////////////////loderFormations*/ /**/

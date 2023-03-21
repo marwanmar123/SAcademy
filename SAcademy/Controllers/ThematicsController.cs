@@ -29,7 +29,7 @@ namespace SAcademy.Controllers
         //}
         public async Task<IActionResult> ThematicsApi()
         {
-            var tematic = await _context.Thematics.ToListAsync();
+            var tematic = await _context.Thematics.Include(x => x.Formations).ToListAsync();
             return Ok(tematic);
         }
 
@@ -41,11 +41,19 @@ namespace SAcademy.Controllers
                 return NotFound();
             }
 
-            var thematic = await _context.Thematics.FindAsync(id);
+            var thematic = await _context.Thematics
+                .Include(f => f.Formations)
+                    .ThenInclude(x => x.Mode)
+                .Include(f => f.Formations)
+                    .ThenInclude(x => x.Ville)
+                .FirstOrDefaultAsync(f => f.Id == id);
             if (thematic == null)
             {
                 return NotFound();
             }
+
+            TempData["idTheme"] = id;
+            TempData["FormationCount"] = _context.Formations.Count();
 
             return View(thematic);
         }

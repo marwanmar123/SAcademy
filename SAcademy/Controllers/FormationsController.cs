@@ -35,8 +35,8 @@ namespace SAcademy.Controllers
         // GET: Formations
         public async Task<IActionResult> Index()
         {
-            var formation = await _context.Formations.AsNoTracking().Include(f => f.Thematic).Include(f => f.Mode).Include(f => f.Ville).Include(f => f.Type).ToListAsync();
-            return View();
+            var formation = await _context.Formations.AsNoTracking().ToListAsync();
+            return View(formation);
         }
 
 
@@ -62,7 +62,7 @@ namespace SAcademy.Controllers
             }
             else
             {
-                formations = await query.ToListAsync();
+                formations = await query.Where(x => x.Status == true).ToListAsync();
             }
             return Ok(formations);
         }
@@ -83,6 +83,11 @@ namespace SAcademy.Controllers
         public async Task<IActionResult> GetFormationsByFilter(string? ThemeId)
         {
             var formations = await _context.Formations.Include(f => f.Type).Include(f => f.Thematic).Where(f => f.ThematicId == ThemeId).ToListAsync();
+            return Ok(formations);
+        }
+        public async Task<IActionResult> GetFormationsTm(string? themId)
+        {
+            var formations = await _context.Formations.Where(x => x.ThematicId == themId).ToListAsync();
             return Ok(formations);
         }
         [Authorize]

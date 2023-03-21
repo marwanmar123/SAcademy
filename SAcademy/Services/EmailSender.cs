@@ -9,7 +9,7 @@ namespace SAcademy.Services
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             var fromEmail = "contact@simplonacademy.ma";
-            var fromPassword = "Simplon_2023";
+            var fromPassword = "";
 
             MailMessage message = new();
             message.From = new MailAddress(fromEmail);
@@ -20,7 +20,7 @@ namespace SAcademy.Services
 
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
-                Port = 465,
+                Port = 587,
                 Credentials = new NetworkCredential(fromEmail, fromPassword),
                 EnableSsl = true
             };

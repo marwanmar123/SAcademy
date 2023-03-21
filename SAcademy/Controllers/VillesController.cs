@@ -29,7 +29,8 @@ namespace SAcademy.Controllers
 
         public async Task<IActionResult> GetVilleAPI()
         {
-            return Ok(await _context.Villes.ToListAsync());
+            var villes = await _context.Villes.Include(x=>x.Formations).ToListAsync();
+            return Ok(villes);
         }
         [Authorize(Roles = "Admin")]
         // GET: Villes/Create

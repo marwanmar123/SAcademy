@@ -1,8 +1,19 @@
-﻿@*@model IEnumerable<SAcademy.Models.Formation>*@
+﻿@model List<SAcademy.Models.Formation>
 
 @{
     ViewData["Title"] = "Nos formations";
+
+    var tr = Model.Where(x => x.Status == true);
+    var fl = Model.Where(x => x.Status == false);
 }
+<style>
+    input[type=checkbox], input[type=radio]{
+        accent-color:#ce0033;
+    }
+</style>
+
+
+
 <div class="yeld">
     @await Component.InvokeAsync("FormationPage")
     <nav aria-label="breadcrumb">
@@ -17,7 +28,7 @@
             <div class="accordion w-25 p-5" id="accordion" >
                 <div class="card border-0 w-100">
                     <button class="border-0 bg-transparent" style="font-size:26px;">
-                        <span class="float-left text-dark fltrPar">Filtrer Par :</span>
+                        <span class="float-left text-dark fltrPar">Sélectionner par :</span>
                     </button>
                     <hr class="w-75 p-0" />
                     <div class="card-header bg-transparent border-0 pl-0" id="headingOne">
@@ -69,6 +80,7 @@
                             <div id="modes"></div>
                         </div>
                     </div>
+                    <hr class="w-75 p-0" />
                 </div>
                 <div class="card border-0 w-100">
                     <div class="card-header bg-transparent border-0 pl-0" id="headingFour">
@@ -80,15 +92,15 @@
                             </button>
                         </h5>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                    <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="">
                             <div id="Status" class="d-flex flex-column">
                                 <div class="card-body">
                                     <div class="d-flex">
-                                        <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:.8vw;">Ouverte</span>
-                                    </div>
+                                    <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsTrue()"> <span class="" style="font-size:.8vw;">Ouverte</span>@if (tr != null) {<spanp>(@tr.Count())</spanp>}
+                                </div>
                                     <div class="d-flex">
-                                        <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:.8vw;">Terminé</span>
+                                        <input type="checkbox" name="status" style="width:1.5vw;" class="m-1" onclick="GetFormationsFalse()"> <span class="" style="font-size:.8vw;">Terminé</span>@if (fl != null) {<spanp>(@fl.Count())</spanp>}
                                     </div>
                                 </div>
                             </div>
@@ -98,17 +110,21 @@
             </div>
 
             <div class="p-3 w-100"> 
-                <div id="formation"></div>
+                <div id="formation">
+                    <div class="card2" id="loading-image">
+                        <div class="gradient element1"></div>
+                        <div class="gradient element2"></div>
+                        <div class="gradient element3"></div>
+                        <div class="gradient element4"></div>
+                        <div class="gradient element5"></div>
+                    </div>
+                </div>
             </div>
     </div>
 </div>
-@* @{
-    var date = @Html.DisplayFor(modelItem => Model.StartDay);
-    } *@
 
 
 <script defer>
-
 
 
 
@@ -117,10 +133,11 @@
         type: 'GET',
         success: function (res) {
             $.each(res, function (index, option) {
+                var frmCount = option.formations.length;
                 $("#villes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:1.5vw;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.name}</span>
+                                <input type="checkbox" style="width:1.5vw;" class="villeId common m-1" name="villes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.name} (${frmCount})</span>
                         </div>
                     `
                 );
@@ -132,11 +149,13 @@
         url: 'Thematics/ThematicsApi',
         type: 'GET',
         success: function (res) {
+            
             $.each(res, function (index, option) {
+                var frmCount = option.formations.length;
                 $("#ftype").append(
                     `
                         <div class="d-flex" style="width:26vw;">
-                            <input type="checkbox"  style="width:1.5vw;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.title}</span>
+                            <input type="checkbox"  style="width:1.5vw;" class="themId common m-1" name="themes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter" style="font-size:.8vw;">${option.title} (${frmCount})</span>
                         </div>
                     `
                 );
@@ -150,10 +169,11 @@
         type: 'GET',
         success: function (res) {
             $.each(res, function (index, option) {
+                var frmCount = option.formations.length;
                 $("#modes").append(
                     `
                         <div class="d-flex">
-                            <input type="checkbox" style="width:1.5vw;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:.8vw;">${option.name}</span>
+                                <input type="checkbox" style="width:1.5vw;" class="modeId common m-1" name="modes" onClick="filterFormations()" value="${option.id}"> <span class=" nFilter"  style="font-size:.8vw;">${option.name} (${frmCount})</span>
                         </div>
                     `
                 );
@@ -177,69 +197,80 @@
     }
 
     
+
     function filterFormations() {
 
-        //debugger
+    //debugger
 
-        var modes = get_filter('modeId');
-        var themes = get_filter('themId');
-        var villes = get_filter('villeId');
+    var modes = get_filter('modeId');
+    var themes = get_filter('themId');
+    var villes = get_filter('villeId');
 
-        $.ajax({
-            url: '/Formations/Filter',
-            type: 'GET',
-            data: {
-                modeId: modes?.join(','),
-                themId: themes?.join(','),
-                villeId: villes?.join(','),
-            },
-            success: function (data) {
+    $.ajax({
+        url: '/Formations/Filter',
+        type: 'GET',
+        data: {
+            modeId: modes?.join(','),
+            themId: themes?.join(','),
+            villeId: villes?.join(','),
+        },
+        beforeSend: function () {
+            $("#loading-image").show();
+        },
+        success: function (data) {
 
-                console.log(data)
-                if (data != null && data.length > 0) {
-                    $("#formation").html('')
-                    $.each(data, function (index, option) {
-                        var du = convertDigitIn(option.startDay.split('T')[0]);
-                        var au = convertDigitIn(option.endDay.split('T')[0]);
-                        var time1 = option.startTime;
-                        var time2 = option.endTime;
-                        var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        var inscrButton = null;
-                        var mode = null;
-                        var cityDistance = null;
-                        var url = option.id;
-                        if (option.status == true) {
-                            inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
-                        } else {
-                            inscrButton = '<p class="inscription text-dark m-auto" style="width:59%;">Terminé</p>';
-                        }
-                        if(option.mode.name == "Distanciel"){
-                            mode = `<h6 class="mb-4" ></h6>`;
-                            cityDistance = "Distanciel"
-                        }else{
-                            mode =`<h6 class="mb-4" > ${option.mode.name} </h6>`;
-                            cityDistance = option.ville.name;
-                        }
-                        $("#formation").append(
-                            `
+            //console.log(data)
+            if (data != null && data.length > 0) {
+                $("#formation").html('')
+                $.each(data, function (index, option) {
+                    var du = convertDigitIn(option.startDay.split('T')[0]);
+                    var au = convertDigitIn(option.endDay.split('T')[0]);
+                    //var time1 = option.startTime;
+                    //var time2 = option.endTime;
+                    var st = new Date(option.startTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var et = new Date(option.endTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var inscrButton = null;
+                    var mode = null;
+                    var cityDistance = null;
+                    var url = option.id;
+                    if (option.status == true) {
+                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription" style="background:${option.offreFBgColorButton}!important;">Inscription</a>`;
+                    } else {
+                            inscrButton = `<p class="text-dark m-auto font-weight-bold" style="width:59%; background:${option.offreFBgColorButton}!important; padding:0.2em;">Terminé</p>`;
+                    }
+                    if (option.mode.name == "Distanciel") {
+                        mode = `<h6 class="mb-4" ></h6>`;
+                        cityDistance = "Distanciel"
+                    } else {
+                        mode = `<h6 class="mb-4" > ${option.mode.name} </h6>`;
+                        cityDistance = option.ville.name;
+                    }
+                    $("#formation").append(
+                        `
                                 <div class="mb-3">
-                                <div class="card card-body mb-2 formation m-auto" style="width:90%;">
+                                    <div class="card card-body mb-2 formation m-auto" style="width:90%; background:${option.offreFBgColor}!important;">
                                     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
                                         <div class="mr-2 mb-3 mb-lg-0 text-center">
-                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
-                                            <p class="w-100"> Du ${du}</p>
-                                            <p class="w-100"> Au ${au}</p>
-                                            <h6>${st} => ${et}</h6>
-                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
+                                            <div class="d-flex justify-content-center align-items-center text-center">
+                                                <img class="fmrImg mr-1" src="/img/agenda.png" style="width:3.3vw; margin-left:5px;"/>
+                                                    <div class="pt-3" style="margin-left:6px;">
+                                                    <p class="w-100"> Du ${du}</p>
+                                                    <p class="w-100"> Au ${au}</p>
+                                                </div>
+                                            </div>
+                                                <div class="d-flex justify-content-center align-items-center">
+                                                <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
+                                                <h6 class="pt-3">${st} => ${et}</h6>
+                                            </div>
                                         </div>
 
                                         <div class="media-body text-center">
-                                            <h5>${option.title}</h5>
+                                                    <h5 class="font-weight-bold" style="color:${option.offreFColor};font-size:${option.offreFSize}px;">${option.title}</h5>
                                             <p class="descFormation">${option.description}</p>
-                                                <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${cityDistance}</h5>
+                                            <h5 style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${cityDistance}</h5>
+                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:2vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:2vw;"/>
+                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:2vw;"/>
                                         </div>
 
                                         <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
@@ -252,24 +283,23 @@
                                 </div>
                                 </div>
                         `
-                        );
-                    });
-                }
-                if (data.length == 0) {
-                    $("#formation").html('')
-                    $("#formation").append(
-                        `
+                    );
+                });
+            }
+            if (data.length == 0) {
+                $("#formation").html('')
+                $("#formation").append(
+                    `
                             <div class="p-3 m-auto d-flex justify-content-center align-items-center formation" style="height:25vh; width:90%;">
                                 <h5>Aucune formation de prévu actuellement, restez informés via nos réseaux!</h5>
                             </div>
                         `
-                    );
-                }
-
+                );
             }
-        });
-    }
 
+        }
+    });
+}
 
     function get_filter(class_name) {
         var filter = [];
@@ -284,52 +314,71 @@
         $.ajax({
             url: '/formations/GetFormationTrue',
             type: 'GET',
+            beforeSend: function () {
+                $("#formation").html('');
+                $("#loading-image").show();
+            },
             success: function (res) {
                 $("#formation").html('')
                 $.each(res, function (index, option) {
+
                     var du = convertDigitIn(option.startDay.split('T')[0]);
                     var au = convertDigitIn(option.endDay.split('T')[0]);
-                    var time1 = option.startTime;
-                    var time2 = option.endTime;
-                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    //var time1 = option.startTime;
+                    //var time2 = option.endTime;
+                    var st = new Date(option.startTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var et = new Date(option.endTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
                     var inscrButton = null;
                     var url = option.id;
                     if (option.status == true) {
-                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription" style="background:${option.offreFBgColorButton}!important;">Inscription</a>`;
                     } else {
-                        inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                        inscrButton = `<p class="font-weight-bold text-dark m-auto" style="width:59%; background:${option.offreFBgColorButton}!important; padding:0.2em;">Terminé</p>`;
+                    }
+                    if (option.mode.name == "Distanciel") {
+                        mode = `<h6 class="mb-4" ></h6>`;
+                        cityDistance = "Distanciel"
+                    } else {
+                        mode = `<h6 class="mb-4" > ${option.mode.name} </h6>`;
+                        cityDistance = option.ville.name;
                     }
                     $("#formation").append(
                         `
-                        <div class="mb-3">
-                        <div class="card card-body mb-2 formation m-auto" style="width:90%;">
-                                    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
-                                        <div class="mr-2 mb-3 mb-lg-0 text-center">
-                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
-                                            <p class="w-100"> Du ${du}</p>
-                                            <p class="w-100"> Au ${au}</p>
-                                            <h6>${st} => ${et}</h6>
-                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
-                                        </div>
+                            <div class="mb-3">
+                                        <div class="card card-body mb-2 formation m-auto" style="width:90%; background:${option.offreFBgColor}!important;">
+                                        <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
+                                            <div class="mr-2 mb-3 mb-lg-0 text-center">
+                                                <div class="d-flex flex-row align-items-center text-center">
+                                                    <img class="fmrImg mr-1" src="/img/agenda.png" style="width:3.3vw; margin-left:5px;"/>
+                                                        <div class="pt-3" style="margin-left:6px;">
+                                                        <p class="w-100"> Du ${du}</p>
+                                                        <p class="w-100"> Au ${au}</p>
+                                                    </div>
+                                                </div>
+                                                    <div class="d-flex flex-row align-items-center">
+                                                    <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
+                                                    <h6 class="pt-3">${st} => ${et}</h6>
+                                                </div>
+                                            </div>
 
-                                        <div class="media-body text-center">
-                                            <h5>${option.title}</h5>
-                                            <p class="descFormation">${option.description}</p>
-                                            <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
-                                        </div>
+                                            <div class="media-body text-center">
+                                                        <h5 class="font-weight-bold" style="color:${option.offreFColor};font-size:${option.offreFSize}px;">${option.title}</h5>
+                                                <p class="descFormation">${option.description}</p>
+                                                <h5 style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${cityDistance}</h5>
+                                                <img class="fmrImg" src="/img/iconForm1.png" style="width:2vw;"/>
+                                                <img class="fmrImg" src="/img/iconForm2.png" style="width:2vw;"/>
+                                                <img class="fmrImg" src="/img/iconForm4.png" style="width:2vw;"/>
+                                            </div>
 
-                                        <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
-                                            <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
-                                            <h5>${option.thematic.title}</h5>
-                                            <h6 class="mb-4">${option.mode.name}</h6>
-                                            ${inscrButton}
+                                            <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
+                                                <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
+                                                <h5>${option.thematic.title}</h5>
+                                                ${mode}
+                                                ${inscrButton}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                </div>
+                                    </div>
                     `
                     );
                 });
@@ -344,52 +393,70 @@
         $.ajax({
             url: '/formations/GetFormationFalse',
             type: 'GET',
+            beforeSend: function () {
+                $("#formation").html('');
+                $("#loading-image").show();
+            },
             success: function (res) {
                 $("#formation").html('')
                 $.each(res, function (index, option) {
                     var du = convertDigitIn(option.startDay.split('T')[0]);
                     var au = convertDigitIn(option.endDay.split('T')[0]);
-                    var time1 = option.startTime;
-                    var time2 = option.endTime;
-                    var st = new Date(time1).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                    var et = new Date(time2).toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                    //var time1 = option.startTime;
+                    //var time2 = option.endTime;
+                    var st = new Date(option.startTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var et = new Date(option.endTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
                     var inscrButton = null;
                     var url = option.id;
                     if (option.status == true) {
-                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription">Inscription</a>`;
+                        inscrButton = `<a href="/formations/details/${option.id}" class="inscription" style="background:${option.offreFBgColorButton}!important;">Inscription</a>`;
                     } else {
-                        inscrButton = '<p class="inscription m-auto w-50 text-dark">Terminé</p>';
+                        inscrButton = `<p class="font-weight-bold text-dark m-auto" style="width:59%; background:${option.offreFBgColorButton}!important; padding:0.2em;">Terminé</p>`;
+                    }
+                    if (option.mode.name == "Distanciel") {
+                        mode = `<h6 class="mb-4" ></h6>`;
+                        cityDistance = "Distanciel"
+                    } else {
+                        mode = `<h6 class="mb-4" > ${option.mode.name} </h6>`;
+                        cityDistance = option.ville.name;
                     }
                     $("#formation").append(
                         `
-                        <div class="mb-3">
-                        <div class="card card-body mb-2 formation m-auto" style="width:90%;">
-                                    <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
-                                        <div class="mr-2 mb-3 mb-lg-0 text-center">
-                                            <img class="fmrImg" src="/img/time.png" style="width:3vw;"/>
-                                            <p class="w-100"> Du ${du}</p>
-                                            <p class="w-100"> Au ${au}</p>
-                                            <h6>${st} => ${et}</h6>
-                                            <img class="fmrImg" src="/img/iconForm1.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm2.png" style="width:3vw;"/>
-                                            <img class="fmrImg" src="/img/iconForm4.png" style="width:3vw;"/>
-                                        </div>
+                            <div class="mb-3">
+                                        <div class="card card-body mb-2 formation m-auto" style="width:90%; background:${option.offreFBgColor}!important;">
+                                        <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row" >
+                                            <div class="mr-2 mb-3 mb-lg-0 text-center">
+                                                <div class="d-flex flex-row align-items-center text-center">
+                                                    <img class="fmrImg mr-1" src="/img/agenda.png" style="width:3.3vw; margin-left:5px;"/>
+                                                        <div class="pt-3" style="margin-left:6px;">
+                                                        <p class="w-100"> Du ${du}</p>
+                                                        <p class="w-100"> Au ${au}</p>
+                                                    </div>
+                                                </div>
+                                                    <div class="d-flex flex-row align-items-center">
+                                                    <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
+                                                    <h6 class="pt-3">${st} => ${et}</h6>
+                                                </div>
+                                            </div>
 
-                                        <div class="media-body text-center">
-                                            <h5>${option.title}</h5>
-                                            <p class="descFormation">${option.description}</p>
-                                            <h5  style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${option.ville.name}</h5>
-                                        </div>
+                                            <div class="media-body text-center">
+                                                        <h5 class="font-weight-bold" style="color:${option.offreFColor};font-size:${option.offreFSize}px;">${option.title}</h5>
+                                                <p class="descFormation">${option.description}</p>
+                                                <h5 style="color:#ce0033;"><span class="text-muted"><img style="width:5%;" src="/img/local.png"><br/></span>${cityDistance}</h5>
+                                                <img class="fmrImg" src="/img/iconForm1.png" style="width:2vw;"/>
+                                                <img class="fmrImg" src="/img/iconForm2.png" style="width:2vw;"/>
+                                                <img class="fmrImg" src="/img/iconForm4.png" style="width:2vw;"/>
+                                            </div>
 
-                                        <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
-                                            <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
-                                            <h5>${option.thematic.title}</h5>
-                                            <h6 class="mb-4">${option.mode.name}</h6>
-                                            ${inscrButton}
+                                            <div class="mt-3 mt-lg-0 ml-lg-3 text-center p-2 formation-3">
+                                                <img class="fmrImg" src="/img/iconForm3.png" style="width:3em;"/>
+                                                <h5>${option.thematic.title}</h5>
+                                                ${mode}
+                                                ${inscrButton}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                </div>
+                                    </div>
                     `
                     );
                 });
@@ -397,6 +464,7 @@
         });
 
     };
+
 
     
 

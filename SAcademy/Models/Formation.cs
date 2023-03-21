@@ -11,15 +11,16 @@ namespace SAcademy.Models
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Duration { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
-        public DateTimeOffset StartDay { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
-        public DateTimeOffset EndDay { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime StartDay { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime EndDay { get; set; }
+
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
         public DateTime StartTime { get; set; }
+
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
         public DateTime EndTime { get; set; }
         public string? Certificate { get; set; }
@@ -38,8 +39,8 @@ namespace SAcademy.Models
 
         //Offres
         public string? OffreFColor { get; set; } = "#000000";
-        public int? OffreFSize { get; set; } = 2;
-        public string? OffreFBgColor { get; set; } = "#FBFBFB";
+        public int? OffreFSize { get; set; } = 22;
+        public string? OffreFBgColor { get; set; } = "#FFFFFF";
         public string? OffreFBgColorButton { get; set; } = "#CE0033";
     }
 }

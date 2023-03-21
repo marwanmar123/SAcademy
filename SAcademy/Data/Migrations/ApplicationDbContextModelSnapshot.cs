@@ -335,8 +335,8 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("EndDay")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTime>("EndDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
@@ -362,8 +362,8 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("StartDay")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTime>("StartDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");

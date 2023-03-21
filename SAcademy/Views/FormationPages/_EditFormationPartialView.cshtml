@@ -32,14 +32,24 @@
                         <input asp-for="Duration" class="form-control" />
                         <span asp-validation-for="Duration" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <label asp-for="StartDay" class="control-label"></label>
-                        <input type="text" asp-for="StartDay" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="@Model.StartDay.Date" />
+                        <input type="text" asp-for="StartDay" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="@Model.StartDay.Date" asp-format="{0:dd/MM/yyyy}" />
                         <span asp-validation-for="StartDay" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="EndDay" class="control-label"></label>
-                        <input type="text" asp-for="EndDay" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="@Model.StartDay.Date" />
+                        <input type="text" asp-for="EndDay" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="@Model.StartDay.Date" asp-format="{0:dd/MM/yyyy}" />
+                        <span asp-validation-for="EndDay" class="text-danger"></span>
+                    </div>*@
+                    <div class="form-group">
+                        <label asp-for="StartDay" class="control-label"></label>
+                        <input type="datetime-local" asp-for="StartDay" class="form-control"  />
+                        <span asp-validation-for="StartDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EndDay" class="control-label"></label>
+                        <input type="datetime-local" asp-for="EndDay" class="form-control" />
                         <span asp-validation-for="EndDay" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -68,41 +78,41 @@
                         <span asp-validation-for="Certificate" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ModeId" class="control-label"></label>
+                        <label class="control-label">Mode</label>
                         <select asp-for="ModeId" class="form-control" asp-items="ViewBag.ModeId"></select>
                         <span asp-validation-for="ModeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="VilleId" class="control-label"></label>
+                        <label class="control-label">Ville</label>
                         <select asp-for="VilleId" class="form-control" asp-items="ViewBag.VilleId"></select>
                         <span asp-validation-for="VilleId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="TypeId" class="control-label"></label>
+                        <label class="control-label">Type</label>
                         <select asp-for="TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
                         <span asp-validation-for="TypeId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="ThematicId" class="control-label"></label>
+                        <label class="control-label">Thematique</label>
                         <select asp-for="ThematicId" class="form-control" asp-items="ViewBag.ThematicId"></select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="OffreFColor" class="control-label"></label>
+                        <label class="control-label">Coleur du titre de formation</label>
                         <input type="color" asp-for="OffreFColor" class="form-control" />
                         <span asp-validation-for="OffreFColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="OffreFSize" class="control-label"></label>
+                        <label class="control-label">Size titre de formation</label>
                         <input type="number" asp-for="OffreFSize" class="form-control" />
                         <span asp-validation-for="OffreFSize" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="OffreFBgColor" class="control-label"></label>
+                        <label class="control-label">background color (Card)</label>
                         <input type="color" asp-for="OffreFBgColor" class="form-control" />
                         <span asp-validation-for="OffreFBgColor" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="OffreFBgColorButton" class="control-label"></label>
+                        <label class="control-label">Background button inscription</label>
                         <input type="color" asp-for="OffreFBgColorButton" class="form-control" />
                         <span asp-validation-for="OffreFBgColorButton" class="text-danger"></span>
                     </div>

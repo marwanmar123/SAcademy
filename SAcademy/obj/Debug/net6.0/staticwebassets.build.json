@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dcsTIVGuoS/XbBYi26sCKD6Wyh4u8xDCHQc+VqlMvkA=",
+  "Hash": "3eukaMvDPLS8S3OG+vuusn9+Uf7n+YpRSWhzxWmFgiQ=",
   "Source": "SAcademy",
   "BasePath": "_content/SAcademy",
   "Mode": "Default",
@@ -1190,6 +1190,23 @@
       "OriginalItemSpec": "wwwroot\\img\\55.jpg"
     },
     {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\agenda.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/agenda.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\agenda.png"
+    },
+    {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\arrow.png",
       "SourceId": "SAcademy",
       "SourceType": "Discovered",
@@ -1377,23 +1394,6 @@
       "OriginalItemSpec": "wwwroot\\img\\hero3.png"
     },
     {
-      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero4 (2).png",
-      "SourceId": "SAcademy",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
-      "BasePath": "_content/SAcademy",
-      "RelativePath": "img/hero4 (2).png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\hero4 (2).png"
-    },
-    {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero4.png",
       "SourceId": "SAcademy",
       "SourceType": "Discovered",
@@ -1426,6 +1426,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\hero5.png"
+    },
+    {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero7.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/hero7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\hero7.png"
+    },
+    {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hero9.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/hero9.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\hero9.png"
     },
     {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\hide.png",

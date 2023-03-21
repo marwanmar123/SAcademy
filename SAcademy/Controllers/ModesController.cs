@@ -29,7 +29,8 @@ namespace SAcademy.Controllers
 
         public async Task<IActionResult> GetModeAPI()
         {
-            return Ok(await _context.Modes.ToListAsync());
+            var mds = await _context.Modes.Include(x => x.Formations).ToListAsync();
+            return Ok(mds);
         }
         [Authorize(Roles = "Admin")]
         // GET: Modes/Details/5

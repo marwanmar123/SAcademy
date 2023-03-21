@@ -38,7 +38,7 @@
             <p>Description : @Model.Description</p>
             <p>Durée de la formation : @Model.Duration</p>
             <p>La date de la formation : Du @Html.DisplayFor(modelItem => Model.StartDay) Au : @Html.DisplayFor(modelItem => Model.EndDay)</p>
-            <p>Horaire de la formation @Html.DisplayFor(modelItem => Model.StartTime) => @Html.DisplayFor(modelItem => Model.EndTime)</p>
+            <p>Horaire de la formation : @Html.DisplayFor(modelItem => Model.StartTime) => @Html.DisplayFor(modelItem => Model.EndTime)</p>
             <p>Mode de la formation : @Model.Mode.Name</p>
             @if (Model.Mode.Name != "Distanciel")
             {
