@@ -1,22 +1,22 @@
 ﻿@model SAcademy.Models.Formation
 
-@using Microsoft.AspNetCore.Identity
+@*@using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject UserManager<User> UserManager*@
 
 @{
     ViewData["Title"] = "Inscription";
-    string email = null;
-    if (SignInManager.IsSignedIn(User))
-    {
-        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
-        if (user != null)
-        {
-            email = user.Email;
-        }
+    //string email = null;
+    //if (SignInManager.IsSignedIn(User))
+    //{
+    //    User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+    //    if (user != null)
+    //    {
+    //        email = user.Email;
+    //    }
 
 
-    }
+    //}
 
 }
 <div class="yeld">
@@ -53,8 +53,11 @@
             <p>@Html.Raw(Model.Certificate)</p>
         </div>
 
+
         <div class="w-50 d-flex justify-content-center align-items-center inscriptionPage-form mb-3">
             <form class="w-75" method="post" id="FormInscrits" name="google-sheet" asp-action="Register">
+                <h5 class="text-danger p-2">@TempData["userEmail"]</h5> 
+                <h5 class="text-danger p-2">@TempData["userExiste"]</h5>
                 <div class="form-group">
                     <input type="hidden" name="FormationId" class="form-control" id="exampleInputPassword1"
                         value="@Model.Id" placeholder="Nom">
@@ -64,12 +67,12 @@
                            value="@Model.Title" placeholder="FormationName">
                 </div>
                 <div class="form-group">
-                    @*<label>Email address</label>*@
-                    <input type="hidden" readonly class="form-control" name="emailUser" value="@email" required />
+                    <label>Email address</label>
+                    <input type="email" class="form-control dt" name="Email" placeholder="Email" id="sourceInput" onchange="copyValue()" required />
                 </div>
                 <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" readonly class="form-control dt" name="Email" value="@email" required />
+                    @*<label>Email address</label>*@
+                    <input type="hidden" readonly class="form-control" name="emailUser" id="destinationInput" required />
                 </div>
                 <div class="form-group">
                     <label>Nom<span class="text-danger p-1" style="font-size:22px;">*</span></label>
@@ -115,7 +118,6 @@
                     <input type="hidden" class="form-control" name="FormationDateStart" value="@Model.StartDay">
                     </div>*@
                 <button id="inscrits" class="btn inscription w-100">Submit</button>
-                <h5 class="text-danger p-2" >@TempData["userExiste"]</h5>
             </form>
         </div>
     </div>
@@ -123,6 +125,11 @@
 
 <script>
 
+    function copyValue() {
+        var sourceInput = document.getElementById("sourceInput");
+        var destinationInput = document.getElementById("destinationInput");
+        destinationInput.value = sourceInput.value;
+    }
 
     function isNumber(evt) {
         evt = (evt) ? evt : window.event;

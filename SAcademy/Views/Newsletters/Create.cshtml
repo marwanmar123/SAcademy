@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" readonly class="form-control" value="@email"/>
+            <input type="email" asp-for="Email" readonly class="form-control" required/>
             <span asp-validation-for="Email" class="text-danger"></span>
         </div>
         <div class="form-group">

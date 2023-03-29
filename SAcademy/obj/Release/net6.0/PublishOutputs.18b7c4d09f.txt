@@ -7,6 +7,11 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\O
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\ClosedXML.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\DocumentFormat.OpenXml.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\ExcelNumberFormat.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Google.Apis.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Google.Apis.Analytics.v3.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Google.Apis.Auth.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Google.Apis.Core.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\Irony.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\obj\Release\net6.0\PubTmp\Out\MailKit.dll

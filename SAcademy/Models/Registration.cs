@@ -19,5 +19,6 @@ namespace SAcademy.Models
         public string? Comment { get; set; }
         public string? FormationId { get; set; }
         public Formation? Formation { get; set; }
+        public Boolean? UserConfirmed { get; set; } = false;
     }
 }

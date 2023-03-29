@@ -744,6 +744,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Statut")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("UserConfirmed")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Ville")
                         .HasColumnType("nvarchar(max)");
 

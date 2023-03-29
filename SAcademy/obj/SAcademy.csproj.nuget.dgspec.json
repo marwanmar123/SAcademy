@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[0.100.3, )"
             },
+            "Google.Apis.Analytics.v3": {
+              "target": "Package",
+              "version": "[1.60.0.1679, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[3.4.3, )"

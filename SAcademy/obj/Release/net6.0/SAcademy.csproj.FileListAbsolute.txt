@@ -289,3 +289,8 @@ C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\BouncyCa
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\SixLabors.Fonts.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\System.IO.Packaging.dll
 C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\XLParser.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Google.Apis.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Google.Apis.Analytics.v3.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Google.Apis.Auth.dll
+C:\Users\Marwan Maryo\source\repos\SAcademy\SAcademy\bin\Release\net6.0\Google.Apis.Core.dll

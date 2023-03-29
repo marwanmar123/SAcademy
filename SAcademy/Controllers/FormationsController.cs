@@ -90,7 +90,7 @@ namespace SAcademy.Controllers
             var formations = await _context.Formations.Where(x => x.ThematicId == themId).ToListAsync();
             return Ok(formations);
         }
-        [Authorize]
+        //[Authorize]
         // GET: Formations/Details/5
         public async Task<IActionResult> Details(string id)
         {
@@ -269,40 +269,95 @@ namespace SAcademy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(string? emailUser, string? formationId, [Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,Statut,Comment,FormationName,FormationId")] Registration registration)
         {
-            var userEmail = await _context.Users.SingleOrDefaultAsync(x => x.Email == emailUser);
-
-            var rgister = await _context.Registrations.SingleOrDefaultAsync(x => x.FormationId == formationId && x.Email == emailUser);
-
+            //var userEmail = await _context.Users.SingleOrDefaultAsync(x => x.Email == emailUser);
             var formInfo = registration;
+
+            bool rgister = await _context.Registrations.AnyAsync(x => x.Email == emailUser && x.UserConfirmed == true);
+
+            var userEmail = await _context.Registrations.SingleOrDefaultAsync(x => x.Email == emailUser);
+
+            var check = await _context.Registrations.SingleOrDefaultAsync(x => x.FormationId == formationId && x.Email == emailUser);
+
+            
+
             if (ModelState.IsValid)
             {
                 //var formation = registration.Formation.Title;
                 //var email = registration.Email;
                 //var prenom = registration.Prenom;
-                if (rgister == null)
+
+                if (check == null)
                 {
+                    if (rgister)
+                    {
+                        //if (rgister == null)
+                        //{
+                            await _context.AddAsync(formInfo);
+                            formInfo.UserConfirmed = true;
+                            await _context.SaveChangesAsync();
 
-                    await _context.AddAsync(formInfo);
-                    await _context.SaveChangesAsync();
+                        await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
+                        $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
+                        "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
+                        "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
+                        "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
+                        "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
+                        "<h5>À très vite!</h5>L'équipe Simplon Academy.");
 
-                    await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
-                    $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
-                    "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
-                    "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
-                    "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
-                    "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
-                    "<h5>À très vite!</h5>L'équipe Simplon Academy.");
+                    }
+                    else
+                    {
+
+
+                        try
+                        {
+                            var redirectUrl = "https://www.simplonacademy.ma/Formations/Details/" + formInfo.FormationId + "?clicked=true";
+
+                            await _emailSender.SendEmailAsync(formInfo.Email, "Vérification de l'utilisateur", $"<h5>Bonjour "+formInfo.Prenom+ "</h5><p>Votre Email à étè vérifié avec succès</p><p>Vérifier l'autre mail s'il te plait</p><h5>Merci!</h5>");
+
+                            registration.UserConfirmed = true;
+
+                            await _context.AddAsync(registration);
+                            await _context.SaveChangesAsync();
+
+                            if (registration.UserConfirmed == true)
+                            {
+
+                                await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
+                                    $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
+                                    "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
+                                    "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
+                                    "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
+                                    "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
+                                    "<h5>À très vite!</h5>L'équipe Simplon Academy.");
+                            }
+
+                        }
+                        catch(Exception ex)
+                        {
+                            TempData["userEmail"] = "Vérifiez si votre e-mail est correct !";
+                        }
+
+                        
+
+                    }
                 }
                 else
                 {
-                    TempData["userExiste"] = "Vous êtes déjà inscrit";
+                    TempData["userExiste"] = "Vous êtes déjà inscrit !";
                 }
-            }
 
+                //else
+                //{
+                //    TempData["userExiste"] = "Vous êtes déjà inscrit";
+                //}
+
+            }
 
             return RedirectToAction("Details", "Formations", new { id = registration.FormationId });
             //return View(registration);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Statusregister(string? stu, string? id)
