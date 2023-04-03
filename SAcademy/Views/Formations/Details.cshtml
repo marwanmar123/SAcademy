@@ -76,7 +76,7 @@
                 </div>
                 <div class="form-group">
                     <label>Nom<span class="text-danger p-1" style="font-size:22px;">*</span></label>
-                    <input type="text" name="Nom" class="form-control vl" placeholder="Nom" maxlength="10" min="4" required />
+                    <input type="text" name="Nom" class="form-control vl" placeholder="Nom" maxlength="15" min="4" required />
                 </div>
                 <div class="form-group">
                     <label>Prenom<span class="text-danger p-1" style="font-size:22px;">*</span></label>
@@ -84,26 +84,26 @@
                 </div>
                 <div class="form-group">
                     <label>Ville<span class="text-danger p-1" style="font-size:22px;">*</span></label>
-                    <input type="text" class="form-control vl" name="Ville" placeholder="Ville" required maxlength="10" />
+                    <input type="text" class="form-control vl" name="Ville" placeholder="Ville" required maxlength="15" />
                 </div>
                 <div class="form-group">
                     <label>Pays<span class="text-danger p-1" style="font-size:22px;">*</span></label>
                     @* <input type="text" class="form-control vl" name="Region" placeholder="Pays" maxlength="15" required /> *@
                     <select name="Region" id="address-country" class="form-control vl" required></select>
                 </div>
-                <div class="form-group">
+                <div class="form-group d-flex flex-column">
                     <label>téléphone<span class="text-danger p-1" style="font-size:22px;">*</span></label>
-                    <input class="form-control vl ph" type="tel" id="Phone" name="Phone" placeholder="e.g. +212 702 123 4567" value="+212" onkeypress="return isNumber(event)" maxlength="14" style="width:44.5em;" />
+                    <input class="form-control vl ph" type="tel" id="Phone" name="Phone" placeholder="e.g. +212 702 123 4567" value="+212" onkeypress="return isNumber(event)" maxlength="14"  />
                     @*<input type="text" name="Phone" class="form-control vl" id="PhoneVal" maxlength="10" placeholder="téléphone" required
                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" />*@
                 </div>
                 <div class="form-group">
                     <label>Poste occupé</label>
-                    <input type="text" class="form-control vl" name="JobRole" placeholder="Poste occupé" maxlength="15" />
+                    <input type="text" class="form-control vl" name="JobRole" placeholder="Poste occupé" maxlength="50" />
                 </div>
                 <div class="form-group">
                     <label>Nom de l'entreprise</label>
-                    <input type="text" class="form-control vl" name="CompanyName" placeholder="Nom de l'entreprise" maxlength="15" />
+                    <input type="text" class="form-control vl" name="CompanyName" placeholder="Nom de l'entreprise" maxlength="50" />
                 </div>
                 @* <div class="form-group">
                     <input type="hidden" class="form-control" name="FormationTitle" value="@Model.Title">
@@ -152,7 +152,7 @@
                 alert('Remplissez les champs');
             }else{
 
-                swal('Bonjour ' + user, 'Merci pour votre inscription à la formation : @TempData["title"]', "success")
+                swal('Bonjour ' + user, 'Merci pour votre inscription à la formation : @TempData["title"], Veuillez vérifier votre boîte mail pour confirmer votre inscription. ', "success")
             .then((confirm) => {
                 @* phoneVal == phone: *@
                 $("#FormInscrits").submit();

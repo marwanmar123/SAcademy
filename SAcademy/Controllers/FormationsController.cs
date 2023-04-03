@@ -299,7 +299,7 @@ namespace SAcademy.Controllers
                         await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
                         $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
                         "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
-                        "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
+                        "<p>L'équipe de Simplon Academy vous contactera dans les plus brefs délais,</p>" +
                         "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
                         "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
                         "<h5>À très vite!</h5>L'équipe Simplon Academy.");
@@ -313,7 +313,7 @@ namespace SAcademy.Controllers
                         {
                             var redirectUrl = "https://www.simplonacademy.ma/Formations/Details/" + formInfo.FormationId + "?clicked=true";
 
-                            await _emailSender.SendEmailAsync(formInfo.Email, "Vérification de l'utilisateur", $"<h5>Bonjour "+formInfo.Prenom+ "</h5><p>Votre Email à étè vérifié avec succès</p><p>Vérifier l'autre mail s'il te plait</p><h5>Merci!</h5>");
+                            await _emailSender.SendEmailAsync(formInfo.Email, "Vérification utilisateur", $"<h5>Bonjour "+formInfo.Prenom+ ",</h5><p>Votre Email à été vérifié avec succès.</p><p>Vous recevrez prochainement une confirmation de votre inscription à la formation.</p><p>Merci!</p>");
 
                             registration.UserConfirmed = true;
 
@@ -323,10 +323,10 @@ namespace SAcademy.Controllers
                             if (registration.UserConfirmed == true)
                             {
 
-                                await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation d'inscription à la formation :  " + formInfo.FormationName + " ",
+                                await _emailSender.SendEmailAsync(formInfo.Email, "Confirmation de l'inscription à la formation :  " + formInfo.FormationName + " ",
                                     $"<h3>Cher/Chère " + formInfo.Prenom + " , </h3>" +
                                     "<p>Nous sommes ravis de vous informer que votre inscription à la formation " + formInfo.FormationName + "  a été confirmée avec succès.</p>" +
-                                    "<p>L'équipe de Simplon Academy vous contactera dans les 72 heures qui suivent</p>" +
+                                    "<p>L'équipe de Simplon Academy vous contactera dans les plus brefs délais,</p>" +
                                     "<div>Si vous souhaitez prendre un rendez-vous adapté à votre disponibilité, veuillez sélectionner la date et l’horaire qui vous conviennent sur notre " +
                                     "<a href='https://calendar.app.google/nqtvugcFKjyzRpFC9'>agenda.</a></div>" +
                                     "<h5>À très vite!</h5>L'équipe Simplon Academy.");
