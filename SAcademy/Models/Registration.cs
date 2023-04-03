@@ -15,7 +15,7 @@ namespace SAcademy.Models
         public string? Region { get; set; }
         public string? Ville { get; set; }
         public string? FormationName { get; set; }
-        public string? Statut { get; set; } = "Prospect";
+        public string? Statut { get; set; } = "Prospects";
         public string? Comment { get; set; }
         public string? FormationId { get; set; }
         public Formation? Formation { get; set; }
