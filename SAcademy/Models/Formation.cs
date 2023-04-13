@@ -11,6 +11,7 @@ namespace SAcademy.Models
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string? Duration { get; set; }
+        public string? Price { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime StartDay { get; set; }
@@ -18,10 +19,10 @@ namespace SAcademy.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime EndDay { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm tt}")]
         public DateTime StartTime { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm tt}")]
         public DateTime EndTime { get; set; }
         public string? Certificate { get; set; }
         public string? Presentation { get; set; }

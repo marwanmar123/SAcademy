@@ -225,6 +225,10 @@
       "PackagePath": "staticwebassets\\img\\icons\\pluridisciplinaire.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\icons\\price.png",
+      "PackagePath": "staticwebassets\\img\\icons\\price.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\icons\\quote 2.png",
       "PackagePath": "staticwebassets\\img\\icons\\quote 2.png"
     },

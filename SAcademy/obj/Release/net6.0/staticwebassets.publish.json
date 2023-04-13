@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AkeKOyBQDf5zSahmHqNZiPcjzY1/Xk94ZivN8nKOwf0=",
+  "Hash": "meIFbH9wZNMSaPs8ojp819un/A5G9iUuzuCntCSMJhE=",
   "Source": "SAcademy",
   "BasePath": "_content/SAcademy",
   "Mode": "Default",
@@ -1800,6 +1800,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\icons\\Presence-simplon-Afrique.png"
+    },
+    {
+      "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\icons\\price.png",
+      "SourceId": "SAcademy",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\",
+      "BasePath": "_content/SAcademy",
+      "RelativePath": "img/icons/price.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\icons\\price.png"
     },
     {
       "Identity": "C:\\Users\\Marwan Maryo\\source\\repos\\SAcademy\\SAcademy\\wwwroot\\img\\icons\\quote 2.png",

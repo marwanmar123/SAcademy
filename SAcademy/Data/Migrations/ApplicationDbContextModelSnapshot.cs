@@ -359,6 +359,9 @@ namespace SAcademy.Data.Migrations
                     b.Property<string>("Presentation")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Skills")
                         .HasColumnType("nvarchar(max)");
 
@@ -740,6 +743,9 @@ namespace SAcademy.Data.Migrations
 
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RegisteredOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Statut")
                         .HasColumnType("nvarchar(max)");

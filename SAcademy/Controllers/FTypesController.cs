@@ -23,7 +23,7 @@ namespace SAcademy.Controllers
         // GET: FTypes
         public async Task<IActionResult> Index()
         {
-              return Ok(await _context.FTypes.ToListAsync());
+              return Ok(await _context.FTypes.Where(x => x.Name == "Initiation" || x.Name == "UpSkilling" || x.Name == "Reskilling").ToListAsync());
         }
         public async Task<IActionResult> GetFormationType(string? id)
         {
@@ -68,7 +68,7 @@ namespace SAcademy.Controllers
             {
                 _context.Add(fType);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("FormationPanel", "FormationPages");
             }
             return RedirectToAction("FormationPanel", "FormationPages");
         }

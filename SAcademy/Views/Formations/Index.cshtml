@@ -227,8 +227,8 @@
                     var au = convertDigitIn(option.endDay.split('T')[0]);
                     //var time1 = option.startTime;
                     //var time2 = option.endTime;
-                    var st = new Date(option.startTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
-                    var et = new Date(option.endTime).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var st = new Date(option.startTime).toTimeString("HH:mm").replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
+                    var et = new Date(option.endTime).toTimeString("HH:mm").replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
                     var inscrButton = null;
                     var mode = null;
                     var cityDistance = null;
@@ -256,11 +256,15 @@
                                                     <div class="pt-3" style="margin-left:6px;">
                                                     <p class="w-100"> Du ${du}</p>
                                                     <p class="w-100"> Au ${au}</p>
-                                                </div>
                                             </div>
-                                                <div class="d-flex justify-content-center align-items-center">
+                                            </div>
+                                            <div class="d-flex justify-content-center align-items-center">
                                                 <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
                                                 <h6 class="pt-3">${st} => ${et}</h6>
+                                            </div>
+                                            <div class="d-flex align-items-center" style="margin-left:12px;">
+                                                <img class="fmrImg" src="/img/icons/price.png" style="width:3vw;"/>
+                                                <h6 class="pt-3 ml-3">${option.price}</h6>
                                             </div>
                                         </div>
 
@@ -359,6 +363,10 @@
                                                     <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
                                                     <h6 class="pt-3">${st} => ${et}</h6>
                                                 </div>
+                                                <div class="d-flex align-items-center" style="margin-left:12px;">
+                                                    <img class="fmrImg" src="/img/icons/price.png" style="width:3vw;"/>
+                                                    <h6 class="pt-3 ml-3">${option.price}</h6>
+                                                </div>
                                             </div>
 
                                             <div class="media-body text-center">
@@ -436,6 +444,10 @@
                                                     <div class="d-flex flex-row align-items-center">
                                                     <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;"/>
                                                     <h6 class="pt-3">${st} => ${et}</h6>
+                                                </div>
+                                                <div class="d-flex align-items-center" style="margin-left:12px;">
+                                                    <img class="fmrImg" src="/img/icons/price.png" style="width:3vw;"/>
+                                                    <h6 class="pt-3 ml-3">${option.price}</h6>
                                                 </div>
                                             </div>
 

@@ -130,7 +130,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,Duration,Price,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (ModelState.IsValid)
             {
@@ -172,7 +172,7 @@ namespace SAcademy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Title,Description,Duration,Price,StartDay,EndDay,StartTime,EndTime,Certificate,Presentation,Skills,Status,ModeId,VilleId,TypeId,ThematicId,OffreFColor,OffreFSize,OffreFBgColor,OffreFBgColorButton")] Formation formation)
         {
             if (id != formation.Id)
             {
@@ -267,7 +267,7 @@ namespace SAcademy.Controllers
         // POST: Register
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(string? emailUser, string? formationId, [Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,Statut,Comment,FormationName,FormationId")] Registration registration)
+        public async Task<IActionResult> Register(string? emailUser, string? formationId, [Bind("Id,Nom,Prenom,Email,Phone,JobRole,CompanyName,Region,Ville,Statut,Comment,RegisteredOn,FormationName,FormationId")] Registration registration)
         {
             //var userEmail = await _context.Users.SingleOrDefaultAsync(x => x.Email == emailUser);
             var formInfo = registration;

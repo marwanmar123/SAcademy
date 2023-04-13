@@ -1,4 +1,5 @@
-﻿@model SAcademy.ViewModel.FVTMViewModel
+﻿@using System.Globalization;
+@model SAcademy.ViewModel.FVTMViewModel
 
 @{
     Layout = "_LayoutDashboard";
@@ -31,6 +32,9 @@
                     </th>
                     <th>
                         Duration
+                    </th>
+                    <th>
+                        Prix
                     </th>
                     <th>
                         StartDay
@@ -93,6 +97,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => formation.Duration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => formation.Price)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => formation.StartDay)

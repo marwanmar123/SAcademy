@@ -156,7 +156,7 @@
                             <div class="card card-body formation m-auto" style="width:90%;background:@f.OffreFBgColor !important;">
                                 <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                                     <div class="mr-2 mb-3 mb-lg-0 text-center">
-                                        <div class="d-flex justify-content-center align-items-center text-center">
+                                        <div class="d-flex align-items-center text-center">
                                             <img class="fmrImg mr-1" src="/img/agenda.png" style="width:3.3vw; margin-left:5px;" />
                                             <div class="pt-3" style="margin-left:6px;">
                                                 <p class="w-100"> Du @Html.DisplayFor(modelItem => f.StartDay)</p>
@@ -166,6 +166,10 @@
                                         <div class="d-flex justify-content-center align-items-center">
                                             <img class="fmrImg mr-1" src="/img/time.png" style="width:4vw;" />
                                             <h6 class="pt-3">@Html.DisplayFor(modelItem => f.StartTime) => @Html.DisplayFor(modelItem => f.EndTime)</h6>
+                                        </div>
+                                        <div class="d-flex align-items-center" style="margin-left:8px;">
+                                            <img class="fmrImg" src="/img/icons/price.png" style="width:3vw;"/>
+                                            <h6 class="pt-3 ml-3">@f.Price</h6>
                                         </div>
                                     </div>
 

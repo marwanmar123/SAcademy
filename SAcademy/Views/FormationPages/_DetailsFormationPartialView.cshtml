@@ -35,7 +35,9 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-between">
-                    <h5>@Model.Duration</h5> 
+                    <h5>@Model.Duration</h5>
+                    <p>Prix de la formation : @Model.Price</p>
+                    <h5>@Model.Price</h5> 
                     <h5>@Model.Mode.Name</h5>
                     <h5>@Model.Ville.Name</h5> 
                     <h5>@Model.Type.Name</h5>
@@ -149,6 +151,9 @@
                                         Commentaire
                                     </th>
                                     <th>
+                                        date d'inscription
+                                    </th>
+                                    <th>
                                         Action
                                     </th>
                                 </tr>
@@ -211,6 +216,9 @@
                                                 <textarea type="text" name="cmnt" ></textarea>
                                                 <button type="submit" class="btn btn-dark mt-1">save</button>
                                             </form>
+                                        </td>
+                                        <td>
+                                            @item.RegisteredOn
                                         </td>
                                         <td>
                                             <form asp-controller="Formations" asp-action="DeleteRegister">

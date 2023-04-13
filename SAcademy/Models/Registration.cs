@@ -17,6 +17,7 @@ namespace SAcademy.Models
         public string? FormationName { get; set; }
         public string? Statut { get; set; } = "Prospects";
         public string? Comment { get; set; }
+        public DateTime? RegisteredOn { get; set; } = DateTime.Now;
         public string? FormationId { get; set; }
         public Formation? Formation { get; set; }
         public Boolean? UserConfirmed { get; set; } = false;
